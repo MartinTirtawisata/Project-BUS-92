@@ -1,0 +1,6 @@
+List of information that the website will contain:
+
+- Ratings 0-5
+- Reviews of each person
+- Link to each club/associations' website, Facebook account, Twitter, etc.
+- 
