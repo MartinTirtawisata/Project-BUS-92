@@ -1,6 +1,19 @@
 List of information that the website will contain:
 
+
+
+- Names of the clubs/associations
 - Ratings 0-5
 - Reviews of each person
 - Link to each club/associations' website, Facebook account, Twitter, etc.
-- 
+- Meeting dates
+- Location of meeting dates
+- There will also be a feature to allow users to propose a new club/association
+
+
+
+Other Ideas:
+- Send a mass email to all Clubs' officers, informing them of our project, asking them
+	for information on: Meeting dates, meeting locations, and how many members they have.
+	
+
