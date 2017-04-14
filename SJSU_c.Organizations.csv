@@ -1,447 +1,447 @@
-Club_ID,Organization,Classification,Location,Rating,Number Of Reviews
-1,A.L.M.A.S. ,Cultural and Religious,DMH 164,3,2
+Club_ID,Organization_name,Classification,Location,Rating,Number Of Reviews
+1,A.L.M.A.S. ,Cultural and Religious,DMH 164,3,3
 2,Accessibility Advocates,Special Interest,Admin 110,4,1
-3,Acro-Pole and Fitness,Special Interest,NA,4,0
-4,Active Minds,Academic,NA,2,1
+3,Acro-Pole and Fitness,Special Interest,NA,4,3
+4,Active Minds,Academic,NA,2,2
 5,Acts 2 Christian Fellowship @ SJSU,Cultural and Religious,Off Campus,3,2
-6,Advancement Institute for Management,Academic,Student Union Room 2B,5,0
-7,Aerodynamic Research,Academic,NA,5,0
+6,Advancement Institute for Management,Academic,Student Union Room 2B,5,2
+7,Aerodynamic Research,Academic,NA,5,1
 8,Afghan Student Association ,Cultural and Religious,NA,4,2
-9,African American Business Club,Academic,NA,3,1
-10,African American Commencement Committee,Cultural and Religious,CH 30,3,0
-11,African American Taskforce ,Academic,NA,4,3
+9,African American Business Club,Academic,NA,3,2
+10,African American Commencement Committee,Cultural and Religious,NA,3,3
+11,African American Taskforce ,Academic,NA,4,1
 12,AIESEC,Special Interest,NA,5,2
-13,Air Corps Leadership Club,Academic,NA,4,0
-14,Akbayan Pilipino American Organization,Cultural and Religious,Student Union,2,0
-15,Alabaster House of Prayer ,Cultural and Religious,Off Campus,3,0
-16,All Comedy SJSU,Special Interest,NA,5,1
-17,Alpha Epsilon Pi Jewish Fraternity,Fraternity/Sorority,"182 S 10th Street, San Jose CA",5,2
-18,"Alpha Eta Rho, Eta Chapter",Academic,"2105 Swift Ave,  San Jose, California",3,2
-19,Alpha Kappa Alpha Sorority Inc. ,Fraternity/Sorority,Off Campus,4,1
-20,Alpha Kappa Delta Phi,Fraternity/Sorority,Off Campus,4,0
-21,Alpha Kappa Omega,Fraternity/Sorority,Off Campus,3,2
-22,Alpha Kappa Omicron Sorority ,Fraternity/Sorority,Off Campus,5,1
-23,Alpha Kappa Psi Professional Business Fraternity,Academic,NA,2,1
-24,Alpha Omicron Pi Women's Fraternity,Fraternity/Sorority,"408 South†8th Street, San JosÈ CA 95112",3,2
-25,Alpha Phi,Fraternity/Sorority,"210 South†10th Street, San JosÈ CA †95112",3,2
-26,Alpha Phi Alpha Fraternity Inc.,Fraternity/Sorority,"322 East San Salvador Street, San Jose, CA 95112",4,3
-27,Alpha Phi Omega,Special Interest,NA,5,2
-28,Alpha Phi Sigma,Academic,NA,2,1
-29,Alpha Sigma Phi Fraternity,Fraternity/Sorority,NA,4,0
-30,Alpha Tau Delta,Academic,NA,5,3
-31,Alpha Tau Omega,Fraternity/Sorority,202 South 11th Street,1,0
-32,Alpha Xi Delta,Fraternity/Sorority,NA,3,1
-33,Alternative Amory and Kink Union,Special Interest,Student Union Mosaic Center,5,3
-34,Amateur Radio Club,Academic,NA,3,2
-35,American Association of Airport Executives (AAAE),Academic,NA,2,0
+13,Air Corps Leadership Club,Academic,NA,4,2
+14,Akbayan Pilipino American Organization,Cultural and Religious,NA,2,1
+15,Alabaster House of Prayer ,Cultural and Religious,NA,3,2
+16,All Comedy SJSU,Special Interest,NA,5,3
+17,Alpha Epsilon Pi Jewish Fraternity,Fraternity/Sorority,NA,5,1
+18,"Alpha Eta Rho, Eta Chapter",Academic,NA,3,3
+19,Alpha Kappa Alpha Sorority Inc. ,Fraternity/Sorority,NA,4,1
+20,Alpha Kappa Delta Phi,Fraternity/Sorority,NA,4,3
+21,Alpha Kappa Omega,Fraternity/Sorority,NA,3,2
+22,Alpha Kappa Omicron Sorority ,Fraternity/Sorority,NA,5,1
+23,Alpha Kappa Psi Professional Business Fraternity,Academic,NA,2,3
+24,Alpha Omicron Pi Women's Fraternity,Fraternity/Sorority,NA,3,1
+25,Alpha Phi,Fraternity/Sorority,NA,3,1
+26,Alpha Phi Alpha Fraternity Inc.,Fraternity/Sorority,NA,4,2
+27,Alpha Phi Omega,Special Interest,NA,5,1
+28,Alpha Phi Sigma,Academic,NA,2,2
+29,Alpha Sigma Phi Fraternity,Fraternity/Sorority,NA,4,1
+30,Alpha Tau Delta,Academic,NA,5,1
+31,Alpha Tau Omega,Fraternity/Sorority,NA,1,3
+32,Alpha Xi Delta,Fraternity/Sorority,NA,3,2
+33,Alternative Amory and Kink Union,Special Interest,NA,5,2
+34,Amateur Radio Club,Academic,NA,3,1
+35,American Association of Airport Executives (AAAE),Academic,NA,2,2
 36,American Choral Directors Association,Academic,NA,3,2
-37,American Concrete Institute,Academic,NA,4,3
+37,American Concrete Institute,Academic,NA,4,1
 38,American Institute of Aeronautics and Astronautics,Academic,NA,4,3
-39,American Institute of Chemical Engineers,Academic,NA,2,0
-40,American Library Association Student Chapter,Academic,NA,3,3
-41,American Society of Civil Engineers,Academic,NA,4,0
+39,American Institute of Chemical Engineers,Academic,NA,2,3
+40,American Library Association Student Chapter,Academic,NA,3,2
+41,American Society of Civil Engineers,Academic,NA,4,3
 42,"American Society of Heating, Refrigerating and Air-Conditioning Engineers (A.S.H.R.A.E.)",Academic,NA,1,2
-43,American Society of Mechanical Engineers (ASME),Academic,NA,2,3
+43,American Society of Mechanical Engineers (ASME),Academic,NA,2,2
 44,American Water Works Association Student Chapter at San Jose State University,Academic,NA,3,1
-45,Anthropology Club ,Academic,NA,5,2
-46,Archery Club,Club Sports,NA,4,1
-47,Arnold Air Society,Academic,NA,4,2
-48,Art History Association,Academic,NA,4,1
+45,Anthropology Club ,Academic,NA,5,1
+46,Archery Club,Club Sports,NA,4,2
+47,Arnold Air Society,Academic,NA,4,3
+48,Art History Association,Academic,NA,4,2
 49,Asian American Christian Fellowship,Cultural and Religious,NA,4,3
-50,Asian Coalition of Engineers & Scientists ,Cultural and Religious,NA,3,3
-51,ASME Aerospace,Academic,NA,3,1
-52,ASME Automotive,Academic,NA,2,3
+50,Asian Coalition of Engineers & Scientists ,Cultural and Religious,NA,3,1
+51,ASME Aerospace,Academic,NA,3,2
+52,ASME Automotive,Academic,NA,2,2
 53,Assembly of Nurse Scholars,Academic,NA,3,3
 54,Associated General Contractors,Academic,NA,4,2
 55,Associated Students of Moss Landing Marine Labs,Academic,NA,2,1
-56,Association for Facilities Engineers ,Academic,NA,2,1
+56,Association for Facilities Engineers ,Academic,NA,2,2
 57,"Association of Technology, Management, and Applied Engineering (ATMAE) SJSU Chapter",Special Interest,NA,4,2
 58,Atheists and Skeptics for Knowledge,Cultural and Religious,NA,4,3
-59,Badminton Club,Club Sports,NA,4,0
-60,Ballroom Spartans DanceSport Team at San Jose State University,Club Sports,NA,4,0
+59,Badminton Club,Club Sports,NA,4,2
+60,Ballroom Spartans DanceSport Team at San Jose State University,Club Sports,NA,4,2
 61,Banking and Investment Association,Academic,NA,3,2
-62,Baroque Performance Club,Special Interest,NA,2,0
-63,Be The Match,Special Interest,NA,3,3
+62,Baroque Performance Club,Special Interest,NA,2,2
+63,Be The Match,Special Interest,NA,3,1
 64,Beta Alpha Psi,Academic,NA,4,1
-65,"Beta Beta Beta (National Biological Honor Society), Epsilon Alpha Chapter",Academic,NA,4,1
-66,Beta Theta Pi,Fraternity/Sorority,NA,4,2
-67,Bicycle Coalition at SJSU,Special Interest,NA,3,1
-68,Biodiversity Club,Academic,NA,2,3
-69,Biology Student Association (BSA),Academic,NA,2,0
-70,Biomedical Engineering Society at SJSU,Academic,NA,5,3
+65,"Beta Beta Beta (National Biological Honor Society), Epsilon Alpha Chapter",Academic,NA,4,3
+66,Beta Theta Pi,Fraternity/Sorority,NA,4,1
+67,Bicycle Coalition at SJSU,Special Interest,NA,3,2
+68,Biodiversity Club,Academic,NA,2,2
+69,Biology Student Association (BSA),Academic,NA,2,1
+70,Biomedical Engineering Society at SJSU,Academic,NA,5,1
 71,Black Alliance of Scientists and Engineers,Academic,NA,5,2
 72,Black Campus Ministries,Cultural and Religious,NA,4,2
 73,Black Male Collective ,Special Interest,NA,2,2
-74,Black Masque Honor Society,Academic,NA,3,1
-75,Black Student Union (BSU),Cultural and Religious,NA,4,2
-76,BMEiDea,Special Interest,NA,4,1
-77,"Bowling Teams, San Jose State University",Club Sports,NA,3,2
-78,"Boxing Club, San Jose State",Club Sports,NA,3,3
-79,Braven Alumni Club ,Special Interest,NA,4,1
-80,Brazilian Jiu-Jitsu,Club Sports,NA,3,3
+74,Black Masque Honor Society,Academic,NA,3,2
+75,Black Student Union (BSU),Cultural and Religious,NA,4,3
+76,BMEiDea,Special Interest,NA,4,3
+77,"Bowling Teams, San Jose State University",Club Sports,NA,3,3
+78,"Boxing Club, San Jose State",Club Sports,NA,3,2
+79,Braven Alumni Club ,Special Interest,NA,4,3
+80,Brazilian Jiu-Jitsu,Club Sports,NA,3,1
 81,Breaking Club @ SJSU,Special Interest,NA,4,1
 82,Bridge Engineering Student Transition (BEST),Academic,NA,5,2
-83,Bridges International at San Jose State University,Cultural and Religious,NA,5,3
-84,Cadre Student Organization,Academic,NA,5,3
+83,Bridges International at San Jose State University,Cultural and Religious,NA,5,1
+84,Cadre Student Organization,Academic,NA,5,2
 85,California Nursing Students' Association,Academic,NA,4,2
 86,Campus Girl Scouts ,Special Interest,NA,2,1
-87,Campus Village 2 (CV2) Hall Government,Special Interest,NA,3,2
-88,Campus Village Apartments Hall Government,Special Interest,NA,3,1
-89,Campus Village Building C Hall Government (CVC),Special Interest,NA,3,3
-90,Canterbury Bridge,Cultural and Religious,NA,1,0
-91,Center Stage Productions,Special Interest,NA,4,2
-92,Ceramic Art Guild,Academic,NA,4,0
+87,Campus Village 2 (CV2) Hall Government,Special Interest,NA,3,1
+88,Campus Village Apartments Hall Government,Special Interest,NA,3,2
+89,Campus Village Building C Hall Government (CVC),Special Interest,NA,3,1
+90,Canterbury Bridge,Cultural and Religious,NA,1,2
+91,Center Stage Productions,Special Interest,NA,4,3
+92,Ceramic Art Guild,Academic,NA,4,1
 93,Chi Epsilon,Academic,NA,5,2
-94,Chi Pi Sigma,Special Interest,NA,3,2
+94,Chi Pi Sigma,Special Interest,NA,3,3
 95,Chicano Commencement Committee,Cultural and Religious,NA,4,3
 96,Child and Adolescent Development,Academic,NA,4,1
-97,Chinese Christian Fellowship ,Cultural and Religious,NA,3,0
-98,Chinese Student Fellowship,Cultural and Religious,NA,4,3
+97,Chinese Christian Fellowship ,Cultural and Religious,NA,3,2
+98,Chinese Student Fellowship,Cultural and Religious,NA,4,1
 99,Chinese Students Association,Cultural and Religious,NA,5,3
-100,Choirs at SJSU,Academic,NA,4,0
-101,Christians on Campus,Cultural and Religious,NA,4,2
+100,Choirs at SJSU,Academic,NA,4,3
+101,Christians on Campus,Cultural and Religious,NA,4,1
 102,Circle K International (CKI) at San Jose State University,Special Interest,NA,3,1
-103,Classics Hall Government,Special Interest,NA,5,2
-104,Cleaner San Jose ,Academic,NA,3,3
-105,Climbing Club ,Club Sports,NA,2,0
-106,Club Tennis Team ,Club Sports,NA,4,1
-107,Club Volleyball,Club Sports,NA,4,2
-108,Coaching Corps at SJSU,Special Interest,NA,1,1
-109,Colony of Alpha Omega Epsilon at San Jose State University,Academic,NA,1,0
-110,COMM Network,Academic,NA,4,3
-111,Competitive Dance Club,Club Sports,NA,3,0
-112,Computer Graphics Club,Academic,NA,2,2
-113,Computer Science Club,Academic,NA,5,2
-114,Concrete Canoe Team at San Jose State University,Academic,NA,4,0
-115,COOP SJSU,Special Interest,NA,5,3
-116,COUGH at SJSU,Special Interest,NA,3,2
-117,Counselor Ed Graduate Organization (CEGO),Academic,NA,4,3
-118,Cru,Cultural and Religious,NA,5,2
-119,D.R.E.A.M. Campus Ministry,Cultural and Religious,NA,3,2
-120,DBF Hardware,Academic,NA,5,1
-121,DBF Structures ,Academic,NA,5,2
-122,Delta Gamma,Fraternity/Sorority,NA,5,1
-123,Delta Sigma Phi Fraternity,Fraternity/Sorority,NA,2,2
-124,Delta Sigma Pi,Academic,NA,2,1
-125,"Delta Sigma Theta Sorority, Inc./ Eta Omega Chapter",Fraternity/Sorority,NA,4,0
-126,Delta Upsilon Fraternity,Fraternity/Sorority,NA,3,1
-127,Delta Zeta Sorority,Fraternity/Sorority,NA,5,2
-128,Desert Dwellers ,Special Interest,NA,1,1
-129,Design for America (DFA) ,Special Interest,NA,5,1
-130,Design Studies Club (DSC) ,Academic,NA,4,3
-131,Destino,Cultural and Religious,NA,3,3
-132,"Dirty Brushes, The",Special Interest,NA,1,1
-133,Economics Club,Special Interest,NA,1,0
-134,El Espartano Noticias | Periodistas Latinos en SJSU,Academic,NA,3,1
-135,El Pais,Cultural and Religious,NA,1,3
-136,Engineers for Solar Energy ,Academic,NA,2,1
-137,Engineers Without Borders,Special Interest,NA,5,2
+103,Classics Hall Government,Special Interest,NA,5,1
+104,Cleaner San Jose ,Academic,NA,3,2
+105,Climbing Club ,Club Sports,NA,2,2
+106,Club Tennis Team ,Club Sports,NA,4,2
+107,Club Volleyball,Club Sports,NA,4,1
+108,Coaching Corps at SJSU,Special Interest,NA,2,1
+109,Colony of Alpha Omega Epsilon at San Jose State University,Academic,NA,2,1
+110,COMM Network,Academic,NA,4,1
+111,Competitive Dance Club,Club Sports,NA,1,1
+112,Computer Graphics Club,Academic,NA,2,3
+113,Computer Science Club,Academic,NA,3,2
+114,Concrete Canoe Team at San Jose State University,Academic,NA,4,3
+115,COOP SJSU,Special Interest,NA,1,1
+116,COUGH at SJSU,Special Interest,NA,5,1
+117,Counselor Ed Graduate Organization (CEGO),Academic,NA,1,1
+118,Cru,Cultural and Religious,NA,4,3
+119,D.R.E.A.M. Campus Ministry,Cultural and Religious,NA,2,2
+120,DBF Hardware,Academic,NA,5,3
+121,DBF Structures ,Academic,NA,4,3
+122,Delta Gamma,Fraternity/Sorority,NA,1,2
+123,Delta Sigma Phi Fraternity,Fraternity/Sorority,NA,2,1
+124,Delta Sigma Pi,Academic,NA,1,1
+125,"Delta Sigma Theta Sorority, Inc./ Eta Omega Chapter",Fraternity/Sorority,NA,5,1
+126,Delta Upsilon Fraternity,Fraternity/Sorority,NA,3,3
+127,Delta Zeta Sorority,Fraternity/Sorority,NA,4,1
+128,Desert Dwellers ,Special Interest,NA,1,2
+129,Design for America (DFA) ,Special Interest,NA,4,2
+130,Design Studies Club (DSC) ,Academic,NA,4,1
+131,Destino,Cultural and Religious,NA,1,3
+132,"Dirty Brushes, The",Special Interest,NA,3,3
+133,Economics Club,Special Interest,NA,5,2
+134,El Espartano Noticias | Periodistas Latinos en SJSU,Academic,NA,3,2
+135,El Pais,Cultural and Religious,NA,5,2
+136,Engineers for Solar Energy ,Academic,NA,4,2
+137,Engineers Without Borders,Special Interest,NA,5,1
 138,Environmental Resource Center,Academic,NA,2,3
-139,Epic Movement,Cultural and Religious,NA,1,2
+139,Epic Movement,Cultural and Religious,NA,4,1
 140,Eta Kappa Nu,Academic,NA,1,1
-141,Film Production Society ,Special Interest,NA,2,3
-142,Financial Management Association,Academic,NA,1,3
-143,Food Journalism,Special Interest,NA,5,2
-144,Forensic Science Students ,Special Interest,NA,5,1
-145,Formula SAE,Academic,NA,4,0
-146,Four Corners,Cultural and Religious,NA,4,1
-147,Game Development Club,Special Interest,NA,3,0
-148,Gente Unida,Cultural and Religious,NA,5,0
-149,Geography Club ,Academic,NA,3,3
-150,Geology Club,Academic,NA,1,2
-151,Glass Artist Guild,Special Interest,NA,4,2
-152,Global Awakening ,Academic,NA,4,1
-153,Global Medical Brigades,Special Interest,NA,4,3
-154,Global Operations Management Association (GOMA),Academic,NA,1,1
-155,Global Public Health Brigade,Academic,NA,5,0
-156,Global Student Network,Cultural and Religious,NA,4,3
-157,Gospel Choir,Special Interest,NA,4,1
-158,Graduate Business Students Association (GBSA),Academic,NA,1,2
-159,Grupo Folklorico Luna y Sol de San Jose State Univ.,Cultural and Religious,NA,5,0
-160,Gymnastics Club @ SJSU,Club Sports,NA,3,1
-161,Habesha Students Association,Cultural and Religious,NA,2,2
-162,Health Leadership Organization (HLO),Academic,NA,1,1
-163,Health Science 104 Service Learning Club at San Jose State University,Academic,NA,5,1
-164,Health Science Honor Society,Academic,NA,4,1
-165,Health Science Peer Advising ,Academic,NA,3,3
-166,Her Campus @ SJSU,Special Interest,NA,1,2
-167,Hermes Aircraft Design ,Academic,NA,5,0
-168,Hindu Yuva,Cultural and Religious,NA,2,2
-169,Hip-Hop Dance Club,Special Interest,NA,3,2
-170,Hong Kong Student Association (HKSA),Cultural and Religious,NA,2,3
-171,Hospitality Financial and Technology Professions Student Chapter at San Jose State University (HFTP),Special Interest,NA,3,1
-172,HSA SJSU (Hmong Student Association SJSU),Cultural and Religious,NA,2,3
-173,Human Factors and Ergonomics Society Student Chapter,Academic,NA,3,2
-174,Humanities Club ,Special Interest,NA,5,3
-175,I.D.E.A.S at San Jose State University,Special Interest,NA,3,2
-176,Indian Students Organization,Cultural and Religious,NA,3,0
-177,Industrial Designers Society of America,Academic,NA,1,2
-178,Information Systems Audit and Control Association at SJSU,Academic,NA,2,0
-179,Infosec Club,Academic,NA,1,2
-180,Institute of Industrial and Systems Engineers,Academic,NA,1,2
-181,Institute of Management Accountants,Academic,NA,3,0
-182,Institute of Transportation Engineers,Academic,NA,1,2
-183,Inter-Greek Council,Fraternity/Sorority,NA,3,2
-184,Interfraternity Council (IFC),Fraternity/Sorority,NA,5,1
-185,Interior Design Student Organization,Special Interest,NA,1,0
-186,International Business Association,Academic,NA,2,0
-187,International Culture and Communication Association,Cultural and Religious,NA,3,0
-188,International Society for Pharmaceutical Engineering Student Chapter at San Jose State University,Academic,NA,4,1
-189,International Youth Fellowship (IYF),Cultural and Religious,NA,2,2
-190,Intervarsity Christian Fellowship,Cultural and Religious,NA,4,1
-191,"Iota Phi Theta Fraternity, Incorporated",Fraternity/Sorority,NA,1,0
-192,Japanese Student Society at San Jose State University,Cultural and Religious,NA,4,3
-193,Jewelry + Small Metals Guild,Special Interest,NA,3,0
-194,Jewish Student Union,Cultural and Religious,NA,2,2
-195,Jin Bao Racing,Academic,NA,5,0
-196,Juggle at SJSU,Academic,NA,2,1
-197,Justice Studies Graduate Student Association,Special Interest,NA,4,0
-198,"Kappa Alpha Psi Fraternity, Inc.",Fraternity/Sorority,NA,5,3
-199,Kappa Delta Sorority,Fraternity/Sorority,NA,3,0
-200,Kappa Kappa Psi,Academic,NA,4,1
-201,Kappa Sigma Fraternity,Fraternity/Sorority,NA,2,3
-202,Kendo and Naginata Club,Special Interest,NA,4,2
-203,Kinesiology Ambassadors,Academic,NA,1,3
-204,Korea Campus Crusade for Christ,Cultural and Religious,NA,3,0
-205,Korean Entertainment Student Association,Special Interest,NA,4,3
-206,Korean Organization,Cultural and Religious,NA,4,3
-207,Lacrosse Club,Club Sports,NA,4,0
-208,Lambda Sigma Gamma Sorority,Fraternity/Sorority,NA,5,3
-209,Lambda Theta Alpha Latin Sorority Inc.,Fraternity/Sorority,NA,1,0
-210,Lambda Theta Nu Sorority,Fraternity/Sorority,NA,5,1
-211,Lambda Theta Phi Latin Fraternity Inc.,Fraternity/Sorority,NA,2,2
-212,Latino Business Student Association,Academic,NA,3,0
-213,Latter-day Saint Student Association (LDSSA),Cultural and Religious,NA,5,3
-214,Launch Vehicle Systems,Academic,NA,1,2
-215,Le Cercle Fran√É≈í_ais,Academic,NA,4,1
-216,Lebanese Social Club at SJSU (LSC),Cultural and Religious,NA,5,3
-217,Light Ministries,Cultural and Religious,NA,4,1
-218,Linguistics and Language Development Students Association,Academic,NA,2,0
-219,Marketing Association,Academic,NA,2,3
-220,Marvin,Academic,NA,2,2
-221,Master of Public Health Student Association (MPHSA),Academic,NA,4,0
-222,Masters of COMM,Academic,NA,1,3
-223,Materials Advantage,Academic,NA,3,0
-224,Math Discussion Club,Academic,NA,2,1
-225,MEChA (Movimiento Estudiantil Chicano de Aztlan),Special Interest,NA,1,2
-226,Men's Club Soccer,Club Sports,NA,5,2
-227,Mini-Baja,Academic,NA,1,3
-228,Miniature Club ,Special Interest,NA,3,3
+141,Film Production Society ,Special Interest,NA,1,1
+142,Financial Management Association,Academic,NA,2,2
+143,Food Journalism,Special Interest,NA,3,3
+144,Forensic Science Students ,Special Interest,NA,4,2
+145,Formula SAE,Academic,NA,2,3
+146,Four Corners,Cultural and Religious,NA,1,3
+147,Game Development Club,Special Interest,NA,3,1
+148,Gente Unida,Cultural and Religious,NA,4,1
+149,Geography Club ,Academic,NA,1,2
+150,Geology Club,Academic,NA,4,3
+151,Glass Artist Guild,Special Interest,NA,4,3
+152,Global Awakening ,Academic,NA,5,2
+153,Global Medical Brigades,Special Interest,NA,3,1
+154,Global Operations Management Association (GOMA),Academic,NA,2,3
+155,Global Public Health Brigade,Academic,NA,5,3
+156,Global Student Network,Cultural and Religious,NA,1,3
+157,Gospel Choir,Special Interest,NA,3,1
+158,Graduate Business Students Association (GBSA),Academic,NA,2,3
+159,Grupo Folklorico Luna y Sol de San Jose State Univ.,Cultural and Religious,NA,3,3
+160,Gymnastics Club @ SJSU,Club Sports,NA,5,1
+161,Habesha Students Association,Cultural and Religious,NA,4,3
+162,Health Leadership Organization (HLO),Academic,NA,1,3
+163,Health Science 104 Service Learning Club at San Jose State University,Academic,NA,5,2
+164,Health Science Honor Society,Academic,NA,2,3
+165,Health Science Peer Advising ,Academic,NA,2,1
+166,Her Campus @ SJSU,Special Interest,NA,4,1
+167,Hermes Aircraft Design ,Academic,NA,4,3
+168,Hindu Yuva,Cultural and Religious,NA,4,1
+169,Hip-Hop Dance Club,Special Interest,NA,4,3
+170,Hong Kong Student Association (HKSA),Cultural and Religious,NA,1,2
+171,Hospitality Financial and Technology Professions Student Chapter at San Jose State University (HFTP),Special Interest,NA,1,2
+172,HSA SJSU (Hmong Student Association SJSU),Cultural and Religious,NA,4,2
+173,Human Factors and Ergonomics Society Student Chapter,Academic,NA,4,3
+174,Humanities Club ,Special Interest,NA,1,2
+175,I.D.E.A.S at San Jose State University,Special Interest,NA,2,2
+176,Indian Students Organization,Cultural and Religious,NA,1,1
+177,Industrial Designers Society of America,Academic,NA,3,1
+178,Information Systems Audit and Control Association at SJSU,Academic,NA,5,3
+179,Infosec Club,Academic,NA,3,2
+180,Institute of Industrial and Systems Engineers,Academic,NA,1,1
+181,Institute of Management Accountants,Academic,NA,2,1
+182,Institute of Transportation Engineers,Academic,NA,3,1
+183,Inter-Greek Council,Fraternity/Sorority,NA,1,1
+184,Interfraternity Council (IFC),Fraternity/Sorority,NA,3,1
+185,Interior Design Student Organization,Special Interest,NA,3,1
+186,International Business Association,Academic,NA,2,1
+187,International Culture and Communication Association,Cultural and Religious,NA,4,2
+188,International Society for Pharmaceutical Engineering Student Chapter at San Jose State University,Academic,NA,1,2
+189,International Youth Fellowship (IYF),Cultural and Religious,NA,3,2
+190,Intervarsity Christian Fellowship,Cultural and Religious,NA,4,2
+191,"Iota Phi Theta Fraternity, Incorporated",Fraternity/Sorority,NA,3,1
+192,Japanese Student Society at San Jose State University,Cultural and Religious,NA,4,1
+193,Jewelry + Small Metals Guild,Special Interest,NA,3,1
+194,Jewish Student Union,Cultural and Religious,NA,4,2
+195,Jin Bao Racing,Academic,NA,1,1
+196,Juggle at SJSU,Academic,NA,5,3
+197,Justice Studies Graduate Student Association,Special Interest,NA,3,2
+198,"Kappa Alpha Psi Fraternity, Inc.",Fraternity/Sorority,NA,5,1
+199,Kappa Delta Sorority,Fraternity/Sorority,NA,1,3
+200,Kappa Kappa Psi,Academic,NA,3,3
+201,Kappa Sigma Fraternity,Fraternity/Sorority,NA,3,1
+202,Kendo and Naginata Club,Special Interest,NA,5,1
+203,Kinesiology Ambassadors,Academic,NA,4,2
+204,Korea Campus Crusade for Christ,Cultural and Religious,NA,2,2
+205,Korean Entertainment Student Association,Special Interest,NA,2,2
+206,Korean Organization,Cultural and Religious,NA,2,2
+207,Lacrosse Club,Club Sports,NA,2,2
+208,Lambda Sigma Gamma Sorority,Fraternity/Sorority,NA,3,3
+209,Lambda Theta Alpha Latin Sorority Inc.,Fraternity/Sorority,NA,5,3
+210,Lambda Theta Nu Sorority,Fraternity/Sorority,NA,3,1
+211,Lambda Theta Phi Latin Fraternity Inc.,Fraternity/Sorority,NA,5,3
+212,Latino Business Student Association,Academic,NA,5,3
+213,Latter-day Saint Student Association (LDSSA),Cultural and Religious,NA,5,2
+214,Launch Vehicle Systems,Academic,NA,4,2
+215,Le Cercle FranÃƒÅ’_ais,Academic,NA,2,1
+216,Lebanese Social Club at SJSU (LSC),Cultural and Religious,NA,2,2
+217,Light Ministries,Cultural and Religious,NA,2,1
+218,Linguistics and Language Development Students Association,Academic,NA,5,2
+219,Marketing Association,Academic,NA,4,2
+220,Marvin,Academic,NA,4,2
+221,Master of Public Health Student Association (MPHSA),Academic,NA,1,1
+222,Masters of COMM,Academic,NA,4,2
+223,Materials Advantage,Academic,NA,2,2
+224,Math Discussion Club,Academic,NA,1,2
+225,MEChA (Movimiento Estudiantil Chicano de Aztlan),Special Interest,NA,5,1
+226,Men's Club Soccer,Club Sports,NA,1,3
+227,Mini-Baja,Academic,NA,2,3
+228,Miniature Club ,Special Interest,NA,1,1
 229,MIS Association - Management Information Systems,Academic,NA,4,1
-230,Model United Nations ,Special Interest,NA,4,3
-231,MPA Student Association,Academic,NA,1,3
-232,MPH-Online,Academic,NA,3,1
-233,Mu Phi Epsilon,Academic,NA,2,0
+230,Model United Nations ,Special Interest,NA,3,2
+231,MPA Student Association,Academic,NA,3,2
+232,MPH-Online,Academic,NA,5,2
+233,Mu Phi Epsilon,Academic,NA,4,1
 234,Muslim Students Association,Cultural and Religious,NA,5,2
-235,NAFME Collegiate at SJSU,Academic,NA,1,2
-236,"National Pan-Hellenic Council, Inc. (NPHC)",Fraternity/Sorority,NA,2,1
-237,National Residence Hall Honorary (NRHH),Academic,NA,1,1
-238,National Student Speech Language-Hearing Association,Academic,NA,3,3
-239,Native American Student Organization (NASO),Cultural and Religious,NA,5,1
-240,Natural Hair Club,Special Interest,NA,3,1
-241,NEO Graphic Design,Academic,NA,3,1
-242,Net Impact SJSU ,Academic,NA,3,3
-243,New Heights ,Academic,NA,3,0
-244,Newman Catholic Club,Cultural and Religious,NA,3,1
-245,Nigerian Students Association ,Cultural and Religious,NA,1,1
-246,Nu Alpha Kappa,Fraternity/Sorority,NA,5,3
-247,Nursing Spring 2018,Academic,NA,2,2
-248,Nutrition and Food Science Club,Academic,NA,2,3
-249,Optometry Club,Academic,NA,1,3
-250,Order of Omega,Fraternity/Sorority,NA,3,1
-251,Original Wizarding League of Spartans,Special Interest,NA,2,0
-252,Orthodox Christian Fellowship ,Cultural and Religious,NA,1,1
-253,"oSTEM @ SJSU (Out in Science, Technology, Engineering, and Mathematics)",Academic,NA,5,0
-254,Pakistani Student Association,Cultural and Religious,NA,2,0
-255,"Panhellenic Council, SJSU",Fraternity/Sorority,NA,5,2
-256,"Peer Health Education Program, Student Educators",Special Interest,NA,1,2
-257,Persian Student Association at SJSU ,Cultural and Religious,NA,5,2
-258,"Phi Alpha Theta, Beta Lambda Chapter",Academic,NA,4,2
-259,Phi Beta Sigma Fraternity Inc.,Fraternity/Sorority,NA,2,1
-260,Philosophy Club,Academic,NA,1,1
-261,Photo Guild,Special Interest,NA,1,3
-262,Physics Club at San Jose State University,Academic,NA,3,2
-263,Pi Alpha Phi,Fraternity/Sorority,NA,2,0
-264,Pi Kappa Alpha Fraternity,Fraternity/Sorority,NA,1,3
-265,Pi Kappa Phi Fraternity,Fraternity/Sorority,NA,2,3
-266,Pi Sigma Alpha,Academic,NA,3,3
-267,Pi Tau Sigma,Academic,NA,5,0
-268,Pi Theta Epsilon,Academic,NA,3,1
-269,Pilipino Commencement,Cultural and Religious,NA,4,0
-270,"Pitch, Please!",Special Interest,NA,4,0
-271,Poets & Writers Coalition - SJSU,Special Interest,NA,4,0
-272,Pokemon Club,Special Interest,NA,3,3
-273,Police Cadet Program,Special Interest,NA,5,2
-274,Powerlifting at SJSU,Club Sports,NA,5,0
-275,Pre Law Student Society @ SJSU,Academic,NA,3,0
-276,Pre-Occupational Therapy Club,Academic,NA,2,1
-277,Pre-Pharmacy Club,Academic,NA,5,3
-278,Pre-Physical Therapy Club,Academic,NA,3,1
-279,Pre-Physician Assistant Society ,Academic,NA,5,3
-280,Pre-Soma,Academic,NA,2,3
-281,Pre-Veterinary Club,Academic,NA,2,3
-282,Precision Drill Unit,Academic,NA,1,0
-283,Precision Flight Team,Academic,NA,2,2
-284,Pride of the Pacific Islands,Cultural and Religious,NA,3,1
-285,Printmaking Club,Special Interest,NA,4,0
+235,NAFME Collegiate at SJSU,Academic,NA,2,1
+236,"National Pan-Hellenic Council, Inc. (NPHC)",Fraternity/Sorority,NA,5,1
+237,National Residence Hall Honorary (NRHH),Academic,NA,4,1
+238,National Student Speech Language-Hearing Association,Academic,NA,4,1
+239,Native American Student Organization (NASO),Cultural and Religious,NA,4,1
+240,Natural Hair Club,Special Interest,NA,5,1
+241,NEO Graphic Design,Academic,NA,3,3
+242,Net Impact SJSU ,Academic,NA,5,2
+243,New Heights ,Academic,NA,2,3
+244,Newman Catholic Club,Cultural and Religious,NA,1,1
+245,Nigerian Students Association ,Cultural and Religious,NA,2,1
+246,Nu Alpha Kappa,Fraternity/Sorority,NA,4,3
+247,Nursing Spring 2018,Academic,NA,4,2
+248,Nutrition and Food Science Club,Academic,NA,2,1
+249,Optometry Club,Academic,NA,2,2
+250,Order of Omega,Fraternity/Sorority,NA,1,2
+251,Original Wizarding League of Spartans,Special Interest,NA,3,1
+252,Orthodox Christian Fellowship ,Cultural and Religious,NA,4,2
+253,"oSTEM @ SJSU (Out in Science, Technology, Engineering, and Mathematics)",Academic,NA,1,1
+254,Pakistani Student Association,Cultural and Religious,NA,3,1
+255,"Panhellenic Council, SJSU",Fraternity/Sorority,NA,1,1
+256,"Peer Health Education Program, Student Educators",Special Interest,NA,1,3
+257,Persian Student Association at SJSU ,Cultural and Religious,NA,1,3
+258,"Phi Alpha Theta, Beta Lambda Chapter",Academic,NA,5,1
+259,Phi Beta Sigma Fraternity Inc.,Fraternity/Sorority,NA,3,3
+260,Philosophy Club,Academic,NA,1,3
+261,Photo Guild,Special Interest,NA,4,1
+262,Physics Club at San Jose State University,Academic,NA,5,3
+263,Pi Alpha Phi,Fraternity/Sorority,NA,2,1
+264,Pi Kappa Alpha Fraternity,Fraternity/Sorority,NA,5,1
+265,Pi Kappa Phi Fraternity,Fraternity/Sorority,NA,1,1
+266,Pi Sigma Alpha,Academic,NA,4,1
+267,Pi Tau Sigma,Academic,NA,4,1
+268,Pi Theta Epsilon,Academic,NA,3,3
+269,Pilipino Commencement,Cultural and Religious,NA,1,3
+270,"Pitch, Please!",Special Interest,NA,4,3
+271,Poets & Writers Coalition - SJSU,Special Interest,NA,5,2
+272,Pokemon Club,Special Interest,NA,5,3
+273,Police Cadet Program,Special Interest,NA,1,2
+274,Powerlifting at SJSU,Club Sports,NA,5,1
+275,Pre Law Student Society @ SJSU,Academic,NA,2,2
+276,Pre-Occupational Therapy Club,Academic,NA,3,3
+277,Pre-Pharmacy Club,Academic,NA,2,2
+278,Pre-Physical Therapy Club,Academic,NA,3,2
+279,Pre-Physician Assistant Society ,Academic,NA,1,1
+280,Pre-Soma,Academic,NA,2,1
+281,Pre-Veterinary Club,Academic,NA,2,1
+282,Precision Drill Unit,Academic,NA,3,3
+283,Precision Flight Team,Academic,NA,3,3
+284,Pride of the Pacific Islands,Cultural and Religious,NA,4,1
+285,Printmaking Club,Special Interest,NA,3,2
 286,Progressive Mechanism Design,Academic,NA,3,3
-287,Project SHINE,Special Interest,NA,2,3
-288,Psi Chi,Academic,NA,4,2
-289,Public Health Nursing Club,Academic,NA,1,0
-290,Public Relations Student Society of America,Academic,NA,3,3
-291,Pulse College Ministry,Cultural and Religious,NA,5,3
-292,Q-TIP (Queers Thoughtfully Interrupting Prejudice),Cultural and Religious,NA,3,0
-293,Queer & Asian at San Jose State University (Q&A SJSU),Cultural and Religious,NA,5,3
-294,Reaction Wheel Research,Academic,NA,1,0
-295,Real Options,Special Interest,NA,1,2
-296,Recreation Therapy Association,Academic,NA,4,2
-297,Reformed University Fellowship ,Cultural and Religious,NA,5,1
-298,Remote Control Aircraft Design,Academic,NA,4,3
-299,Replay,Special Interest,NA,3,3
-300,Residence Hall Association (RHA),Special Interest,NA,4,3
-301,Residence Life Association (RLA),Special Interest,NA,3,0
-302,Resource Conservation (RESCON) ,Special Interest,NA,1,2
-303,Robotics Club at SJSU,Academic,NA,3,2
-304,Rocket Club,Special Interest,NA,3,2
-305,Rocket Development Club ,Academic,NA,5,1
-306,Rugby Football Club - Men,Club Sports,NA,1,2
-307,Sabor Spartan ,Special Interest,NA,4,2
-308,SAE International,Academic,NA,5,1
-309,SAHAARA ,Cultural and Religious,NA,2,3
-310,Salsa Club at San Jose State University,Club Sports,NA,5,0
-311,Saltworks College Ministries,Cultural and Religious,NA,4,1
-312,"Salzburg Scholars, The",Academic,NA,1,0
-313,San Jose Dragon Boat,Special Interest,NA,4,2
+287,Project SHINE,Special Interest,NA,3,3
+288,Psi Chi,Academic,NA,3,2
+289,Public Health Nursing Club,Academic,NA,5,2
+290,Public Relations Student Society of America,Academic,NA,2,2
+291,Pulse College Ministry,Cultural and Religious,NA,1,3
+292,Q-TIP (Queers Thoughtfully Interrupting Prejudice),Cultural and Religious,NA,4,3
+293,Queer & Asian at San Jose State University (Q&A SJSU),Cultural and Religious,NA,5,1
+294,Reaction Wheel Research,Academic,NA,1,3
+295,Real Options,Special Interest,NA,2,1
+296,Recreation Therapy Association,Academic,NA,3,3
+297,Reformed University Fellowship ,Cultural and Religious,NA,2,2
+298,Remote Control Aircraft Design,Academic,NA,5,1
+299,Replay,Special Interest,NA,4,2
+300,Residence Hall Association (RHA),Special Interest,NA,4,1
+301,Residence Life Association (RLA),Special Interest,NA,1,1
+302,Resource Conservation (RESCON) ,Special Interest,NA,3,3
+303,Robotics Club at SJSU,Academic,NA,2,3
+304,Rocket Club,Special Interest,NA,1,2
+305,Rocket Development Club ,Academic,NA,5,2
+306,Rugby Football Club - Men,Club Sports,NA,1,3
+307,Sabor Spartan ,Special Interest,NA,1,2
+308,SAE International,Academic,NA,1,2
+309,SAHAARA ,Cultural and Religious,NA,1,2
+310,Salsa Club at San Jose State University,Club Sports,NA,3,2
+311,Saltworks College Ministries,Cultural and Religious,NA,1,3
+312,"Salzburg Scholars, The",Academic,NA,5,2
+313,San Jose Dragon Boat,Special Interest,NA,1,1
 314,Satellite Development Club ,Academic,NA,5,3
-315,Saudi Students Association ,Cultural and Religious,NA,3,0
-316,Science 2 to 90T : Success As Spartans,Academic,NA,3,0
-317,Science Extravaganza,Special Interest,NA,3,3
-318,Sculptors' Guild at San Jose State University,Special Interest,NA,3,3
-319,Securities Trading Association ,Academic,NA,2,1
-320,She's the First,Special Interest,NA,5,2
-321,Shotokan Karate Club,Special Interest,NA,5,0
-322,Shrunkenheadman Club: Illustration/ Animation,Special Interest,NA,4,1
-323,Sigma Alpha Epsilon,Fraternity/Sorority,NA,2,0
-324,Sigma Alpha Zeta,Fraternity/Sorority,NA,2,1
-325,Sigma Chi Fraternity,Fraternity/Sorority,NA,1,0
-326,Sigma Delta Alpha,Fraternity/Sorority,NA,1,2
-327,"Sigma Lambda Beta International Fraternity, Inc.",Fraternity/Sorority,NA,1,1
-328,Sigma Nu Fraternity,Fraternity/Sorority,NA,4,1
-329,Sigma Omega Phi,Fraternity/Sorority,NA,2,1
-330,Sigma Omicron Pi,Fraternity/Sorority,NA,4,2
-331,Sigma Pi Alpha Sorority,Fraternity/Sorority,NA,3,3
-332,Sigma Theta Psi,Fraternity/Sorority,NA,5,0
-333,Sikh Students Association,Cultural and Religious,NA,4,2
-334,SME,Special Interest,NA,5,0
-335,Social Science Teacher Preparation Student Association,Academic,NA,3,0
-336,Social Work Graduate Student Association,Academic,NA,2,0
-337,Society for Computer Engineering,Academic,NA,3,0
-338,Society for Human Resource Management (SHRM),Academic,NA,3,0
-339,Society of Collegiate Leadership and Achievement (SCLA),Academic,NA,1,1
-340,Society of Latino Engineers and Scientists (SOLES),Academic,NA,4,1
-341,Society of Plastics Engineers,Academic,NA,2,2
-342,Society of Women Engineers,Academic,NA,3,2
-343,Soka Lions,Cultural and Religious,NA,3,2
-344,South Bay Assembly of Nursing,Special Interest,NA,5,1
-345,Sparta Optics ,Academic,NA,3,0
-346,Spartan Advertising Club,Academic,NA,2,1
-347,Spartan Athletic Training Organization,Academic,NA,5,1
+315,Saudi Students Association ,Cultural and Religious,NA,1,1
+316,Science 2 to 90T : Success As Spartans,Academic,NA,3,2
+317,Science Extravaganza,Special Interest,NA,1,3
+318,Sculptors' Guild at San Jose State University,Special Interest,NA,4,3
+319,Securities Trading Association ,Academic,NA,5,2
+320,She's the First,Special Interest,NA,4,1
+321,Shotokan Karate Club,Special Interest,NA,5,3
+322,Shrunkenheadman Club: Illustration/ Animation,Special Interest,NA,2,1
+323,Sigma Alpha Epsilon,Fraternity/Sorority,NA,2,2
+324,Sigma Alpha Zeta,Fraternity/Sorority,NA,5,1
+325,Sigma Chi Fraternity,Fraternity/Sorority,NA,2,3
+326,Sigma Delta Alpha,Fraternity/Sorority,NA,2,1
+327,"Sigma Lambda Beta International Fraternity, Inc.",Fraternity/Sorority,NA,2,1
+328,Sigma Nu Fraternity,Fraternity/Sorority,NA,3,2
+329,Sigma Omega Phi,Fraternity/Sorority,NA,4,2
+330,Sigma Omicron Pi,Fraternity/Sorority,NA,5,3
+331,Sigma Pi Alpha Sorority,Fraternity/Sorority,NA,5,1
+332,Sigma Theta Psi,Fraternity/Sorority,NA,5,3
+333,Sikh Students Association,Cultural and Religious,NA,5,1
+334,SME,Special Interest,NA,4,2
+335,Social Science Teacher Preparation Student Association,Academic,NA,4,2
+336,Social Work Graduate Student Association,Academic,NA,2,3
+337,Society for Computer Engineering,Academic,NA,2,3
+338,Society for Human Resource Management (SHRM),Academic,NA,3,1
+339,Society of Collegiate Leadership and Achievement (SCLA),Academic,NA,1,2
+340,Society of Latino Engineers and Scientists (SOLES),Academic,NA,2,2
+341,Society of Plastics Engineers,Academic,NA,5,1
+342,Society of Women Engineers,Academic,NA,5,3
+343,Soka Lions,Cultural and Religious,NA,1,1
+344,South Bay Assembly of Nursing,Special Interest,NA,3,2
+345,Sparta Optics ,Academic,NA,2,1
+346,Spartan Advertising Club,Academic,NA,4,1
+347,Spartan Athletic Training Organization,Academic,NA,2,1
 348,Spartan Baseball ,Club Sports,NA,5,1
-349,Spartan Bodybuilding,Special Interest,NA,3,2
-350,Spartan Cross Country and Track Club,Club Sports,NA,2,2
-351,Spartan Cycling Club,Club Sports,NA,2,2
-352,Spartan Drone,Academic,NA,1,0
-353,Spartan Embedded Hardware,Academic,NA,3,0
-354,Spartan Embedded Software,Academic,NA,2,3
-355,Spartan Fencing Guild ,Special Interest,NA,5,2
+349,Spartan Bodybuilding,Special Interest,NA,4,1
+350,Spartan Cross Country and Track Club,Club Sports,NA,4,3
+351,Spartan Cycling Club,Club Sports,NA,3,3
+352,Spartan Drone,Academic,NA,5,3
+353,Spartan Embedded Hardware,Academic,NA,1,2
+354,Spartan Embedded Software,Academic,NA,2,1
+355,Spartan Fencing Guild ,Special Interest,NA,4,1
 356,Spartan Food ,Special Interest,NA,3,1
-357,Spartan Graphic Design Club,Academic,NA,5,2
-358,Spartan Hyperloop at SJSU,Academic,NA,1,2
-359,Spartan MD-SJSU AMSA,Academic,NA,4,0
-360,Spartan Nurses Spring 2017,Academic,NA,3,3
-361,Spartan Organization for Astronautical Research (SOAR),Special Interest,NA,2,3
-362,Spartan Quidditch ,Club Sports,NA,2,0
-363,Spartan Racing Electric,Academic,NA,5,2
-364,Spartan Self-Defence Club,Club Sports,NA,2,1
-365,Spartan Sonatas,Special Interest,NA,4,0
-366,Spartan Star League,Special Interest,NA,5,1
-367,Spartan Superway ,Academic,NA,1,2
-368,Spartan Table Tennis Club,Special Interest,NA,2,3
-369,Spartan Tube Plane,Academic,NA,1,2
-370,Spartan UAV Club,Academic,NA,4,3
-371,Spartan Vehicle Simulator ,Academic,NA,2,0
-372,Spartan Venture Capital,Special Interest,NA,1,2
-373,Spartan Water Polo Club,Club Sports,NA,1,1
-374,Spartan Wushu Club,Special Interest,NA,2,0
-375,Spartanauts,Academic,NA,5,3
-376,Spartans for Israel at San Jose State University,Special Interest,NA,1,2
-377,Spartans Toastmasters -SJSU,Academic,NA,5,3
-378,Sports Management Student Association,Academic,NA,5,1
-379,Steel Bridge Team,Academic,NA,3,1
-380,STEM Club,Special Interest,NA,2,2
-381,Student Advocates for Higher Education,Special Interest,NA,5,2
-382,Student Alumni Connection,Special Interest,NA,1,0
-383,Student Associates of the American Chemical Society,Academic,NA,2,0
-384,Student Music Association (SMA),Academic,NA,4,3
-385,Student Occupational Therapy Association,Academic,NA,4,1
-386,Student Packaging Association (SPA),Academic,NA,5,3
-387,Students for Education Reform,Special Interest,NA,5,1
-388,Students for Justice in Palestine,Special Interest,NA,1,1
-389,Students for Life at SJSU,Special Interest,NA,2,1
+357,Spartan Graphic Design Club,Academic,NA,2,3
+358,Spartan Hyperloop at SJSU,Academic,NA,2,1
+359,Spartan MD-SJSU AMSA,Academic,NA,5,2
+360,Spartan Nurses Spring 2017,Academic,NA,5,1
+361,Spartan Organization for Astronautical Research (SOAR),Special Interest,NA,5,1
+362,Spartan Quidditch ,Club Sports,NA,4,1
+363,Spartan Racing Electric,Academic,NA,5,3
+364,Spartan Self-Defence Club,Club Sports,NA,2,2
+365,Spartan Sonatas,Special Interest,NA,4,1
+366,Spartan Star League,Special Interest,NA,1,3
+367,Spartan Superway ,Academic,NA,3,2
+368,Spartan Table Tennis Club,Special Interest,NA,2,2
+369,Spartan Tube Plane,Academic,NA,5,2
+370,Spartan UAV Club,Academic,NA,1,3
+371,Spartan Vehicle Simulator ,Academic,NA,3,1
+372,Spartan Venture Capital,Special Interest,NA,5,1
+373,Spartan Water Polo Club,Club Sports,NA,5,3
+374,Spartan Wushu Club,Special Interest,NA,2,3
+375,Spartanauts,Academic,NA,4,1
+376,Spartans for Israel at San Jose State University,Special Interest,NA,3,1
+377,Spartans Toastmasters -SJSU,Academic,NA,3,2
+378,Sports Management Student Association,Academic,NA,1,2
+379,Steel Bridge Team,Academic,NA,4,3
+380,STEM Club,Special Interest,NA,4,3
+381,Student Advocates for Higher Education,Special Interest,NA,2,1
+382,Student Alumni Connection,Special Interest,NA,1,1
+383,Student Associates of the American Chemical Society,Academic,NA,1,2
+384,Student Music Association (SMA),Academic,NA,2,3
+385,Student Occupational Therapy Association,Academic,NA,2,1
+386,Student Packaging Association (SPA),Academic,NA,2,3
+387,Students for Education Reform,Special Interest,NA,5,3
+388,Students for Justice in Palestine,Special Interest,NA,4,1
+389,Students for Life at SJSU,Special Interest,NA,3,3
 390,Students for the Exploration and Development of Space (SEDS at SJSU),Special Interest,NA,4,1
-391,Super Smash Bros at SJSU ,Special Interest,NA,2,1
-392,Swimming Club,Club Sports,NA,1,2
-393,Tabletop Gaming Club,Special Interest,NA,4,0
-394,TAHELKA,Special Interest,NA,1,0
-395,Taiwanese Student Association,Cultural and Religious,NA,1,3
-396,Tau Beta Pi,Academic,NA,4,1
-397,Team One Love ,Academic,NA,3,1
-398,TEST,Cultural and Religious,NA,4,1
-399,The Bhangra Club at SJSU,Cultural and Religious,NA,3,0
-400,"The Coalition to Defend Affirmative Action, Integration, and Immigrant Rights and Fight for Equality By Any Means Necessary (BAMN)",Academic,NA,1,3
-401,The Cultural Showcase Leadership Core,Special Interest,NA,4,1
-402,The Rotaract Club at SJSU,Special Interest,NA,3,1
-403,The Spartones,Special Interest,NA,1,0
-404,The Valley Foundation School of Nursing Class of Fall 2016,Academic,NA,3,1
-405,The Valley Foundation School of Nursing Class of Fall 2017,Academic,NA,4,2
-406,The Valley Foundation School of Nursing Class of Fall 2019,Academic,NA,4,3
-407,The Valley Foundation School of Nursing Class of Spring 2019,Academic,NA,2,0
-408,Theta Chi Fraternity,Fraternity/Sorority,NA,3,2
-409,TRANSITion SJSU,Special Interest,NA,3,0
-410,Transportation Development (TransDev),Special Interest,NA,2,0
-411,TRS Global & Domestic Experiences,Academic,NA,3,3
-412,Tsunami Anime Club,Special Interest,NA,5,3
-413,Tzu Chi at San Jose State University,Special Interest,NA,5,1
-414,Ukulele Club,Special Interest,NA,2,0
-415,Ultimate Frisbee Club at San Jose State,Club Sports,NA,5,0
+391,Super Smash Bros at SJSU ,Special Interest,NA,5,1
+392,Swimming Club,Club Sports,NA,2,1
+393,Tabletop Gaming Club,Special Interest,NA,5,1
+394,TAHELKA,Special Interest,NA,2,1
+395,Taiwanese Student Association,Cultural and Religious,NA,2,2
+396,Tau Beta Pi,Academic,NA,3,1
+397,Team One Love ,Academic,NA,5,1
+398,TEST,Cultural and Religious,NA,3,2
+399,The Bhangra Club at SJSU,Cultural and Religious,NA,5,1
+400,"The Coalition to Defend Affirmative Action, Integration, and Immigrant Rights and Fight for Equality By Any Means Necessary (BAMN)",Academic,NA,3,3
+401,The Cultural Showcase Leadership Core,Special Interest,NA,5,1
+402,The Rotaract Club at SJSU,Special Interest,NA,2,2
+403,The Spartones,Special Interest,NA,3,3
+404,The Valley Foundation School of Nursing Class of Fall 2016,Academic,NA,4,2
+405,The Valley Foundation School of Nursing Class of Fall 2017,Academic,NA,1,1
+406,The Valley Foundation School of Nursing Class of Fall 2019,Academic,NA,3,1
+407,The Valley Foundation School of Nursing Class of Spring 2019,Academic,NA,1,1
+408,Theta Chi Fraternity,Fraternity/Sorority,NA,3,3
+409,TRANSITion SJSU,Special Interest,NA,1,3
+410,Transportation Development (TransDev),Special Interest,NA,4,2
+411,TRS Global & Domestic Experiences,Academic,NA,2,3
+412,Tsunami Anime Club,Special Interest,NA,1,2
+413,Tzu Chi at San Jose State University,Special Interest,NA,4,2
+414,Ukulele Club,Special Interest,NA,5,1
+415,Ultimate Frisbee Club at San Jose State,Club Sports,NA,5,2
 416,"UM4C: United Methodist Students for Church, Campus, and Community Connection",Cultural and Religious,NA,5,2
-417,Undergraduate Social Work Association ,Academic,NA,3,1
-418,UNICEF SJSU,Special Interest,NA,3,3
-419,United Sorority and Fraternity Council (USFC),Fraternity/Sorority,NA,5,2
-420,Upsilon Rho Beta Honor Society Honor Society,Academic,NA,5,0
-421,Urban Planning Coalition,Academic,NA,2,2
-422,User Experience Association,Academic,NA,5,0
-423,V-Day@SJSU,Special Interest,NA,4,3
-424,Valley Foundation of Nursing Class of Fall 2018,Academic,NA,5,2
-425,Veg Club,Special Interest,NA,5,2
-426,Veterans Student Organization,Special Interest,NA,4,2
-427,"Vietnamese Student Association, SJSU",Cultural and Religious,NA,3,2
-428,Visionaries Club,Special Interest,NA,1,0
-429,WGSSSA,Academic,NA,4,0
-430,Women Have Options,Special Interest,NA,5,0
-431,Women in Aviation at SJSU,Special Interest,NA,2,0
-432,Women in Business @ SJSU,Academic,NA,4,0
-433,Women's Club Volleyball at SJSU,Club Sports,NA,1,0
-434,Women's Club Volleyball II,Club Sports,NA,5,3
-435,Women's Lacrosse Club,Club Sports,NA,1,0
-436,Women's Soccer Club at San Jose State University,Club Sports,NA,1,3
-437,Womens Rugby ,Club Sports,NA,4,1
-438,Womens Water Polo ,Club Sports,NA,1,3
-439,Womyn of Color,Special Interest,NA,4,1
-440,Wresting Club at SJSU,Club Sports,NA,1,3
-441,Xicana/o Graduate Council (XGC),Academic,NA,2,1
-442,YES PLUS Club,Special Interest,NA,2,1
-443,Yoga Club,Special Interest,NA,1,1
-444,Young Americans for Liberty ,Special Interest,NA,2,0
-445,Zeta Chi Epsilon,Fraternity/Sorority,NA,2,0
-446,"Zeta Phi Beta Sorority, Inc",Fraternity/Sorority,NA,5,0
+417,Undergraduate Social Work Association ,Academic,NA,2,1
+418,UNICEF SJSU,Special Interest,NA,2,2
+419,United Sorority and Fraternity Council (USFC),Fraternity/Sorority,NA,2,3
+420,Upsilon Rho Beta Honor Society Honor Society,Academic,NA,2,3
+421,Urban Planning Coalition,Academic,NA,5,2
+422,User Experience Association,Academic,NA,3,3
+423,V-Day@SJSU,Special Interest,NA,2,3
+424,Valley Foundation of Nursing Class of Fall 2018,Academic,NA,3,1
+425,Veg Club,Special Interest,NA,5,1
+426,Veterans Student Organization,Special Interest,NA,5,3
+427,"Vietnamese Student Association, SJSU",Cultural and Religious,NA,2,2
+428,Visionaries Club,Special Interest,NA,4,2
+429,WGSSSA,Academic,NA,2,3
+430,Women Have Options,Special Interest,NA,3,2
+431,Women in Aviation at SJSU,Special Interest,NA,2,3
+432,Women in Business @ SJSU,Academic,NA,4,1
+433,Women's Club Volleyball at SJSU,Club Sports,NA,3,1
+434,Women's Club Volleyball II,Club Sports,NA,2,2
+435,Women's Lacrosse Club,Club Sports,NA,1,3
+436,Women's Soccer Club at San Jose State University,Club Sports,NA,2,3
+437,Womens Rugby ,Club Sports,NA,2,1
+438,Womens Water Polo ,Club Sports,NA,4,3
+439,Womyn of Color,Special Interest,NA,5,1
+440,Wresting Club at SJSU,Club Sports,NA,5,3
+441,Xicana/o Graduate Council (XGC),Academic,NA,3,2
+442,YES PLUS Club,Special Interest,NA,1,2
+443,Yoga Club,Special Interest,NA,1,2
+444,Young Americans for Liberty ,Special Interest,NA,1,1
+445,Zeta Chi Epsilon,Fraternity/Sorority,NA,1,1
+446,"Zeta Phi Beta Sorority, Inc",Fraternity/Sorority,NA,4,2
