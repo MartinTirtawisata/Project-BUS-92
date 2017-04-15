@@ -1,0 +1,114 @@
+SELECT * FROM SJSU_Organizations;
+
+SELECT Organization, Rating, Location FROM SJSU_Organization;
+
+SELECT Club_ID,Membership_cost,Payment_required FROM SJSU_Clubs;
+
+2) Create 3 SELECT statements querying certain fields using a complex WHERE clause, using
+combinations of AND and/or OR
+
+SELECT * FROM SJSU_Organization 
+WHERE Rating = 3 
+AND Number_of_reviews > 1;
+
+SELECT * FROM SJSU_Clubs
+WHERE Payment_required = "Yes"
+OR membership_cost < 500;
+
+SELECT Organization, Classification, Rating, number_of_reviews FROM SJSU_Organization
+WHERE Rating > 3
+AND (Classification = "Special Interest"
+OR Classification = "Academic");
+
+3) Create 3 SELECT queries using the WHERE and the LIMIT clause
+
+SELECT * FROM SJSU_Organization 
+WHERE Rating = 2
+AND Number_of_reviews > 1
+LIMIT 15;
+
+SELECT * FROM SJSU_Clubs
+WHERE Payment_required = "No"
+OR membership_cost > 600
+LIMIT 5;
+
+SELECT Organization, Classification, Rating, number_of_reviews FROM SJSU_Organization
+WHERE Rating > 3
+AND (Classification = "Special Interest"
+OR Classification = "Academic")
+LIMIT 20;
+
+4) Create 3 SELECT queries showing all the fields for some maximum or minimum
+
+SELECT Organization, Classification, max(Rating) FROM SJSU_Organization;
+
+SELECT Organization, Classification, min(Rating) FROM SJSU_Organization;
+
+SELECT club_id, max(membership_cost), payment_required, description, president
+FROM SJSU_clubs;
+
+5) Create 6 SELECT queries showing a join between your two tables using aliases, WHERE clauses
+and AND/OR
+
+SELECT * FROM SJSU_Organization
+JOIN SJSU_Clubs
+ON SJSU_Clubs.club_id = SJSU_organization.club_id
+WHERE sjsu_organization.rating = 3
+AND sjsu_clubs.membership_cost > 500 
+ORDER BY membership_cost;
+
+SELECT O.Organization, O.Classification, O.Location, C.Payment_required,C.Description FROM SJSU_Organization as o
+JOIN SJSU_Clubs as c
+ON C.club_id = O.club_id
+WHERE c.payment_required = "Yes"
+AND O.classification = "Fraternity/Sorority";
+
+SELECT O.Organization, O.Classification, O.Location, C.Payment_required,C.Description FROM SJSU_Organization as o
+JOIN SJSU_Clubs as c
+ON C.club_id = O.club_id
+WHERE c.payment_required = "No"
+AND o.classification = "Academic";
+
+SELECT * FROM SJSU_Organization as o
+JOIN SJSU_Clubs as c
+ON C.club_id = O.club_id
+WHERE o.rating > 3
+OR (c.membership_cost > 500
+AND o.number_of_reviews = 3)
+ORDER BY o.rating DESC, o.classification;
+
+SELECT o.club_id, o.classification, o.rating, c.membership_cost, c.description, c.president FROM SJSU_Organization as o
+JOIN SJSU_Clubs as c
+ON C.club_id = O.club_id
+WHERE o.rating < 3
+OR (c.membership_cost < 500
+AND o.number_of_reviews = 2)
+ORDER BY c.membership_cost DESC, o.rating;
+
+SELECT o.organization, o.classification, o.rating, c.payment_required, c.membership_cost, c.description
+FROM SJSU_Organization as o
+JOIN SJSU_Clubs as c
+ON C.club_id = O.club_id
+WHERE( o.classification = "Academic"
+OR o.classification = "Special Interest")
+AND c.membership_cost > 700
+ORDER BY o.organization;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
