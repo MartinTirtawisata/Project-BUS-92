@@ -28,23 +28,18 @@ WHERE Organizations.Rating = 3
 AND Details.Membership_cost > 500 
 ORDER BY Membership_cost;
 
-
--- # Does not return any reults !! --
 SELECT O.Organization_name, O.Classification, O.Location, D.Payment_required, D.Description FROM Organizations as O
-JOIN Details as D
+INNER JOIN Details as D
 ON O.Club_ID = D.Club_ID
-WHERE D.Payment_required = "Yes"
+WHERE D.Payment_required = "TRUE"
 AND O.Classification = "Fraternity/Sorority";
 
--- Error 
-SELECT Organization_name, Classification, Location, D.Payment_required, D.Description FROM Organizations as O
-JOIN Details as D
-ON D.Club_ID = D.Club_ID
-WHERE D.Payment_required = "No"
+SELECT O.Organization_name, O.Classification, O.Location, D.Payment_required, D.Description FROM Organizations as O
+INNER JOIN Details as D
+ON O.Club_ID = D.Club_ID
+WHERE D.Payment_required = "FALSE"
 AND O.Classification = "Academic";
 
-
--- Works Fine
 SELECT * FROM Organizations as O
 JOIN Details as D
 ON D.Club_ID = O.Club_ID
@@ -53,22 +48,18 @@ OR (D.Membership_cost > 500
 AND Number_of_Reviews = 3)
 ORDER BY Rating DESC, Classification;
 
-
--- Error
-SELECT O.Club_ID, O.Classification, O.Rating, D.Membership_cost, D.Description, C.President FROM Organizations as O
-JOIN Details as D
-ON D.Club_ID = O.Club_ID
+SELECT O.Club_ID, O.Classification, O.Rating, D.Membership_cost, D.Description, D.President FROM Organizations as O
+INNER JOIN Details as D
+ON O.Club_ID = D.Club_ID
 WHERE O.Rating < 3
 OR (D.Membership_cost < 500
 AND O.Number_of_Reviews = 2)
 ORDER BY D.Membership_cost DESC, O.Rating;
 
-
--- Error
-SELECT O.Organization, O.Classification, O.Rating, D.Payment_Required, D.Membership_cost, D.Description FROM OrganizationS as O
-JOIN Details as D
-ON D.Cub_ID = D.Club_ID
+SELECT O.Organization_name, O.Classification, O.Rating, D.Payment_Required, D.Membership_cost, D.Description FROM Organizations as O
+INNER JOIN Details as D
+ON O.Club_ID = D.Club_ID
 WHERE( O.Classification = "Academic"
 OR O.Classification = "Special Interest")
 AND D.Membership_cost > 700
-ORDER BY O.Organization;
+ORDER BY O.Organization_name;
