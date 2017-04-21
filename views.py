@@ -9,16 +9,20 @@ def homePage():
 <head>
 <title> SJSU Clubs Homepage </title>
 <style>
-body {background-image: url("https://c1.staticflickr.com/6/5290/5265285009_cc99c82221_b.jpg")}
-h1   {color:rgb(100,100,100);text-align:center}
+body {background-image: url("https://c1.staticflickr.com/6/5290/5265285009_cc99c82221_b.jpg"); 
+      background-size:100% 100%;
+      background-repeat:no-repeat;
+}
+h1   {color:rgb(255,215,0) ;text-align:center}
 p    {color: red;}
 </style>
 </head>
 <h1> San Jose State Clubs & Organization </h1>
 <hr>
+<p style="text-align:left">
+<a href="http://127.0.0.1:5000/developers"> Developers</a>
 <p style="text-align:center">
-
-<a href="http://127.0.0.1:5000/showall;text-align:center">Show all SJSU Clubs</a>
+<a href="http://127.0.0.1:5000/showall">Show all SJSU Clubs</a>
 </p>
 """
 
