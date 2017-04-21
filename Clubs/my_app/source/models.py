@@ -16,7 +16,7 @@ SJSU_clubs = [
 [14,    "Akbayan Pilipino American Organization",          "Cultural and Religious","Student Union",2,2],
 [15,    "Alabaster House of Prayer",                       "Cultural and Religious",   "Off Campus" ,3,2],
 [16,    "All Comedy SJSU",                                 "Special Interest", "NA",5,3],
-[17,    "Alpha Epsilon Pi Jewish Fraternity",              'Fraternity/Sorority','182 S 10th Street', 'San Jose CA',5,2],
+[17,    "Alpha Epsilon Pi Jewish Fraternity",              'Fraternity/Sorority','182 S 10th Street, San Jose CA',5,2],
 [18,    "Alpha Eta Rho, Eta Chapter",                      'Academic',         "2105 Swift Ave,  San Jose, California",3,2],
 [19,    'Alpha Kappa Alpha Sorority Inc.' ,                'Fraternity/Sorority','Off Campus',4,2],
 [20,    'Alpha Kappa Delta Phi',                           'Fraternity/Sorority','Off Campus',4,2],

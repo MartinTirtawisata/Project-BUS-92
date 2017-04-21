@@ -31,52 +31,108 @@ p    {color: red;}
 def show_all():
     header = """
 <head>
-<title>All Movies</title>
+<title>List of Clubs</title>
 <style>
+
+body {
+        margin: 0;
+}
+
+#home {
+    padding: 25px 5px 5px 20px;
+}
+
+#title {
+        padding: 15px 20px 15px 20px;
+        text-align: center;
+        font-size: 50px;
+        color: #3072AD;
+        background-color: #EAB010;
+        margin: 0;
+}
+
+#image {
+    background-image: url("http://www.mtmary.edu/_images/_main/interior-clubs-orgs-026.jpg");
+    height: 400px;
+    width: 100%;
+    margin: 0;
+}
+
+#info {
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    background-color: grey;
+    padding: 100px 0px 0px 0px;
+    font-size: 110%;
+}
+
+
 table, th, td {
-    border: 2px solid green;
+    border-style: outset;
     border-collapse: collapse;
     padding-left: 10px;
     padding-right: 10px;
-
+    background-color: #e3e3e7; 
 }
+
 th {
     padding: 5px;
     text-align: center;
     color: blue;
 }
+
 </style>
 </head>
+
 <body>
 
+<div id="container">
+
+<div id="home"><a href="http://127.0.0.1:5000/">Homepage</a></div>
+
+<h1 id="title">Spartan Organizations</h1>
+
+<div id="image"> </div>
+
+<div id="info">
+<p>Welcome to Student Involvement! Your home for Fraternity & Sorority Life, 
+Student Organziations, Campus Programming & Leadership! </p>
+<p> With over 400 student organizations at SJSU, getting involved is the best 
+way to connect with campus life! </p>
+</div>
+
 <table style="width:100%">
-  <caption><h1>Movie List</h1></caption>
+  <caption><h1>San Jose State Clubs and Organizations</h1></caption>
+   
   <tr>
-    <th>Key</th>
-    <th>Movie</th>
-    <th>Genre</th>
-    <th>Popularity</th>
-    <th> Year </th>
-    <th> Length </th> 
+    <th>Club_ID</th>
+    <th>Club Name</th>
+    <th>Classification</th>
+    <th>Location</th>
+    <th>Rating</th>
+    <th>Number of Reviews</th> 
   </tr>
+  
+</div>  
     """
     
     footer = """
 </table></body>
     """
-    message_out = ""
+    message_out = ''
 
-    key = 0
     for item in SJSU_clubs:
         message_out += '<tr>'+\
-                       '<td align="center">'+str(key)+'</td>'+\
-                       '<td>'+item[0]+'</td>'+\
-                       '<td>'+item[3]+'</td>'+\
-                       '<td align="right">'+str(item[4])+'</td>'+\
-                       '<td align="right">'+str(item[1])+'</td>'+\
-                       '<td align="right">'+str(item[2])+'</td>'+'</tr>'
-        key += 1
-    return header+message_out+footer
+                       '<td align="center">'+str(item[0])+'</td>'+\
+                       '<td align="center">'+str(item[1])+'</td>'+\
+                       '<td align="center">'+str(item[2])+'</td>'+\
+                       '<td align="middle">'+str(item[3])+'</td>'+\
+                       '<td align="middle">'+str(item[4])+'</td>'+\
+                       '<td align="middle">'+str(item[5])+'</td>'+'</tr>'
+        
+    return (header+message_out+footer)
+
 
 
 #-------------------- Show Key Handler --------------------
