@@ -1,6 +1,5 @@
 from my_app import app
 from my_app.source.models import SJSU_clubs
-
 #-------------------- Home Page Handler --------------------
 @app.route('/')
 @app.route('/home')
@@ -8,6 +7,11 @@ def homePage():
     return """
 <head>
 <title> SJSU Clubs Homepage </title>
+
+
+
+<!--BACKGROUND IMAGE-->
+
 <style>
 body {background-image: url("https://c1.staticflickr.com/6/5290/5265285009_cc99c82221_b.jpg"); 
       background-size:100% 100%;
@@ -17,13 +21,74 @@ h1   {color:rgb(255,215,0) ;text-align:center}
 p    {color: red;}
 </style>
 </head>
-<h1> San Jose State Clubs & Organization </h1>
+
+
+
+<!--HEADER TEXTS-->
+
+<font face="Palatino Linotype">
+<h1 style="color:yellow;">San Jose State Clubs & Organizations</h1>
+</font>
+
+<center>
+<p><font size="5" color="blue" font face="Georgia">An easy to use database to search for clubs & organizations on campus</font></p>
+
+<p><b><font size="4" color="red" font face="Trebuchet MS">Click below to search for a club that interests you</font></b></p>
+</center>
+
 <hr>
+
+
+
+<!--DEVELOPERS/SJSU LINKS-->
+
+<body link="yellow">
+<font face="Verdana">
+<p style="text-align:left">
+<a href="http://www.sjsu.edu/"> SJSU Website</a>
+</p>
+</body>
+
+<body link="yellow">
 <p style="text-align:left">
 <a href="http://127.0.0.1:5000/developers"> Developers</a>
-<p style="text-align:center">
-<a href="http://127.0.0.1:5000/showall">Show all SJSU Clubs</a>
 </p>
+</font>
+</body>
+
+
+
+<!--MIDDLE IMAGE-->
+
+<center><img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/27/San_Jose_State_Spartans_Logo.svg/996px-San_Jose_State_Spartans_Logo.svg.png" alt="Spartan Logo" style="width:193px;height:193x;" align="bottom"></center>
+
+
+
+<!--SHOW ALL CLUBS LINK-->
+
+<body link="yellow">
+<font size="25">
+<p style="text-align:center">
+<a href="http://127.0.0.1:5000/showall"> SHOW ALL SJSU CLUBS</a>
+</p>
+</font>
+</body>
+
+
+
+<!--BOTTOM RIGHT IMAGE-->
+
+<div>
+<img src="http://www.books-not-bombs.com/content/images/schools/sjsu.png"
+style=
+"position:absolute;
+float:right;
+right:0px;
+bottom:0px;
+width:120px;
+height:120px;">
+</div>
+
 """
 
 #-------------------- Show All Handler --------------------
