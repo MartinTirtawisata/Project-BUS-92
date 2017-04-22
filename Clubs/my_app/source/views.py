@@ -219,21 +219,3 @@ def get_message(key):
     
     return message
 
-#-------------------- Show Key Handler --------------------
-#Parameters: Key, integer
-@app.route('/show/<key>') #Ways to control the parameter
-def get_message(key):
-    index = int(key)
-    MOVIES = 0
-    if index >= len(MOVIES):
-        return "The key "+ key + " was not found"     
-
-    message = '<table><col width="250">'   
-    message += '<td><img src='+MOVIES[index][6]+' style="width:220px;height:326px"></td>'
-    message += '<td valign="top"><h1 style="color:blue;">'+ MOVIES[index][0]+'</h1>'
-    message += '<p><b>Year:</b> ' + str(MOVIES[index][1])+'</p>'
-    message += '<p><b>Genre:</b> ' + MOVIES[index][3]+'</p>'
-    message += '<p><b>Popularity:</b> ' + str(MOVIES[index][4])+'</p>'
-    message += '<p><b>Awards:</b> ' + str(MOVIES[index][5])+'</p></td>'
-    
-    return message
