@@ -1,6 +1,5 @@
 from my_app import app
 from my_app.source.models import SJSU_clubs
-
 #-------------------- Home Page Handler --------------------
 @app.route('/')
 @app.route('/home')
