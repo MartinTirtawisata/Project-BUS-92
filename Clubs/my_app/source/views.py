@@ -91,6 +91,12 @@ height:120px;">
 
 """
 
+def yesORno(boolean):
+    if (boolean == True):
+        return "Yes"
+    else:
+        return "No"
+
 #-------------------- Show All Handler --------------------
 @app.route('/showall')
 def show_all():
@@ -101,19 +107,41 @@ def show_all():
 
 body {
         margin: 0;
+        padding: 0;
 }
 
-#home {
-    padding: 25px 5px 5px 20px;
-}
 
-#title {
-        padding: 15px 20px 15px 20px;
-        text-align: center;
-        font-size: 50px;
+
+#fixedBar {
+        height: 150px;
         color: #3072AD;
         background-color: #EAB010;
         margin: 0;
+        text-align: center;        
+}
+
+#logo {
+        position: absolute;
+        padding-left: 5px; 
+        padding-top: 8px;
+        overflow: auto;
+}
+
+#home {
+        padding-right: 25px;
+        position: absolute;   
+        top: 10px;
+        right: 1px;
+}
+
+#title {
+        font-size: 340%;
+        padding-top: 40px;
+        font-family: "Times New Roman", Times, serif;
+}
+
+div.clear {
+        float: clear;
 }
 
 #image {
@@ -154,11 +182,23 @@ th {
 
 <div id="container">
 
-<div id="home"><a href="http://127.0.0.1:5000/">Homepage</a></div>
 
-<h1 id="title">Spartan Organizations</h1>
+    <div id="fixedBar">
 
-<div id="image"> </div>
+        <div id="logo">
+            <img src="http://www.books-not-bombs.com/content/images/schools/sjsu.png" style="width:200px; height:130px" />
+        </div>
+        
+        <div class="clear"> </div>
+    
+        <h1 id="title"> Spartan Organizations </h1>
+        
+        <div id="home"><a href="http://127.0.0.1:5000/">Homepage</a></div>
+
+</div>
+
+    <div id="image"> </div>
+
 
 <div id="info">
 <p>Welcome to Student Involvement! Your home for Fraternity & Sorority Life, 
@@ -172,11 +212,13 @@ way to connect with campus life! </p>
    
   <tr>
     <th>Club_ID</th>
-    <th>Club Name</th>
+    <th>Organization Name</th>
     <th>Classification</th>
     <th>Location</th>
     <th>Rating</th>
     <th>Number of Reviews</th> 
+    <th>Membership Cost</th>
+    <th>Payment Required</th>
   </tr>
   
 </div>  
@@ -194,7 +236,9 @@ way to connect with campus life! </p>
                        '<td align="center">'+str(item[2])+'</td>'+\
                        '<td align="middle">'+str(item[3])+'</td>'+\
                        '<td align="middle">'+str(item[4])+'</td>'+\
-                       '<td align="middle">'+str(item[5])+'</td>'+'</tr>'
+                       '<td align="middle">'+str(item[5])+'</td>'+\
+                       '<td align="middle">'+str(item[6])+'</td>'+\
+                       '<td align="middle">'+yesORno((item[7]))+'</td>'+'</tr>'
         
     return (header+message_out+footer)
 
@@ -204,18 +248,130 @@ way to connect with campus life! </p>
 #Parameters: Key, integer
 @app.route('/show/<key>') #Ways to control the parameter
 def get_message(key):
-    index = int(key)
-    MOVIES = 0
-    if index >= len(MOVIES):
-        return "The key "+ key + " was not found"     
-
-    message = '<table><col width="250">'   
-    message += '<td><img src='+MOVIES[index][6]+' style="width:220px;height:326px"></td>'
-    message += '<td valign="top"><h1 style="color:blue;">'+ MOVIES[index][0]+'</h1>'
-    message += '<p><b>Year:</b> ' + str(MOVIES[index][1])+'</p>'
-    message += '<p><b>Genre:</b> ' + MOVIES[index][3]+'</p>'
-    message += '<p><b>Popularity:</b> ' + str(MOVIES[index][4])+'</p>'
-    message += '<p><b>Awards:</b> ' + str(MOVIES[index][5])+'</p></td>'
     
-    return message
+    total = int(key)
+    INDEX = (total - 1)
+    
+    if total >= len(SJSU_clubs):
+        return "The key "+ key + " was not found" 
+    
+    header2 = """
+    
+        <head>
+        <style>
+        
+            body {
+                    margin: 0;
+                    padding: 0;
+            }        
+        
+            #image2 {
+                    background-image: url("http://www.pressdemocrat.com/csp/mediapool/sites/dt.common.streams.StreamServer.cls?STREAMOID=1Q_PpZ$$ef91sZ23ohmJAc$daE2N3K4ZzOUsqbU5sYshvOQ8ctBOtI8vYy4xeVFrWCsjLu883Ygn4B49Lvm9bPe2QeMKQdVeZmXF$9l$4uCZ8QDXhaHEp3rvzXRJFdy0KqPHLoMevcTLo3h8xh70Y6N_U_CryOsw6FTOdKL_jpQ-&CONTENTTYPE=image/jpeg");
+                    height: 535px;
+                    width: 100%;
+                    margin: 0;
+                    text-align: center;
+                    font-size: 1.3em;
+            }
+            
+            #descrip {
+                    font-size: 1.5em;
+                    text-align: center;
+                    padding-top: 20px;
+            }
+            
+            #logo2 {
+                    margin: auto;
+                    display: block;
+            }
+            
+            
+
+            table td {
+                    border-right: 2px solid #EAB010;
+            }
+    
+            table td:first-child {
+                    border-left: none;
+            }
+
+            table td:last-child {
+                    border-right: none;
+            }
+            
+            p.right {
+                    padding-left: 20px;
+            }
+            
+            #filler {
+                    height: 150px;
+            }
+            
+            #bottom {
+                    padding-bottom: 25px;
+            }
+            
+            #list {
+                    display: inline-block;
+                    margin-right: 10px;
+                    
+            }
+            
+            #home2 {
+                    display: inline-block;
+            }
+            
+            a:link {
+                    color: black;
+                    text-decoration: none;
+            }
+            
+            a:visited {
+                    text-decorator: none;
+            }
+
+
+            a:hover {
+                    color: #EAB010;
+            }
+            
+
+            a:active {
+                    color: yellow;
+            } 
+        
+        </style>
+        </head>
+        <body>  
+        
+            <div id="club_name">
+        
+            <div id="image2"> 
+                <div id="list"> <a href="http://127.0.0.1:5000/showall"> List </a> </div>
+                <div id="home2"> <a href="http://127.0.0.1:5000/"> Homepage </a> </div>
+            </div>   
+        """
+    
+    footer2 = """
+        </body> """
+     
+
+
+
+    message = '<table><col width="315">'   
+    message += '<td><img src="'+str(SJSU_clubs[INDEX][10])+'"style="width:220px;height:326px" id="logo2"></td>'
+    message += '<td valign="top"><p id="descrip">'+str(SJSU_clubs[INDEX][8])+'</p>'
+    message += '<br>'
+    message += '<p class="right"><b>Organization name</b>   '+str(SJSU_clubs[INDEX][1])+'</p>'
+    message += '<p class="right"><b>Classification</b>   ' +str(SJSU_clubs[INDEX][2])+ '</p>'
+    message += '<p class="right"><b>Location</b>   '+str(SJSU_clubs[INDEX][3])+ '</p>'
+    message += '<p class="right"><b>Club_ID</b>   '+str(SJSU_clubs[INDEX][0])+ '</p>'
+    message += '<p class="right"><b>President</b>   '+str(SJSU_clubs[INDEX][9])+'</p>'
+    message += '<p class="right"><b>Membership Fee</b>   $'+str(SJSU_clubs[INDEX][6])+ '</p>'
+    message += '<p class="right"><b>Fee required to participate?</b>   '+yesORno(SJSU_clubs[INDEX][7])+ '</p>'
+    message += '<p class="right"><b>Rating</b>   '+str(SJSU_clubs[INDEX][4])+ '</p>'
+    message += '<p class="right" id="bottom"><b>Number of Reviews</b>   '+str(SJSU_clubs[INDEX][5])+ '</p></td>'
+    
+   
+    return header2+message+footer2
 
