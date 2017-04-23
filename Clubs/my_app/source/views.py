@@ -115,7 +115,7 @@ body {
 #fixedBar {
         height: 150px;
         color: #3072AD;
-        background-color: #EAB010;
+        background-color: yellow;
         margin: 0;
         text-align: center;        
 }
@@ -149,13 +149,15 @@ div.clear {
     height: 400px;
     width: 100%;
     margin: 0;
+    background-size:100% 100%;
+    background-repeat:no-repeat;
 }
 
 #info {
     width: 100%;
     height: 200px;
     text-align: center;
-    background-color: grey;
+    background-color: yellow;
     padding: 100px 0px 0px 0px;
     font-size: 110%;
 }
@@ -164,9 +166,9 @@ div.clear {
 table, th, td {
     border-style: outset;
     border-collapse: collapse;
-    padding-left: 10px;
-    padding-right: 10px;
-    background-color: #e3e3e7; 
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: white;
 }
 
 th {
@@ -190,10 +192,11 @@ th {
         </div>
         
         <div class="clear"> </div>
-    
-        <h1 id="title"> Spartan Organizations </h1>
+
+
+        <h1 id="title"><font face="Palatino Linotype"> Spartan Organizations</font></h1>
         
-        <div id="home"><a href="http://127.0.0.1:5000/">Homepage</a></div>
+        <body link="yellow"><div id="home"><a href="http://127.0.0.1:5000/">Homepage</a></div></body>
 
 </div>
 
@@ -201,10 +204,10 @@ th {
 
 
 <div id="info">
-<p>Welcome to Student Involvement! Your home for Fraternity & Sorority Life, 
+<p><font face="Georgia"><b>Welcome to Student Involvement! Your home for Fraternity & Sorority Life,
 Student Organziations, Campus Programming & Leadership! </p>
 <p> With over 400 student organizations at SJSU, getting involved is the best 
-way to connect with campus life! </p>
+way to connect with campus life! </font></b></p>
 </div>
 
 <table style="width:100%">
@@ -247,6 +250,7 @@ way to connect with campus life! </p>
 #-------------------- Show Key Handler --------------------
 #Parameters: Key, integer
 @app.route('/show/<key>') #Ways to control the parameter
+# IMAGES HAVE BEEN ADDED TO THE FIRST 15 ITEMS IN THE TABLE ONLY SO FAR
 def get_message(key):
     
     total = int(key)
@@ -270,6 +274,8 @@ def get_message(key):
                     height: 535px;
                     width: 100%;
                     margin: 0;
+                    background-size:100% 100%;
+                    background-repeat:no-repeat;
                     text-align: center;
                     font-size: 1.3em;
             }
@@ -347,8 +353,8 @@ def get_message(key):
             <div id="club_name">
         
             <div id="image2"> 
-                <div id="list"> <a href="http://127.0.0.1:5000/showall"> List </a> </div>
-                <div id="home2"> <a href="http://127.0.0.1:5000/"> Homepage </a> </div>
+                <div id="list"><a href="http://127.0.0.1:5000/showall"> List </a> </div>
+                <div id="home2"><a href="http://127.0.0.1:5000/"> Homepage </a> </div>
             </div>   
         """
     
@@ -362,14 +368,13 @@ def get_message(key):
     message += '<td><img src="'+str(SJSU_clubs[INDEX][10])+'"style="width:220px;height:326px" id="logo2"></td>'
     message += '<td valign="top"><p id="descrip">'+str(SJSU_clubs[INDEX][8])+'</p>'
     message += '<br>'
-    message += '<p class="right"><b>Organization name</b>   '+str(SJSU_clubs[INDEX][1])+'</p>'
-    message += '<p class="right"><b>Classification</b>   ' +str(SJSU_clubs[INDEX][2])+ '</p>'
-    message += '<p class="right"><b>Location</b>   '+str(SJSU_clubs[INDEX][3])+ '</p>'
-    message += '<p class="right"><b>Club_ID</b>   '+str(SJSU_clubs[INDEX][0])+ '</p>'
-    message += '<p class="right"><b>President</b>   '+str(SJSU_clubs[INDEX][9])+'</p>'
-    message += '<p class="right"><b>Membership Fee</b>   $'+str(SJSU_clubs[INDEX][6])+ '</p>'
-    message += '<p class="right"><b>Fee required to participate?</b>   '+yesORno(SJSU_clubs[INDEX][7])+ '</p>'
-    message += '<p class="right"><b>Rating</b>   '+str(SJSU_clubs[INDEX][4])+ '</p>'
+    message += '<p class="right"><b>Organization Name:</b>   '+str(SJSU_clubs[INDEX][1])+'</p>'
+    message += '<p class="right"><b>Classification:</b>   ' +str(SJSU_clubs[INDEX][2])+ '</p>'
+    message += '<p class="right"><b>Location:</b>   '+str(SJSU_clubs[INDEX][3])+ '</p>'
+    message += '<p class="right"><b>President:</b>   '+str(SJSU_clubs[INDEX][9])+'</p>'
+    message += '<p class="right"><b>Membership Fee:</b>   $'+str(SJSU_clubs[INDEX][6])+ '</p>'
+    message += '<p class="right"><b>Fee required to join?</b>   '+yesORno(SJSU_clubs[INDEX][7])+ '</p>'
+    message += '<p class="right"><b>Rating:</b>   '+str(SJSU_clubs[INDEX][4])+ '</p>'
     message += '<p class="right" id="bottom"><b>Number of Reviews</b>   '+str(SJSU_clubs[INDEX][5])+ '</p></td>'
     
    
