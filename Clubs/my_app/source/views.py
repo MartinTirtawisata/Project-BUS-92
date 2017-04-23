@@ -37,6 +37,15 @@ def homePage():
         border: 1px solid black;
     }
     
+    table {
+            float: right;
+            color: navy;
+    }
+    
+    th {
+            text-align: left;
+    }
+    
     #mainImage {
         background-image: url("https://c1.staticflickr.com/6/5290/5265285009_cc99c82221_b.jpg"); 
         background-size: 100%;
@@ -92,7 +101,7 @@ def homePage():
      }
     
      a:hover {
-        color: #EAB010;
+        color: #3072AD;
      }
         
      a:active {
@@ -139,6 +148,17 @@ def homePage():
     <div id="mainImage"> </div>
 
     <div id="image4"> </div>
+    
+    <div id="names"> 
+        <table>
+            <tr> <th>Developers</th> </tr>
+            <tr> <td>Carlos Quirarte</td> </tr>
+            <tr> <td>Sean Scudellari</td> </tr>
+            <tr> <td>Martin Tirtawisata</td> </tr>
+        </table>
+    </div>
+    
+    
     
 </body>
 
