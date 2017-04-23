@@ -5,89 +5,142 @@ from my_app.source.models import SJSU_clubs
 @app.route('/home')
 def homePage():
     return """
-<head>
+<title>Homepage</title>
+<body>
+    <head>
 <title> SJSU Clubs Homepage </title>
 
 
 
-<!--BACKGROUND IMAGE-->
-
 <style>
-body {background-image: url("https://c1.staticflickr.com/6/5290/5265285009_cc99c82221_b.jpg"); 
-      background-size:100% 100%;
-      background-repeat:no-repeat;
-}
-h1   {color:rgb(255,215,0) ;text-align:center}
-p    {color: red;}
+    
+    
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    
+    #firstBar {
+        height: 115px;
+        background-color: #EAB010;
+        text-align: center;
+    }
+    
+    h1  {
+        color: #3072AD ;
+        font-size: 240%;
+    
+    }
+    
+    p {
+        font-size: 1.4em;
+        border: 1px solid black;
+    }
+    
+    #mainImage {
+        background-image: url("https://c1.staticflickr.com/6/5290/5265285009_cc99c82221_b.jpg"); 
+        background-size: 100%;
+        background-repeat: no-repeat;
+        height: 900px;
+        margin: 0;
+    }
+    
+    #moreInfo {
+        margin: 0;
+    }
+    
+    #SJSU_link1 {
+        float: left;
+        padding-left: 20px;
+        padding-top: 20px;
+    }
+    #SJSU_link2 {
+        
+        float:left;
+        position: relative;
+        top: 60px;
+        left: -90px;
+    }
+    
+    #title {
+        padding-right: 245px;
+        padding-top: 10px;
+        margin: 0;
+    }
+    
+    #title2 {
+        margin: 0;
+        padding-bottom: 0px;
+    }
+    
+    #image4 {
+        height: 500px;
+        background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/2/27/San_Jose_State_Spartans_Logo.svg/996px-San_Jose_State_Spartans_Logo.svg.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 35%;
+    }
+    
+     a:link {
+        color: black; 
+        text-decoration: none;
+     }
+            
+     a:visited {
+        text-decoration: none;
+        color: none;
+     }
+    
+     a:hover {
+        color: #EAB010;
+     }
+        
+     a:active {
+        color: yellow;
+     } 
+     
+    #logo2div {
+        float: right;
+        
+        position: relative;
+        top: -174px;
+    }
+    
+    #logo2 {
+        height: 116px
+    }
+    
+ 
+    
+    
 </style>
-</head>
+        
+<body>
+    
+    <div id="firstBar">   
+        
+        <div id="SJSU_link1"> 
+            <a href="http://www.sjsu.edu/"> SJSU Website </a> 
+        </div>
+        <div id="SJSU_link2">
+            <a href="http://127.0.0.1:5000/showall"> List All Organizations</a>
+        </div>
+    
+        <h1 id="title"> San Jose State University </h1>
+        <h1 id="title2"> Organizations </h1>
+        
+        <p>An easy to use database to search for clubs & organizations on campus</p>
+        <div id="logo2div"> 
+            <img src="http://www.books-not-bombs.com/content/images/schools/sjsu.png" id="logo2">
+        </div>
+    
+    </div>
+    
+    <div id="mainImage"> </div>
 
-
-
-<!--HEADER TEXTS-->
-
-<font face="Palatino Linotype">
-<h1 style="color:yellow;">San Jose State Clubs & Organizations</h1>
-</font>
-
-<center>
-<p><font size="5" color="blue" font face="Georgia">An easy to use database to search for clubs & organizations on campus</font></p>
-
-<p><b><font size="4" color="red" font face="Trebuchet MS">Click below to search for a club that interests you</font></b></p>
-</center>
-
-<hr>
-
-
-
-<!--DEVELOPERS/SJSU LINKS-->
-
-<body link="yellow">
-<font face="Verdana">
-<p style="text-align:left">
-<a href="http://www.sjsu.edu/"> SJSU Website</a>
-</p>
+    <div id="image4"> </div>
+    
 </body>
-
-<body link="yellow">
-<p style="text-align:left">
-<a href="http://127.0.0.1:5000/developers"> Developers</a>
-</p>
-</font>
-</body>
-
-
-
-<!--MIDDLE IMAGE-->
-
-<center><img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/27/San_Jose_State_Spartans_Logo.svg/996px-San_Jose_State_Spartans_Logo.svg.png" alt="Spartan Logo" style="width:193px;height:193x;" align="bottom"></center>
-
-
-
-<!--SHOW ALL CLUBS LINK-->
-
-<body link="yellow">
-<font size="25">
-<p style="text-align:center">
-<a href="http://127.0.0.1:5000/showall"> SHOW ALL SJSU CLUBS</a>
-</p>
-</font>
-</body>
-
-
-
-<!--BOTTOM RIGHT IMAGE-->
-
-<div>
-<img src="http://www.books-not-bombs.com/content/images/schools/sjsu.png"
-style=
-"position:absolute;
-float:right;
-right:0px;
-bottom:0px;
-width:120px;
-height:120px;">
-</div>
 
 """
 
@@ -115,7 +168,7 @@ body {
 #fixedBar {
         height: 150px;
         color: #3072AD;
-        background-color: yellow;
+        background-color: #EAB010;
         margin: 0;
         text-align: center;        
 }
@@ -155,11 +208,12 @@ div.clear {
 
 #info {
     width: 100%;
-    height: 200px;
+    height: 150px;
     text-align: center;
-    background-color: yellow;
-    padding: 100px 0px 0px 0px;
+    background-color: #EAB010;
     font-size: 110%;
+    margin: 0;
+    padding: 32px 0 0 0;
 }
 
 
@@ -182,7 +236,7 @@ th {
 
 <body>
 
-<div id="container">
+
 
 
     <div id="fixedBar">
@@ -198,17 +252,15 @@ th {
         
         <body link="yellow"><div id="home"><a href="http://127.0.0.1:5000/">Homepage</a></div></body>
 
-</div>
-
     <div id="image"> </div>
 
 
-<div id="info">
-<p><font face="Georgia"><b>Welcome to Student Involvement! Your home for Fraternity & Sorority Life,
-Student Organziations, Campus Programming & Leadership! </p>
-<p> With over 400 student organizations at SJSU, getting involved is the best 
-way to connect with campus life! </font></b></p>
-</div>
+    <div id="info">
+        <p><font face="Georgia"><b>Welcome to Student Involvement! Your home for Fraternity & Sorority Life,
+            Student Organziations, Campus Programming & Leadership! </p>
+        <p> With over 400 student organizations at SJSU, getting involved is the best 
+            way to connect with campus life! </font></b></p>
+    </div>
 
 <table style="width:100%">
   <caption><h1>San Jose State Clubs and Organizations</h1></caption>
@@ -218,6 +270,7 @@ way to connect with campus life! </font></b></p>
     <th>Organization Name</th>
     <th>Classification</th>
     <th>Location</th>
+    <th>President</th>
     <th>Rating</th>
     <th>Number of Reviews</th> 
     <th>Membership Cost</th>
@@ -238,6 +291,7 @@ way to connect with campus life! </font></b></p>
                        '<td align="center">'+str(item[1])+'</td>'+\
                        '<td align="center">'+str(item[2])+'</td>'+\
                        '<td align="middle">'+str(item[3])+'</td>'+\
+                       '<td align="middle">'+str(item[9])+'</td>'+\
                        '<td align="middle">'+str(item[4])+'</td>'+\
                        '<td align="middle">'+str(item[5])+'</td>'+\
                        '<td align="middle">'+str(item[6])+'</td>'+\
@@ -267,6 +321,7 @@ def get_message(key):
             body {
                     margin: 0;
                     padding: 0;
+                    background-color: #E3E3E5;
             }        
         
             #image2 {
