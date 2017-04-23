@@ -129,7 +129,7 @@ def homePage():
         <h1 id="title"> San Jose State University </h1>
         <h1 id="title2"> Organizations </h1>
         
-        <p>An easy to use database to search for clubs & organizations on campus</p>
+        <p>An easy to use database to search for clubs & organizations on and off campus</p>
         <div id="logo2div"> 
             <img src="http://www.books-not-bombs.com/content/images/schools/sjsu.png" id="logo2">
         </div>
