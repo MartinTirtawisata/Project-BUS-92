@@ -147,7 +147,7 @@ def homePage():
             <a href="http://www.sjsu.edu/"> SJSU Website </a> 
         </div>
         <div id="SJSU_link2">
-            <a href="http://127.0.0.1:5000/showall"> List All Organizations</a>
+            <a href="http://127.0.0.1:5000/showall"> List Of All Organizations</a>
         </div>
         <div id="SJSU_link3">
             <a href="http://www.sjsu.edu/getinvolved/studentorgs/new/"> Get Involved </a>
@@ -468,7 +468,7 @@ def get_message(key):
     message += '<p class="right"><b>Membership Fee:</b>   $'+str(SJSU_clubs[INDEX][6])+ '</p>'
     message += '<p class="right"><b>Fee required to join?</b>   '+yesORno(SJSU_clubs[INDEX][7])+ '</p>'
     message += '<p class="right"><b>Rating:</b>   '+str(SJSU_clubs[INDEX][4])+ '</p>'
-    message += '<p class="right" id="bottom"><b>Number of Reviews</b>   '+str(SJSU_clubs[INDEX][5])+ '</p></td>'
+    message += '<p class="right" id="bottom"><b>Number of Reviews:</b>   '+str(SJSU_clubs[INDEX][5])+ '</p></td>'
     
    
     return header2+message+footer2
