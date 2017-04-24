@@ -44,6 +44,11 @@ def homePage():
     
     th {
             text-align: left;
+            font-size: 1.2em;
+    }
+    
+    td {
+            font-family: "Courier New";
     }
     
     #mainImage {
@@ -61,18 +66,25 @@ def homePage():
     #SJSU_link1 {
         float: left;
         padding-left: 20px;
-        padding-top: 20px;
+        padding-top: 15px;
     }
     #SJSU_link2 {
         
         float:left;
         position: relative;
-        top: 60px;
+        top: 47px;
         left: -90px;
     }
     
+    #SJSU_link3 {
+        float:left;
+        position: relative;
+        top: 80px;
+        left: -232px;
+    }
+    
     #title {
-        padding-right: 245px;
+        padding-right: 320px;
         padding-top: 10px;
         margin: 0;
     }
@@ -81,6 +93,7 @@ def homePage():
         margin: 0;
         padding-bottom: 0px;
     }
+
     
     #image4 {
         height: 500px;
@@ -97,7 +110,7 @@ def homePage():
             
      a:visited {
         text-decoration: none;
-        color: none;
+        color: black;
      }
     
      a:hover {
@@ -119,6 +132,8 @@ def homePage():
         height: 116px
     }
     
+    
+    
  
     
     
@@ -133,6 +148,9 @@ def homePage():
         </div>
         <div id="SJSU_link2">
             <a href="http://127.0.0.1:5000/showall"> List All Organizations</a>
+        </div>
+        <div id="SJSU_link3">
+            <a href="http://www.sjsu.edu/getinvolved/studentorgs/new/"> Get Involved </a>
         </div>
     
         <h1 id="title"> San Jose State University </h1>
