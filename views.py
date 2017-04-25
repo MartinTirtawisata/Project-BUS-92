@@ -204,134 +204,134 @@ def print_table(SJSU_Organizations):
 
 
     header = """
-<head>
-<title>List of Clubs</title>
-<style>
+            <head>
+            <title>List of Clubs</title>
+            <style>
 
-body {
-        margin: 0;
-        padding: 0;
-}
-
-
-
-#fixedBar {
-        height: 150px;
-        color: #3072AD;
-        background-color: #EAB010;
-        margin: 0;
-        text-align: center;        
-}
-
-#logo {
-        position: absolute;
-        padding-left: 5px; 
-        padding-top: 8px;
-        overflow: auto;
-}
-
-#home {
-        padding-right: 25px;
-        position: absolute;   
-        top: 10px;
-        right: 1px;
-}
-
-#title {
-        font-size: 340%;
-        padding-top: 40px;
-        font-family: "Times New Roman", Times, serif;
-}
-
-div.clear {
-        float: clear;
-}
-
-#image {
-    background-image: url("http://www.mtmary.edu/_images/_main/interior-clubs-orgs-026.jpg");
-    height: 400px;
-    width: 100%;
-    margin: 0;
-    background-size:100% 100%;
-    background-repeat:no-repeat;
-}
-
-#info {
-    width: 100%;
-    height: 150px;
-    text-align: center;
-    background-color: #EAB010;
-    font-size: 110%;
-    margin: 0;
-    padding: 32px 0 0 0;
-}
-
-
-table, th, td {
-    border-style: outset;
-    border-collapse: collapse;
-    padding-left: 5px;
-    padding-right: 5px;
-    background-color: white;
-}
-
-th {
-    padding: 5px;
-    text-align: center;
-    color: blue;
-}
-
-</style>
-</head>
-
-<body>
+            body {
+                    margin: 0;
+                    padding: 0;
+            }
 
 
 
+            #fixedBar {
+                    height: 150px;
+                    color: #3072AD;
+                    background-color: #EAB010;
+                    margin: 0;
+                    text-align: center;
+            }
 
-    <div id="fixedBar">
+            #logo {
+                    position: absolute;
+                    padding-left: 5px;
+                    padding-top: 8px;
+                    overflow: auto;
+            }
 
-        <div id="logo">
-            <img src="http://www.books-not-bombs.com/content/images/schools/sjsu.png" style="width:200px; height:130px" />
-        </div>
-        
-        <div class="clear"> </div>
+            #home {
+                    padding-right: 25px;
+                    position: absolute;
+                    top: 10px;
+                    right: 1px;
+            }
+
+            #title {
+                    font-size: 340%;
+                    padding-top: 40px;
+                    font-family: "Times New Roman", Times, serif;
+            }
+
+            div.clear {
+                    float: clear;
+            }
+
+            #image {
+                background-image: url("http://www.mtmary.edu/_images/_main/interior-clubs-orgs-026.jpg");
+                height: 400px;
+                width: 100%;
+                margin: 0;
+                background-size:100% 100%;
+                background-repeat:no-repeat;
+            }
+
+            #info {
+                width: 100%;
+                height: 150px;
+                text-align: center;
+                background-color: #EAB010;
+                font-size: 110%;
+                margin: 0;
+                padding: 32px 0 0 0;
+            }
 
 
-        <h1 id="title"><font face="Palatino Linotype"> Spartan Organizations</font></h1>
-        
-        <body link="yellow"><div id="home"><a href="http://127.0.0.1:5000/">Homepage</a></div></body>
+            table, th, td {
+                border-style: outset;
+                border-collapse: collapse;
+                padding-left: 5px;
+                padding-right: 5px;
+                background-color: white;
+            }
 
-    <div id="image"> </div>
+            th {
+                padding: 5px;
+                text-align: center;
+                color: blue;
+            }
+
+            </style>
+            </head>
+
+            <body>
 
 
-    <div id="info">
-        <p><font face="Georgia"><b>Welcome to Student Involvement! Your home for Fraternity & Sorority Life,
-            Student Organziations, Campus Programming & Leadership! </p>
-        <p> With over 400 student organizations at SJSU, getting involved is the best 
-            way to connect with campus life! </font></b></p>
-    </div>
 
-<table style="width:100%">
-  <caption><h1>San Jose State Clubs and Organizations</h1></caption>
-   
-  <tr>
-    <th>Club ID</th>
-    <th>Organization Name</th>
-    <th>President</th>
-    <th>Location</th>
-    <th>Category</th>
-    <th>Rating</th>
-    <th>Number Of Reviews</th>
-    <th>Payment Required</th>
-    <th>Membership Cost</th>
-  </tr>
-  
-</div>  
-    """
+
+                <div id="fixedBar">
+
+                    <div id="logo">
+                        <img src="http://www.books-not-bombs.com/content/images/schools/sjsu.png" style="width:200px; height:130px" />
+                    </div>
+
+                    <div class="clear"> </div>
+
+
+                    <h1 id="title"><font face="Palatino Linotype"> Spartan Organizations</font></h1>
+
+                    <body link="yellow"><div id="home"><a href="http://127.0.0.1:5000/">Homepage</a></div></body>
+
+                <div id="image"> </div>
+
+
+                <div id="info">
+                    <p><font face="Georgia"><b>Welcome to Student Involvement! Your home for Fraternity & Sorority Life,
+                        Student Organziations, Campus Programming & Leadership! </p>
+                    <p> With over 400 student organizations at SJSU, getting involved is the best
+                        way to connect with campus life! </font></b></p>
+                </div>
+
+            <table style="width:100%">
+              <caption><h1>San Jose State Clubs and Organizations</h1></caption>
+
+              <tr>
+                <th>Club ID</th>
+                <th>Organization Name</th>
+                <th>President</th>
+                <th>Location</th>
+                <th>Category</th>
+                <th>Rating</th>
+                <th>Number Of Reviews</th>
+                <th>Payment Required</th>
+                <th>Membership Cost</th>
+              </tr>
+
+            </div>
+                """
     
     footer = """
-</table></body>
+    </table></body>
     """
     message_out = ''
 
