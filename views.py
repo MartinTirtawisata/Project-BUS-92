@@ -1,5 +1,7 @@
-from my_app import app
-from my_app.source.models import SJSU_clubs
+from flask import request, Blueprint
+from my_app.source.models import cursor
+
+app = Blueprint('app', __name__)
 #-------------------- Home Page Handler --------------------
 @app.route('/')
 @app.route('/home')
@@ -329,7 +331,7 @@ def print_table(SJSU_Organizations):
 
             </div>
                 """
-    
+
     footer = """
     </table></body>
     """
@@ -349,7 +351,7 @@ def print_table(SJSU_Organizations):
                        '<td align="middle">'+yesORno((item[PAYMENT_REQUIRED]))+'</td>' +\
                        '<td align="middle">'+str(item[MEMBERSHIP_COST]) + '</td>'+'</tr>'
         key += 1
-        
+
     return (header+message_out+footer)
 
 def organizations():
