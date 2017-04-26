@@ -125,7 +125,7 @@ def homePage():
         float: right;
         
         position: relative;
-        top: -174px;
+        top: -225px;
     }
     
     #logo2 {
@@ -147,7 +147,7 @@ def homePage():
             <a href="http://www.sjsu.edu/"> SJSU Website </a> 
         </div>
         <div id="SJSU_link2">
-            <a href="http://127.0.0.1:5000/showall"> List All Organizations</a>
+            <a href="http://127.0.0.1:5000/showall"> List Of All Organizations</a>
         </div>
         <div id="SJSU_link3">
             <a href="http://www.sjsu.edu/getinvolved/studentorgs/new/"> Get Involved </a>
@@ -156,7 +156,8 @@ def homePage():
         <h1 id="title"> San Jose State University </h1>
         <h1 id="title2"> Organizations </h1>
         
-        <p>An easy to use database to search for clubs & organizations on and off campus</p>
+        <p>Welcome to the SJSU Organizations Directory!</p>
+        <p>A simple way to navigate and find the clubs that is suitable for you!</p>
         <div id="logo2div"> 
             <img src="http://www.books-not-bombs.com/content/images/schools/sjsu.png" id="logo2">
         </div>
@@ -438,6 +439,7 @@ def get_message(key):
             a:active {
                     color: yellow;
             } 
+           
         
         </style>
         </head>
@@ -469,7 +471,136 @@ def get_message(key):
     message += '<p class="right"><b>Fee required to join?</b>   '+yesORno(SJSU_clubs[INDEX][7])+ '</p>'
     message += '<p class="right"><b>Rating:</b>   '+str(SJSU_clubs[INDEX][4])+ '</p>'
     message += '<p class="right" id="bottom"><b>Number of Reviews</b>   '+str(SJSU_clubs[INDEX][5])+ '</p></td>'
+    message += '<a class="right" id="bottom" href="http://127.0.0.1:5000/show/review"> Leave a review </a>'
     
    
     return header2+message+footer2
 
+#--------------- Review Handler ------------------#
+#Parameters: Key
+@app.route ('/show/review')
+
+def show_review():
+    return """
+<html>
+<title>Review Page</title>
+
+<style>
+    
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #E3E3E5;
+    } 
+    #firstBar {
+        height: 115px;
+        background-color: #EAB010;
+        text-align: center;
+    }
+    h1 {
+        color: #3072AD;
+        font-size: 240%;
+        text-align:center;
+        padding-top:30px;
+    }
+    
+    p.thick {
+        color: #3072AD;
+        font-family: "Times New Roman",Times,Serif;
+        font-size: 1.5em; 
+        font-weight:bold;
+        margin-left:0px;
+    }
+    p {
+        font-family: "Times New Roman",Times,Serif;
+        font-size: 1em;
+        font-weight: normal;
+    }
+    p.outset {
+            border-style: outset;
+            border-color: #EAB010 #3072AD #EAB010 #3072AD;
+            margin-left:300px;
+            margin-right:850px;
+    }
+    pre {
+        font-family: "Times New Roman",Times,Serif;
+        font-size:1em;
+        font-weight: normal;
+        margin-left:0px;
+        text-color:#3072AD;
+    }
+    #logo2div {
+            float:right;  
+            position: relative;
+            top: -102px;
+    }
+    
+    #logo2 {
+            height:116px;
+    }
+    input[type=text], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+    }
+
+    input[type=submit] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+            background-color: #45a049;
+    }
+
+    div {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+    }
+</style>
+
+<body>
+
+    <div id="firstBar">
+        <h1> Review Page </h1>
+        <div id="logo2div"> 
+            <img src="http://www.books-not-bombs.com/content/images/schools/sjsu.png" id="logo2">
+        </div>
+        <br>
+    </div>
+    <p class="thick"> Guidelines for writing a review </p>
+    <pre>         - Why did you join?
+         - What was the benefit?
+         - Was the club members friendly?
+         - How is the club?
+    </pre>
+    <p class="outset"> Please tell us your thoughts about the club </p>
+    <div>
+        <form action="/action_page.php">
+            <label for="orgname">Organization Name</label>
+            <select id="orgname"> name="orgname">
+                <option value="MISA"> Management Information System Association</option>
+                <option value="MA"> Marketing Association</option>
+                <option value="FMA"> Financial Management Association </option>
+                <option value="LBSA"> Latino Busuiness Student Association</option>
+            </select>
+            <label for="userreview">Your Review</label>
+            <input type="text" id="userreview" name="userreview" placeholder="Write Your Review Here...">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
+
+"""
