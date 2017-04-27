@@ -1,7 +1,5 @@
-from flask import request, Blueprint
-from my_app.source.models import cursor
-
-app = Blueprint('app', __name__)
+from my_app import app
+from my_app.source.models import SJSU_clubs
 #-------------------- Home Page Handler --------------------
 @app.route('/')
 @app.route('/home')
@@ -133,7 +131,11 @@ def homePage():
     #logo2 {
         height: 116px
     }
-    
+    
+    
+    
+ 
+    
     
 </style>
         
@@ -189,202 +191,178 @@ def yesORno(boolean):
 
 #-------------------- Show All Handler --------------------
 @app.route('/showall')
-
-def print_table(SJSU_Organizations):
-    CLUB_ID = 0
-    ORGANIZATION_NAME = 1
-    PRESIDENT = 2
-    LOCATION = 3
-    CATEGORY = 4
-    RATING = 5
-    NUMBER_OF_REVIEWS = 6
-    PAYMENT_REQUIRED = 7
-    MEMBERSHIP_COST = 8
-
-
+def show_all():
     header = """
-            <head>
-            <title>List of Clubs</title>
-            <style>
+<head>
+<title>List of Clubs</title>
+<style>
 
-            body {
-                    margin: 0;
-                    padding: 0;
-            }
-
-
-
-            #fixedBar {
-                    height: 150px;
-                    color: #3072AD;
-                    background-color: #EAB010;
-                    margin: 0;
-                    text-align: center;
-            }
-
-            #logo {
-                    position: absolute;
-                    padding-left: 5px;
-                    padding-top: 8px;
-                    overflow: auto;
-            }
-
-            #home {
-                    padding-right: 25px;
-                    position: absolute;
-                    top: 10px;
-                    right: 1px;
-            }
-
-            #title {
-                    font-size: 340%;
-                    padding-top: 40px;
-                    font-family: "Times New Roman", Times, serif;
-            }
-
-            div.clear {
-                    float: clear;
-            }
-
-            #image {
-                background-image: url("http://www.mtmary.edu/_images/_main/interior-clubs-orgs-026.jpg");
-                height: 400px;
-                width: 100%;
-                margin: 0;
-                background-size:100% 100%;
-                background-repeat:no-repeat;
-            }
-
-            #info {
-                width: 100%;
-                height: 150px;
-                text-align: center;
-                background-color: #EAB010;
-                font-size: 110%;
-                margin: 0;
-                padding: 32px 0 0 0;
-            }
-
-
-            table, th, td {
-                border-style: outset;
-                border-collapse: collapse;
-                padding-left: 5px;
-                padding-right: 5px;
-                background-color: white;
-            }
-
-            th {
-                padding: 5px;
-                text-align: center;
-                color: blue;
-            }
-
-            </style>
-            </head>
-
-            <body>
+body {
+        margin: 0;
+        padding: 0;
+}
 
 
 
+#fixedBar {
+        height: 150px;
+        color: #3072AD;
+        background-color: #EAB010;
+        margin: 0;
+        text-align: center;        
+}
 
-                <div id="fixedBar">
+#logo {
+        position: absolute;
+        padding-left: 5px; 
+        padding-top: 8px;
+        overflow: auto;
+}
 
-                    <div id="logo">
-                        <img src="http://www.books-not-bombs.com/content/images/schools/sjsu.png" style="width:200px; height:130px" />
-                    </div>
+#home {
+        padding-right: 25px;
+        position: absolute;   
+        top: 10px;
+        right: 1px;
+}
 
-                    <div class="clear"> </div>
+#title {
+        font-size: 340%;
+        padding-top: 40px;
+        font-family: "Times New Roman", Times, serif;
+}
+
+div.clear {
+        float: clear;
+}
+
+#image {
+    background-image: url("http://www.mtmary.edu/_images/_main/interior-clubs-orgs-026.jpg");
+    height: 400px;
+    width: 100%;
+    margin: 0;
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+}
+
+#info {
+    width: 100%;
+    height: 150px;
+    text-align: center;
+    background-color: #EAB010;
+    font-size: 110%;
+    margin: 0;
+    padding: 32px 0 0 0;
+}
 
 
-                    <h1 id="title"><font face="Palatino Linotype"> Spartan Organizations</font></h1>
+table, th, td {
+    border-style: outset;
+    border-collapse: collapse;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: white;
+}
 
-                    <body link="yellow"><div id="home"><a href="http://127.0.0.1:5000/">Homepage</a></div></body>
+th {
+    padding: 5px;
+    text-align: center;
+    color: blue;
+}
 
-                <div id="image"> </div>
+</style>
+</head>
+
+<body>
 
 
-                <div id="info">
-                    <p><font face="Georgia"><b>Welcome to Student Involvement! Your home for Fraternity & Sorority Life,
-                        Student Organziations, Campus Programming & Leadership! </p>
-                    <p> With over 400 student organizations at SJSU, getting involved is the best
-                        way to connect with campus life! </font></b></p>
-                </div>
 
-            <table style="width:100%">
-              <caption><h1>San Jose State Clubs and Organizations</h1></caption>
 
-              <tr>
-                <th>Club ID</th>
-                <th>Organization Name</th>
-                <th>President</th>
-                <th>Location</th>
-                <th>Category</th>
-                <th>Rating</th>
-                <th>Number Of Reviews</th>
-                <th>Payment Required</th>
-                <th>Membership Cost</th>
-              </tr>
+    <div id="fixedBar">
 
-            </div>
-                """
+        <div id="logo">
+            <img src="http://www.books-not-bombs.com/content/images/schools/sjsu.png" style="width:200px; height:130px" />
+        </div>
+        
+        <div class="clear"> </div>
 
+
+        <h1 id="title"><font face="Palatino Linotype"> Spartan Organizations</font></h1>
+        
+        <body link="yellow"><div id="home"><a href="http://127.0.0.1:5000/">Homepage</a></div></body>
+
+    <div id="image"> </div>
+
+
+    <div id="info">
+        <p><font face="Georgia"><b>Welcome to Student Involvement! Your home for Fraternity & Sorority Life,
+            Student Organziations, Campus Programming & Leadership! </p>
+        <p> With over 400 student organizations at SJSU, getting involved is the best 
+            way to connect with campus life! </font></b></p>
+    </div>
+
+<table style="width:100%">
+  <caption><h1>San Jose State Clubs and Organizations</h1></caption>
+   
+  <tr>
+    <th>Club_ID</th>
+    <th>Organization Name</th>
+    <th>Classification</th>
+    <th>Location</th>
+    <th>President</th>
+    <th>Rating</th>
+    <th>Number of Reviews</th> 
+    <th>Membership Cost</th>
+    <th>Payment Required</th>
+  </tr>
+  
+</div>  
+    """
+    
     footer = """
-    </table></body>
+</table></body>
     """
     message_out = ''
 
-    key = 0
-    for item in SJSU_Organizations:
+    for item in SJSU_clubs:
         message_out += '<tr>'+\
-                       '<td align="center">'+str(item[CLUB_ID])+'</td>'+\
-                       '<td align="center">'+str(item[ORGANIZATION_NAME])+'</td>'+\
-                       '<td align="center">'+str(item[PRESIDENT])+'</td>'+\
-                       '<td align="middle">'+str(item[LOCATION])+'</td>'+\
-                       '<td align="middle">'+str(item[CATEGORY])+'</td>'+\
-                       '<td align="middle">'+str(item[RATING])+'</td>'+\
-                       '<td align="middle">'+str(item[NUMBER_OF_REVIEWS])+'</td>'+\
-                       '<td align="middle">'+str(item[MEMBERSHIP_COST])+'</td>'+\
-                       '<td align="middle">'+yesORno((item[PAYMENT_REQUIRED]))+'</td>' +\
-                       '<td align="middle">'+str(item[MEMBERSHIP_COST]) + '</td>'+'</tr>'
-        key += 1
-
+                       '<td align="center">'+str(item[0])+'</td>'+\
+                       '<td align="center">'+str(item[1])+'</td>'+\
+                       '<td align="center">'+str(item[2])+'</td>'+\
+                       '<td align="middle">'+str(item[3])+'</td>'+\
+                       '<td align="middle">'+str(item[9])+'</td>'+\
+                       '<td align="middle">'+str(item[4])+'</td>'+\
+                       '<td align="middle">'+str(item[5])+'</td>'+\
+                       '<td align="middle">'+str(item[6])+'</td>'+\
+                       '<td align="middle">'+yesORno((item[7]))+'</td>'+'</tr>'
+        
     return (header+message_out+footer)
-
-def organizations():
-    command = """SELECT {a}.club_id, {a}.organization_name, {a}.president, {a}.location, {b}.category, {a}.rating, {a}.number_of_reviews, {a}.payment_required, {a}.membership_cost
-                      FROM {a} join {b} ON {a}.category_id = {b}.category_id
-        """.format(a="organizations", b='category')
-    cursor.execute(command)
-    organization_data = cursor.fetchall()
-
-    return (print_table(organization_data))
 
 
 
 #-------------------- Show Key Handler --------------------
 #Parameters: Key, integer
 @app.route('/show/<key>') #Ways to control the parameter
-
+# IMAGES HAVE BEEN ADDED TO THE FIRST 15 ITEMS IN THE TABLE ONLY SO FAR
 def get_message(key):
-
+    
     total = int(key)
     INDEX = (total - 1)
-
+    
     if total >= len(SJSU_clubs):
-        return "The key "+ key + " was not found"
-
+        return "The key "+ key + " was not found" 
+    
     header2 = """
-
+    
         <head>
         <style>
-
+        
             body {
                     margin: 0;
                     padding: 0;
                     background-color: #E3E3E5;
-            }
-
+            }        
+        
             #image2 {
                     background-image: url("http://www.pressdemocrat.com/csp/mediapool/sites/dt.common.streams.StreamServer.cls?STREAMOID=1Q_PpZ$$ef91sZ23ohmJAc$daE2N3K4ZzOUsqbU5sYshvOQ8ctBOtI8vYy4xeVFrWCsjLu883Ygn4B49Lvm9bPe2QeMKQdVeZmXF$9l$4uCZ8QDXhaHEp3rvzXRJFdy0KqPHLoMevcTLo3h8xh70Y6N_U_CryOsw6FTOdKL_jpQ-&CONTENTTYPE=image/jpeg");
                     height: 535px;
@@ -395,24 +373,24 @@ def get_message(key):
                     text-align: center;
                     font-size: 1.3em;
             }
-
+            
             #descrip {
                     font-size: 1.5em;
                     text-align: center;
                     padding-top: 20px;
             }
-
+            
             #logo2 {
                     margin: auto;
                     display: block;
             }
-
-
+            
+            
 
             table td {
                     border-right: 2px solid #EAB010;
             }
-
+    
             table td:first-child {
                     border-left: none;
             }
@@ -420,34 +398,34 @@ def get_message(key):
             table td:last-child {
                     border-right: none;
             }
-
+            
             p.right {
                     padding-left: 20px;
             }
-
+            
             #filler {
                     height: 150px;
             }
-
+            
             #bottom {
                     padding-bottom: 25px;
             }
-
+            
             #list {
                     display: inline-block;
                     margin-right: 10px;
-
+                    
             }
-
+            
             #home2 {
                     display: inline-block;
             }
-
+            
             a:link {
                     color: black;
                     text-decoration: none;
             }
-
+            
             a:visited {
                     text-decorator: none;
             }
@@ -456,37 +434,32 @@ def get_message(key):
             a:hover {
                     color: #EAB010;
             }
-
+            
 
             a:active {
                     color: yellow;
-<<<<<<< HEAD
-            }
-
-=======
             } 
            
         
->>>>>>> master
         </style>
         </head>
-        <body>
-
+        <body>  
+        
             <div id="club_name">
-
-            <div id="image2">
+        
+            <div id="image2"> 
                 <div id="list"><a href="http://127.0.0.1:5000/showall"> List </a> </div>
                 <div id="home2"><a href="http://127.0.0.1:5000/"> Homepage </a> </div>
-            </div>
+            </div>   
         """
-
+    
     footer2 = """
         </body> """
+     
 
 
 
-
-    message = '<table><col width="315">'
+    message = '<table><col width="315">'   
     message += '<td><img src="'+str(SJSU_clubs[INDEX][10])+'"style="width:220px;height:326px" id="logo2"></td>'
     message += '<td valign="top"><p id="descrip">'+str(SJSU_clubs[INDEX][8])+'</p>'
     message += '<br>'
@@ -498,14 +471,9 @@ def get_message(key):
     message += '<p class="right"><b>Fee required to join?</b>   '+yesORno(SJSU_clubs[INDEX][7])+ '</p>'
     message += '<p class="right"><b>Rating:</b>   '+str(SJSU_clubs[INDEX][4])+ '</p>'
     message += '<p class="right" id="bottom"><b>Number of Reviews</b>   '+str(SJSU_clubs[INDEX][5])+ '</p></td>'
-<<<<<<< HEAD
-
-
-=======
     message += '<a class="right" id="bottom" href="http://127.0.0.1:5000/show/review"> Leave a review </a>'
     
    
->>>>>>> master
     return header2+message+footer2
 
 #--------------- Review Handler ------------------#

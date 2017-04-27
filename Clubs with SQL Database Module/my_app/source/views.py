@@ -1,195 +1,46 @@
 from flask import request, Blueprint
 from my_app.source.models import cursor
 
-app = Blueprint('app', __name__)
-#-------------------- Home Page Handler --------------------
-@app.route('/')
-@app.route('/home')
-def homePage():
-    return """
-<title>Homepage</title>
-<body>
-    <head>
-<title> SJSU Clubs Homepage </title>
+my_app = Blueprint('app', __name__)
 
+'''
+Possible Ideas to make website better
+#Homepage
+1) Include a search function for what club is the user looking for - we could put auto completion on this (what nikaila did)
+2) Leave a review link
+3) Align the links so it's horizontal
+4) #Maybe include most popular clubs with image
 
+#Showall
+1) Maybe reduce the columns to make it more specific, so people will have a reason to view each club individually
+2) Give background color
+3) Maybe the pictures could be animated OR carosel format (Changes every few seconds)
 
-<style>
-    
-    
-    body {
-        margin: 0;
-        padding: 0;
-    }
-    
-    #firstBar {
-        height: 115px;
-        background-color: #EAB010;
-        text-align: center;
-    }
-    
-    h1  {
-        color: #3072AD ;
-        font-size: 240%;
-    
-    }
-    
-    p {
-        font-size: 1.4em;
-        border: 1px solid black;
-    }
-    
-    table {
-            float: right;
-            color: navy;
-    }
-    
-    th {
-            text-align: left;
-            font-size: 1.2em;
-    }
-    
-    td {
-            font-family: "Courier New";
-    }
-    
-    #mainImage {
-        background-image: url("https://c1.staticflickr.com/6/5290/5265285009_cc99c82221_b.jpg"); 
-        background-size: 100%;
-        background-repeat: no-repeat;
-        height: 900px;
-        margin: 0;
-    }
-    
-    #moreInfo {
-        margin: 0;
-    }
-    
-    #SJSU_link1 {
-        float: left;
-        padding-left: 20px;
-        padding-top: 15px;
-    }
-    #SJSU_link2 {
-        
-        float:left;
-        position: relative;
-        top: 47px;
-        left: -90px;
-    }
-    
-    #SJSU_link3 {
-        float:left;
-        position: relative;
-        top: 80px;
-        left: -232px;
-    }
-    
-    #title {
-        padding-right: 320px;
-        padding-top: 10px;
-        margin: 0;
-    }
-    
-    #title2 {
-        margin: 0;
-        padding-bottom: 0px;
-    }
+#show/<key>
+1) Design it so it's the same with the others
+2) Main image should be their logo
+3) Add leave a review link; back to homepage; back to list link
+4) We should add photos of the club, taken from Facebook
+5) Add reviews at the bottom of the page
+6) Star rated if possible? below the image/logo
 
-    
-    #image4 {
-        height: 500px;
-        background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/2/27/San_Jose_State_Spartans_Logo.svg/996px-San_Jose_State_Spartans_Logo.svg.png");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 35%;
-    }
-    
-     a:link {
-        color: black; 
-        text-decoration: none;
-     }
-            
-     a:visited {
-        text-decoration: none;
-        color: black;
-     }
-    
-     a:hover {
-        color: #3072AD;
-     }
-        
-     a:active {
-        color: yellow;
-     } 
-     
-    #logo2div {
-        float: right;
-        
-        position: relative;
-        top: -225px;
-    }
-    
-    #logo2 {
-        height: 116px
-    }
-    
-    
-</style>
-        
-<body>
-    
-    <div id="firstBar">   
-        
-        <div id="SJSU_link1"> 
-            <a href="http://www.sjsu.edu/"> SJSU Website </a> 
-        </div>
-        <div id="SJSU_link2">
-            <a href="http://127.0.0.1:5000/showall"> List Of All Organizations</a>
-        </div>
-        <div id="SJSU_link3">
-            <a href="http://www.sjsu.edu/getinvolved/studentorgs/new/"> Get Involved </a>
-        </div>
-    
-        <h1 id="title"> San Jose State University </h1>
-        <h1 id="title2"> Organizations </h1>
-        
-        <p>Welcome to the SJSU Organizations Directory!</p>
-        <p>A simple way to navigate and find the clubs that is suitable for you!</p>
-        <div id="logo2div"> 
-            <img src="http://www.books-not-bombs.com/content/images/schools/sjsu.png" id="logo2">
-        </div>
-    
-    </div>
-    
-    <div id="mainImage"> </div>
+#ReviewPage
+1) Add more organizations
+2) Add Gif or animiated picture to make it lively
+3) re-format the text box
+4) figure out how to add review to the database
+'''
+#SQL
+# Create a new reviews table? with  category_ID, Club_id, reviews
+#-------------------- Def function for printing Organizations---------
 
-    <div id="image4"> </div>
-    
-    <div id="names"> 
-        <table>
-            <tr> <th>Developers</th> </tr>
-            <tr> <td>Carlos Quirarte</td> </tr>
-            <tr> <td>Sean Scudellari</td> </tr>
-            <tr> <td>Martin Tirtawisata</td> </tr>
-        </table>
-    </div>
-    
-    
-    
-</body>
-
-"""
 
 def yesORno(boolean):
     if (boolean == True):
         return "Yes"
     else:
         return "No"
-
-#-------------------- Show All Handler --------------------
-@app.route('/showall')
-
+        
 def print_table(SJSU_Organizations):
     CLUB_ID = 0
     ORGANIZATION_NAME = 1
@@ -211,9 +62,6 @@ def print_table(SJSU_Organizations):
                     margin: 0;
                     padding: 0;
             }
-
-
-
             #fixedBar {
                     height: 150px;
                     color: #3072AD;
@@ -221,31 +69,30 @@ def print_table(SJSU_Organizations):
                     margin: 0;
                     text-align: center;
             }
-
             #logo {
                     position: absolute;
-                    padding-left: 5px;
-                    padding-top: 8px;
+                    padding-top: 2px;
                     overflow: auto;
             }
-
+            #logo3 {
+                    
+                    height: 138px;
+            }
+            
             #home {
                     padding-right: 25px;
                     position: absolute;
                     top: 10px;
                     right: 1px;
             }
-
             #title {
                     font-size: 340%;
                     padding-top: 40px;
                     font-family: "Times New Roman", Times, serif;
             }
-
             div.clear {
                     float: clear;
             }
-
             #image {
                 background-image: url("http://www.mtmary.edu/_images/_main/interior-clubs-orgs-026.jpg");
                 height: 400px;
@@ -254,7 +101,6 @@ def print_table(SJSU_Organizations):
                 background-size:100% 100%;
                 background-repeat:no-repeat;
             }
-
             #info {
                 width: 100%;
                 height: 150px;
@@ -264,8 +110,6 @@ def print_table(SJSU_Organizations):
                 margin: 0;
                 padding: 32px 0 0 0;
             }
-
-
             table, th, td {
                 border-style: outset;
                 border-collapse: collapse;
@@ -273,25 +117,18 @@ def print_table(SJSU_Organizations):
                 padding-right: 5px;
                 background-color: white;
             }
-
             th {
                 padding: 5px;
                 text-align: center;
                 color: blue;
             }
-
             </style>
             </head>
-
             <body>
-
-
-
-
                 <div id="fixedBar">
 
                     <div id="logo">
-                        <img src="http://www.books-not-bombs.com/content/images/schools/sjsu.png" style="width:200px; height:130px" />
+                        <img src="http://www.books-not-bombs.com/content/images/schools/sjsu.png" id="logo3" />
                     </div>
 
                     <div class="clear"> </div>
@@ -344,35 +181,208 @@ def print_table(SJSU_Organizations):
                        '<td align="middle">'+str(item[CATEGORY])+'</td>'+\
                        '<td align="middle">'+str(item[RATING])+'</td>'+\
                        '<td align="middle">'+str(item[NUMBER_OF_REVIEWS])+'</td>'+\
-                       '<td align="middle">'+str(item[MEMBERSHIP_COST])+'</td>'+\
                        '<td align="middle">'+yesORno((item[PAYMENT_REQUIRED]))+'</td>' +\
                        '<td align="middle">'+str(item[MEMBERSHIP_COST]) + '</td>'+'</tr>'
         key += 1
 
     return (header+message_out+footer)
+#-------------------- Home Page Handler --------------------
+@my_app.route('/')
+@my_app.route('/home')
+def homePage():
+    return """
+<title>Homepage</title>
+<body>
+    <head>
+<title> SJSU Clubs Homepage </title>
+<style>    
+    body {
+        margin: 0;
+        padding: 0;
+    }    
+    #firstBar {
+        height: 115px;
+        background-color: #EAB010;
+        text-align: center;
+    }    
+    h1  {
+        color: #3072AD ;
+        font-size: 240%;    
+    }    
+
+    
+    p {
+        font-size: 1.4em;
+        border: 1px solid black;
+    }    
+    table {
+            float: right;
+            color: navy;
+    }    
+    th {
+            text-align: left;
+            font-size: 1.2em;
+    }    
+    td {
+            font-family: "Courier New";
+    }    
+    #mainImage {
+        background-image: url("https://c1.staticflickr.com/6/5290/5265285009_cc99c82221_b.jpg"); 
+        background-size: 100%;
+        background-repeat: no-repeat;
+        height: 900px;
+        margin: 0;
+    }    
+    #moreInfo {
+        margin: 0;
+    }    
+    #SJSU_link1 {
+        float: left;
+        padding-left: 20px;
+        padding-top: 15px;
+    }
+    #SJSU_link2 {        
+        float:left;
+        position: relative;
+        top: 47px;
+        left: -90px;
+    }    
+    #SJSU_link3 {
+        float:left;
+        position: relative;
+        top: 80px;
+        left: -242px;
+    }
+    
+    #title {
+        padding-right: 320px;
+        padding-top: 10px;
+        margin: 0;
+    }
+    
+    #title2 {
+        margin: 0;
+        padding-bottom: 0px;
+    }
+
+    
+    #image4 {
+        height: 500px;
+        background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/2/27/San_Jose_State_Spartans_Logo.svg/996px-San_Jose_State_Spartans_Logo.svg.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 35%;
+    }
+    
+     a:link {
+        color: black; 
+        text-decoration: none;
+     }
+            
+     a:visited {
+        text-decoration: none;
+        color: black;
+     }
+    
+     a:hover {
+        color: #3072AD;
+     }
+        
+     a:active {
+        color: yellow;
+     } 
+     
+    #logo2div {
+        float: right;
+        position: relative;
+        top: -214px;
+    }
+    
+    #logo2 {
+        height: 116px
+    }
+
+</style>
+        
+<body>
+    
+    <div id="firstBar">   
+        
+        <div id="SJSU_link1"> 
+            <a href="http://www.sjsu.edu/"> SJSU Website </a> 
+        </div>
+        <div id="SJSU_link2">
+            <a href="http://127.0.0.1:5000/showall"> List of all organizations</a>
+        </div>
+        <div id="SJSU_link3">
+            <a href="http://www.sjsu.edu/getinvolved/studentorgs/new/"> Get Involved </a>
+        </div>
+    
+        <h1 id="title"> San Jose State University </h1>
+        <h1 id="title2"> Clubs & Organizations </h1>
+        <h3> Welcome to the San Jose State University's Organization Directory</h3>
+        <p> A simple and hasstle-free place to find the organization that suits you! </p>
+        <div id="logo2div"> 
+            <img src="http://www.books-not-bombs.com/content/images/schools/sjsu.png" id="logo2">
+        </div>
+    
+    </div>
+    
+    <div id="mainImage"> </div>
+
+    <div id="image4"> </div>
+    
+    <div id="names"> 
+        <table>
+            <tr> <th>Developers</th> </tr>
+            <tr> <td>Carlos Quirarte</td> </tr>
+            <tr> <td>Sean Scudellari</td> </tr>
+            <tr> <td>Martin Tirtawisata</td> </tr>
+        </table>
+    </div>
+</body>
+
+"""
+
+
+#-------------------- Show All Handler --------------------
+@my_app.route('/showall')
 
 def organizations():
     command = """SELECT {a}.club_id, {a}.organization_name, {a}.president, {a}.location, {b}.category, {a}.rating, {a}.number_of_reviews, {a}.payment_required, {a}.membership_cost
                       FROM {a} join {b} ON {a}.category_id = {b}.category_id
         """.format(a="organizations", b='category')
     cursor.execute(command)
-    organization_data = cursor.fetchall()
+    club_data = cursor.fetchall()
 
-    return (print_table(organization_data))
+    return (print_table(club_data))
 
 
 
 #-------------------- Show Key Handler --------------------
 #Parameters: Key, integer
-@app.route('/show/<key>') #Ways to control the parameter
+@my_app.route('/show/<key>') #Ways to control the parameter
 
-def get_message(key):
-
-    total = int(key)
-    INDEX = (total - 1)
-
-    if total >= len(SJSU_clubs):
+def get_message(key):    
+    ORGANIZATION_NAME = 0
+    PRESIDENT = 1
+    LOCATION = 2
+    RATING = 3
+    NUMBER_OF_REVIEWS = 4
+    PAYMENT_REQUIRED = 5
+    MEMBERSHIP_COST = 6
+    CATEGORY = 7
+  
+    
+    command = """ SELECT {a}.Organization_name, {a}.President, {a}.Location, {a}.Rating, {a}.number_of_reviews, {a}.payment_required,{a}.membership_cost,{a}.description,{a}.Image_URL,{b}.category
+                         FROM {a} join {b} ON {a}.category_ID = {b}.category_ID
+    """.format(a="Organizations", b='category', p1=key) 
+    cursor.execute(command)
+    club_data = cursor.fetchall()                           
+  
+    if len(club_data) == 0:
         return "The key "+ key + " was not found"
+    club = club_data[0] 
 
     header2 = """
 
@@ -460,14 +470,8 @@ def get_message(key):
 
             a:active {
                     color: yellow;
-<<<<<<< HEAD
             }
 
-=======
-            } 
-           
-        
->>>>>>> master
         </style>
         </head>
         <body>
@@ -487,30 +491,94 @@ def get_message(key):
 
 
     message = '<table><col width="315">'
-    message += '<td><img src="'+str(SJSU_clubs[INDEX][10])+'"style="width:220px;height:326px" id="logo2"></td>'
-    message += '<td valign="top"><p id="descrip">'+str(SJSU_clubs[INDEX][8])+'</p>'
-    message += '<br>'
-    message += '<p class="right"><b>Organization Name:</b>   '+str(SJSU_clubs[INDEX][1])+'</p>'
-    message += '<p class="right"><b>Classification:</b>   ' +str(SJSU_clubs[INDEX][2])+ '</p>'
-    message += '<p class="right"><b>Location:</b>   '+str(SJSU_clubs[INDEX][3])+ '</p>'
-    message += '<p class="right"><b>President:</b>   '+str(SJSU_clubs[INDEX][9])+'</p>'
-    message += '<p class="right"><b>Membership Fee:</b>   $'+str(SJSU_clubs[INDEX][6])+ '</p>'
-    message += '<p class="right"><b>Fee required to join?</b>   '+yesORno(SJSU_clubs[INDEX][7])+ '</p>'
-    message += '<p class="right"><b>Rating:</b>   '+str(SJSU_clubs[INDEX][4])+ '</p>'
-    message += '<p class="right" id="bottom"><b>Number of Reviews</b>   '+str(SJSU_clubs[INDEX][5])+ '</p></td>'
-<<<<<<< HEAD
+    message += '<p class="right"><b>Organization Name:</b>'+str(club[ORGANIZATION_NAME])+'</p>'
+    message += '<p class="right"><b>Classification:</b>   ' +str(club[CATEGORY])+ '</p>'
+    message += '<p class="right"><b>Location:</b>   '+str(club[LOCATION])+ '</p>'
+    message += '<p class="right"><b>President:</b>   '+str(club[PRESIDENT])+'</p>'
+    message += '<p class="right"><b>Membership Fee:</b>   $'+str(club[MEMBERSHIP_COST])+ '</p>'
+    message += '<p class="right"><b>Fee required to join?</b>   '+yesORno(club[PAYMENT_REQUIRED])+ '</p>'
+    message += '<p class="right"><b>Rating:</b>   '+str(club[RATING])+ '</p>'
+    message += '<p class="right" id="bottom"><b>Number of Reviews</b>   '+str(club[NUMBER_OF_REVIEWS])+ '</p></td>'
 
 
-=======
-    message += '<a class="right" id="bottom" href="http://127.0.0.1:5000/show/review"> Leave a review </a>'
-    
-   
->>>>>>> master
     return header2+message+footer2
 
+#------------------ Club Search ----------------
+@my_app.route('/club-search')
+def club_search ():
+    club_ID = request.args.get('clubID')
+    orgName = request.args.get('orgName')
+    president = request.args.get('president')
+    location = request.args.get('location')
+    rating = request.args.get('rating')
+    num_of_reviews = request.args.get('number_of_reviews')
+    payment_required = request.args.get('payment_required')
+    membership_cost = request.args.get('membership_cost')
+    
+    
+    validation = ""
+    
+    if club_ID != None:
+        validation += "organizations.club_id = "+str(club_ID)
+        
+    if orgName != None:
+        if validation != "":
+            validation += " AND " 
+        validation += "organizations.organization_name LIKE '%"+orgName+"%'"
+        
+    if president != None:
+        if validation !="":
+            validation += " AND "
+        validation += "organizations.president LIKE '%"+president+"%'"
+        
+    if location != None:
+        if validation !="":
+            validation += " AND "
+        validation += "organizations.location LIKE '%"+location+"%'"
+        
+    if rating != None:
+        if validation !="":
+            validation += " AND "
+        validation += "organizations.rating= "+str(rating)
+        
+    if num_of_reviews != None:
+        if validation !="":
+            validation += " AND "
+        validation += "organizations.number_of_reviews = "+str(num_of_reviews) 
+    
+# Confused on how to make it boolean    
+    if payment_required != None:
+        if validation !="":
+            validation += " AND "
+        validation += "organizations.payment_required '%"+payment_required+"%'"
+        
+    if membership_cost != None:
+        if validation !="":
+            validation += " AND "
+        validation += "organizations.membership_cost= "+str(membership_cost)
+        
+    if validation == "":
+        command = """ SELECT {a}.club_id, {a}.president, {a}.location, {a}.rating, {a}.number_of_reviews, {a}.payment_required, {a}.membership_cost
+        ON {a} join {b} FROM {a}.category_ID = {b}.category_ID
+        WHERE {val}
+        """.format(a="organizations",b= 'category')
+    else:
+        command = """ SELECT {a}.club_id, {a}.president, {a}.location, {a}.rating, {a}.number_of_reviews, {a}.payment_required, {a}.membership_cost
+        ON {a} join {b} FROM {a}.category_ID = {b}.category_ID
+        WHERE {val}
+        """.format(a="organizations",b= 'category',val = validation)
+    
+    cursor.execute(command)
+    club_data = cursor.fetchall()
+    return (print_table(club_data))
+
+'''We have to create new def function for this because the print_table is set for the home page only'''
+
+
+        
 #--------------- Review Handler ------------------#
 #Parameters: Key
-@app.route ('/show/review')
+@my_app.route ('/show/review')
 
 def show_review():
     return """
@@ -636,3 +704,4 @@ def show_review():
 </html>
 
 """
+
