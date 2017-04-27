@@ -1,0 +1,161 @@
+Club_ID,Organization_Name,President,Location,Category_ID,Rating
+1,A.L.M.A.S. ,Christina Cortes,DMH 164,4,3
+2,Accessibility Advocates,Otilia Ioan,Admin 110,3,4
+3,Acro-Pole and Fitness,Emilia Bock,NA,3,4
+4,Active Minds,Sadaf Skandari,NA,1,2
+5,Acts 2 Christian Fellowship @ SJSU,Shixiao Cao,Off Campus,4,3
+6,Advancement Institute for Management,Tony Nguyen,Student Union Room 2B,1,5
+7,Aerodynamic Research,Robert Ziegler,NA,1,5
+8,Afghan Student Association ,Nargess Anwar,NA,4,4
+9,African American Business Club,Francois Nze,NA,1,3
+10,African American Commencement Committee,Charles Averhart-Collins,CH 30,4,3
+11,African American Taskforce ,Francois Marie Evrard Nze,NA,1,4
+12,AIESEC,Timothy Do,NA,3,5
+13,Air Corps Leadership Club,Gregory Spellman,NA,1,4
+14,Akbayan Pilipino American Organization,Gerard Manay,Student Union,4,2
+15,Alabaster House of Prayer ,Melodie Sun,Off Campus,4,3
+16,All Comedy SJSU,Kevin Luu,NA,3,5
+17,Alpha Epsilon Pi Jewish Fraternity,Lior Raskin,"182 S 10th Street, San Jose CA",2,5
+18,"Alpha Eta Rho, Eta Chapter",Katherine Allmann,"2105 Swift Ave,  San Jose, California",1,3
+19,Alpha Kappa Alpha Sorority Inc. ,Lacey Dacus,Off Campus,2,4
+20,Alpha Kappa Delta Phi,Zhao Jing Jie,Off Campus,2,4
+21,Alpha Kappa Omega,Gian Millare,Off Campus,2,3
+22,Alpha Kappa Omicron Sorority ,Natalya Balal,Off Campus,2,5
+23,Alpha Kappa Psi Professional Business Fraternity,Cassie Kwong,NA,1,2
+24,Alpha Omicron Pi Women's Fraternity,Ashley Nguyen,"408 South 8th Street, San José CA 95112",2,3
+25,Alpha Phi,Sophia Hasham,"210 South 10th Street, San José CA  95112",2,3
+26,Alpha Phi Alpha Fraternity Inc.,Joziah Mallett,"322 East San Salvador Street, San Jose, CA 95112",2,4
+27,Alpha Phi Omega,Gordon Zhang,NA,3,5
+28,Alpha Phi Sigma,Stan Bielous,NA,1,2
+29,Alpha Sigma Phi Fraternity,Louie Rosales,NA,2,4
+30,Alpha Tau Delta,Jacob Peinado,NA,1,5
+31,Alpha Tau Omega,Aiden Reed,202 South 11th Street,2,1
+32,Alpha Xi Delta,Jessica Guiso,NA,2,3
+33,Alternative Amory and Kink Union,Christopher Fradella,Student Union Mosaic Center,3,5
+34,Amateur Radio Club,John Phung,ENGR 376A,1,3
+35,American Association of Airport Executives (AAAE),Adam Valdivia,NA,1,2
+36,American Choral Directors Association,Andrew Hathaway,NA,1,3
+37,American Concrete Institute,Rami Zayed,ENGR 147,1,4
+38,American Institute of Aeronautics and Astronautics,Jeremiah Montemayor,ENGR 164,1,4
+39,American Institute of Chemical Engineers,Katrina Nadolski,ENGR 225A,1,2
+40,American Library Association Student Chapter,Molly Jostock,NA,1,3
+41,American Society of Civil Engineers,Sarah Kalman,ENGR 136,1,4
+42,"American Society of Heating, Refrigerating and Air-Conditioning Engineers (A.S.H.R.A.E.)",Austin Stevenson,NA,1,1
+43,American Society of Mechanical Engineers (ASME),Fernando Rodriguez,ENGR 114,1,2
+44,American Water Works Association Student Chapter at San Jose State University,Anthony Aliaga,Student Union,1,3
+45,Anthropology Club ,Denise Frazier,NA,1,5
+46,Archery Club,Christopher Plumeau,Off Campus,5,4
+47,Arnold Air Society,Jonathan Andrew Sapinoso,NA,1,4
+48,Art History Association,Kelly Puma,NA,1,4
+49,Asian American Christian Fellowship,James Lee,NA,4,4
+50,Asian Coalition of Engineers & Scientists ,Randy Duong,ENGR 366,4,3
+51,ASME Aerospace,Fernando Rodriguez,NA,1,3
+52,ASME Automotive,Peeyusha Boorada,NA,1,2
+53,Assembly of Nurse Scholars,Quyen Ly,NA,1,3
+54,Association for Facilities Engineers ,Austin Stevenson,NA,1,2
+55,Associated General Contractors,Carlos Murillo,NA,1,4
+56,Associated Students of Moss Landing Marine Labs,Emmet Haggard,NA,1,2
+57,"Association of Technology, Management, and Applied Engineering (ATMAE) SJSU Chapter",Logan Doung,NA,3,4
+58,Atheists and Skeptics for Knowledge,Jasmine Hulse,NA,4,4
+59,Badminton Club,Derrick Long,NA,5,4
+60,Ballroom Spartans DanceSport Team at San Jose State University,Mikaela Cunanan,Student Union,5,4
+61,Banking and Investment Association,Deven Bernard,NA,1,3
+62,Baroque Performance Club,Sarah Lysgaard,NA,3,2
+63,Be The Match,Jinal Ahir,NA,3,3
+64,Beta Alpha Psi,Mervyn Bradley Haw,NA,1,4
+65,"Beta Beta Beta (National Biological Honor Society), Epsilon Alpha Chapter",Jennifer Stokes,NA,1,4
+66,Beta Theta Pi,Eric Huynh,"365 E. San Fernando St, San Jose CA ",2,4
+67,Bicycle Coalition at SJSU,Kurt Hamm,NA,3,3
+68,Biodiversity Club,Ngoc-Huong Nguyen,DH 348,1,2
+69,Biology Student Association (BSA),Dania Abid,DH 346,1,2
+70,Biomedical Engineering Society at SJSU,Amna Rana,ENGR 182,1,5
+71,Black Alliance of Scientists and Engineers,Uchechi Igwe,ENGR 366,1,5
+72,Black Campus Ministries,Mariah Miller,NA,4,4
+73,Black Male Collective ,David Armstead,NA,3,2
+74,Black Masque Honor Society,Christina Dunbar,NA,1,3
+75,Black Student Union (BSU),Armani Donahue,NA,4,4
+76,BMEiDea,Pamela Rochelle Ong,ENGR 285,3,4
+77,"Bowling Teams, San Jose State University",Michael Tang,Off Campus,5,3
+78,Braven Alumni Club ,Brandon Carey,NA,3,4
+79,Brazilian Jiu-Jitsu,Jorge Soto-Enriquez,Off Campus,5,3
+80,Breaking Club @ SJSU,Moukoyei Xiong,NA,3,4
+81,Bridge Engineering Student Transition (BEST),Raphael Asuncion,NA,1,5
+82,Bridges International at San Jose State University,Ju-Ting Chou,NA,4,5
+83,Cadre Student Organization,Ricardo Paz,NA,1,5
+84,California Nursing Students' Association,Monica Kriselle Macabitas,NA,1,4
+85,Campus Girl Scouts ,Christina Dunbar,NA,3,2
+86,Campus Village 2 (CV2) Hall Government,Sabrina Martinez,Campus Village 2,3,3
+87,Campus Village Apartments Hall Government,Owen Lin,Campus Village B,3,3
+88,Campus Village Building C Hall Government (CVC),Tristan Navarrete,Campus Village C,3,3
+89,Canterbury Bridge,Isaac Blane-Zimberg,NA,4,1
+90,Center Stage Productions,John Sanchez,NA,3,4
+91,Ceramic Art Guild,Joeylycer Agcopra,NA,1,4
+92,Chi Epsilon,Kiersten Miller,ENGR 136,1,5
+93,Chi Pi Sigma,Juan Lopez Rosales,"230 S 10th St, San Jose, CA 95112",3,3
+94,Chicano Commencement Committee,Nancy Barahona,NA,4,4
+95,Child and Adolescent Development,Jacqueline Bongolan,NA,1,4
+96,Chinese Christian Fellowship ,Ian Teng Kwong,NA,4,3
+97,Chinese Student Fellowship,Minglu Liu,NA,4,4
+98,Chinese Students Association,Xinxin Jin,NA,4,5
+99,Choirs at SJSU,Jonathan Campos,NA,1,4
+100,Christians on Campus,Geoffry Banuelos,MLK Library/Student Union,4,4
+101,Circle K International (CKI) at San Jose State University,Mark Catolos,NA,3,3
+102,Classics Hall Government,Celia Benitez,NA,3,5
+103,Cleaner San Jose ,Eric Truong,NA,1,3
+104,Climbing Club ,Brandon Tarter,Off Campus,5,2
+105,Club Tennis Team ,Willem Poldervaart,Off Campus,5,4
+106,Club Volleyball,Christian Selwan,YUH ,5,4
+107,Coaching Corps at SJSU,Amber Mckenzie,NA,3,1
+108,Colony of Alpha Omega Epsilon at San Jose State University,Isadora McCullough,NA,1,2
+109,COMM Network,Edwin Lee,NA,1,5
+110,Competitive Dance Club,Megan Stagi,NA,5,5
+111,Computer Graphics Club,Jusin Tennant,NA,1,1
+112,Concrete Canoe Team at San Jose State University,Benjamin Klemme,Off Campus,1,5
+113,COOP SJSU,Laura Marie Cayabyab,NA,3,3
+114,COUGH at SJSU,Christy Lam,NA,3,2
+115,Counselor Ed Graduate Organization (CEGO),Toni Bravo,NA,1,2
+116,Cru,Marla Strong,Off Campus,4,5
+117,D.R.E.A.M. Campus Ministry,Israel Escobar,NA,4,2
+118,DBF Hardware,Fny Samneet Singh,NA,1,3
+119,DBF Structures ,Daniel Winter,NA,1,5
+120,Delta Gamma,Madison Feld,"360 East Reed Street, San José CA  95112",2,1
+121,Delta Sigma Phi Fraternity,Royce Stanfill,"189 S 11th Street, San Jose CA",2,3
+122,Delta Sigma Pi,Ujwal Battar,Student Union,1,2
+123,"Delta Sigma Theta Sorority, Inc./ Eta Omega Chapter",Kenyatta Yarn,NA,2,5
+124,Delta Upsilon Fraternity,Eli Kolach,"201 South 11th Street, San José CA 95112",2,1
+125,Delta Zeta Sorority,Talia Cabrera,"148 South 11th Street, San José CA  95112",2,5
+126,Desert Dwellers ,Kaylan Hager,NA,3,3
+127,Design for America (DFA) ,Federico Miller,NA,3,3
+128,Design Studies Club (DSC) ,Katie Anderson,NA,1,3
+129,Destino,Jasmine Rios,NA,4,4
+130,"Dirty Brushes, The",Danielle Torvik-Staffen,NA,3,3
+131,Economics Club,Joseph Holman,NA,3,5
+132,El Espartano Noticias | Periodistas Latinos en SJSU,Itzel Castro,NA,1,2
+133,El Pais,Diego Gonzalez,NA,4,1
+134,Engineers for Solar Energy ,Jeremy Duke,NA,1,1
+135,Engineers Without Borders,Scott Hoffman,Engineering Building,3,5
+136,Environmental Resource Center,Derrick Arbiol,NA,1,4
+137,Epic Movement,David Navarro,NA,4,5
+138,Eta Kappa Nu,Luke Melikian,ENGR 376,1,3
+139,Film Production Society ,Ashley Valenzuela,NA,3,4
+140,Financial Management Association,Benjamin Sakul,Boccardo Business Center,1,1
+141,Food Journalism,Zirui Deng,NA,3,3
+142,Forensic Science Students ,Madison McGowan,MQH 520,3,4
+143,Formula SAE,Michael Jarrett,NA,1,1
+144,Four Corners,Oscar Leung,NA,4,1
+145,Game Development Club,Andrew Ajemian,NA,3,1
+146,Gente Unida,Marisol Espino Figueroa,NA,4,5
+147,Geography Club ,Hector Guardado,NA,1,2
+148,Geology Club,Kristen Bella-Pratt,DH 306,1,2
+149,I.D.E.A.S at San Jose State University,Julian Velasquez,Student Union IDEA Lab,3,2
+150,Kappa Sigma Fraternity,Timothy de Leon,168 South 11th Street,2,5
+151,Latino Business Student Association,Vivian Rivas,BBC 324,1,2
+152,Marketing Association,Angelo Medel,BBC 004,1,1
+153,MIS Association - Management Information Systems,Harrison Chu,BBC 322,1,1
+154,Pokemon Club,Khaila Zherine Flores,BBC 320,3,3
+155,Sigma Alpha Epsilon,Shrestha Shrestha,282 South 10th Street,2,5
+156,Sigma Chi Fraternity,Joseph Howder,284 South 10th Street ,2,1
+157,Sigma Nu Fraternity,Lazaro Brito,155 South 11th Street,2,3
+158,Spartan Baseball ,Garrison Wong,Off Campus,2,1
+159,Theta Chi Fraternity,Eduardo Mercado,123 South 11th Street ,1,4
+160,Women in Business @ SJSU,Jenna Covey,Student Union ,2,2
