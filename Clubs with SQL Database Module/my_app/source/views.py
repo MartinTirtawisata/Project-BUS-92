@@ -190,9 +190,6 @@ def print_table(SJSU_Organizations):
 @my_app.route('/home')
 def homePage():
     return """
-<title>Homepage</title>
-<body>
-    <head>
 <title> SJSU Clubs Homepage </title>
 <style>    
     body {
@@ -703,4 +700,10 @@ def show_review():
 </html>
 
 """
+
+@my_app.route('/test')
+def myWeb():
+    f = open('home.html','w')
+    
+    print(f)
 
