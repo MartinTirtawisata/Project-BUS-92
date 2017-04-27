@@ -71,7 +71,6 @@ def print_table(SJSU_Organizations):
             }
             #logo {
                     position: absolute;
-                    padding-top: 2px;
                     overflow: auto;
             }
             #logo3 {
