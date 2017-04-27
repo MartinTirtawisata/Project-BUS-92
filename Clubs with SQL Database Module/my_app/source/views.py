@@ -31,7 +31,7 @@ Possible Ideas to make website better
 4) figure out how to add review to the database
 '''
 #SQL
-1) Create a new reviews table? with  category_ID, Club_id, reviews
+# Create a new reviews table? with  category_ID, Club_id, reviews
 #-------------------- Def function for printing Organizations---------
 
 
@@ -71,10 +71,14 @@ def print_table(SJSU_Organizations):
             }
             #logo {
                     position: absolute;
-                    padding-left: 5px;
-                    padding-top: 8px;
+                    padding-top: 2px;
                     overflow: auto;
             }
+            #logo3 {
+                    
+                    height: 138px;
+            }
+            
             #home {
                     padding-right: 25px;
                     position: absolute;
@@ -124,7 +128,7 @@ def print_table(SJSU_Organizations):
                 <div id="fixedBar">
 
                     <div id="logo">
-                        <img src="http://www.books-not-bombs.com/content/images/schools/sjsu.png" style="width:200px; height:130px" />
+                        <img src="http://www.books-not-bombs.com/content/images/schools/sjsu.png" id="logo3" />
                     </div>
 
                     <div class="clear"> </div>
@@ -177,7 +181,6 @@ def print_table(SJSU_Organizations):
                        '<td align="middle">'+str(item[CATEGORY])+'</td>'+\
                        '<td align="middle">'+str(item[RATING])+'</td>'+\
                        '<td align="middle">'+str(item[NUMBER_OF_REVIEWS])+'</td>'+\
-                       '<td align="middle">'+str(item[MEMBERSHIP_COST])+'</td>'+\
                        '<td align="middle">'+yesORno((item[PAYMENT_REQUIRED]))+'</td>' +\
                        '<td align="middle">'+str(item[MEMBERSHIP_COST]) + '</td>'+'</tr>'
         key += 1
@@ -248,7 +251,7 @@ def homePage():
         float:left;
         position: relative;
         top: 80px;
-        left: -232px;
+        left: -242px;
     }
     
     #title {
@@ -291,9 +294,8 @@ def homePage():
      
     #logo2div {
         float: right;
-        
         position: relative;
-        top: -174px;
+        top: -214px;
     }
     
     #logo2 {
@@ -317,7 +319,7 @@ def homePage():
         </div>
     
         <h1 id="title"> San Jose State University </h1>
-        <h1 id="title2"> CLubs & Organizations </h1>
+        <h1 id="title2"> Clubs & Organizations </h1>
         <h3> Welcome to the San Jose State University's Organization Directory</h3>
         <p> A simple and hasstle-free place to find the organization that suits you! </p>
         <div id="logo2div"> 
@@ -338,9 +340,6 @@ def homePage():
             <tr> <td>Martin Tirtawisata</td> </tr>
         </table>
     </div>
-    
-    
-    
 </body>
 
 """
