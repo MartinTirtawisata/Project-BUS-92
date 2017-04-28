@@ -701,9 +701,4 @@ def show_review():
 
 """
 
-@my_app.route('/test')
-def myWeb():
-    f = open('home.html','w')
-    
-    print(f)
 
