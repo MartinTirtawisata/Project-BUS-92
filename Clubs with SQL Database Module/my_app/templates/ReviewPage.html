@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<title>Review Page</title>
+
+<style>
+    
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #E3E3E5;
+    } 
+    #firstBar {
+        height: 115px;
+        background-color: #EAB010;
+        text-align: center;
+    }
+    h1 {
+        color: #3072AD;
+        font-size: 240%;
+        text-align:center;
+        padding-top:30px;
+    }
+    
+    p.thick {
+        color: #3072AD;
+        font-family: "Times New Roman",Times,Serif;
+        font-size: 1.5em; 
+        font-weight:bold;
+        margin-left:0px;
+    }
+    p {
+        font-family: "Times New Roman",Times,Serif;
+        font-size: 1em;
+        font-weight: normal;
+    }
+    p.outset {
+            border-style: outset;
+            border-color: #EAB010 #3072AD #EAB010 #3072AD;
+            margin-left:300px;
+            margin-right:850px;
+    }
+    pre {
+        font-family: "Times New Roman",Times,Serif;
+        font-size:1em;
+        font-weight: normal;
+        margin-left:0px;
+        text-color:#3072AD;
+    }
+    #logo2div {
+            float:right;  
+            position: relative;
+            top: -150px;
+            right:-20px;
+    }
+    
+    #logo2 {
+            height:119px;
+    }
+    input[type=text], select {
+            width: 50%;
+            height: 5%; 
+            padding: 12px 10px;
+            margin-left: 100px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-sizing: border-box;
+    }
+    input [type=text]: hover {
+            background-color: #ededf9;
+    }
+    #moveLabel {
+            margin-left: 100px;
+    }
+    input[type=submit] {
+            width: 20%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            margin: 100px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+    }
+    input[type=submit]:hover {
+            background-color: #45a049;
+    }
+
+    div {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+    userreview {
+            height: 30%
+    }
+</style>
+
+<body>
+
+    <div id="firstBar">
+        <h1> Review Page </h1>
+        <div id="logo2div"> 
+            <img src="http://www.books-not-bombs.com/content/images/schools/sjsu.png" id="logo2">
+        </div>
+        <br>
+    </div>
+    <p class="thick"> Guidelines for writing a review </p>
+    <pre>         - Why did you join?
+         - What was the benefit?
+         - Was the club members friendly?
+         - How is the club?
+    </pre>
+    <p class="outset"> Please tell us your thoughts about the club </p>
+    <div>
+        <form action="/action_page.php", class="form-horizontal">
+            <fieldset>
+                <label for="orgname" id = "moveLabel">Organization Name</label>
+                <br><br>
+                <select id="orgname"> name="orgname">
+                    <option value="MISA"> Management Information System Association</option>
+                    <option value="MA"> Marketing Association</option>
+                    <option value="FMA"> Financial Management Association </option>
+                    <option value="LBSA"> Latino Busuiness Student Association</option>
+                </select>
+                <br><br>
+                <label for="userreview" id="moveLabel" >Your Review</label>
+                <br><br>
+                <input type="text" id="userreview" name="userreview" placeholder="Write Your Review Here...">
+                <br><br>
+                <input type="submit" value="Submit">
+            </fieldset>
+        </form>
+    </div>
+</body>
+
+
