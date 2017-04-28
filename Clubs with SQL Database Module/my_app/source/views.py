@@ -1,4 +1,4 @@
-from flask import request, Blueprint
+from flask import request, Blueprint, render_template
 from my_app.source.models import cursor
 
 my_app = Blueprint('app', __name__)
@@ -29,12 +29,11 @@ Possible Ideas to make website better
 2) Add Gif or animiated picture to make it lively
 3) re-format the text box
 4) figure out how to add review to the database
-'''
 #SQL
-# Create a new reviews table? with  category_ID, Club_id, reviews
+Create a new reviews table? with  category_ID, Club_id, reviews
+'''
 
 #-------------Function for printing all Organizations (Main Table)---------
-
 def print_maintable(SJSU_Organizations):
     CLUB_ID = 0
     ORGANIZATION_NAME = 1
@@ -323,169 +322,7 @@ def print_subtable(SJSU_Organizations):
 @my_app.route('/')
 @my_app.route('/home')
 def homePage():
-    return """
-<title>Homepage</title>
-<body>
-    <head>
-<title> SJSU Clubs Homepage </title>
-<style>    
-    body {
-        margin: 0;
-        padding: 0;
-    }    
-    #firstBar {
-        height: 115px;
-        background-color: #EAB010;
-        text-align: center;
-    }    
-    h1  {
-        color: #3072AD ;
-        font-size: 240%;    
-    }    
-
-    
-    p {
-        font-size: 1.4em;
-        border: 1px solid black;
-    }    
-    table {
-            float: right;
-            color: navy;
-    }    
-    th {
-            text-align: left;
-            font-size: 1.2em;
-    }    
-    td {
-            font-family: "Courier New";
-    }    
-    #mainImage {
-        background-image: url("https://c1.staticflickr.com/6/5290/5265285009_cc99c82221_b.jpg"); 
-        background-size: 100%;
-        background-repeat: no-repeat;
-        height: 900px;
-        margin: 0;
-    }    
-    #moreInfo {
-        margin: 0;
-    }    
-    #SJSU_link1 {
-        float: left;
-        padding-left: 20px;
-        padding-top: 15px;
-    }
-    #SJSU_link2 {        
-        float:left;
-        position: relative;
-        top: 38px;
-        left: -90px;
-    }
-     #SJSU_link3 {
-        float:left;
-        position: relative;
-        top: 61px;
-        left: -245px;
-    }
-    #SJSU_link4 {
-        float:left;
-        position: relative;
-        top: 83px;
-        left: -429px;
-    }
-    
-    #title {
-        padding-right: 540px;
-        padding-top: 10px;
-        margin: 0;
-    }
-    
-    #title2 {
-        margin: 0;
-        padding-bottom: 0px;
-    }
-
-    
-    #image4 {
-        height: 500px;
-        background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/2/27/San_Jose_State_Spartans_Logo.svg/996px-San_Jose_State_Spartans_Logo.svg.png");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 35%;
-    }
-    
-     a:link {
-        color: black; 
-        text-decoration: none;
-     }
-            
-     a:visited {
-        text-decoration: none;
-        color: black;
-     }
-    
-     a:hover {
-        color: #3072AD;
-     }
-        
-     a:active {
-        color: yellow;
-     } 
-     
-    #logo2div {
-        float: right;
-        position: relative;
-        top: -214px;
-    }
-    
-    #logo2 {
-        height: 116px
-    }
-
-</style>
-        
-<body>
-    
-    <div id="firstBar">   
-        
-        <div id="SJSU_link1"> 
-            <a href="http://www.sjsu.edu/"> SJSU Website </a> 
-        </div>
-        <div id="SJSU_link2">
-            <a href="http://127.0.0.1:5000/showall"> List of all Organizations</a>
-        </div>
-        <div id="SJSU_link3">
-            <a href="http://127.0.0.1:5000/details"> Further Organization Details</a>
-        </div>
-        <div id="SJSU_link4">
-            <a href="http://www.sjsu.edu/getinvolved/studentorgs/new/"> Get Involved </a>
-        </div>
-    
-        <h1 id="title"> San Jose State </h1>
-        <h1 id="title2"> Clubs & Organizations </h1>
-        <h3> Welcome to the San Jose State University's Organization Directory</h3>
-        <p> A simple and hassle-free way to find organizations that interest you! </p>
-        <div id="logo2div"> 
-            <img src="http://www.books-not-bombs.com/content/images/schools/sjsu.png" id="logo2">
-        </div>
-    
-    </div>
-    
-    <div id="mainImage"> </div>
-
-    <div id="image4"> </div>
-    
-    <div id="names"> 
-        <table>
-            <tr> <th>Developers</th> </tr>
-            <tr> <td>Carlos Quirarte</td> </tr>
-            <tr> <td>Sean Scudellari</td> </tr>
-            <tr> <td>Martin Tirtawisata</td> </tr>
-        </table>
-    </div>
-</body>
-
-"""
-
+    return render_template("Homepage Template.html")
 
 #-------------------- Show All Handler --------------------
 @my_app.route('/showall')
@@ -498,8 +335,7 @@ def organizations():
     club_data = cursor.fetchall()
 
     return (print_maintable(club_data))
-
-
+ 
 #-------------------- Further Details Handler --------------------
 @my_app.route('/details')
 
@@ -511,7 +347,6 @@ def details():
     club_data = cursor.fetchall()
 
     return (print_subtable(club_data))
-
 
 
 
@@ -663,6 +498,7 @@ def get_message(key):
 
     return header2+message+footer2
 
+
 #------------------ Club Search ----------------
 @my_app.route('/club-search')
 def club_search ():
@@ -733,6 +569,7 @@ def club_search ():
     club_data = cursor.fetchall()
     return (print_maintable(club_data))
 
+
 '''We have to create new def function for this because the print_table is set for the home page only'''
 
 
@@ -742,127 +579,39 @@ def club_search ():
 @my_app.route ('/show/review')
 
 def show_review():
-    return """
-<html>
-<title>Review Page</title>
+    return render_template("ReviewPage.html")
 
-<style>
-    
-    body {
-        margin: 0;
-        padding: 0;
-        background-color: #E3E3E5;
-    } 
-    #firstBar {
-        height: 115px;
-        background-color: #EAB010;
-        text-align: center;
-    }
-    h1 {
-        color: #3072AD;
-        font-size: 240%;
-        text-align:center;
-        padding-top:30px;
-    }
-    
-    p.thick {
-        color: #3072AD;
-        font-family: "Times New Roman",Times,Serif;
-        font-size: 1.5em; 
-        font-weight:bold;
-        margin-left:0px;
-    }
-    p {
-        font-family: "Times New Roman",Times,Serif;
-        font-size: 1em;
-        font-weight: normal;
-    }
-    p.outset {
-            border-style: outset;
-            border-color: #EAB010 #3072AD #EAB010 #3072AD;
-            margin-left:300px;
-            margin-right:850px;
-    }
-    pre {
-        font-family: "Times New Roman",Times,Serif;
-        font-size:1em;
-        font-weight: normal;
-        margin-left:0px;
-        text-color:#3072AD;
-    }
-    #logo2div {
-            float:right;  
-            position: relative;
-            top: -102px;
-    }
-    
-    #logo2 {
-            height:116px;
-    }
-    input[type=text], select {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-    }
 
-    input[type=submit] {
-            width: 100%;
-            background-color: #4CAF50;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-    }
 
-    input[type=submit]:hover {
-            background-color: #45a049;
-    }
 
-    div {
-            border-radius: 5px;
-            background-color: #f2f2f2;
-            padding: 20px;
-    }
-</style>
 
-<body>
 
-    <div id="firstBar">
-        <h1> Review Page </h1>
-        <div id="logo2div"> 
-            <img src="http://www.books-not-bombs.com/content/images/schools/sjsu.png" id="logo2">
-        </div>
-        <br>
-    </div>
-    <p class="thick"> Guidelines for writing a review: </p>
-    <pre>         - Why did you join?
-         - What did you get out of the club?
-         - Were the club members friendly/helpful?
-         - What was your overall impression of the club?
-    </pre>
-    <p class="outset"> Please tell us your thoughts: </p>
-    <div>
-        <form action="/action_page.php">
-            <label for="orgname">Organization Name</label>
-            <select id="orgname"> name="orgname">
-                <option value="MISA"> Management Information System Association</option>
-                <option value="MA"> Marketing Association</option>
-                <option value="FMA"> Financial Management Association </option>
-                <option value="LBSA"> Latino Busuiness Student Association</option>
-            </select>
-            <label for="userreview">Your Review</label>
-            <input type="text" id="userreview" name="userreview" placeholder="Write Your Review Here...">
-            <input type="submit" value="Submit">
-        </form>
-    </div>
-</body>
-</html>
 
-"""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
