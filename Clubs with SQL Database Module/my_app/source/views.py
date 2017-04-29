@@ -1,4 +1,4 @@
-from flask import request, Blueprint
+from flask import request, Blueprint, render_template
 from my_app.source.models import cursor
 
 my_app = Blueprint('app', __name__)
@@ -29,28 +29,18 @@ Possible Ideas to make website better
 2) Add Gif or animiated picture to make it lively
 3) re-format the text box
 4) figure out how to add review to the database
-'''
 #SQL
-# Create a new reviews table? with  category_ID, Club_id, reviews
-#-------------------- Def function for printing Organizations---------
+Create a new reviews table? with  category_ID, Club_id, reviews
+'''
 
-
-def yesORno(boolean):
-    if (boolean == True):
-        return "Yes"
-    else:
-        return "No"
-        
-def print_table(SJSU_Organizations):
+#-------------Function for printing all Organizations (Main Table)---------
+def print_maintable(SJSU_Organizations):
     CLUB_ID = 0
     ORGANIZATION_NAME = 1
     PRESIDENT = 2
     LOCATION = 3
     CATEGORY = 4
     RATING = 5
-    NUMBER_OF_REVIEWS = 6
-    PAYMENT_REQUIRED = 7
-    MEMBERSHIP_COST = 8
 
 
     header = """
@@ -157,9 +147,6 @@ def print_table(SJSU_Organizations):
                 <th>Location</th>
                 <th>Category</th>
                 <th>Rating</th>
-                <th>Number Of Reviews</th>
-                <th>Payment Required</th>
-                <th>Membership Cost</th>
               </tr>
 
             </div>
@@ -178,180 +165,192 @@ def print_table(SJSU_Organizations):
                        '<td align="center">'+str(item[PRESIDENT])+'</td>'+\
                        '<td align="middle">'+str(item[LOCATION])+'</td>'+\
                        '<td align="middle">'+str(item[CATEGORY])+'</td>'+\
-                       '<td align="middle">'+str(item[RATING])+'</td>'+\
-                       '<td align="middle">'+str(item[NUMBER_OF_REVIEWS])+'</td>'+\
-                       '<td align="middle">'+yesORno((item[PAYMENT_REQUIRED]))+'</td>' +\
-                       '<td align="middle">'+str(item[MEMBERSHIP_COST]) + '</td>'+'</tr>'
+                       '<td align="middle">'+str(item[RATING])+'</td>'+'</tr>'
+
         key += 1
 
     return (header+message_out+footer)
+
+
+
+#----------Function for printing details of Organizations (Sub Table)---------
+
+def yesORno(boolean):
+    if (boolean == True):
+        return "Yes"
+    else:
+        return "No"
+
+
+def print_subtable(SJSU_Organizations):
+    CLUB_ID = 0
+    ORGANIZATION_NAME = 1
+    NUMBER_OF_MEMBERS = 2
+    NUMBER_OF_REVIEWS = 3
+    PAYMENT_REQUIRED = 4
+    MEMBERSHIP_COST = 5
+
+    header = """
+            <head>
+            <title>Further Organization Details</title>
+            <style>
+
+            body {
+                    margin: 0;
+                    padding: 0;
+            }
+            #fixedBar {
+                    height: 150px;
+                    color: #3072AD;
+                    background-color: #EAB010;
+                    margin: 0;
+                    text-align: center;
+            }
+            #logo {
+                    position: absolute;
+                    padding-top: 2px;
+                    overflow: auto;
+            }
+            #logo3 {
+
+                    height: 138px;
+            }
+
+            #home {
+                    padding-right: 25px;
+                    position: absolute;
+                    top: 10px;
+                    right: 1px;
+            }
+            #title {
+                    font-size: 340%;
+                    padding-top: 40px;
+                    font-family: "Times New Roman", Times, serif;
+            }
+            div.clear {
+                    float: clear;
+            }
+            #image {
+                background-image: url("http://www.mtmary.edu/_images/_main/interior-clubs-orgs-026.jpg");
+                height: 400px;
+                width: 100%;
+                margin: 0;
+                background-size:100% 100%;
+                background-repeat:no-repeat;
+            }
+            #info {
+                width: 100%;
+                height: 150px;
+                text-align: center;
+                background-color: #EAB010;
+                font-size: 110%;
+                margin: 0;
+                padding: 32px 0 0 0;
+            }
+            table, th, td {
+                border-style: outset;
+                border-collapse: collapse;
+                padding-left: 5px;
+                padding-right: 5px;
+                background-color: white;
+            }
+            th {
+                padding: 5px;
+                text-align: center;
+                color: blue;
+            }
+            </style>
+            </head>
+            <body>
+                <div id="fixedBar">
+
+                    <div id="logo">
+                        <img src="http://www.books-not-bombs.com/content/images/schools/sjsu.png" id="logo3" />
+                    </div>
+
+                    <div class="clear"> </div>
+
+
+                    <h1 id="title"><font face="Palatino Linotype"> Spartan Organizations</font></h1>
+
+                    <body link="yellow"><div id="home"><a href="http://127.0.0.1:5000/">Homepage</a></div></body>
+
+                <div id="image"> </div>
+
+
+                <div id="info">
+                    <p><font face="Georgia"><b>Here, you will find further details regarding each club</font></b></p>
+                </div>
+
+            <table style="width:100%">
+              <caption><h1>San Jose State Clubs and Organizations</h1></caption>
+
+              <tr>
+                <th>Club ID</th>
+                <th>Organization Name</th>
+                <th>Number Of Members</th>
+                <th>Number Of Reviews</th>
+                <th>Payment Required?</th>
+                <th>Membership Cost</th>
+              </tr>
+
+            </div>
+                """
+
+    footer = """
+    </table></body>
+    """
+    message_out = ''
+
+    key = 0
+    for item in SJSU_Organizations:
+        message_out += '<tr>' + \
+                       '<td align="center">' + str(item[CLUB_ID]) + '</td>' + \
+                       '<td align="center">' + str(item[ORGANIZATION_NAME]) + '</td>' + \
+                       '<td align="center">' + str(item[NUMBER_OF_MEMBERS]) + '</td>' + \
+                       '<td align="middle">' + str(item[NUMBER_OF_REVIEWS]) + '</td>' + \
+                       '<td align="middle">' + yesORno(club[PAYMENT_REQUIRED]) + '</td>' + \
+                       '<td align="middle">' + str(item[MEMBERSHIP_COST]) + '</td>' + '</tr>'
+
+        key += 1
+
+    return (header + message_out + footer)
+
+
+
+
 #-------------------- Home Page Handler --------------------
+#----- Done with html file
+
 @my_app.route('/')
 @my_app.route('/home')
 def homePage():
-    return """
-<title> SJSU Clubs Homepage </title>
-<style>    
-    body {
-        margin: 0;
-        padding: 0;
-    }    
-    #firstBar {
-        height: 115px;
-        background-color: #EAB010;
-        text-align: center;
-    }    
-    h1  {
-        color: #3072AD ;
-        font-size: 240%;    
-    }    
-
-    
-    p {
-        font-size: 1.4em;
-        border: 1px solid black;
-    }    
-    table {
-            float: right;
-            color: navy;
-    }    
-    th {
-            text-align: left;
-            font-size: 1.2em;
-    }    
-    td {
-            font-family: "Courier New";
-    }    
-    #mainImage {
-        background-image: url("https://c1.staticflickr.com/6/5290/5265285009_cc99c82221_b.jpg"); 
-        background-size: 100%;
-        background-repeat: no-repeat;
-        height: 900px;
-        margin: 0;
-    }    
-    #moreInfo {
-        margin: 0;
-    }    
-    #SJSU_link1 {
-        float: left;
-        padding-left: 20px;
-        padding-top: 15px;
-    }
-    #SJSU_link2 {        
-        float:left;
-        position: relative;
-        top: 47px;
-        left: -90px;
-    }    
-    #SJSU_link3 {
-        float:left;
-        position: relative;
-        top: 80px;
-        left: -242px;
-    }
-    
-    #title {
-        padding-right: 320px;
-        padding-top: 10px;
-        margin: 0;
-    }
-    
-    #title2 {
-        margin: 0;
-        padding-bottom: 0px;
-    }
-
-    
-    #image4 {
-        height: 500px;
-        background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/2/27/San_Jose_State_Spartans_Logo.svg/996px-San_Jose_State_Spartans_Logo.svg.png");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 35%;
-    }
-    
-     a:link {
-        color: black; 
-        text-decoration: none;
-     }
-            
-     a:visited {
-        text-decoration: none;
-        color: black;
-     }
-    
-     a:hover {
-        color: #3072AD;
-     }
-        
-     a:active {
-        color: yellow;
-     } 
-     
-    #logo2div {
-        float: right;
-        position: relative;
-        top: -214px;
-    }
-    
-    #logo2 {
-        height: 116px
-    }
-
-</style>
-        
-<body>
-    
-    <div id="firstBar">   
-        
-        <div id="SJSU_link1"> 
-            <a href="http://www.sjsu.edu/"> SJSU Website </a> 
-        </div>
-        <div id="SJSU_link2">
-            <a href="http://127.0.0.1:5000/showall"> List of all organizations</a>
-        </div>
-        <div id="SJSU_link3">
-            <a href="http://www.sjsu.edu/getinvolved/studentorgs/new/"> Get Involved </a>
-        </div>
-    
-        <h1 id="title"> San Jose State University </h1>
-        <h1 id="title2"> Clubs & Organizations </h1>
-        <h3> Welcome to the San Jose State University's Organization Directory</h3>
-        <p> A simple and hasstle-free place to find the organization that suits you! </p>
-        <div id="logo2div"> 
-            <img src="http://www.books-not-bombs.com/content/images/schools/sjsu.png" id="logo2">
-        </div>
-    
-    </div>
-    
-    <div id="mainImage"> </div>
-
-    <div id="image4"> </div>
-    
-    <div id="names"> 
-        <table>
-            <tr> <th>Developers</th> </tr>
-            <tr> <td>Carlos Quirarte</td> </tr>
-            <tr> <td>Sean Scudellari</td> </tr>
-            <tr> <td>Martin Tirtawisata</td> </tr>
-        </table>
-    </div>
-</body>
-
-"""
-
+    return render_template("Homepage Template.html")
 
 #-------------------- Show All Handler --------------------
 @my_app.route('/showall')
 
 def organizations():
-    command = """SELECT {a}.club_id, {a}.organization_name, {a}.president, {a}.location, {b}.category, {a}.rating, {a}.number_of_reviews, {a}.payment_required, {a}.membership_cost
+    command = """SELECT {a}.club_id, {a}.organization_name, {a}.president, {a}.location, {b}.category, {a}.rating
                       FROM {a} join {b} ON {a}.category_id = {b}.category_id
         """.format(a="organizations", b='category')
     cursor.execute(command)
     club_data = cursor.fetchall()
 
-    return (print_table(club_data))
+    return (print_maintable(club_data))
+ 
+#-------------------- Further Details Handler --------------------
+@my_app.route('/details')
+
+def details():
+    command = """SELECT {c}.club_id, {a}.organization_name, {c}.number_of_members, {c}.number_of_reviews, {c}.payment_required, {c}.membership_cost
+                          FROM {c} join {a} ON {c}.club_id = {a}.club_id
+            """.format(a="organizations", c='details')
+    cursor.execute(command)
+    club_data = cursor.fetchall()
+
+    return (print_subtable(club_data))
+
 
 
 
@@ -364,15 +363,18 @@ def get_message(key):
     PRESIDENT = 1
     LOCATION = 2
     RATING = 3
-    NUMBER_OF_REVIEWS = 4
+    NUMBER_OF_MEMBERS = 4
     PAYMENT_REQUIRED = 5
     MEMBERSHIP_COST = 6
-    CATEGORY = 7
+    URL = 7
+    DESCRIPTION = 8
+    CLUB_ID = 9
   
     
-    command = """ SELECT {a}.Organization_name, {a}.President, {a}.Location, {a}.Rating, {a}.number_of_reviews, {a}.payment_required,{a}.membership_cost,{a}.description,{a}.Image_URL,{b}.category
-                         FROM {a} join {b} ON {a}.category_ID = {b}.category_ID
-    """.format(a="Organizations", b='category', p1=key) 
+    command = """ SELECT {a}.club_id, {a}.Organization_name, {a}.description, {a}.President, {a}.Location, {a}.Rating, {c}.number_of_members, {c}.payment_required,{c}.membership_cost,{c}.Image_URL
+                         FROM {a} join {c} ON {a}.club_id = {c}.club_id
+                         WHERE {a}.club_id = {p1}
+    """.format(a="Organizations", c='details', p1=key)
     cursor.execute(command)
     club_data = cursor.fetchall()                           
   
@@ -484,20 +486,21 @@ def get_message(key):
         </body> """
 
 
-
-
     message = '<table><col width="315">'
+    message += '<td><img src="'+str(club)[URL]+'style="width:220px;height:326px" id="logo2"></td>'
     message += '<p class="right"><b>Organization Name:</b>'+str(club[ORGANIZATION_NAME])+'</p>'
-    message += '<p class="right"><b>Classification:</b>   ' +str(club[CATEGORY])+ '</p>'
+    message += '<p class="right"><b>ID:</b>' + str(club[CLUB_ID]) + '</p>'
+    message += '<p class="right"><b>Description:</b>'+str(club[DESCRIPTION])+'</p>'
     message += '<p class="right"><b>Location:</b>   '+str(club[LOCATION])+ '</p>'
     message += '<p class="right"><b>President:</b>   '+str(club[PRESIDENT])+'</p>'
     message += '<p class="right"><b>Membership Fee:</b>   $'+str(club[MEMBERSHIP_COST])+ '</p>'
     message += '<p class="right"><b>Fee required to join?</b>   '+yesORno(club[PAYMENT_REQUIRED])+ '</p>'
     message += '<p class="right"><b>Rating:</b>   '+str(club[RATING])+ '</p>'
-    message += '<p class="right" id="bottom"><b>Number of Reviews</b>   '+str(club[NUMBER_OF_REVIEWS])+ '</p></td>'
+    message += '<p class="right" id="bottom"><b>Number of Reviews:</b>   '+str(club[NUMBER_OF_MEMBERS])+ '</p></td>'
 
 
     return header2+message+footer2
+
 
 #------------------ Club Search ----------------
 @my_app.route('/club-search')
@@ -552,21 +555,23 @@ def club_search ():
         if validation !="":
             validation += " AND "
         validation += "organizations.membership_cost= "+str(membership_cost)
-        
+
+        #MARTIN MAKE SURE CHANGE THE B'S TO C'S ON YOUR VIEWS FILE
     if validation == "":
-        command = """ SELECT {a}.club_id, {a}.president, {a}.location, {a}.rating, {a}.number_of_reviews, {a}.payment_required, {a}.membership_cost
-        ON {a} join {b} FROM {a}.category_ID = {b}.category_ID
+        command = """ SELECT {a}.club_id, {a}.president, {a}.location, {a}.rating, {c}.number_of_reviews, {c}.payment_required, {c}.membership_cost
+        ON {a} join {c} FROM {a}.club_id = {c}.club_ID
         WHERE {val}
-        """.format(a="organizations",b= 'category')
+        """.format(a="organizations",c= 'details')
     else:
-        command = """ SELECT {a}.club_id, {a}.president, {a}.location, {a}.rating, {a}.number_of_reviews, {a}.payment_required, {a}.membership_cost
-        ON {a} join {b} FROM {a}.category_ID = {b}.category_ID
+        command = """ SELECT {a}.club_id, {a}.president, {a}.location, {a}.rating, {c}.number_of_reviews, {c}.payment_required, {c}.membership_cost
+        ON {a} join {c} FROM {a}.category_ID = {c}.club_ID
         WHERE {val}
-        """.format(a="organizations",b= 'category',val = validation)
+        """.format(a="organizations",c= 'details',val = validation)
     
     cursor.execute(command)
     club_data = cursor.fetchall()
-    return (print_table(club_data))
+    return (print_maintable(club_data))
+
 
 '''We have to create new def function for this because the print_table is set for the home page only'''
 
@@ -577,128 +582,40 @@ def club_search ():
 @my_app.route ('/show/review')
 
 def show_review():
-    return """
-<html>
-<title>Review Page</title>
+    return render_template("ReviewPage.html")
 
-<style>
-    
-    body {
-        margin: 0;
-        padding: 0;
-        background-color: #E3E3E5;
-    } 
-    #firstBar {
-        height: 115px;
-        background-color: #EAB010;
-        text-align: center;
-    }
-    h1 {
-        color: #3072AD;
-        font-size: 240%;
-        text-align:center;
-        padding-top:30px;
-    }
-    
-    p.thick {
-        color: #3072AD;
-        font-family: "Times New Roman",Times,Serif;
-        font-size: 1.5em; 
-        font-weight:bold;
-        margin-left:0px;
-    }
-    p {
-        font-family: "Times New Roman",Times,Serif;
-        font-size: 1em;
-        font-weight: normal;
-    }
-    p.outset {
-            border-style: outset;
-            border-color: #EAB010 #3072AD #EAB010 #3072AD;
-            margin-left:300px;
-            margin-right:850px;
-    }
-    pre {
-        font-family: "Times New Roman",Times,Serif;
-        font-size:1em;
-        font-weight: normal;
-        margin-left:0px;
-        text-color:#3072AD;
-    }
-    #logo2div {
-            float:right;  
-            position: relative;
-            top: -102px;
-    }
-    
-    #logo2 {
-            height:116px;
-    }
-    input[type=text], select {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-    }
 
-    input[type=submit] {
-            width: 100%;
-            background-color: #4CAF50;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-    }
 
-    input[type=submit]:hover {
-            background-color: #45a049;
-    }
 
-    div {
-            border-radius: 5px;
-            background-color: #f2f2f2;
-            padding: 20px;
-    }
-</style>
 
-<body>
 
-    <div id="firstBar">
-        <h1> Review Page </h1>
-        <div id="logo2div"> 
-            <img src="http://www.books-not-bombs.com/content/images/schools/sjsu.png" id="logo2">
-        </div>
-        <br>
-    </div>
-    <p class="thick"> Guidelines for writing a review </p>
-    <pre>         - Why did you join?
-         - What was the benefit?
-         - Was the club members friendly?
-         - How is the club?
-    </pre>
-    <p class="outset"> Please tell us your thoughts about the club </p>
-    <div>
-        <form action="/action_page.php">
-            <label for="orgname">Organization Name</label>
-            <select id="orgname"> name="orgname">
-                <option value="MISA"> Management Information System Association</option>
-                <option value="MA"> Marketing Association</option>
-                <option value="FMA"> Financial Management Association </option>
-                <option value="LBSA"> Latino Busuiness Student Association</option>
-            </select>
-            <label for="userreview">Your Review</label>
-            <input type="text" id="userreview" name="userreview" placeholder="Write Your Review Here...">
-            <input type="submit" value="Submit">
-        </form>
-    </div>
-</body>
-</html>
 
-"""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
