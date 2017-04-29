@@ -34,6 +34,8 @@ Create a new reviews table? with  category_ID, Club_id, reviews
 '''
 
 #-------------Function for printing all Organizations (Main Table)---------
+#-------DONE----- Needs polishing----------------
+
 def print_maintable(SJSU_Organizations):
     CLUB_ID = 0
     ORGANIZATION_NAME = 1
@@ -42,115 +44,6 @@ def print_maintable(SJSU_Organizations):
     CATEGORY = 4
     RATING = 5
 
-
-    header = """
-            <head>
-            <title>List of Clubs</title>
-            <style>
-
-            body {
-                    margin: 0;
-                    padding: 0;
-            }
-            #fixedBar {
-                    height: 150px;
-                    color: #3072AD;
-                    background-color: #EAB010;
-                    margin: 0;
-                    text-align: center;
-            }
-            #logo {
-                    position: absolute;
-                    overflow: auto;
-            }
-            #logo3 {
-                    
-                    height: 138px;
-            }
-            
-            #home {
-                    padding-right: 25px;
-                    position: absolute;
-                    top: 10px;
-                    right: 1px;
-            }
-            #title {
-                    font-size: 340%;
-                    padding-top: 40px;
-                    font-family: "Times New Roman", Times, serif;
-            }
-            div.clear {
-                    float: clear;
-            }
-            #image {
-                background-image: url("http://www.mtmary.edu/_images/_main/interior-clubs-orgs-026.jpg");
-                height: 400px;
-                width: 100%;
-                margin: 0;
-                background-size:100% 100%;
-                background-repeat:no-repeat;
-            }
-            #info {
-                width: 100%;
-                height: 150px;
-                text-align: center;
-                background-color: #EAB010;
-                font-size: 110%;
-                margin: 0;
-                padding: 32px 0 0 0;
-            }
-            table, th, td {
-                border-style: outset;
-                border-collapse: collapse;
-                padding-left: 5px;
-                padding-right: 5px;
-                background-color: white;
-            }
-            th {
-                padding: 5px;
-                text-align: center;
-                color: blue;
-            }
-            </style>
-            </head>
-            <body>
-                <div id="fixedBar">
-
-                    <div id="logo">
-                        <img src="http://www.books-not-bombs.com/content/images/schools/sjsu.png" id="logo3" />
-                    </div>
-
-                    <div class="clear"> </div>
-
-
-                    <h1 id="title"><font face="Palatino Linotype"> Spartan Organizations</font></h1>
-
-                    <body link="yellow"><div id="home"><a href="http://127.0.0.1:5000/">Homepage</a></div></body>
-
-                <div id="image"> </div>
-
-
-                <div id="info">
-                    <p><font face="Georgia"><b>Welcome to Student Involvement! Your home for Fraternity & Sorority Life,
-                        Student Organziations, Campus Programming & Leadership! </p>
-                    <p> With over 400 student organizations at SJSU, getting involved is the best
-                        way to connect with campus life! </font></b></p>
-                </div>
-
-            <table style="width:100%">
-              <caption><h1>San Jose State Clubs and Organizations</h1></caption>
-
-              <tr>
-                <th>Club ID</th>
-                <th>Organization Name</th>
-                <th>President</th>
-                <th>Location</th>
-                <th>Category</th>
-                <th>Rating</th>
-              </tr>
-
-            </div>
-                """
 
     footer = """
     </table></body>
@@ -169,17 +62,20 @@ def print_maintable(SJSU_Organizations):
 
         key += 1
 
-    return (header+message_out+footer)
+    
+    return (render_template("main_table.html")+message_out+footer)
 
 
 
 #----------Function for printing details of Organizations (Sub Table)---------
+#------NOT DONE--------Needs polishing -- PUT BACK 'PAYMENT REQUIRED'
 
 def yesORno(boolean):
-    if (boolean == True):
+    if (boolean == "TRUE"):
         return "Yes"
-    else:
+    elif (boolean == "FALSE"):
         return "No"
+    
 
 
 def print_subtable(SJSU_Organizations):
@@ -190,112 +86,7 @@ def print_subtable(SJSU_Organizations):
     PAYMENT_REQUIRED = 4
     MEMBERSHIP_COST = 5
 
-    header = """
-            <head>
-            <title>Further Organization Details</title>
-            <style>
-
-            body {
-                    margin: 0;
-                    padding: 0;
-            }
-            #fixedBar {
-                    height: 150px;
-                    color: #3072AD;
-                    background-color: #EAB010;
-                    margin: 0;
-                    text-align: center;
-            }
-            #logo {
-                    position: absolute;
-                    padding-top: 2px;
-                    overflow: auto;
-            }
-            #logo3 {
-
-                    height: 138px;
-            }
-
-            #home {
-                    padding-right: 25px;
-                    position: absolute;
-                    top: 10px;
-                    right: 1px;
-            }
-            #title {
-                    font-size: 340%;
-                    padding-top: 40px;
-                    font-family: "Times New Roman", Times, serif;
-            }
-            div.clear {
-                    float: clear;
-            }
-            #image {
-                background-image: url("http://www.mtmary.edu/_images/_main/interior-clubs-orgs-026.jpg");
-                height: 400px;
-                width: 100%;
-                margin: 0;
-                background-size:100% 100%;
-                background-repeat:no-repeat;
-            }
-            #info {
-                width: 100%;
-                height: 150px;
-                text-align: center;
-                background-color: #EAB010;
-                font-size: 110%;
-                margin: 0;
-                padding: 32px 0 0 0;
-            }
-            table, th, td {
-                border-style: outset;
-                border-collapse: collapse;
-                padding-left: 5px;
-                padding-right: 5px;
-                background-color: white;
-            }
-            th {
-                padding: 5px;
-                text-align: center;
-                color: blue;
-            }
-            </style>
-            </head>
-            <body>
-                <div id="fixedBar">
-
-                    <div id="logo">
-                        <img src="http://www.books-not-bombs.com/content/images/schools/sjsu.png" id="logo3" />
-                    </div>
-
-                    <div class="clear"> </div>
-
-
-                    <h1 id="title"><font face="Palatino Linotype"> Spartan Organizations</font></h1>
-
-                    <body link="yellow"><div id="home"><a href="http://127.0.0.1:5000/">Homepage</a></div></body>
-
-                <div id="image"> </div>
-
-
-                <div id="info">
-                    <p><font face="Georgia"><b>Here, you will find further details regarding each club</font></b></p>
-                </div>
-
-            <table style="width:100%">
-              <caption><h1>San Jose State Clubs and Organizations</h1></caption>
-
-              <tr>
-                <th>Club ID</th>
-                <th>Organization Name</th>
-                <th>Number Of Members</th>
-                <th>Number Of Reviews</th>
-                <th>Payment Required?</th>
-                <th>Membership Cost</th>
-              </tr>
-
-            </div>
-                """
+    
 
     footer = """
     </table></body>
@@ -309,14 +100,13 @@ def print_subtable(SJSU_Organizations):
                        '<td align="center">' + str(item[ORGANIZATION_NAME]) + '</td>' + \
                        '<td align="center">' + str(item[NUMBER_OF_MEMBERS]) + '</td>' + \
                        '<td align="middle">' + str(item[NUMBER_OF_REVIEWS]) + '</td>' + \
-                       '<td align="middle">' + yesORno(Club[PAYMENT_REQUIRED]) + '</td>' + \
+                       '<td align="middle">' + yesORno(str(item[PAYMENT_REQUIRED])) + '</td>' + \
                        '<td align="middle">' + str(item[MEMBERSHIP_COST]) + '</td>' + '</tr>'
 
         key += 1
+        
 
-    return (header + message_out + footer)
-
-
+    return (render_template("sub_table.html")+message_out+footer)
 
 
 #-------------------- Home Page Handler --------------------
@@ -346,9 +136,9 @@ def details():
                           FROM {c} join {a} ON {c}.club_id = {a}.club_id
             """.format(a="organizations", c='details')
     cursor.execute(command)
-    club_data = cursor.fetchall()
+    club_data2 = cursor.fetchall()
 
-    return (print_subtable(club_data))
+    return (print_subtable(club_data2))
 
 
 

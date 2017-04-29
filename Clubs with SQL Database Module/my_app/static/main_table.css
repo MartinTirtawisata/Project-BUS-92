@@ -13,14 +13,13 @@
             }
             #logo {
                     position: absolute;
-                    padding-top: 2px;
                     overflow: auto;
             }
             #logo3 {
-
+                    
                     height: 138px;
             }
-
+            
             #home {
                     padding-right: 25px;
                     position: absolute;

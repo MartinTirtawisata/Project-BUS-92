@@ -1,0 +1,86 @@
+<style>
+
+            body {
+                    margin: 0;
+                    padding: 0;
+                    background-color: #E3E3E5;
+            }
+
+            #image2 {
+                    background-image: url("http://www.pressdemocrat.com/csp/mediapool/sites/dt.common.streams.StreamServer.cls?STREAMOID=1Q_PpZ$$ef91sZ23ohmJAc$daE2N3K4ZzOUsqbU5sYshvOQ8ctBOtI8vYy4xeVFrWCsjLu883Ygn4B49Lvm9bPe2QeMKQdVeZmXF$9l$4uCZ8QDXhaHEp3rvzXRJFdy0KqPHLoMevcTLo3h8xh70Y6N_U_CryOsw6FTOdKL_jpQ-&CONTENTTYPE=image/jpeg");
+                    height: 535px;
+                    width: 100%;
+                    margin: 0;
+                    background-size:100% 100%;
+                    background-repeat:no-repeat;
+                    text-align: center;
+                    font-size: 1.3em;
+            }
+
+            #descrip {
+                    font-size: 1.5em;
+                    text-align: center;
+                    padding-top: 20px;
+            }
+
+            #logo2 {
+                    margin: auto;
+                    display: block;
+            }
+
+
+
+            table td {
+                    border-right: 2px solid #EAB010;
+            }
+
+            table td:first-child {
+                    border-left: none;
+            }
+
+            table td:last-child {
+                    border-right: none;
+            }
+
+            p.right {
+                    padding-left: 20px;
+            }
+
+            #filler {
+                    height: 150px;
+            }
+
+            #bottom {
+                    padding-bottom: 25px;
+            }
+
+            #list {
+                    display: inline-block;
+                    margin-right: 10px;
+
+            }
+
+            #home2 {
+                    display: inline-block;
+            }
+
+            a:link {
+                    color: black;
+                    text-decoration: none;
+            }
+
+            a:visited {
+                    text-decorator: none;
+            }
+
+
+            a:hover {
+                    color: #EAB010;
+            }
+
+
+            a:active {
+                    color: yellow;
+            }
+
+        </style>
