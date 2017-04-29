@@ -70,7 +70,7 @@
             }
 
             a:visited {
-                    text-decorator: none;
+                    text-decoration: none;
             }
 
 
@@ -83,4 +83,4 @@
                     color: yellow;
             }
 
-        </style>
+</style>

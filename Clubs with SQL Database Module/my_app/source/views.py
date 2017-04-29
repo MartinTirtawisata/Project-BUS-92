@@ -144,151 +144,51 @@ def details():
 
 
 #-------------------- Show Key Handler --------------------
+
 #Parameters: Key, integer
 @my_app.route('/show/<key>') #Ways to control the parameter
 
 def get_message(key):    
     ORGANIZATION_NAME = 0
-    PRESIDENT = 1
-    LOCATION = 2
-    RATING = 3
-    NUMBER_OF_MEMBERS = 4
-    PAYMENT_REQUIRED = 5
-    MEMBERSHIP_COST = 6
-    URL = 7
-    DESCRIPTION = 8
-    CLUB_ID = 9
-  
+    CLUB_ID = 1
+    DESCRIPTION = 2
+    LOCATION = 3
+    PRESIDENT = 4
+    MEMBERSHIP_COST = 5
+    PAYMENT_REQUIRED = 6
+    RATING = 7
+    NUMBER_OF_MEMBERS = 8
+    URL = 9
     
-    command = """ SELECT {a}.club_id, {a}.Organization_name, {a}.description, {a}.President, {a}.Location, {a}.Rating, {c}.number_of_members, {c}.payment_required,{c}.membership_cost,{c}.Image_URL
+    
+    command = """ SELECT {a}.Organization_name, {a}.club_id, {a}.description, {a}.Location, {a}.President, 
+                         {c}.membership_cost, {c}.payment_required, {a}.rating, {c}.number_of_members, {c}.Image_URL
                          FROM {a} join {c} ON {a}.club_id = {c}.club_id
-                         WHERE {a}.club_id = {p1}
-    """.format(a="Organizations", c='details', p1=key)
+    """.format(a="Organizations", c='details')
+    
     cursor.execute(command)
-    club_data = cursor.fetchall()                           
-  
-    if len(club_data) == 0:
-        return "The key "+ key + " was not found"
-    club = club_data[0] 
-
-    header2 = """
-
-        <head>
-        <style>
-
-            body {
-                    margin: 0;
-                    padding: 0;
-                    background-color: #E3E3E5;
-            }
-
-            #image2 {
-                    background-image: url("http://www.pressdemocrat.com/csp/mediapool/sites/dt.common.streams.StreamServer.cls?STREAMOID=1Q_PpZ$$ef91sZ23ohmJAc$daE2N3K4ZzOUsqbU5sYshvOQ8ctBOtI8vYy4xeVFrWCsjLu883Ygn4B49Lvm9bPe2QeMKQdVeZmXF$9l$4uCZ8QDXhaHEp3rvzXRJFdy0KqPHLoMevcTLo3h8xh70Y6N_U_CryOsw6FTOdKL_jpQ-&CONTENTTYPE=image/jpeg");
-                    height: 535px;
-                    width: 100%;
-                    margin: 0;
-                    background-size:100% 100%;
-                    background-repeat:no-repeat;
-                    text-align: center;
-                    font-size: 1.3em;
-            }
-
-            #descrip {
-                    font-size: 1.5em;
-                    text-align: center;
-                    padding-top: 20px;
-            }
-
-            #logo2 {
-                    margin: auto;
-                    display: block;
-            }
-
-
-
-            table td {
-                    border-right: 2px solid #EAB010;
-            }
-
-            table td:first-child {
-                    border-left: none;
-            }
-
-            table td:last-child {
-                    border-right: none;
-            }
-
-            p.right {
-                    padding-left: 20px;
-            }
-
-            #filler {
-                    height: 150px;
-            }
-
-            #bottom {
-                    padding-bottom: 25px;
-            }
-
-            #list {
-                    display: inline-block;
-                    margin-right: 10px;
-
-            }
-
-            #home2 {
-                    display: inline-block;
-            }
-
-            a:link {
-                    color: black;
-                    text-decoration: none;
-            }
-
-            a:visited {
-                    text-decorator: none;
-            }
-
-
-            a:hover {
-                    color: #EAB010;
-            }
-
-
-            a:active {
-                    color: yellow;
-            }
-
-        </style>
-        </head>
-        <body>
-
-            <div id="club_name">
-
-            <div id="image2">
-                <div id="list"><a href="http://127.0.0.1:5000/showall"> List </a> </div>
-                <div id="home2"><a href="http://127.0.0.1:5000/"> Homepage </a> </div>
-            </div>
-        """
-
-    footer2 = """
-        </body> """
-
-
+    club_data3 = cursor.fetchall()                           
+    club = club_data3
+    
+    total = int(key)
+    INDEX = (total - 1)
+    
+    
     message = '<table><col width="315">'
-    message += '<td><img src="'+str(club)[URL]+'style="width:220px;height:326px" id="logo2"></td>'
-    message += '<p class="right"><b>Organization Name:</b>'+str(club[ORGANIZATION_NAME])+'</p>'
-    message += '<p class="right"><b>ID:</b>' + str(club[CLUB_ID]) + '</p>'
-    message += '<p class="right"><b>Description:</b>'+str(club[DESCRIPTION])+'</p>'
-    message += '<p class="right"><b>Location:</b>   '+str(club[LOCATION])+ '</p>'
-    message += '<p class="right"><b>President:</b>   '+str(club[PRESIDENT])+'</p>'
-    message += '<p class="right"><b>Membership Fee:</b>   $'+str(club[MEMBERSHIP_COST])+ '</p>'
-    message += '<p class="right"><b>Fee required to join?</b>   '+yesORno(club[PAYMENT_REQUIRED])+ '</p>'
-    message += '<p class="right"><b>Rating:</b>   '+str(club[RATING])+ '</p>'
-    message += '<p class="right" id="bottom"><b>Number of Reviews:</b>   '+str(club[NUMBER_OF_MEMBERS])+ '</p></td>'
-
-
-    return header2+message+footer2
+    message += '<td><img src="'+str(club[INDEX][URL])+'"style="width:220px;height:326px" id="logo2"></td>'
+    message += '<p class="right"><b>Organization Name:</b>'+str(club[INDEX][ORGANIZATION_NAME])+'</p>'
+    message += '<p class="right"><b>ID:</b>'+str(club[INDEX][CLUB_ID])+'</p>'
+    message += '<p class="right"><b>Description:</b>'+str(club[INDEX][DESCRIPTION])+'</p>'
+    message += '<p class="right"><b>Location:</b>   '+str(club[INDEX][LOCATION])+ '</p>'
+    message += '<p class="right"><b>President:</b>   '+str(club[INDEX][PRESIDENT])+'</p>'
+    message += '<p class="right"><b>Membership Fee:</b>   $'+str(club[INDEX][MEMBERSHIP_COST])+ '</p>'
+    message += '<p class="right"><b>Fee required to join?</b>   '+yesORno(club[INDEX][PAYMENT_REQUIRED])+ '</p>'
+    message += '<p class="right"><b>Rating:</b>   '+str(club[INDEX][RATING])+'</p>'
+    message += '<p class="right"><b>Number of Members:</b>   '+str(club[INDEX][NUMBER_OF_MEMBERS])+'</p>'
+    
+    footer3 = """ </table> </body> """
+                                                        
+    return (render_template("show_one.html")+message+footer3)
 
 
 #------------------ Club Search ----------------
