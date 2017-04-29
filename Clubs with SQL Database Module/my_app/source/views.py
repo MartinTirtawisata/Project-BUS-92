@@ -68,7 +68,7 @@ def print_maintable(SJSU_Organizations):
 
 
 #----------Function for printing details of Organizations (Sub Table)---------
-#------NOT DONE--------Needs polishing -- PUT BACK 'PAYMENT REQUIRED'
+#-------DONE----- Needs polishing----------------
 
 def yesORno(boolean):
     if (boolean == "TRUE"):
@@ -110,13 +110,16 @@ def print_subtable(SJSU_Organizations):
 
 
 #-------------------- Home Page Handler --------------------
-#---DONE -- but needs polishing-----
+#-------DONE----- Needs polishing----------------
+
 @my_app.route('/')
 @my_app.route('/home')
 def homePage():
     return render_template("Homepage Template.html")
 
 #-------------------- Show All Handler --------------------
+#-------DONE----- Needs polishing----------------
+
 @my_app.route('/showall')
 
 def organizations():
@@ -129,6 +132,8 @@ def organizations():
     return (print_maintable(club_data))
  
 #-------------------- Further Details Handler --------------------
+#-------DONE----- Needs polishing----------------
+
 @my_app.route('/details')
 
 def details():
@@ -144,6 +149,7 @@ def details():
 
 
 #-------------------- Show Key Handler --------------------
+#-------DONE----- Needs polishing----------------
 
 #Parameters: Key, integer
 @my_app.route('/show/<key>') #Ways to control the parameter
@@ -267,7 +273,7 @@ def club_search ():
 
         
 #--------------- Review Handler ------------------#
-#---Done --- needs polishing
+#-------DONE----- Needs polishing----------------
 
 #Parameters: Key
 @my_app.route ('/show/review')
