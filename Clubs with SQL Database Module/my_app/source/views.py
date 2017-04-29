@@ -309,7 +309,7 @@ def print_subtable(SJSU_Organizations):
                        '<td align="center">' + str(item[ORGANIZATION_NAME]) + '</td>' + \
                        '<td align="center">' + str(item[NUMBER_OF_MEMBERS]) + '</td>' + \
                        '<td align="middle">' + str(item[NUMBER_OF_REVIEWS]) + '</td>' + \
-                       '<td align="middle">' + yesORno(club[PAYMENT_REQUIRED]) + '</td>' + \
+                       '<td align="middle">' + yesORno(Club[PAYMENT_REQUIRED]) + '</td>' + \
                        '<td align="middle">' + str(item[MEMBERSHIP_COST]) + '</td>' + '</tr>'
 
         key += 1
@@ -320,8 +320,7 @@ def print_subtable(SJSU_Organizations):
 
 
 #-------------------- Home Page Handler --------------------
-#----- Done with html file
-
+#---DONE -- but needs polishing-----
 @my_app.route('/')
 @my_app.route('/home')
 def homePage():
@@ -578,6 +577,8 @@ def club_search ():
 
         
 #--------------- Review Handler ------------------#
+#---Done --- needs polishing
+
 #Parameters: Key
 @my_app.route ('/show/review')
 
