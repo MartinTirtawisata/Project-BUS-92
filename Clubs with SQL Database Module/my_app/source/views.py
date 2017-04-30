@@ -201,19 +201,31 @@ def get_message(key):
 @my_app.route('/club-search')
 def club_search ():
     club_ID = request.args.get('clubID')
+    club_greater_equal = request.args.get('club_ge')
+    club_smaller_equal = request.args.get('club_se')
     orgName = request.args.get('orgName')
     president = request.args.get('president')
     location = request.args.get('location')
+    category = request.args.get('category')
     rating = request.args.get('rating')
-    num_of_reviews = request.args.get('number_of_reviews')
-    payment_required = request.args.get('payment_required')
-    membership_cost = request.args.get('membership_cost')
-    
+    rating_greater_equal = request.args.get('rating_ge')
+    rating_smaller_equal = request.args.get('rating_se')
+
     
     validation = ""
     
     if club_ID != None:
         validation += "organizations.club_id = "+str(club_ID)
+        
+    if club_greater_equal != None:
+        if validation != "":
+            validation += " AND "
+        validation  += "organizations.club_id >= " + str(club_greater_equal)
+        
+    if club_smaller_equal != None:
+        if validation != "":
+            validation += " AND "
+        validation  += "organizations.club_id <= " + str(club_smaller_equal)  
         
     if orgName != None:
         if validation != "":
@@ -221,54 +233,51 @@ def club_search ():
         validation += "organizations.organization_name LIKE '%"+orgName+"%'"
         
     if president != None:
-        if validation !="":
+        if validation != "":
             validation += " AND "
         validation += "organizations.president LIKE '%"+president+"%'"
         
     if location != None:
-        if validation !="":
+        if validation != "":
             validation += " AND "
         validation += "organizations.location LIKE '%"+location+"%'"
+        
+    if category != None:
+        if validation != "":
+            validation += " AND "
+        validation += "category.category LIKE '%"+category+"%'"  
         
     if rating != None:
         if validation !="":
             validation += " AND "
         validation += "organizations.rating= "+str(rating)
         
-    if num_of_reviews != None:
-        if validation !="":
+    if rating_greater_equal != None:
+        if validation != "":
             validation += " AND "
-        validation += "organizations.number_of_reviews = "+str(num_of_reviews) 
-    
-# Confused on how to make it boolean    
-    if payment_required != None:
-        if validation !="":
-            validation += " AND "
-        validation += "organizations.payment_required '%"+payment_required+"%'"
+        validation  += "organizations.rating >= " + str(rating_greater_equal)
         
-    if membership_cost != None:
-        if validation !="":
+    if rating_smaller_equal != None:
+        if validation != "":
             validation += " AND "
-        validation += "organizations.membership_cost= "+str(membership_cost)
-
-        #MARTIN MAKE SURE CHANGE THE B'S TO C'S ON YOUR VIEWS FILE
+        validation  += "organizations.rating <= " + str(rating_smaller_equal)      
+        
     if validation == "":
-        command = """ SELECT {a}.club_id, {a}.president, {a}.location, {a}.rating, {c}.number_of_reviews, {c}.payment_required, {c}.membership_cost
-        ON {a} join {c} FROM {a}.club_id = {c}.club_ID
-        WHERE {val}
-        """.format(a="organizations",c= 'details')
+        command = """SELECT {a}.Club_id, {a}.Organization_name, {a}.President, {a}.Location, {b}.Category, {a}.Rating
+                      FROM {a} join {b} ON {a}.category_id = {b}.category_id
+        """.format(a="organizations", b='category')
     else:
-        command = """ SELECT {a}.club_id, {a}.president, {a}.location, {a}.rating, {c}.number_of_reviews, {c}.payment_required, {c}.membership_cost
-        ON {a} join {c} FROM {a}.category_ID = {c}.club_ID
-        WHERE {val}
-        """.format(a="organizations",c= 'details',val = validation)
+        command = """SELECT {a}.Club_id, {a}.Organization_name, {a}.President, {a}.Location, {b}.Category, {a}.Rating
+                      FROM {a} join {b} ON {a}.category_id = {b}.category_id 
+                      WHERE {val}
+        """.format(a="organizations", b='category', val=validation)
     
     cursor.execute(command)
     club_data = cursor.fetchall()
     return (print_maintable(club_data))
 
 
-'''We have to create new def function for this because the print_table is set for the home page only'''
+
 
 
         
