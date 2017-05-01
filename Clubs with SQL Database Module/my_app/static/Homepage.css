@@ -1,4 +1,4 @@
-<style>    
+  
     body {
         margin: 0;
         padding: 0;
@@ -12,8 +12,6 @@
         color: #3072AD ;
         font-size: 240%;    
     }    
-
-    
     p {
         font-size: 1.4em;
         border: 1px solid black;
@@ -53,20 +51,21 @@
      #SJSU_link3 {
         float:left;
         position: relative;
-        top: 61px;
-        left: -245px;
+        top: 62px;
+        left: -246px;
     }
     #SJSU_link4 {
         float:left;
         position: relative;
-        top: 83px;
+        top: 85px;
         left: -429px;
     }
     
     #title {
-        padding-right: 540px;
         padding-top: 10px;
         margin: 0;
+        position: relative;
+        left: -264px;
     }
     
     #title2 {
@@ -110,5 +109,3 @@
     #logo2 {
         height: 116px
     }
-
-</style>
