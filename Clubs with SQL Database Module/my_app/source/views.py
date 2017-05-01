@@ -34,7 +34,6 @@ Create a new reviews table? with  category_ID, Club_id, reviews
 '''
 
 #-------------Function for printing all Organizations (Main Table)---------
-#-------DONE----- Needs polishing----------------
 
 def print_maintable(SJSU_Organizations):
     CLUB_ID = 0
@@ -68,7 +67,6 @@ def print_maintable(SJSU_Organizations):
 
 
 #----------Function for printing details of Organizations (Sub Table)---------
-#-------DONE----- Needs polishing----------------
 
 def yesORno(boolean):
     if (boolean == "TRUE"):
@@ -110,7 +108,6 @@ def print_subtable(SJSU_Organizations):
 
 
 #-------------------- Home Page Handler --------------------
-#-------DONE----- Needs polishing----------------
 
 @my_app.route('/')
 @my_app.route('/home')
@@ -118,7 +115,6 @@ def homePage():
     return render_template("Homepage.html")
 
 #-------------------- Show All Handler --------------------
-#-------DONE----- Needs polishing----------------
 
 @my_app.route('/showall')
 
@@ -132,7 +128,6 @@ def organizations():
     return (print_maintable(club_data))
  
 #-------------------- Further Details Handler --------------------
-#-------DONE----- Needs polishing----------------
 
 @my_app.route('/details')
 
@@ -149,7 +144,6 @@ def details():
 
 
 #-------------------- Show Key Handler --------------------
-#-------DONE----- Needs polishing----------------
 
 #Parameters: Key, integer
 @my_app.route('/show/<key>') #Ways to control the parameter
@@ -276,13 +270,8 @@ def club_search ():
     club_data = cursor.fetchall()
     return (print_maintable(club_data))
 
-
-
-
-
         
 #--------------- Review Handler ------------------#
-#-------DONE----- Needs polishing----------------
 
 #Parameters: Key
 @my_app.route ('/show/review')
