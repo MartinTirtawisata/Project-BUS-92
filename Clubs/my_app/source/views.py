@@ -135,10 +135,6 @@ def homePage():
     }
     
     
-    
- 
-    
-    
 </style>
         
 <body>
@@ -464,8 +460,8 @@ def get_message(key):
 
             a:active {
                     color: yellow;
-            }
-            
+                    }
+
         </style>
         </head>
         <body>
@@ -496,14 +492,10 @@ def get_message(key):
     message += '<p class="right"><b>Fee required to join?</b>   '+yesORno(SJSU_clubs[INDEX][7])+ '</p>'
     message += '<p class="right"><b>Rating:</b>   '+str(SJSU_clubs[INDEX][4])+ '</p>'
     message += '<p class="right" id="bottom"><b>Number of Reviews</b>   '+str(SJSU_clubs[INDEX][5])+ '</p></td>'
-<<<<<<< HEAD
-
-
-=======
+    
     message += '<a class="right" id="bottom" href="http://127.0.0.1:5000/show/review"> Leave a review </a>'
     
-   
->>>>>>> master
+
     return header2+message+footer2
 
 #--------------- Review Handler ------------------#

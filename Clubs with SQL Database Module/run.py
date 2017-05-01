@@ -1,4 +1,5 @@
 from my_app import app
+
 """
 How to run a Flask application:
 ---------------------------
