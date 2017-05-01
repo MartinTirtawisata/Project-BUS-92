@@ -115,7 +115,7 @@ def print_subtable(SJSU_Organizations):
 @my_app.route('/')
 @my_app.route('/home')
 def homePage():
-    return render_template("Homepage Template.html")
+    return render_template("Homepage.html")
 
 #-------------------- Show All Handler --------------------
 #-------DONE----- Needs polishing----------------
@@ -182,15 +182,15 @@ def get_message(key):
     
     message = '<table><col width="315">'
     message += '<td><img src="'+str(club[INDEX][URL])+'"style="width:220px;height:326px" id="logo2"></td>'
-    message += '<p class="right"><b>Organization Name:</b>'+str(club[INDEX][ORGANIZATION_NAME])+'</p>'
-    message += '<p class="right"><b>ID:</b>'+str(club[INDEX][CLUB_ID])+'</p>'
-    message += '<p class="right"><b>Description:</b>'+str(club[INDEX][DESCRIPTION])+'</p>'
-    message += '<p class="right"><b>Location:</b>   '+str(club[INDEX][LOCATION])+ '</p>'
-    message += '<p class="right"><b>President:</b>   '+str(club[INDEX][PRESIDENT])+'</p>'
-    message += '<p class="right"><b>Membership Fee:</b>   $'+str(club[INDEX][MEMBERSHIP_COST])+ '</p>'
-    message += '<p class="right"><b>Fee required to join?</b>   '+yesORno(club[INDEX][PAYMENT_REQUIRED])+ '</p>'
-    message += '<p class="right"><b>Rating:</b>   '+str(club[INDEX][RATING])+'</p>'
-    message += '<p class="right"><b>Number of Members:</b>   '+str(club[INDEX][NUMBER_OF_MEMBERS])+'</p>'
+    message += '<p class="right"><b>Organization Name: </b>'+str(club[INDEX][ORGANIZATION_NAME])+'</p>'
+    message += '<p class="right"><b>ID: </b>'+str(club[INDEX][CLUB_ID])+'</p>'
+    message += '<p class="right"><b>Description: </b>'+str(club[INDEX][DESCRIPTION])+'</p>'
+    message += '<p class="right"><b>Location: </b>   '+str(club[INDEX][LOCATION])+ '</p>'
+    message += '<p class="right"><b>President: </b>   '+str(club[INDEX][PRESIDENT])+'</p>'
+    message += '<p class="right"><b>Membership Fee: </b>   $'+str(club[INDEX][MEMBERSHIP_COST])+ '</p>'
+    message += '<p class="right"><b>Fee required to join? </b>   '+yesORno(club[INDEX][PAYMENT_REQUIRED])+ '</p>'
+    message += '<p class="right"><b>Rating: </b>   '+str(club[INDEX][RATING])+'</p>'
+    message += '<p class="right"><b>Number Of Members: </b>   '+str(club[INDEX][NUMBER_OF_MEMBERS])+'</p>'
     
     footer3 = """ </table> </body> """
                                                         
@@ -200,10 +200,10 @@ def get_message(key):
 #------------------ Club Search ----------------
 @my_app.route('/club-search')
 def club_search ():
-    club_ID = request.args.get('clubID')
-    club_greater_equal = request.args.get('club_ge')
-    club_smaller_equal = request.args.get('club_se')
-    orgName = request.args.get('orgName')
+    club_ID = request.args.get('club_id')
+    club_ID_greater_equal = request.args.get('club_ge')
+    club_ID_smaller_equal = request.args.get('club_se')
+    orgName = request.args.get('org_name')
     president = request.args.get('president')
     location = request.args.get('location')
     category = request.args.get('category')
@@ -217,15 +217,15 @@ def club_search ():
     if club_ID != None:
         validation += "organizations.club_id = "+str(club_ID)
         
-    if club_greater_equal != None:
+    if club_ID_greater_equal != None:
         if validation != "":
             validation += " AND "
-        validation  += "organizations.club_id >= " + str(club_greater_equal)
+        validation  += "organizations.club_id >= " + str(club_ID_greater_equal)
         
-    if club_smaller_equal != None:
+    if club_ID_smaller_equal != None:
         if validation != "":
             validation += " AND "
-        validation  += "organizations.club_id <= " + str(club_smaller_equal)  
+        validation  += "organizations.club_id <= " + str(club_ID_smaller_equal)
         
     if orgName != None:
         if validation != "":
@@ -260,7 +260,7 @@ def club_search ():
     if rating_smaller_equal != None:
         if validation != "":
             validation += " AND "
-        validation  += "organizations.rating <= " + str(rating_smaller_equal)      
+        validation  += "organizations.rating <= " + str(rating_smaller_equal)
         
     if validation == "":
         command = """SELECT {a}.Club_id, {a}.Organization_name, {a}.President, {a}.Location, {b}.Category, {a}.Rating
