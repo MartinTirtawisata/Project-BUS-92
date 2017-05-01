@@ -169,6 +169,9 @@ def get_message(key):
     cursor.execute(command)
     club_data3 = cursor.fetchall()                           
     club = club_data3
+
+    if len(club) == 0:
+        return "The key "+ key + " was not found"
     
     total = int(key)
     INDEX = (total - 1)
