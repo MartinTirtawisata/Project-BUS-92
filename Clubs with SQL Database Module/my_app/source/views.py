@@ -52,8 +52,8 @@ def print_maintable(SJSU_Organizations):
     key = 0
     for item in SJSU_Organizations:
         message_out += '<tr>'+\
-                       '<td align="center">'+str(item[CLUB_ID])+'</td>'+\
-                       '<td align="center">'+str(item[ORGANIZATION_NAME])+'</td>'+\
+                       '<td align="center">'+str(item[CLUB_ID])+'</td>'+ \
+                       '<td align="center">''<a href="http://127.0.0.1:5000/show/' + str(item[CLUB_ID]) + '">' + str(item[ORGANIZATION_NAME]) + '</a></td>' + \
                        '<td align="center">'+str(item[PRESIDENT])+'</td>'+\
                        '<td align="middle">'+str(item[LOCATION])+'</td>'+\
                        '<td align="middle">'+str(item[CATEGORY])+'</td>'+\
@@ -95,7 +95,7 @@ def print_subtable(SJSU_Organizations):
     for item in SJSU_Organizations:
         message_out += '<tr>' + \
                        '<td align="center">' + str(item[CLUB_ID]) + '</td>' + \
-                       '<td align="center">' + str(item[ORGANIZATION_NAME]) + '</td>' + \
+                       '<td align="center">''<a href="http://127.0.0.1:5000/show/' + str(item[CLUB_ID]) + '">' + str(item[ORGANIZATION_NAME]) + '</a></td>' + \
                        '<td align="center">' + str(item[NUMBER_OF_MEMBERS]) + '</td>' + \
                        '<td align="middle">' + str(item[NUMBER_OF_REVIEWS]) + '</td>' + \
                        '<td align="middle">' + yesORno(str(item[PAYMENT_REQUIRED])) + '</td>' + \
