@@ -12,7 +12,6 @@
         font-size: 240%;    
     }    
 
-    
     p {
         font-size: 1.4em;
         border: 1px solid black;
@@ -59,7 +58,7 @@
         float:left;
         position: relative;
         top: 83px;
-        left: -470px;
+        left: 70px;
     }
     
     #title {
