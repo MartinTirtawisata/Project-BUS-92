@@ -1,7 +1,10 @@
-from flask import request, Blueprint, render_template
-from my_app.source.models import cursor
+from flask import request, Blueprint, render_template, redirect, url_for, flash
+from my_app.source.models import cursor, conn
 
 my_app = Blueprint('app', __name__)
+
+from my_app.source.models import ReviewForm
+
 
 '''
 Possible Ideas to make website better
@@ -52,8 +55,8 @@ def print_maintable(SJSU_Organizations):
     key = 0
     for item in SJSU_Organizations:
         message_out += '<tr>'+\
-                       '<td align="center">'+str(item[CLUB_ID])+'</td>'+ \
-                       '<td align="center">''<a href="http://127.0.0.1:5000/show/' + str(item[CLUB_ID]) + '">' + str(item[ORGANIZATION_NAME]) + '</a></td>' + \
+                       '<td align="center">'+str(item[CLUB_ID])+'</td>'+\
+                       '<td align="center">'+str(item[ORGANIZATION_NAME])+'</td>'+\
                        '<td align="center">'+str(item[PRESIDENT])+'</td>'+\
                        '<td align="middle">'+str(item[LOCATION])+'</td>'+\
                        '<td align="middle">'+str(item[CATEGORY])+'</td>'+\
@@ -95,7 +98,7 @@ def print_subtable(SJSU_Organizations):
     for item in SJSU_Organizations:
         message_out += '<tr>' + \
                        '<td align="center">' + str(item[CLUB_ID]) + '</td>' + \
-                       '<td align="center">''<a href="http://127.0.0.1:5000/show/' + str(item[CLUB_ID]) + '">' + str(item[ORGANIZATION_NAME]) + '</a></td>' + \
+                       '<td align="center">' + str(item[ORGANIZATION_NAME]) + '</td>' + \
                        '<td align="center">' + str(item[NUMBER_OF_MEMBERS]) + '</td>' + \
                        '<td align="middle">' + str(item[NUMBER_OF_REVIEWS]) + '</td>' + \
                        '<td align="middle">' + yesORno(str(item[PAYMENT_REQUIRED])) + '</td>' + \
@@ -274,13 +277,43 @@ def club_search ():
     return (print_maintable(club_data))
 
         
-#--------------- Review Handler ------------------#
+#--------------------Insert Review Handler---------------
 
 #Parameters: Key
-@my_app.route ('/show/review')
+@my_app.route ('/show/review', methods = ['GET','POST'])
 
-def show_review():
-    return render_template("ReviewPage.html")
+def insert_review():
+
+    command = """ SELECT MAX(id)
+                    FROM reviews
+            """
+    cursor.execute(command)
+    next_id = cursor.fetchone()
+    review_id = next_id[0]+1
+
+    form = ReviewForm(request.form)  # This variable is linked to models.py
+
+    result = None
+    if request.method == 'POST' and form.validate():
+        org_name = form.org_name.data  # This variable is linked to the models
+        user_review = form.org_review.data
+        user_name = form.user_name.data
+
+        # This command only works when if request.method == POST
+        command = """  
+            INSERT INTO reviews 
+            (id,organization_name,user_review, user_name) VALUES '''#name of column tables'''
+            ({i},'{n}','{r}','{u}')
+            """.format(i=review_id, n=organization_name, r=user_review, u=user_name)
+
+        cursor.execute(command)
+        conn.commit()
+        # flash is a pop up?
+        flash('Your Review has been created')
+        return redirect(url_for('my_app.show_one'))  # This request's syntax is the router.(html file)
+        # The user will be directed to this URL. The database should already be inserted and able to be viewed once redirected
+
+    return render_template('ReviewPage.html', form=form, result=result)
 
 
 
