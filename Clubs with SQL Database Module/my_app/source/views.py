@@ -104,8 +104,27 @@ def print_subtable(SJSU_Organizations):
         key += 1
         
 
-    return (render_template("sub_table.html")+message_out+footer)
+    return (render_template("sub_table.html") + message_out + footer)
 
+
+
+
+def print_categories(Cat_Data):
+    CLUB_ID = 0
+    CATEGORY = 1
+    
+    footer = """
+    </table></body>
+    """
+    message_out = ''
+    
+    for item in Cat_Data:
+        message_out += '<tr>' + \
+                        '<td align="center">' + str(item[CLUB_ID]) + '</td>' + \
+                        '<td align="center">' + str(item[CATEGORY]) + '</td>' + '</tr>'
+    
+    return (render_template("categories.html") + message_out + footer)
+                                    
 
 #-------------------- Home Page Handler --------------------
 
@@ -282,6 +301,26 @@ def club_search ():
 def show_review():
     return render_template("ReviewPage.html")
 
+
+
+
+
+
+#--------------- Category Handler ------------------#
+
+@my_app.route ('/category')
+
+def show_categories():
+    
+    command = """SELECT {b}.category_id, {b}.category
+                FROM {b} 
+                """.format(b='category')
+                
+    cursor.execute(command)
+    club_data = cursor.fetchall()
+    
+    
+    return print_categories(club_data)
 
 
 
