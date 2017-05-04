@@ -1,31 +1,53 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
     <head>
-        <title>Review Page</title>
-        <meta charset="utf-8" />
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" type="text/css" href ="{{url_for('static',filename = 'ReviewPage.css')}}">
-    </head>
-<body>
+    <title>Organizations</title>
+        
+        <link rel="stylesheet" type="text/css" href ="{{url_for('static',filename = 'ReviewPage.css')}}" />
 
-    <div id="firstBar">
-        <h1> Review Page </h1>
-        <div id="logo2div">
-            <img src="http://www.books-not-bombs.com/content/images/schools/sjsu.png" id="logo2">
+    </head>
+    <body>
+        
+        <div id="topBar">  SAN JOSE STATE UNIVERSITY  </div>
+        
+        <div id="menuBar">
+            
+            <div class="fixedBar"> 
+                
+                <div id="topMenu">
+                    
+                    <ul>
+                        <li><a href="http://127.0.0.1:5000/">Home</a></li>
+                        <li><a href="http://127.0.0.1:5000/showall">Organizations</a></li>
+                        <li><a href="http://127.0.0.1:5000/reviews">Reviews</a></li>
+                        <li><a href="http://www.sjsu.edu/getinvolved/studentorgs/new/">Get Involved</a></li>
+                        <li><a href="http://www.sjsu.edu/">SJSU Website</a></li>
+                    </ul>
+                
+                </div>
+                
+                <div id="search">
+                    
+                    <input type="text" placeholder="Search"/>
+                
+                </div>
+            
+            </div>
+        
         </div>
-        <br>
-    </div>
-    <p class="thick"> Personal Guidelines </p>
-    <ul id="guideline">
-        <li>Why did you join?</li>
-        <li>How were the club members?</li>
-        <li>What did you get of the club?</li>
-        <li> was your overall impression of the club?</li>
-    </ul>
-    <p class="thick"> Write Your Review: </p>
-    <hr>
-    <div>
+        
+        <div id="separator"> </div>
+        
+        <p class="thick"> Personal Guidelines </p>
+         <ul id="guideline">
+             <li>Why did you join?</li>
+             <li>How were the club members?</li>
+             <li>What did you get of the club?</li>
+             <li> was your overall impression of the club?</li>
+        </ul>
+        <p class="thick"> Write Your Review: </p>
+        <hr>
+         <div>
         <form action="/action_page.php", class="form-horizontal", autocomplete="on">
             <fieldset>
            	 <legend> Your Review:</legend>
@@ -162,7 +184,7 @@
                     <option value="DG">Delta Gamma</option>
                     <option value="DSPF">Delta Sigma Phi Fraternity</option>
                     <option value="DSP">Delta Sigma Pi</option>
-                    <option value="DST">Delta Sigma Theta Sorority, Inc./ Eta Omega Chapter</option>
+                    <option value="DST">Delta Sigma Theta Sorority, Inc./ Eta Omega Chapter</option> 
                     <option value="DUF">Delta Upsilon Fraternity</option>
                     <option value="DZS">Delta Zeta Sorority</option>
                     <option value="DD">Desert Dwellers </option>
@@ -214,5 +236,8 @@
             </fieldset>
         </form>
     </div>
-</body>
-
+    
+        
+        
+    </body>
+</html>

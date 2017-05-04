@@ -1,53 +1,87 @@
+body {
+    margin: 0;
+    font-family: "Times New Roman", Times, serif;
+}
 
-<style>
+#topBar {
+    background-color: #3072AD;
+    color: #E5A823;
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    font-size: 2.5em;
+    padding-top: 30px;
+}
 
-    body {
-        margin: 0;
-        padding: 0;
-        background-color: #E3E3E5;
+#menuBar {
+    background-color: black;
+    width: 100%;
+    height: 60px;
+}
+
+.fixedBar {
+    width: 1100px;
+    margin: 0 auto;
+}
+#topMenu {
+    float: left;
+    color: #E5A823;
+}
+#topMenu ul {
+    margin: 0;
+}
+#topMenu li {
+    margin-top: 10px;
+    list-style: none;
+    float: left;
+    font-weight: bold;
+    border-right: 1px solid grey;
+    padding: 10px 0 12px 0;
+}
+#search {
+    float: left;
+    padding: 18px 0 0 50px;
+}
+
+a:link, a:visited {
+    color: #E5A823; 
+    text-decoration: none;
+    background-color: black;
+    padding: 10px 40px 12px 40px;
+}
+
+a:hover, a:active {
+    color: #E5A823;
+    background-color: #3072AD;
+}  
+
+#separator {
+    height: 20px;
+}
+
+p.thick {
+    color: #3072AD;
+    font-family: "Times New Roman",Times,Serif;
+    font-size: 1.5em;
+    font-weight:bold;
+    margin-left:10px;
     }
-    #firstBar {
-        height: 115px;
-        background-color: #EAB010;
-        text-align: center;
+p {
+    font-family: "Times New Roman",Times,Serif;
+    font-size: 1em;
+    font-weight: normal;
     }
-    h1 {
-        color: #3072AD;
-        font-size: 240%;
-        text-align:center;
-        padding-top:30px;
+#guideline {
+    font-family: "Times New Roman",Times,Serif;
+    font-size:1em;
+    font-weight: normal;
+    margin-left:0px;
+    color: #3072AD;
     }
 
-    p.thick {
-        color: #3072AD;
-        font-family: "Times New Roman",Times,Serif;
-        font-size: 1.5em;
-        font-weight:bold;
-        margin-left:10px;
-    }
 
-    p {
-        font-family: "Times New Roman",Times,Serif;
-        font-size: 1em;
-        font-weight: normal;
-    }
-    #guideline {
-            font-family: "Times New Roman",Times,Serif;
-            font-size:1em;
-            font-weight: normal;
-            margin-left:0px;
-            color: #3072AD;
-    }
-    #logo2div {
-            float:right;
-            position: relative;
-            top: -150px;
-            right:-20px;
-    }
-    #logo2 {
-            height:119px;
-    }
-    input[type=text], select {
+
+input#align, select {
             width: 25%;
             height: 5%;
             padding: 12px 10px;
@@ -56,8 +90,8 @@
             border: 1px solid #ccc;
             border-radius: 10px;
             box-sizing: border-box;
-    }
-    input [type=text]:hover {
+    } 
+    input#align :hover {
             background-color: #ededf9;
     }
     #align {
@@ -76,11 +110,7 @@
     input[type=submit]:hover {
             background-color: #45a049;
     }
-    div {
-            border-radius: 5px;
-            background-color: #f2f2f2;
-            padding: 20px;
-    }
+ 
     fieldset {
    		 display: block;
    		 margin-left: 150px;
@@ -93,7 +123,4 @@
  	     border-radius: 10px;
          background-color: #EAB010
 	}
-</style>
-
-
 
