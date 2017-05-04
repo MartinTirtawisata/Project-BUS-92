@@ -43,7 +43,7 @@
     padding: 18px 0 0 50px;
 } 
 
-a:link, a:visited {
+a.one:link, a.one:visited {
     color: #E5A823; 
     text-decoration: none;
     background-color: black;
