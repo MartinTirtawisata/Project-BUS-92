@@ -1,67 +1,79 @@
-<style> 
+ body {
+    margin: 0;
+    padding: 0;
+    }
+#fixedBar {
+    height: 149px;
+    color: #3072AD;
+    background-color: #EAB010;
+    margin: 0;
+    text-align: center;
+    }
+#logo {
+    position: absolute;
+    overflow: auto;
+    }
+#logo3 {
+    height: 138px;
+    }
 
-            body {
-                    margin: 0;
-                    padding: 0;
-            }
-            #fixedBar {
-                    height: 150px;
-                    color: #3072AD;
-                    background-color: #EAB010;
-                    margin: 0;
-                    text-align: center;
-            }
-            #logo {
-                    position: absolute;
-                    padding-top: 2px;
-                    overflow: auto;
-            }
-            #logo3 {
-
-                    height: 138px;
-            }
-
-            #home {
-                    padding-right: 25px;
-                    position: absolute;
-                    top: 10px;
-                    right: 1px;
-            }
-            #title {
-                    font-size: 340%;
-                    padding-top: 40px;
-                    font-family: "Times New Roman", Times, serif;
-            }
-            div.clear {
-                    float: clear;
-            }
-            #image {
-                background-image: url("http://www.mtmary.edu/_images/_main/interior-clubs-orgs-026.jpg");
-                height: 400px;
-                width: 100%;
-                margin: 0;
-                background-size:100% 100%;
-                background-repeat:no-repeat;
-            }
-            #info {
-                width: 100%;
-                height: 150px;
-                text-align: center;
-                background-color: #EAB010;
-                font-size: 110%;
-                margin: 0;
-                padding: 32px 0 0 0;
-            }
-            table, th, td {
-                border-style: outset;
-                border-collapse: collapse;
-                padding-left: 5px;
-                padding-right: 5px;
-                background-color: white;
-            }
-            th {
-                padding: 5px;
-                text-align: center;
-                color: blue;
-            }
-</style>
+#title {
+    font-size: 340%;
+    padding-top: 40px;
+    font-family: "Times New Roman", Times, serif;
+    }
+div.clear {
+    float: clear;
+    }
+#image {
+    background-image: url("http://www.mtmary.edu/_images/_main/interior-clubs-orgs-026.jpg");
+    height: 400px;
+    width: 100%;
+    margin: 0;
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+    }
+#info {
+    width: 100%;
+    height: 150px;
+    text-align: center;
+    background-color: #EAB010;
+    font-size: 110%;
+    margin: 0;
+    padding: 32px 0 0 0;
+        }
+table, th, td {
+    border-style: outset;
+    border-collapse: collapse;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: white;
+    }
+th {
+    padding: 5px;
+    text-align: center;
+    color: blue;
+    }
+#home {
+    text-align: right;
+    padding-top: 70px;
+    }
+#main {
+    text-align: right;
+    padding-bottom: 30px;
+    padding-top: 110px;
+    }
+a:link {
+    color: black; 
+    text-decoration: none;
+     }       
+a:visited {
+    text-decoration: none;
+    color: black;
+     }
+a:hover {
+    color: #3072AD;
+    }
+a:active {
+    color: yellow;
+     } 
