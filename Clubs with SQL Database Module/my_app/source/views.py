@@ -224,7 +224,7 @@ def one_category(key):
     
     command = """SELECT {a}.club_id, {a}.organization_name, {a}.president, {a}.number_of_members, {b}.category, {a}.rating
                       FROM {a} join {b} ON {a}.category_id = {b}.category_id
-                      WHERE {b}.category like {k}
+                      WHERE {b}.category_id = {k}
         """.format(a="organizations", b='category', k=key)
         
     cursor.execute(command)
