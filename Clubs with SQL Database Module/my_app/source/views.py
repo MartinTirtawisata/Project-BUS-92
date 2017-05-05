@@ -226,7 +226,6 @@ def club_search ():
     rating = request.args.get('rating')
     rating_greater_equal = request.args.get('rating_ge')
     rating_smaller_equal = request.args.get('rating_se')
-
     
     validation = ""
     
