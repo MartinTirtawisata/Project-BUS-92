@@ -50,7 +50,31 @@ a.one:link, a.one:visited {
     padding: 10px 30px 12px 30px;
 }
 
-a:hover, a:active {
+a.one:hover, a.one:active {
     color: #E5A823;
     background-color: #3072AD;
-}  
+} 
+
+table {
+    margin-top: 50px;
+}
+
+table td {
+    border-right: 2px solid #EAB010;
+}
+
+table td:first-child {
+    border-left: none;
+}
+
+table td:last-child {
+    border-right: none;
+}
+p.right {
+    padding-left: 30px;
+}
+
+#logo2 {
+    margin: auto;
+    display: block;
+            }

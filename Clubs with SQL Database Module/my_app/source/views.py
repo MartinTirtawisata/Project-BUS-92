@@ -199,8 +199,8 @@ def get_message(key):
     
     
     message = '<table><col width="315">'
-    message += '<td><img src="'+str(club[INDEX][URL])+'"style="width:220px;height:326px" id="logo2"></td>'
-    message += '<p class="right"><b>Organization Name: </b>'+str(club[INDEX][ORGANIZATION_NAME])+'</p>'
+    message += '<td><img src="'+str(club[INDEX][URL])+'"style="width:250px;height:320px" id="logo2"></td>'
+    message += '<td><p class="right"><b>Organization Name: </b>'+str(club[INDEX][ORGANIZATION_NAME])+'</p>'
     message += '<p class="right"><b>ID: </b>'+str(club[INDEX][CLUB_ID])+'</p>'
     message += '<p class="right"><b>Description: </b>'+str(club[INDEX][DESCRIPTION])+'</p>'
     message += '<p class="right"><b>Location: </b>   '+str(club[INDEX][LOCATION])+ '</p>'
@@ -208,7 +208,7 @@ def get_message(key):
     message += '<p class="right"><b>Membership Fee: </b>   $'+str(club[INDEX][MEMBERSHIP_COST])+ '</p>'
     message += '<p class="right"><b>Fee required to join? </b>   '+yesORno(club[INDEX][PAYMENT_REQUIRED])+ '</p>'
     message += '<p class="right"><b>Rating: </b>   '+str(club[INDEX][RATING])+'</p>'
-    message += '<p class="right"><b>Number Of Members: </b>   '+str(club[INDEX][NUMBER_OF_MEMBERS])+'</p>'
+    message += '<p class="right"><b>Number Of Members: </b>   '+str(club[INDEX][NUMBER_OF_MEMBERS])+'</p></td>'
     
     footer3 = """ </table> </body> """
                                                         
