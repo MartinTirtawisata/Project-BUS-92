@@ -105,16 +105,11 @@ def print_subtable(SJSU_Organizations):
 
         key += 1
         
-
-<<<<<<< HEAD
     return (render_template("sub_table.html") + message_out + footer)
 
 
 #---------------------- Function to print categories' table  -------------------
-=======
-    return (render_template("sub_table.html")+message_out+footer)
 
->>>>>>> 2076512c1eab5cf1623c0823c5451cd22f48bfc6
 
 def print_categories(Cat_Data):
     CAT_ID = 0
@@ -127,7 +122,6 @@ def print_categories(Cat_Data):
 
     for item in Cat_Data:
         message_out += '<tr>' + \
-<<<<<<< HEAD
                         '<td align="center">' + str(item[CAT_ID]) + '</td>' + \
                         '<td align="center">''<a class="three" href="http://127.0.0.1:5000/category/' + str(item[CAT_ID]) + '">' + str(item[CATEGORY]) + '</a></td>' + '</tr>'
     
@@ -201,19 +195,7 @@ def get_message(key):
     INDEX = (total - 1)
 
     message = '<table><col width="315">'
-<<<<<<< HEAD
-    message += '<td><img src="'+str(club[INDEX][URL])+'"style="width:250px;height:320px" id="logo2"></td>'
-    message += '<td><p class="right"><b>Organization Name: </b>'+str(club[INDEX][ORGANIZATION_NAME])+'</p>'
-    message += '<p class="right"><b>ID: </b>'+str(club[INDEX][CLUB_ID])+'</p>'
-    message += '<p class="right"><b>Description: </b>'+str(club[INDEX][DESCRIPTION])+'</p>'
-    message += '<p class="right"><b>Location: </b>   '+str(club[INDEX][LOCATION])+ '</p>'
-    message += '<p class="right"><b>President: </b>   '+str(club[INDEX][PRESIDENT])+'</p>'
-    message += '<p class="right"><b>Membership Fee: </b>   $'+str(club[INDEX][MEMBERSHIP_COST])+ '</p>'
-    message += '<p class="right"><b>Fee required to join? </b>   '+yesORno(club[INDEX][PAYMENT_REQUIRED])+ '</p>'
-    message += '<p class="right"><b>Rating: </b>   '+str(club[INDEX][RATING])+'</p>'
-    message += '<p class="right"><b>Number Of Members: </b>   '+str(club[INDEX][NUMBER_OF_MEMBERS])+'</p></td>'
-    
-=======
+
     message += '<td><img src="' + str(club[INDEX][URL]) + '"style="width:220px;height:326px" id="logo2"></td>'
     message += '<p class="right"><b>Organization Name: </b>' + str(club[INDEX][ORGANIZATION_NAME]) + '</p>'
     message += '<p class="right"><b>ID: </b>' + str(club[INDEX][CLUB_ID]) + '</p>'
@@ -225,7 +207,6 @@ def get_message(key):
     message += '<p class="right"><b>Rating: </b>   ' + str(club[INDEX][RATING]) + '</p>'
     message += '<p class="right"><b>Number Of Members: </b>   ' + str(club[INDEX][NUMBER_OF_MEMBERS]) + '</p>'
 
->>>>>>> 2076512c1eab5cf1623c0823c5451cd22f48bfc6
     footer3 = """ </table> </body> """
 
     return (render_template("show_one.html") + message + footer3)
