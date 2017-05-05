@@ -1,22 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
     <head>
-        <title>Review Page</title>
-        <meta charset="utf-8" />
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" type="text/css" href ="{{url_for('static',filename = 'ReviewPage.css')}}">
+    <title>Organizations</title>
+        
+        <link rel="stylesheet" type="text/css" href ="{{url_for('static',filename = 'ReviewPage.css')}}" />
+
     </head>
     <body>
-
+        
         <div id="topBar">  SAN JOSE STATE UNIVERSITY  </div>
-
+        
         <div id="menuBar">
-
-            <div class="fixedBar">
-
+            
+            <div class="fixedBar"> 
+                
                 <div id="topMenu">
-
+                    
                     <ul>
                         <li><a class="one" href="http://127.0.0.1:5000/">Home</a></li>
                         <li><a class="one" href="http://127.0.0.1:5000/showall">Organizations</a></li>
@@ -26,43 +25,221 @@
                         <li><a class="one" href="http://www.sjsu.edu/getinvolved/studentorgs/new/">Get Involved</a></li>
                         <li><a class="one" href="http://www.sjsu.edu/">SJSU Website</a></li>
                     </ul>
-
+                
                 </div>
-
+                
                 <div id="search">
-
+                    
                     <input type="text" placeholder="Search"/>
-
+                
                 </div>
-
+            
             </div>
-
+        
         </div>
-
+        
         <div id="separator"> </div>
-        <p class="thick"> Personal Guidelines: </p>
-            <ul>
-                <li> Why did you join? </li>
-                <li> How were the club members? </li>
-                <li>What did you get of the club?</li>
-                <li>What was your overall impression of the club?</li>
-            </ul>
-        <p class="thick"> Write Your Review</p>
+        
+        <p class="thick"> Personal Guidelines </p>
+         <ul id="guideline">
+             <li>Why did you join?</li>
+             <li>How were the club members?</li>
+             <li>What did you get of the club?</li>
+             <li> was your overall impression of the club?</li>
+        </ul>
+        <p class="thick"> Write Your Review: </p>
         <hr>
-        <div>
-            <form method="POST", action="{{ url_for('app.insert_review') }}", role="form",autocomplete="on">
-                <fieldset>
-                    <legend> Your Review:</legend>
-                        <div>{{ form.first_name.label}}:{{ form.first_name()}}</div><br>
-                        <br>
-                        <div>{{ form.last_name.label}}:{{form.last_name() }}</div>
-                        <br>
+         <div>
+        <form action="/action_page.php", class="form-horizontal", autocomplete="on">
+            <fieldset>
+           	 <legend> Your Review:</legend>
+                <label for="fname" id="align">First Name:</label><br>
+                <input type="text" id="align" name="fname" placeholder="First Name..."><br>
+                <br>
 
-                        <br><br>
-                        <div>{{ form.user_review.label }}:{{ form.user_review }}</div>
-                        <button type="submit">Submit</button>
-                </fieldset>
-            </form>
-        </div>
+                <label for="lname" id="align">Last name</label><br>
+                <input type="text" id="align" name="lname" placeholder="Last Name..."><br>
+                <br>
+
+                <label for="orgname" id = "align">Organization Name</label>
+                <br>
+                <select id="orgname"> name="orgname">
+                    <option value="ALMAS">A.L.M.A.S. </option>
+                    <option value="AA">Accessibility Advocates</option>
+                    <option value="APF">Acro-Pole and Fitness</option>
+                    <option value="AM">Active Minds</option>
+                    <option value="A2CF">Acts 2 Christian Fellowship</option>
+                    <option value="AIM">Advancement Institute for Management</option>
+                    <option value="AR">Aerodynamic Research</option>
+                    <option value="ASF">Afghan Student Association </option>
+                    <option value="AABC">African American Business Club</option>
+                    <option value="AACC">African American Commencement Committee</option>
+                    <option value="AAT">African American Taskforce </option>
+                    <option value="AIESEC">AIESEC</option>
+                    <option value="ACLC">Air Corps Leadership Club</option>
+                    <option value="APAO">Akbayan Pilipino American Organization</option>
+                    <option value="AHP">Alabaster House of Prayer </option>
+                    <option value="AC">All Comedy</option>
+                    <option value="AEP">Alpha Epsilon Pi Jewish Fraternity</option>
+                    <option value="AER">Alpha Eta Rho, Eta Chapter</option>
+                    <option value="AKAS">Alpha Kappa Alpha Sorority Inc. </option>
+                    <option value="AKDP">Alpha Kappa Delta Phi</option>
+                    <option value="AKA">Alpha Kappa Omega</option>
+                    <option value="AKO">Alpha Kappa Omicron Sorority </option>
+                    <option value="AKPPB">Alpha Kappa Psi Professional Business Fraternity</option>
+                    <option value="AOP">Alpha Omicron Pi Women's Fraternity</option>
+                    <option value="AP">Alpha Phi</option>
+                    <option value="APAF">Alpha Phi Alpha Fraternity Inc.</option>
+                    <option value="APO">Alpha Phi Omega</option>
+                    <option value="APS">Alpha Phi Sigma</option>
+                    <option value="APSF">Alpha Sigma Phi Fraternity</option>
+                    <option value="ATD">Alpha Tau Delta</option>
+                    <option value="ATO">Alpha Tau Omega</option>
+                    <option value="AXD">Alpha Xi Delta</option>
+                    <option value="AAKU">Alternative Amory and Kink Union</option>
+                    <option value="ARC">Amateur Radio Club</option>
+                    <option value="AAAE">American Association of Airport Executives</option>
+                    <option value="ACDA">American Choral Directors Association</option>
+                    <option value="ACI">American Concrete Institute</option>
+                    <option value="AIAA">American Institute of Aeronautics and Astronautics</option>
+                    <option value="AICE">American Institute of Chemical Engineers</option>
+                    <option value="ALASC">American Library Association Student Chapter</option>
+                    <option value="ASCE">American Society of Civil Engineers</option>
+                    <option value="ASHRACE">American Society of Heating, Refrigerating and Air-Conditioning Engineers</option>
+                    <option value="ASME">American Society of Mechanical Engineers (ASME)</option>
+                    <option value="AWWA">American Water Works Association</option>
+                    <option value="ANTHR">Anthropology Club </option>
+                    <option value="ARCG">Archery Club</option>
+                    <option value="ARNAS">Arnold Air Society</option>
+                    <option value="AHA">Art History Association</option>
+                    <option value="AACF">Asian American Christian Fellowship</option>
+                    <option value="ACES">Asian Coalition of Engineers & Scientists </option>
+                    <option value="AERO">ASME Aerospace</option>
+                    <option value="AUTO">ASME Automotive</option>
+                    <option value="ANS">Assembly of Nurse Scholars</option>
+                    <option value="AFE">Association for Facilities Engineers </option>
+                    <option value="AGC">Associated General Contractors</option>
+                    <option value="ASMLML">Associated Students of Moss Landing Marine Labs</option>
+                    <option value="ATMAE">Association of Technology, Management, and Applied Engineering</option>
+                    <option value="ASK">Atheists and Skeptics for Knowledge</option>
+                    <option value="BAD">Badminton Club</option>
+                    <option value="BSDST">Ballroom Spartans DanceSport Team</option>
+                    <option value="BIA">Banking and Investment Association</option>
+                    <option value="BPC">Baroque Performance Club</option>
+                    <option value="BTM">Be The Match</option>
+                    <option value="BAP">Beta Alpha Psi</option>
+                    <option value="BBB">Beta Beta Beta, Epsilon Alpha Chapter</option>
+                    <option value="BTP">Beta Theta Pi</option>
+                    <option value="BIC">Bicycle Coalition</option>
+                    <option value="BIOD">Biodiversity Club</option>
+                    <option value="BSA">Biology Student Association</option>
+                    <option value="BES">Biomedical Engineering Society</option>
+                    <option value="BASE">Black Alliance of Scientists and Engineers</option>
+                    <option value="BCM">Black Campus Ministries</option>
+                    <option value="BMC">Black Male Collective </option>
+                    <option value="BMHS">Black Masque Honor Society</option>
+                    <option value="BSU">Black Student Union</option>
+                    <option value="BMEI">BMEiDea</option>
+                    <option value="BOWL">Bowling Team</option>
+                    <option value="BAC">Braven Alumni Club </option>
+                    <option value="BJJ">Brazilian Jiu-Jitsu</option>
+                    <option value="BREAK">Breaking Club</option>
+                    <option value="BEST">Bridge Engineering Student Transition</option>
+                    <option value="BRI">Bridges International</option>
+                    <option value="CSO">Cadre Student Organization</option>
+                    <option value="CNSA">California Nursing Students' Association</option>
+                    <option value="CGS">Campus Girl Scouts </option>
+                    <option value="CV2">Campus Village 2 (CV2) Hall Government</option>
+                    <option value="CV">Campus Village Apartments Hall Government</option>
+                    <option value="CVC">Campus Village Building C Hall Government</option>
+                    <option value="CB">Canterbury Bridge</option>
+                    <option value="CSP">Center Stage Productions</option>
+                    <option value="CAG">Ceramic Art Guild</option>
+                    <option value="CE">Chi Epsilon</option>
+                    <option value="CPS">Chi Pi Sigma</option>
+                    <option value="CCC">Chicano Commencement Committee</option>
+                    <option value="CAD">Child and Adolescent Development</option>
+                    <option value="CCF">Chinese Christian Fellowship </option>
+                    <option value="CSF">Chinese Student Fellowship</option>
+                    <option value="CSA">Chinese Students Association</option>
+                    <option value="CHOIR">Choirs</option>
+                    <option value="COC">Christians on Campus</option>
+                    <option value="CK">Circle K International</option>
+                    <option value="CHG">Classics Hall Government</option>
+                    <option value="CSJ">Cleaner San Jose </option>
+                    <option value="CLIM">Climbing Club </option>
+                    <option value="CTEN">Club Tennis Team </option>
+                    <option value="CVOL">Club Volleyball</option>
+                    <option value="COAC">Coaching Corps</option>
+                    <option value="CAOE">Colony of Alpha Omega Epsilon</option>
+                    <option value="COMM">COMM Network</option>
+                    <option value="CDC">Competitive Dance Club</option>
+                    <option value="CGC">Computer Graphics Club</option>
+                    <option value="CCT">Concrete Canoe Team</option>
+                    <option value="COOP">COOP</option>
+                    <option value="COUGH">COUGH</option>
+                    <option value="CEGO">Counselor Ed Graduate Organization</option>
+                    <option value="CRU">Cru</option>
+                    <option value="DREAM">D.R.E.A.M. Campus Ministry</option>
+                    <option value="DBFH">DBF Hardware</option>
+                    <option value="DBFS">DBF Structures </option>
+                    <option value="DG">Delta Gamma</option>
+                    <option value="DSPF">Delta Sigma Phi Fraternity</option>
+                    <option value="DSP">Delta Sigma Pi</option>
+                    <option value="DST">Delta Sigma Theta Sorority, Inc./ Eta Omega Chapter</option> 
+                    <option value="DUF">Delta Upsilon Fraternity</option>
+                    <option value="DZS">Delta Zeta Sorority</option>
+                    <option value="DD">Desert Dwellers </option>
+                    <option value="DFA">Design for America</option>
+                    <option value="DSC">Design Studies Club</option>
+                    <option value="DES">Destino</option>
+                    <option value="DB">Dirty Brushes, The</option>
+                    <option value="ECON">Economics Club</option>
+                    <option value="EEN">El Espartano Noticias</option>
+                    <option value="EP">El Pais</option>
+                    <option value="ESE">Engineers for Solar Energy</option>
+                    <option value="EWB">Engineers Without Borders</option>
+                    <option value="ERC">Environmental Resource Center</option>
+                    <option value="EM">Epic Movement</option>
+                    <option value="EKN">Eta Kappa Nu</option>
+                    <option value="FPS">Film Production Society </option>
+                    <option value="FMA">Financial Management Association</option>
+                    <option value="FJ">Food Journalism</option>
+                    <option value="FSS">Forensic Science Students</option>
+                    <option value="FSAE">Formula SAE</option>
+                    <option value="FC">Four Corners</option>
+                    <option value="GDC">Game Development Club</option>
+                    <option value="GU">Gente Unida</option>
+                    <option value="GEOG">Geography Club </option>
+                    <option value="GEOL">Geology Club</option>
+                    <option value="IDEAS">I.D.E.A.S</option>
+                    <option value="KSF">Kappa Sigma Fraternity</option>
+                    <option value="LBSA">Latino Business Student Association</option>
+                    <option value="MA">Marketing Association</option>
+                    <option value="MIS">Management Information Systems Association</option>
+                    <option value="PC">Pokemon Club</option>
+                    <option value="SAE">Sigma Alpha Epsilon</option>
+                    <option value="SCF">Sigma Chi Fraternity</option>
+                    <option value="SNF">Sigma Nu Fraternity</option>
+                    <option value="SB">Spartan Baseball </option>
+                    <option value="TCF">Theta Chi Fraternity</option>
+                    <option value="WIB">Women in Business</option>
+
+
+                </select>
+                <br><br>
+                <label for="userreview" id="align" >Your Review:</label>
+                <br>
+
+                <textarea id="align"rows="10" cols="100" placeholder="Write Your Review Here..."></textarea>
+
+                <br><br>
+                <input type="submit" value="Submit">
+            </fieldset>
+        </form>
+    </div>
+    
+        
+        
     </body>
-
+</html>

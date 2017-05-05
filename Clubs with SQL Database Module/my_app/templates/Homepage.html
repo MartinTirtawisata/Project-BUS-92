@@ -1,21 +1,15 @@
 <!doctype html>
 <html>
     <head>
-    <title>SJSU Club Database</title>
+    <title>SJSU</title>
         
         <link rel="stylesheet" type="text/css" href ="{{url_for('static',filename = 'Homepage.css')}}" />
 
-        <style>
-
-
-            
-        </style>
+        
     </head>
     <body>
-
-        <body background="http://wallpapercave.com/wp/SuKN3nb.jpg">
         
-        <div id="topBar">  SAN JOSE STATE UNIVERSITY</div>
+        <div id="topBar">  SAN JOSE STATE UNIVERSITY </div>
         
         <div id="menuBar">
             
@@ -26,7 +20,7 @@
                     <ul>
                         <li><a class="one" href="http://127.0.0.1:5000/">Home</a></li>
                         <li><a class="one" href="http://127.0.0.1:5000/showall">Organizations</a></li>
-                        <li><a class="one" href="http://127.0.0.1:5000/details">Further Org. Details</a></li>
+                        <li><a class="one" href="http://127.0.0.1:5000/details">Org Details</a></li>
                         <li><a class="one" href="http://127.0.0.1:5000/reviews">Reviews</a></li>
                         <li><a class="one" href="http://127.0.0.1:5000/category">Categories</a></li>
                         <li><a class="one" href="http://www.sjsu.edu/getinvolved/studentorgs/new/">Get Involved</a></li>
@@ -34,52 +28,18 @@
                     </ul>
                 
                 </div>
-
+                
+                <div id="search">
+                    
+                    <input type="text" placeholder="Search"/>
+                
+                </div>
             
             </div>
         
         </div>
-
-        <div id="title">
-            <h2><u>Welcome to the SJSU Club & Organization Database</u></h2>
-        </div>
-
-        <div id="title2">
-            <p><b>An easy to use website to search for and find clubs that interest you</b></p>
-        </div>
-
-        <div class="slideshow">
-            <img class="mySlides" src="https://cmpe.sjsu.edu/files/public/tower-hall.jpg">
-            <img class="mySlides" src="http://www.sjsu.edu/sjsuhome/pics/statues-02.jpg">
-            <img class="mySlides" src="http://static.panoramio.com/photos/original/30787744.jpg">
-            <img class="mySlides" src="http://sjsumisa.org/wp-content/uploads/2016/11/20160908_1923362.jpg">
-            <img class="mySlides" src="https://static1.squarespace.com/static/51fdd37fe4b01cbb9323216b/55d4d24de4b09edbc41388c2/57321b30e32140d252fe936c/1490141184624/IMG_0692.JPG?format=500w">
-            <img class="mySlides" src="http://www.sjsu.edu/cs/programs/mscs/program-info/proginfo_final.jpg">
-            <img class="mySlides" src="http://www.sjsu.edu/kinesiology/pics/100_0945.jpg">
-        </div>
-
-        <script>
-        var myIndex = 0;
-        carousel();
-
-        function carousel() {
-            var i;
-            var x = document.getElementsByClassName("mySlides");
-            for (i = 0; i < x.length; i++) {
-               x[i].style.display = "none";
-            }
-            myIndex++;
-            if (myIndex > x.length) {myIndex = 1}
-            x[myIndex-1].style.display = "block";
-            setTimeout(carousel, 2000); // Change image every 3 seconds
-}
-</script>
-
-        <div id="developers">
-            <p><b><u>Developers:</u></b></p>
-            <p><b>Carlos Quirarte</b></p>
-            <p><b>Martin Tirtawisata</b></p>
-            <p><b>Sean Scudellari</b></p>
-        </div>
+    
+        
+        
     </body>
 </html>
