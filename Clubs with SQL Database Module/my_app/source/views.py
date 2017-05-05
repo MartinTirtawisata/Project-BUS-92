@@ -180,7 +180,7 @@ def get_message(key):
     
     
     command = """ SELECT {a}.Organization_name, {a}.club_id, {a}.description, {c}.Location, {a}.President, 
-                         {c}.membership_cost, {c}.payment_required, {a}.rating, {c}.number_of_members, {c}.Image_URL
+                         {c}.membership_cost, {c}.payment_required, {a}.rating, {a}.number_of_members, {c}.Image_URL
                          FROM {a} join {c} ON {a}.club_id = {c}.club_id
     """.format(a="Organizations", c='details')
     
@@ -188,8 +188,10 @@ def get_message(key):
     club_data3 = cursor.fetchall()                           
     club = club_data3
 
-    if len(club) == 0:
+    if (len(club) == 0 or key == "0"):
         return "The key "+ key + " was not found"
+        
+  
     
     total = int(key)
     INDEX = (total - 1)
@@ -272,11 +274,11 @@ def club_search ():
         validation  += "organizations.rating <= " + str(rating_smaller_equal)
         
     if validation == "":
-        command = """SELECT {a}.Club_id, {a}.Organization_name, {a}.President, {b}.Category, {a}.Rating
+        command = """SELECT {a}.Club_id, {a}.Organization_name, {a}.President, {a}.number_of_members, {b}.Category, {a}.Rating
                       FROM {a} join {b} ON {a}.category_id = {b}.category_id
         """.format(a="organizations", b='category')
     else:
-        command = """SELECT {a}.Club_id, {a}.Organization_name, {a}.President, {b}.Category, {a}.Rating
+        command = """SELECT {a}.Club_id, {a}.Organization_name, {a}.President, {a}.number_of_members, {b}.Category, {a}.Rating
                       FROM {a} join {b} ON {a}.category_id = {b}.category_id 
                       WHERE {val}
         """.format(a="organizations", b='category', val=validation)
@@ -284,6 +286,7 @@ def club_search ():
     cursor.execute(command)
     club_data = cursor.fetchall()
     return (print_maintable(club_data))
+
 
         
 #--------------- Review Handler ------------------#
