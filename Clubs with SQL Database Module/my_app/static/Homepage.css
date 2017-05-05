@@ -38,10 +38,34 @@ body {
     border-right: 1px solid grey;
     padding: 10px 0 12px 0;
 }
-#search {
-    float: left;
-    padding: 18px 0 0 50px;
+#title {
+    text-align: center;
+    color: #E5A823;
+    font-family: "Georgia", Georgia, serif;
 }
+
+#title2 {
+    text-align: center;
+    color: #00ad98;
+    font-family: "Palatino Linotype", serif;
+    font-size: 1.2em;
+}
+
+#developers {
+    text-align: center;
+    color: #00ad0d;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 1.0em;
+    float:right;
+}
+
+.slideshow {
+    max-width: 700px;
+    max-height: 700px;
+    position: relative;
+    left: 320px;
+}
+
 
 a:link, a:visited {
     color: #E5A823; 
@@ -52,7 +76,7 @@ a:link, a:visited {
 
 a:hover, a:active {
     color: #E5A823;
-    background-color: #3072AD;
+    background-color: #4ca6ad;
 }    
 
 
