@@ -55,8 +55,8 @@ def print_maintable(SJSU_Organizations):
     key = 0
     for item in SJSU_Organizations:
         message_out += '<tr>'+\
-                       '<td align="center">'+str(item[CLUB_ID])+'</td>'+\
-                       '<td align="center">'+str(item[ORGANIZATION_NAME])+'</td>'+\
+                       '<td align="center">''<a href="http://127.0.0.1:5000/show/'+ str(item[CLUB_ID])+'">'+str(item[CLUB_ID])+'</td>'+\
+                       '<td align="center">''<a href="http://127.0.0.1:5000/show/'+ str(item[CLUB_ID])+'">' + str(item[ORGANIZATION_NAME]) + '/a></td>'+\
                        '<td align="center">'+str(item[PRESIDENT])+'</td>'+\
                        '<td align="middle">'+str(item[LOCATION])+'</td>'+\
                        '<td align="middle">'+str(item[CATEGORY])+'</td>'+\
@@ -97,8 +97,8 @@ def print_subtable(SJSU_Organizations):
     key = 0
     for item in SJSU_Organizations:
         message_out += '<tr>' + \
-                       '<td align="center">' + str(item[CLUB_ID]) + '</td>' + \
-                       '<td align="center">' + str(item[ORGANIZATION_NAME]) + '</td>' + \
+                       '<td align="center">''<a href="http://127.0.0.1:5000/show/'+ str(item[CLUB_ID])+'">' + str(item[CLUB_ID]) + '</td>' + \
+                       '<td align="center">''<a href="http://127.0.0.1:5000/show/'+ str(item[CLUB_ID])+'">' + str(item[ORGANIZATION_NAME]) + '</td>' + \
                        '<td align="center">' + str(item[NUMBER_OF_MEMBERS]) + '</td>' + \
                        '<td align="middle">' + str(item[NUMBER_OF_REVIEWS]) + '</td>' + \
                        '<td align="middle">' + yesORno(str(item[PAYMENT_REQUIRED])) + '</td>' + \
@@ -115,7 +115,7 @@ def print_subtable(SJSU_Organizations):
 @my_app.route('/')
 @my_app.route('/home')
 def homePage():
-    return render_template("Homepage.html")
+    return render_template("homepage.html")
 
 #-------------------- Show All Handler --------------------
 
@@ -146,7 +146,7 @@ def details():
 
 
 
-#-------------------- Show Key Handler --------------------
+#-------------------- Show One (Key) Handler --------------------
 
 #Parameters: Key, integer
 @my_app.route('/show/<key>') #Ways to control the parameter
@@ -291,29 +291,33 @@ def insert_review():
     next_id = cursor.fetchone()
     review_id = next_id[0]+1
 
-    form = ReviewForm(request.form)  # This variable is linked to models.py
 
-    result = None
+    form = ReviewForm(request.form, crsf_enabled=False)# This variable is linked to models.py
+
+
+
     if request.method == 'POST' and form.validate():
-        org_name = form.org_name.data  # This variable is linked to the models
-        user_review = form.org_review.data
-        user_name = form.user_name.data
+        first_name = form.first_name.data
+        last_name = form.last_name.data
+         # This variable is linked to the models
+        user_review = form.user_review.data
+
 
         # This command only works when if request.method == POST
         command = """  
-            INSERT INTO reviews 
-            (id,organization_name,user_review, user_name) VALUES '''#name of column tables'''
-            ({i},'{n}','{r}','{u}')
-            """.format(i=review_id, n=organization_name, r=user_review, u=user_name)
+            INSERT INTO reviews         
+             (id,first_name, last_name, user_review) VALUES 
+            ({i},'{f}','{l}','{r}')
+            """.format(i=review_id,f=first_name,l=last_name, r=user_review) #This format matches the models and if POST statement
 
         cursor.execute(command)
         conn.commit()
         # flash is a pop up?
         flash('Your Review has been created')
-        return redirect(url_for('my_app.show_one'))  # This request's syntax is the router.(html file)
+        return redirect(url_for('app.insert_review'))  # This request's syntax is the router.(html file)
         # The user will be directed to this URL. The database should already be inserted and able to be viewed once redirected
 
-    return render_template('ReviewPage.html', form=form, result=result)
+    return render_template('ReviewPage.html', form=form)
 
 
 

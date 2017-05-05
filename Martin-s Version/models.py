@@ -10,12 +10,13 @@ cursor = conn.cursor()
 
 
 class ReviewForm(Form): #This is used in views.py
-    org_name = SelectField(
-            label='Orgnazation',
+    first_name = TextField(
+            label="First Name",
             validators=[InputRequired()])
+    last_name = TextField(
+        label="Last Name",
+        validators=[InputRequired()])
+
     user_review = TextField(
             label='User Review',
-            validators=[InputRequired()] )
-    user_name = TextField(
-            label='User Name',
             validators=[InputRequired()])
