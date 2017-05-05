@@ -39,7 +39,7 @@ def print_maintable(SJSU_Organizations):
     CLUB_ID = 0
     ORGANIZATION_NAME = 1
     PRESIDENT = 2
-    LOCATION = 3
+    NUMBER_OF_MEMBERS = 3
     CATEGORY = 4
     RATING = 5
 
@@ -55,12 +55,11 @@ def print_maintable(SJSU_Organizations):
                        '<td align="center">'+str(item[CLUB_ID])+'</td>'+ \
                        '<td align="center">''<a class="two" href="http://127.0.0.1:5000/show/' + str(item[CLUB_ID]) + '">' + str(item[ORGANIZATION_NAME]) + '</a></td>' + \
                        '<td align="center">'+str(item[PRESIDENT])+'</td>'+\
-                       '<td align="middle">'+str(item[LOCATION])+'</td>'+\
+                       '<td align="middle">'+str(item[NUMBER_OF_MEMBERS])+'</td>'+\
                        '<td align="middle">'+str(item[CATEGORY])+'</td>'+\
                        '<td align="middle">'+str(item[RATING])+'</td>'+'</tr>'
 
         key += 1
-
     
     return (render_template("main_table.html")+message_out+footer)
 
@@ -138,7 +137,7 @@ def homePage():
 @my_app.route('/showall')
 
 def organizations():
-    command = """SELECT {a}.club_id, {a}.organization_name, {a}.president, {a}.location, {b}.category, {a}.rating
+    command = """SELECT {a}.club_id, {a}.organization_name, {a}.president, {a}.number_of_members, {b}.category, {a}.rating
                       FROM {a} join {b} ON {a}.category_id = {b}.category_id
         """.format(a="organizations", b='category')
     cursor.execute(command)
@@ -151,7 +150,7 @@ def organizations():
 @my_app.route('/details')
 
 def details():
-    command = """SELECT {c}.club_id, {a}.organization_name, {c}.number_of_members, {c}.number_of_reviews, {c}.payment_required, {c}.membership_cost
+    command = """SELECT {c}.club_id, {a}.organization_name, {c}.location, {c}.number_of_reviews, {c}.payment_required, {c}.membership_cost
                           FROM {c} join {a} ON {c}.club_id = {a}.club_id
             """.format(a="organizations", c='details')
     cursor.execute(command)
@@ -180,7 +179,7 @@ def get_message(key):
     URL = 9
     
     
-    command = """ SELECT {a}.Organization_name, {a}.club_id, {a}.description, {a}.Location, {a}.President, 
+    command = """ SELECT {a}.Organization_name, {a}.club_id, {a}.description, {c}.Location, {a}.President, 
                          {c}.membership_cost, {c}.payment_required, {a}.rating, {c}.number_of_members, {c}.Image_URL
                          FROM {a} join {c} ON {a}.club_id = {c}.club_id
     """.format(a="Organizations", c='details')
@@ -221,7 +220,6 @@ def club_search ():
     club_ID_smaller_equal = request.args.get('club_se')
     orgName = request.args.get('org_name')
     president = request.args.get('president')
-    location = request.args.get('location')
     category = request.args.get('category')
     rating = request.args.get('rating')
     rating_greater_equal = request.args.get('rating_ge')
@@ -253,11 +251,6 @@ def club_search ():
             validation += " AND "
         validation += "organizations.president LIKE '%"+president+"%'"
         
-    if location != None:
-        if validation != "":
-            validation += " AND "
-        validation += "organizations.location LIKE '%"+location+"%'"
-        
     if category != None:
         if validation != "":
             validation += " AND "
@@ -266,7 +259,7 @@ def club_search ():
     if rating != None:
         if validation !="":
             validation += " AND "
-        validation += "organizations.rating= "+str(rating)
+        validation += "organizations.rating= "+ str(rating)
         
     if rating_greater_equal != None:
         if validation != "":
@@ -279,11 +272,11 @@ def club_search ():
         validation  += "organizations.rating <= " + str(rating_smaller_equal)
         
     if validation == "":
-        command = """SELECT {a}.Club_id, {a}.Organization_name, {a}.President, {a}.Location, {b}.Category, {a}.Rating
+        command = """SELECT {a}.Club_id, {a}.Organization_name, {a}.President, {b}.Category, {a}.Rating
                       FROM {a} join {b} ON {a}.category_id = {b}.category_id
         """.format(a="organizations", b='category')
     else:
-        command = """SELECT {a}.Club_id, {a}.Organization_name, {a}.President, {a}.Location, {b}.Category, {a}.Rating
+        command = """SELECT {a}.Club_id, {a}.Organization_name, {a}.President, {b}.Category, {a}.Rating
                       FROM {a} join {b} ON {a}.category_id = {b}.category_id 
                       WHERE {val}
         """.format(a="organizations", b='category', val=validation)

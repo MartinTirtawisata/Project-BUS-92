@@ -53,14 +53,13 @@ def print_maintable(SJSU_Organizations):
     for item in SJSU_Organizations:
         message_out += '<tr>'+\
                        '<td align="center">'+str(item[CLUB_ID])+'</td>'+ \
-                       '<td align="center">''<a href="http://127.0.0.1:5000/show/' + str(item[CLUB_ID]) + '">' + str(item[ORGANIZATION_NAME]) + '</a></td>' + \
+                       '<td align="center">''<a class="two" href="http://127.0.0.1:5000/show/' + str(item[CLUB_ID]) + '">' + str(item[ORGANIZATION_NAME]) + '</a></td>' + \
                        '<td align="center">'+str(item[PRESIDENT])+'</td>'+\
                        '<td align="middle">'+str(item[NUMBER_OF_MEMBERS])+'</td>'+\
-                       '<td align="middle">'+str(item[CATEGORY])+'</td>'+ \
-                       '<td align="middle">' + str(item[RATING]) + '</td>' + '</tr>'
+                       '<td align="middle">'+str(item[CATEGORY])+'</td>'+\
+                       '<td align="middle">'+str(item[RATING])+'</td>'+'</tr>'
 
         key += 1
-
     
     return (render_template("main_table.html")+message_out+footer)
 
@@ -79,7 +78,7 @@ def yesORno(boolean):
 def print_subtable(SJSU_Organizations):
     CLUB_ID = 0
     ORGANIZATION_NAME = 1
-    LOCATION = 2
+    NUMBER_OF_MEMBERS = 2
     NUMBER_OF_REVIEWS = 3
     PAYMENT_REQUIRED = 4
     MEMBERSHIP_COST = 5
@@ -95,8 +94,8 @@ def print_subtable(SJSU_Organizations):
     for item in SJSU_Organizations:
         message_out += '<tr>' + \
                        '<td align="center">' + str(item[CLUB_ID]) + '</td>' + \
-                       '<td align="center">''<a href="http://127.0.0.1:5000/show/' + str(item[CLUB_ID]) + '">' + str(item[ORGANIZATION_NAME]) + '</a></td>' + \
-                       '<td align="center">' + str(item[LOCATION]) + '</td>' + \
+                       '<td align="center">''<a class="two" href="http://127.0.0.1:5000/show/' + str(item[CLUB_ID]) + '">' + str(item[ORGANIZATION_NAME]) + '</a></td>' + \
+                       '<td align="center">' + str(item[NUMBER_OF_MEMBERS]) + '</td>' + \
                        '<td align="middle">' + str(item[NUMBER_OF_REVIEWS]) + '</td>' + \
                        '<td align="middle">' + yesORno(str(item[PAYMENT_REQUIRED])) + '</td>' + \
                        '<td align="middle">' + str(item[MEMBERSHIP_COST]) + '</td>' + '</tr>'
@@ -180,8 +179,8 @@ def get_message(key):
     URL = 9
     
     
-    command = """ SELECT {a}.Organization_name, {a}.club_id, {a}.description, {c}.Location, {a}.President,
-                         {c}.membership_cost, {c}.payment_required, {a}.rating, {a}.number_of_members, {c}.Image_URL
+    command = """ SELECT {a}.Organization_name, {a}.club_id, {a}.description, {c}.Location, {a}.President, 
+                         {c}.membership_cost, {c}.payment_required, {a}.rating, {c}.number_of_members, {c}.Image_URL
                          FROM {a} join {c} ON {a}.club_id = {c}.club_id
     """.format(a="Organizations", c='details')
     
@@ -256,17 +255,17 @@ def club_search ():
         if validation != "":
             validation += " AND "
         validation += "category.category LIKE '%"+category+"%'"  
-
+        
     if rating != None:
-        if validation != "":
+        if validation !="":
             validation += " AND "
-        validation += "organizations.rating= "+str(rating)
-
+        validation += "organizations.rating= "+ str(rating)
+        
     if rating_greater_equal != None:
         if validation != "":
             validation += " AND "
         validation  += "organizations.rating >= " + str(rating_greater_equal)
-
+        
     if rating_smaller_equal != None:
         if validation != "":
             validation += " AND "
