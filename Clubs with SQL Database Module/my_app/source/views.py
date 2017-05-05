@@ -74,6 +74,7 @@ def yesORno(boolean):
         return "No"
     
 
+#----------Funciton to print sub-table ------------------------------
 
 def print_subtable(SJSU_Organizations):
     CLUB_ID = 0
@@ -106,10 +107,10 @@ def print_subtable(SJSU_Organizations):
     return (render_template("sub_table.html") + message_out + footer)
 
 
-
+#---------------------- Function to print categories' table  -------------------
 
 def print_categories(Cat_Data):
-    CLUB_ID = 0
+    CAT_ID = 0
     CATEGORY = 1
     
     footer = """
@@ -119,11 +120,11 @@ def print_categories(Cat_Data):
     
     for item in Cat_Data:
         message_out += '<tr>' + \
-                        '<td align="center">' + str(item[CLUB_ID]) + '</td>' + \
-                        '<td align="center">' + str(item[CATEGORY]) + '</td>' + '</tr>'
+                        '<td align="center">' + str(item[CAT_ID]) + '</td>' + \
+                        '<td align="center">''<a class="three" href="http://127.0.0.1:5000/category/' + str(item[CAT_ID]) + '">' + str(item[CATEGORY]) + '</a></td>' + '</tr>'
     
     return (render_template("categories.html") + message_out + footer)
-                                    
+
 
 #-------------------- Home Page Handler --------------------
 
@@ -212,6 +213,26 @@ def get_message(key):
     footer3 = """ </table> </body> """
                                                         
     return (render_template("show_one.html")+message+footer3)
+
+
+
+#------------------ Category Handler ----------------
+
+@my_app.route('/category/<key>')
+
+def one_category(key):
+    
+    command = """SELECT {a}.club_id, {a}.organization_name, {a}.president, {a}.number_of_members, {b}.category, {a}.rating
+                      FROM {a} join {b} ON {a}.category_id = {b}.category_id
+                      WHERE {b}.category like {k}
+        """.format(a="organizations", b='category', k=key)
+        
+    cursor.execute(command)
+    club_data = cursor.fetchall()
+
+    return (print_maintable(club_data))
+    
+    
 
 
 #------------------ Club Search ----------------
