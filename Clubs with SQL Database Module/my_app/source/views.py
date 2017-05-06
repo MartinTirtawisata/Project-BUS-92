@@ -199,7 +199,7 @@ def get_message(key):
     
     
     message = '<table><col width="315">'
-    message += '<td><img src="'+str(club[INDEX][URL])+'"style="width:250px;height:320px" id="logo2"></td>'
+    message += '<td><img src="'+str(club[INDEX][URL])+'"style="width:280px;height:320px" id="logo2"></td>'
     message += '<td><p class="right"><b>Organization Name: </b>'+str(club[INDEX][ORGANIZATION_NAME])+'</p>'
     message += '<p class="right"><b>ID: </b>'+str(club[INDEX][CLUB_ID])+'</p>'
     message += '<p class="right"><b>Description: </b>'+str(club[INDEX][DESCRIPTION])+'</p>'

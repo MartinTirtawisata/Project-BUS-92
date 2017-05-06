@@ -1,6 +1,7 @@
  body {
     margin: 0;
     font-family: "Times New Roman", Times, serif;
+    background-color: #FAFAFA;
 }
 
 #topBar {
@@ -20,7 +21,7 @@
 }
 
 .fixedBar {
-    width: 1200px;
+    width: 1100px;
     margin: 0 auto;
 }
 #topMenu {
@@ -38,11 +39,10 @@
     border-right: 1px solid grey;
     padding: 10px 0 12px 0;
 }
-#search {
-    float: left;
-    padding: 18px 0 0 50px;
-}
 
+#topMenu li:last-child {
+    border-right: none;
+}
 a.one:link, a.one:visited {
     color: #E5A823; 
     text-decoration: none;
