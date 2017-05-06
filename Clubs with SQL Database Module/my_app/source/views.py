@@ -3,36 +3,6 @@ from my_app.source.models import cursor
 
 my_app = Blueprint('app', __name__)
 
-'''
-Possible Ideas to make website better
-#Homepage
-1) Include a search function for what club is the user looking for - we could put auto completion on this (what nikaila did)
-2) Leave a review link
-3) Align the links so it's horizontal
-4) #Maybe include most popular clubs with image
-
-#Showall
-1) Maybe reduce the columns to make it more specific, so people will have a reason to view each club individually
-2) Give background color
-3) Maybe the pictures could be animated OR carosel format (Changes every few seconds)
-
-#show/<key>
-1) Design it so it's the same with the others
-2) Main image should be their logo
-3) Add leave a review link; back to homepage; back to list link
-4) We should add photos of the club, taken from Facebook
-5) Add reviews at the bottom of the page
-6) Star rated if possible? below the image/logo
-
-#ReviewPage
-1) Add more organizations
-2) Add Gif or animiated picture to make it lively
-3) re-format the text box
-4) figure out how to add review to the database
-#SQL
-Create a new reviews table? with  category_ID, Club_id, reviews
-'''
-
 #-------------Function for printing all Organizations (Main Table)---------
 
 def print_maintable(SJSU_Organizations):
@@ -65,7 +35,7 @@ def print_maintable(SJSU_Organizations):
 
 
 
-#----------Function for printing details of Organizations (Sub Table)---------
+#----------Function to change boolean to yes or no in sub-table---------
 
 def yesORno(boolean):
     if (boolean == "TRUE"):
@@ -107,7 +77,7 @@ def print_subtable(SJSU_Organizations):
     return (render_template("sub_table.html") + message_out + footer)
 
 
-#---------------------- Function to print categories' table  -------------------
+#---------------------- Function to print categories table  -------------------
 
 def print_categories(Cat_Data):
     CAT_ID = 0
@@ -216,7 +186,21 @@ def get_message(key):
 
 
 
-#------------------ Category Handler ----------------
+# --------------- Category Handler ------------------#
+
+@my_app.route('/category')
+def show_categories():
+    command = """SELECT {b}.category_id, {b}.category
+                FROM {b}
+                """.format(b='category')
+
+    cursor.execute(command)
+    club_data = cursor.fetchall()
+
+    return print_categories(club_data)
+
+
+#------------------ Individual Category Pages Handler ----------------
 
 @my_app.route('/category/<key>')
 
@@ -319,24 +303,6 @@ def show_review():
 
 
 
-
-
-
-#--------------- Category Handler ------------------#
-
-@my_app.route ('/category')
-
-def show_categories():
-    
-    command = """SELECT {b}.category_id, {b}.category
-                FROM {b} 
-                """.format(b='category')
-                
-    cursor.execute(command)
-    club_data = cursor.fetchall()
-    
-    
-    return print_categories(club_data)
 
 
 
