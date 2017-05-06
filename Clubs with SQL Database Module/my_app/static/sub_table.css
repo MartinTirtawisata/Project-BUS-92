@@ -74,14 +74,19 @@ a.two:hover, a.two:active {
     font-size: 110%;
     margin: 0;
     padding: 32px 0 0 0;
-    }
+}
+
+span {
+    position: relative;
+    bottom: 20px;
+}
 
 table, th, td {
     border-style: outset;
     border-collapse: collapse;
     padding-left: 5px;
     padding-right: 5px;
-    background-color: white; 
+    background-color: #FAFAFA; 
     }
 th {
     padding: 5px;

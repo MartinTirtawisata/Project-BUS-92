@@ -312,7 +312,7 @@ def club_search ():
 #--------------- Review Handler ------------------#
 
 #Parameters: Key
-@my_app.route ('/show/review')
+@my_app.route ('/show/reviews')
 
 def show_review():
     return render_template("ReviewPage.html")

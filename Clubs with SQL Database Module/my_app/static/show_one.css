@@ -58,6 +58,7 @@ a.one:hover, a.one:active {
 
 table {
     margin-top: 50px;
+    background-color: #FAFAFA;
 }
 
 table td {
