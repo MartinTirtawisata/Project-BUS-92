@@ -32,18 +32,14 @@
 
         </div>
 
-        <div id="separator"> </div>
-    <fieldset>
         <a class="modify" href="{{url_for('app.review_edit', key=one_edit[0])}}">Edit</a>
         <a class="modify" href="{{url_for('app.review_delete',key=one_edit[0])}}">Delete</a>
-        <table>
-
-            <td><strong>{{one_edit[1]}} {{ one_edit[2]}}</strong> Reviewed: <strong>{{ one_edit[3] }}</strong></td>
-            <td><br>{{ one_edit[4] }}</td>
-
-        </table>
-    </fieldset>
-
+    
+    <div id="separator">  </div>
+    
+            <p><b><span>Name:  </span></b> {{one_edit[1]}} {{ one_edit[2]}} </p>
+            <p><b><span>Organization:  </span></b> {{ one_edit[3] }} </p> 
+            <p><b><span>Review:  </span></b> {{ one_edit[4] }}  </p> 
 
 </body>
 

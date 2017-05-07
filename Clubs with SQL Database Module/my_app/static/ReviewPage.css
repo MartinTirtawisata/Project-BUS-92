@@ -55,11 +55,6 @@ a:hover, a:active {
     color: #E5A823;
     background-color: #3072AD;
 }
-}  
-
-#separator { 
-    height: 20px;
-}
 
 .thick {
     color: #3072AD;
@@ -102,12 +97,11 @@ p {
             background-color: #4CAF50;
             color: white;
             padding: 12px 10px;
-            margin-left: 410px;
+            margin-left: 148px;
             margin-top: 15px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            hover: background-color;
     }
     button:hover, button:active {
             background-color: #45a049;

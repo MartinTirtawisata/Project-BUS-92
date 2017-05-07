@@ -31,16 +31,13 @@
 
             </div>
 
-        </div>
-
-        <div id="separator"> </div>
+    </div>
 
         <p class="thick"> Edit Your Review</p>
         <hr>
         <div>
             <form method="POST", action="{{ url_for('app.review_edit', key=review_id[0]) }}", role="form",autocomplete="on">
                 <fieldset class="input">
-                    <legend> Edit Your Review:</legend>
                     <table>
                     {% for edit in form %}
                         <tr>

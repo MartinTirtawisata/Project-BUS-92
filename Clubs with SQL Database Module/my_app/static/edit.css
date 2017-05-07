@@ -41,61 +41,43 @@ body {
 }
 
 
-a:link, a:visited {
+a.one:link, a.one:visited {
     color: #E5A823;
     text-decoration: none;
     background-color: black;
     padding: 10px 30px 12px 30px;
 }
 
-a:hover, a:active {
+a.one:hover, a.one:active {
     color: #E5A823;
     background-color: #3072AD;
 }
+
+a.modify:link, a.modify:visited {
+    color: black;
+    text-decoration: none;
+    background-color: #E5A823;
+    padding: 10px 30px 12px 30px;
+}
+
+a.modify:hover, a.modify:active {
+    color: #E5A823;
+    background-color: #3072AD;
+}
+
 
 #topMenu li:last-child {
     border-right: none;
 }
 
-p.thick {
-    color: #3072AD;
-    font-family: "Times New Roman",Times,Serif;
-    font-size: 1.5em;
-    font-weight:bold;
-    margin-left:10px;
-    }
-p {
-    font-family: "Times New Roman",Times,Serif;
-    font-size: 1em;
-    font-weight: normal;
-    }
-#guideline {
-    font-family: "Times New Roman",Times,Serif;
-    font-size:1em;
-    font-weight: normal;
-    margin-left:0px;
-    color: #3072AD;
-    }
+a.modify {
+    float: left;
+    position: relative;
+    top: 30px;
+    left: 20px;
+}
 
-
-
-    input#align, select {
-            width: 25%;
-            height: 5%;
-            padding: 12px 10px;
-            margin-left: 100px;
-            display: inline-block;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            box-sizing: border-box;
-    }
-    input#align :hover {
-            background-color: #ededf9;
-    }
-    #align {
-            margin-left: 100px;
-    }
-    #submit {
+#submit {
             width: 10%;
             background-color: #4CAF50;
             color: white;
@@ -106,39 +88,19 @@ p {
             cursor: pointer;
             hover: background-color;
     }
-    button:hover, button:active {
-            background-color: #45a049;
-    }
 
-    fieldset.input {
-   		 display: block;
-   		 margin-left: 150px;
-   		 margin-right: 500px;
-    	 padding-top: 0.35em;
-   		 padding-bottom: 1em;
-    	 padding-left: 1em;
-  	     padding-right: 1em;
-  	     border: 10px groove (internal value);
- 	     border-radius: 10px;
-         background-color: #EAB010
-	}
-    fieldset.output {
-         text-align:center;
-   		 display: block;
-   		 margin-left: 100px;
-   		 margin-right: 200px;
-    	 padding-top: 0.35em;
-   		 padding-bottom: 1em;
-    	 padding-left: 1em;
-  	     padding-right: 1em;
-  	     border: 10px groove (internal value);
- 	     border-radius: 10px;
-         background-color: rgba(19, 130, 255, 0.65)
-	}
-    a.modify{
-        float:right;
-    }
+#separator {
+    height: 30px;
+    float: none;
+}
 
+span {
+    color: #3072AD;
+}
 
-
-
+p {
+    position: relative;
+    top: 40px;
+    font-size: 1.3em;
+    left: 20px;
+}
