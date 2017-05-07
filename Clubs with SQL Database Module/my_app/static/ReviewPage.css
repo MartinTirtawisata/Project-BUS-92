@@ -1,6 +1,7 @@
 body {
     margin: 0;
     font-family: "Times New Roman", Times, serif;
+    background-color: #FAFAFA;
 }
 
 #topBar {
@@ -83,10 +84,10 @@ p {
     }
 
     input {
-            width: 105%;
-            height: 5%;
+            width: 500px;
+            height: 40px;
             padding: 12px 100px 12px 40px;
-            margin-left: 100px;
+            margin-left: 10px;
             display: inline-block;
             border: 1px solid #ccc;
             border-radius: 10px;
@@ -97,11 +98,12 @@ p {
     }
    
     #submit {
-            width: 10%;
+            width: 20%;
             background-color: #4CAF50;
             color: white;
             padding: 12px 10px;
-            margin-left: 100px;
+            margin-left: 410px;
+            margin-top: 15px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
@@ -113,7 +115,7 @@ p {
  
     fieldset.input {
    		 display: block;
-   		 margin-left: 50px;
+   		 margin-left: 150px;
    		 margin-right: 500px;
     	 padding-top: 20px;
    		 padding-bottom: 20px;
