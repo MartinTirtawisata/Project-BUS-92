@@ -60,13 +60,15 @@ a:hover, a:active {
     height: 20px;
 }
 
-p.thick {
+.thick {
     color: #3072AD;
     font-family: "Times New Roman",Times,Serif;
     font-size: 1.5em;
     font-weight:bold;
-    margin-left:10px;
+    margin-left: 50px;
+    text-decoration: underline;
     }
+
 p {
     font-family: "Times New Roman",Times,Serif;
     font-size: 1em;
@@ -76,28 +78,24 @@ p {
     font-family: "Times New Roman",Times,Serif;
     font-size:1em;
     font-weight: normal;
-    margin-left:0px;
+    margin-left: 45px;
     color: #3072AD;
     }
 
-
-
-    input#align, select {
-            width: 25%;
+    input {
+            width: 105%;
             height: 5%;
-            padding: 12px 10px;
+            padding: 12px 100px 12px 40px;
             margin-left: 100px;
             display: inline-block;
             border: 1px solid #ccc;
             border-radius: 10px;
             box-sizing: border-box;
     } 
-    input#align :hover {
-            background-color: #ededf9;
+    input:hover {
+            background-color: #3072AD;
     }
-    #align {
-            margin-left: 100px;
-    }
+   
     #submit {
             width: 10%;
             background-color: #4CAF50;
@@ -115,12 +113,12 @@ p {
  
     fieldset.input {
    		 display: block;
-   		 margin-left: 150px;
+   		 margin-left: 50px;
    		 margin-right: 500px;
-    	 padding-top: 0.35em;
-   		 padding-bottom: 1em;
-    	 padding-left: 1em;
-  	     padding-right: 1em;
+    	 padding-top: 20px;
+   		 padding-bottom: 20px;
+    	 padding-left: 20px;
+  	     padding-right: 20px;
   	     border: 10px groove (internal value);
  	     border-radius: 10px;
          background-color: #EAB010
@@ -130,10 +128,8 @@ p {
    		 display: block;
    		 margin-left: 100px;
    		 margin-right: 200px;
-    	 padding-top: 0.35em;
-   		 padding-bottom: 1em;
-    	 padding-left: 1em;
-  	     padding-right: 1em;
+    	 padding-top: 10px;
+    	 padding-left: 30px;
   	     border: 10px groove (internal value);
  	     border-radius: 10px;
          background-color: rgba(19, 130, 255, 0.65)

@@ -35,18 +35,20 @@
 
         <div id="separator"> </div>
         <p class="thick"> Personal Guidelines: </p>
-            <ul>
+            <ul id="guideline">
                 <li> Why did you join? </li>
                 <li> How were the club members? </li>
-                <li>What did you get of the club?</li>
-                <li>What was your overall impression of the club?</li>
+                <li> What did you get of the club?</li>
+                <li> What was your overall impression of the club?</li>
             </ul>
-        <p class="thick"> Write Your Review</p>
+        
         <hr>
+        
+        <p class="thick"> Write Your Review</p>
+        
         <div>
             <form method="POST", action="{{ url_for('app.insert_review') }}", role="form",autocomplete="on">
                 <fieldset class="input">
-                    <legend> Your Review:</legend>
                         <table>
                             <tr>
                             <td>{{ form.first_name.label}}:</td><td>{{ form.first_name()}}</td>
@@ -64,7 +66,12 @@
                     <button id="submit" type="Submit">Submit</button>
                 </fieldset>
             </form>
-            <br><br><br><br>
+            
+            <br>
+            <hr>
+            
+            <h4 class="thick"> List of Reviews </h4>
+            
         </div>
         <ol>
              {% for index in review_list %}
