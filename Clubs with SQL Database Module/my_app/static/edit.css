@@ -54,9 +54,9 @@ a:hover, a:active {
     color: #E5A823;
     background-color: #3072AD;
 }
-}  
+}
 
-#separator { 
+#separator {
     height: 20px;
 }
 
@@ -91,7 +91,7 @@ p {
             border: 1px solid #ccc;
             border-radius: 10px;
             box-sizing: border-box;
-    } 
+    }
     input#align :hover {
             background-color: #ededf9;
     }
@@ -112,7 +112,7 @@ p {
     button:hover, button:active {
             background-color: #45a049;
     }
- 
+
     fieldset.input {
    		 display: block;
    		 margin-left: 150px;
