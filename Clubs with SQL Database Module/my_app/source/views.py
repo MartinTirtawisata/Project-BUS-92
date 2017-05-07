@@ -1,7 +1,10 @@
-from flask import request, Blueprint, render_template
-from my_app.source.models import cursor
+from flask import request, Blueprint, render_template, redirect, url_for, flash
+from my_app.source.models import cursor, conn
 
 my_app = Blueprint('app', __name__)
+
+from my_app.source.models import ReviewForm
+
 
 #-------------Function for printing all Organizations (Main Table)---------
 
@@ -298,15 +301,126 @@ def club_search ():
 
 
         
-#--------------- Review Handler ------------------#
+
+
+
+#--------------------Insert Review Handler---------------
 
 #Parameters: Key
-@my_app.route ('/show/reviews')
+@my_app.route ('/reviews', methods = ['GET','POST'])
 
-def show_review():
-    return render_template("ReviewPage.html")
+def insert_review():
+    command = """SELECT {a}.id, {a}.first_name, {a}.last_name,{a}.organization_name, {a}.user_review
+                              FROM {a} 
+                      """.format(a='reviews')
+    cursor.execute(command)
+    review_data = cursor.fetchall()
 
 
+    command = """ SELECT MAX(id)
+                    FROM reviews
+            """
+    cursor.execute(command)
+    next_id = cursor.fetchone()
+    review_id = next_id[0]+1
+
+
+    form = ReviewForm(request.form, crsf_enabled=False)# This variable is linked to models.py
+
+    if request.method == 'POST' and form.validate():
+        first_name = form.first_name.data
+        last_name = form.last_name.data # This variable is linked to the models
+        org_name = form.org_name.data
+        user_review = form.user_review.data
+
+
+        # This command only works when if request.method == POST
+        command = """  
+            INSERT INTO reviews         
+             (id,first_name, last_name,organization_name, user_review) VALUES 
+            ({i},'{f}','{l}','{o}','{r}')
+            """.format(i=review_id,f=first_name,l=last_name,o=org_name, r=user_review) #This format matches the models and if POST statement
+
+        cursor.execute(command)
+        conn.commit()
+        # flash is a pop up?
+        flash('Your Review has been created')
+        return redirect(url_for('app.insert_review'))  # This request's syntax is the router.(html file)
+        # The user will be directed to this URL. The database should already be inserted and able to be viewed once redirected
+
+
+
+    return render_template('ReviewPage.html', form=form, review_list=review_data)
+
+
+#---------------- Individual Edit Key Handler --------------#
+@my_app.route('/edit/<key>')
+def edit(key):
+    command = """SELECT {a}.id, {a}.first_name, {a}.last_name, {a}.organization_name, {a}.user_review
+                      FROM {a} 
+                      WHERE {a}.id = {p1}
+        """.format(a="reviews", p1=key)
+    cursor.execute(command)
+    edit_data = cursor.fetchall()
+
+    if len(edit_data) == 0:
+        return "The key " + key + " was not found"
+    edit = edit_data[0]
+
+    return render_template('edit.html', one_edit=edit)
+
+
+#---------------- Edit Review Handler----------------#
+@my_app.route('/review_edit/<key>', methods = ['GET','POST'])
+def review_edit(key):
+    command = """ SELECT *
+                    FROM reviews   
+                    WHERE id = {p1}
+            """.format(p1=key)
+    cursor.execute(command)
+    single_review = cursor.fetchall()[0]
+
+    form = ReviewForm(request.form, csrf_enabled=False, first_name=single_review[1], last_name=single_review[2],
+                       organization_name=single_review[3], user_review=single_review[4])
+
+    if request.method == 'POST' and form.validate():
+        first_name = form.first_name.data
+        last_name = form.last_name.data # This variable is linked to the models
+        org_name = form.org_name.data
+        user_review = form.user_review.data # This command only works when if request.method == POST
+
+        command = """  
+            UPDATE reviews SET first_name='{f}', last_name='{l}',organization_name='{o}',user_review='{u}'
+            WHERE id ={i}
+            """.format(f=first_name,l=last_name,o=org_name,u=user_review, i=key)
+        cursor.execute(command)
+        conn.commit()
+        flash('Your review has been edited')
+        return redirect(url_for('app.insert_review', key=key))
+
+    if form.errors:
+        flash(form.errors, 'danger')
+    return render_template('review-edit.html',form=form, review_id=key)
+
+
+
+#----------------- Delete Review Handler-------------#
+@my_app.route('/reviews/delete/<key>', methods = ['GET','POST'])
+def review_delete(key):
+    command = """ SELECT *
+                    FROM reviews
+                    WHERE id = {p1}
+            """.format(p1=key)
+    cursor.execute(command)
+
+    command = """ DELETE FROM reviews
+                    WHERE id = {p1}
+            """.format(p1=key)
+    cursor.execute(command)
+    conn.commit()
+
+    flash('Your Review has been deleted')
+    return redirect(url_for('app.insert_review'))
 
 
 

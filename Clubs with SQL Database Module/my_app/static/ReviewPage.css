@@ -20,7 +20,7 @@ body {
 }
 
 .fixedBar {
-    width: 1200px;
+    width: 1100px;
     margin: 0 auto;
 }
 #topMenu {
@@ -38,9 +38,9 @@ body {
     border-right: 1px solid grey;
     padding: 10px 0 12px 0;
 }
-#search {
-    float: left;
-    padding: 18px 0 0 50px;
+
+#topMenu li:last-child {
+    border-right: none;
 }
 
 a:link, a:visited {
