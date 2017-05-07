@@ -159,8 +159,13 @@ def get_message(key):
     club_data3 = cursor.fetchall()                           
     club = club_data3
 
+    index = int(key)
+
     if (len(club) == 0 or key == "0"):
         return "The key "+ key + " was not found"
+    if index > 160:
+        return "The key "+ key + " was not found"
+
         
   
     
