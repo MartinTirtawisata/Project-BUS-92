@@ -7,7 +7,7 @@
 
         
     </head>
-    <body>
+    <body style="background-color: beige;>
         
         <div id="topBar">  SAN JOSE STATE UNIVERSITY 
         
@@ -36,3 +36,21 @@
             </div>
         
         </div>
+
+
+        {% block container %}
+            <table><col width="250">
+                <td><img src="{{ one_club[9] }}" style="width:280px;height:320px" id="logo2"></td>
+                <p><b>Club ID: </b>{{ one_club[1] }}</p>
+                <h3><b>Organization Name: </b>{{ one_club[0] }}</h3>
+                <p><b>Description: </b>{{ one_club[2] }}</p>
+                <p><b>Location: </b>{{ one_club[3] }}</p>
+                <p><b>President: </b>{{ one_club[4] }}</p>
+                <p><b>Membership Cost: </b>{{ one_club[5] }}</p>
+                <p><b>Payment Required: </b>{{ one_club[6] }}</p>
+                <p><b>Rating: </b>{{ one_club[7] }}</p>
+                <p><b>Number of Members: </b>{{ one_club[8] }}</p>
+        {% endblock %}
+
+
+

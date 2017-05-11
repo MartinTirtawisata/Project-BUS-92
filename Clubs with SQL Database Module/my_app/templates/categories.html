@@ -7,7 +7,7 @@
  
       
     </head>
-    <body>
+    <body style="background-color: beige;>
         
         <div id="topBar">  SAN JOSE STATE UNIVERSITY </div> 
         
@@ -38,10 +38,21 @@
                 </div>
 
             <table style="width:100%">
-              <caption><h1>San Jose State Clubs and Organizations</h1></caption>
+                <caption><h1>San Jose State Clubs and Organizations</h1></caption>
 
-              <tr>
+            <tr>
                 <th>Category_ID</th>
                 <th>Category</th>
-              </tr>
+            </tr>
+            {% for category in club_category %}
+                <tr>
+                    <td>{{ category[0] }}</td>
+                    <td><a class="two" href="http://127.0.0.1:5000/category/{{ category[0] }}">{{ category[1] }}</td>
+               </tr>
+            {% endfor %}
+            </table>
+
+    </body>
+</html>
+
             

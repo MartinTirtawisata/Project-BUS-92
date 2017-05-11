@@ -6,7 +6,7 @@
         <link rel="stylesheet" type="text/css" href ="{{url_for('static',filename = 'sub_table.css')}}" />
         
     </head>
-    <body>
+    <body style="background-color: beige;>
         
         <div id="topBar">  SAN JOSE STATE UNIVERSITY </div>
         
@@ -45,19 +45,26 @@
         </div>
 
             <table style="width:100%">
-              <caption><h1>San Jose State Clubs and Organizations</h1></caption>
+                <caption><h1>San Jose State Clubs and Organizations</h1></caption>
 
-              <tr>
-                <th>Club ID</th>
-                <th>Organization Name</th>
-                <th>Location</th>
-                <th>Number Of Reviews</th>
-                <th>Payment Required?</th>
-                <th>Membership Cost</th>
-              </tr>
-            
-    
-        
-        
+                <tr>
+                    <th>Club ID</th>
+                    <th>Organization Name</th>
+                    <th>Location</th>
+                    <th>Number Of Reviews</th>
+                    <th>Payment Required?</th>
+                    <th>Membership Cost</th>
+                </tr>
+                {% for sub in sub_list %}
+                    <tr>
+                        <td>{{ sub[0] }}</td>
+                        <td><a class="two" href="http://127.0.0.1:5000/show/{{ sub[0] }}">{{ sub[1] }}</td>
+                        <td>{{ sub[2] }}</td>
+                        <td>{{ sub[3] }}</td>
+                        <td>{{ sub[4] }}</td>
+                        <td>{{ sub[5] }}</td>
+                  </tr>
+                {% endfor %}
+            </table>
     </body>
 </html>
