@@ -133,6 +133,13 @@ p {
     a.modify{
         float:right;
     }
+    a.edit, a:link, a:visited {
+        text-align: none;
+    }
+
+    a.edit, a:hover, a:active {
+        font-family: none;
+    }
 
 
 
