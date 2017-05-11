@@ -86,8 +86,7 @@ a.modify {
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            hover: background-color;
-    }
+}
 
 #separator {
     height: 30px;

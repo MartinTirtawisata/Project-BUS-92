@@ -70,14 +70,6 @@ p {
     font-size: 1em;
     font-weight: normal;
     }
-#guideline {
-    font-family: "Times New Roman",Times,Serif;
-    font-size:1em;
-    font-weight: normal;
-    margin-left:0px;
-    color: #3072AD;
-    }
-
 
 input {
             width: 500px;
@@ -120,17 +112,3 @@ input {
  	     border-radius: 10px;
          background-color: #EAB010
 	}
-    fieldset.output {
-         text-align:center;
-   		 display: block;
-   		 margin-left: 100px;
-   		 margin-right: 200px;
-    	 padding-top: 10px;
-    	 padding-left: 30px;
-  	     border: 10px groove (internal value);
- 	     border-radius: 10px;
-         background-color: rgba(19, 130, 255, 0.65)
-	}
-    a.modify{
-        float:right;
-    }
