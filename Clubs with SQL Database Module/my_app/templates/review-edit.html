@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" type="text/css" href ="{{url_for('static',filename = 'Review-edit.css')}}">
     </head>
-<body style="background-color: beige;>
+<body>
 
         <div id="topBar">  SAN JOSE STATE UNIVERSITY  </div>
 
@@ -41,7 +41,7 @@
                     <table>
                     {% for edit in form %}
                         <tr>
-                        <td>{{ edit.label }}: &nbsp;</td><td>{{ edit }}</td>
+                        <td>{{ edit.label }}: </td><td>{{ edit }}</td>
                         </tr>
                     {% endfor %}
                     </table>

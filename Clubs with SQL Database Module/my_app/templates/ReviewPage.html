@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" type="text/css" href ="{{url_for('static',filename = 'ReviewPage.css')}}">
     </head>
-    <body style="background-color: beige;>
+    <body>
 
         <div id="topBar">  SAN JOSE STATE UNIVERSITY  </div>
 
@@ -47,7 +47,7 @@
         <p class="thick"> Write Your Review</p>
         
         <div>
-            <form method="POST", action="{{ url_for('app.insert_review') }}", role="form",autocomplete="on">
+            <form method="POST", action="{{ url_for('app.insert_review') }}", role="form", autocomplete="on">
                 <fieldset class="input">
                         <table>
                             <tr>
@@ -63,7 +63,7 @@
                             <td>{{ form.user_review.label}}:</td><td>{{ form.user_review }}</td>
                             </tr>
                         </table>
-                    <button class="button" type="Submit">Submit</button>
+                    <button id="submit" type="Submit">Submit</button>
                 </fieldset>
             </form>
             
@@ -76,8 +76,13 @@
         <ol>
              {% for index in review_list %}
                  <fieldset class="output">
-                     <li><strong>{{ index[0] }}.{{ index[1]}} {{index[2]}}</strong>The Club <strong>{{ index[3] }}:</strong>
-                         <br>{{ index[4] }}<a><a class="edit" href="http://127.0.0.1:5000/edit/{{ index[0] }}" style="float:right;"> Edit </a></li>
+                     <li><strong>{{ index[0] }}. {{ index[1]}} {{index[2]}}</strong> Reviewed the club: <strong>{{ index[3] }}:</strong>
+                         <br>{{ index[4] }}<a>
+                             <tr>
+                             <a class="edit" href="http://127.0.0.1:5000/review_edit/{{ index[0] }}"> Edit </a>
+                             <a class="edit" href={{url_for('app.review_delete', key = index[0])}}> Delete </a>
+                             </tr>
+                     </li>
                  </fieldset><br>
              {% endfor %}
         </ol>
