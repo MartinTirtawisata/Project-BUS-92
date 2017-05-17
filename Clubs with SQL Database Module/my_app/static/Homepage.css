@@ -78,16 +78,58 @@ body {
 }
 
 
-a:link, a:visited {
+a.one:link, a:visited {
     color: #E5A823; 
     text-decoration: none;
     background-color: black;
     padding: 10px 30px 12px 30px;
 }
 
-a:hover, a:active {
+a.one:hover, a:active {
     color: #E5A823;
     background-color: #3072AD;
-}    
+}
 
+.dropbtn {
+    color: #E5A823;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
+    background-color: black;
+    padding: 10px 30px 12px 30px; border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+     background-color: black;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+
+}
+
+.dropdown-content a {
+    color: #E5A823;
+    padding: 12px 16px;
+    background-color: black;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #3072AD}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3072AD;
+}
 

@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: "Times New Roman", Times, serif;
-    background-color: #FAFAFA;
+    background-color: beige;
 }
 
 #topBar {
@@ -139,6 +139,9 @@ p {
 
     a.edit, a:hover, a:active {
         font-family: none;
+    }
+    a.edit {
+        float:right;
     }
 
 
