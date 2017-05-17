@@ -36,11 +36,6 @@ def details():
     cursor.execute(command)
     club_data2 = cursor.fetchall()
 
-    def yesORno(boolean):
-        if (boolean == "TRUE"):
-            return "Yes"
-        elif (boolean == "FALSE"):
-            return "No"
 
     return render_template("sub_table.html", sub_list = club_data2)
 
@@ -197,8 +192,15 @@ def insert_review():
     next_id = cursor.fetchone()
     review_id = next_id[0]+1
 
-
     form = ReviewForm(request.form, crsf_enabled=False)# This variable is linked to models.py
+
+    command = """ SELECT Organization_name, Organization_name
+                       FROM Organizations
+               """
+    cursor.execute(command)
+    club_name = cursor.fetchall()
+
+    form.org_name.choices = club_name
 
     if request.method == 'POST' and form.validate():
         first_name = form.first_name.data
@@ -217,11 +219,13 @@ def insert_review():
         cursor.execute(command)
         conn.commit()
         # flash is a pop up?
-        flash('Your Review has been created')
-        return redirect(url_for('app.insert_review'))  # This request's syntax is the router.(html file)
+        flash('Your Review has been added','success')
+        return redirect(url_for('app.insert_review'))
+
+    if form.errors:
+        flash(form.errors, 'danger')
+          # This request's syntax is the router.(html file)
         # The user will be directed to this URL. The database should already be inserted and able to be viewed once redirected
-
-
 
     return render_template('ReviewPage.html', form=form, review_list=review_data)
 
@@ -256,6 +260,14 @@ def review_edit(key):
     form = ReviewForm(request.form, csrf_enabled=False, first_name=single_review[1], last_name=single_review[2],
                        organization_name=single_review[3], user_review=single_review[4])
 
+    command = """ SELECT Organization_name, Organization_name
+                           FROM Organizations
+                   """
+    cursor.execute(command)
+    club_name = cursor.fetchall()
+
+    form.org_name.choices = club_name
+
     if request.method == 'POST' and form.validate():
         first_name = form.first_name.data
         last_name = form.last_name.data # This variable is linked to the models
@@ -265,14 +277,16 @@ def review_edit(key):
         command = """  
             UPDATE reviews SET first_name='{f}', last_name='{l}',organization_name='{o}',user_review='{u}'
             WHERE id ={i}
-            """.format(f=first_name,l=last_name,o=org_name,u=user_review, i=key)
+            """.format(f=first_name, l=last_name, o=org_name, u=user_review, i=key)
         cursor.execute(command)
         conn.commit()
-        flash('Your review has been edited')
-        return redirect(url_for('app.insert_review', key=key))
+
+        flash('Your Review has been edited', 'success')
+        return redirect(url_for('app.insert_review'))
 
     if form.errors:
         flash(form.errors, 'danger')
+
     return render_template('review-edit.html',form=form, review_id=key)
 
 
@@ -293,7 +307,7 @@ def review_delete(key):
     conn.commit()
 
     flash('Your Review has been deleted')
-    return redirect(url_for('app.insert_review'))
+    return redirect(url_for('app.insert_review', index = key))
 
 
 
