@@ -1,7 +1,7 @@
 body { 
     margin: 0;
     font-family: "Times New Roman", Times, serif;
-    background-color: beige;
+    background-color: #FAFAFA;
 }
 
 #topBar {
@@ -48,7 +48,7 @@ a:link, a:visited {
     color: #E5A823;
     text-decoration: none;
     background-color: black;
-    padding: 10px 30px 12px 30px;
+    padding: 10px 35px 12px 35px;
 }
 
 a:hover, a:active {
@@ -133,7 +133,8 @@ p {
     a.modify{
         float:right;
     }
-    a.edit, a:link, a:visited {
+
+ a.edit, a:link, a:visited {
         text-align: none;
     }
 
@@ -143,6 +144,15 @@ p {
     a.edit {
         float:right;
     }
+
+select {
+    width: 500px;
+    position: relative;
+    left: 10px;
+    
+}
+
+
 
 
 

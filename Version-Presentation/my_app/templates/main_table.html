@@ -1,4 +1,4 @@
-<!doctype html> 
+<!doctype html>
 <html>
     <head>
     <title>Organizations</title>
@@ -7,7 +7,7 @@
 
         
     </head> 
-    <body style="background-color: beige;">
+    <body>
         
         <div id="topBar">  SAN JOSE STATE UNIVERSITY </div>
         
@@ -44,27 +44,17 @@
         
             </div>
 
-            <table style="width:100%; background-color: beige;">
-                <caption><h1>San Jose State Clubs and Organizations</h1></caption>
-                <tr>
-                    <th>Club ID</th>
-                    <th>Organization Name</th>
-                    <th>President</th>
-                    <th>Number Of Members</th>
-                    <th>Category</th>
-                    <th>Rating</th>
-                </tr>
-                {% for club in club_list %}
-                    <tr style="background-color: beige;">
-                            <td>{{ club[0] }}</td>
-                            <td><a class="two" href="http://127.0.0.1:5000/show/{{ club[0] }}">{{ club[1] }}</td>
-                            <td>{{ club[2] }}</td>
-                            <td>{{ club[3] }}</td>
-                            <td>{{ club[4] }}</td>
-                            <td>{{ club[5] }}</td>
-                    </tr>
-                {% endfor %}
-            </table>
+            <table style="width:100%">
+              <caption><h1>San Jose State Clubs and Organizations</h1></caption>
+
+              <tr>
+                <th>Club ID</th>
+                <th>Organization Name</th>
+                <th>President</th>
+                <th>Number Of Members</th>
+                <th>Category</th>
+                <th>Rating</th>
+              </tr>
 
             
     

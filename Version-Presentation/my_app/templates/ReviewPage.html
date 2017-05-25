@@ -47,23 +47,23 @@
         <p class="thick"> Write Your Review</p>
         
         <div>
-            <form method="POST", action="{{ url_for('app.insert_review') }}", role="form", autocomplete="on">
+            <form method="POST", action="{{ url_for('app.insert_review') }}", role="form",autocomplete="on">
                 <fieldset class="input">
                         <table>
                             <tr>
-                            <td>{{ form.first_name.label}}:</td><td>{{ form.first_name()}}</td>
+                                <td>{{ form.first_name.label() }}:</td><td>{{ form.first_name() }}</td>
                             </tr>
                             <tr>
-                            <td>{{ form.last_name.label}}:</td><td>{{form.last_name() }}</td>
+                                <td>{{ form.last_name.label() }}:</td><td>{{ form.last_name() }}</td>
                             </tr>
                             <tr>
-                            <td>{{form.org_name.label()}}:</td><td>{{ form.org_name() }}</td>
+                                <td>{{ form.org_name.label() }}:</td><td>{{ form.org_name() }}</td>
                             </tr>
                             <tr>
-                            <td>{{ form.user_review.label}}:</td><td>{{ form.user_review }}</td>
+                                <td>{{ form.user_review.label() }}:</td><td>{{ form.user_review() }}</td>
                             </tr>
                         </table>
-                    <button id="submit" type="Submit">Submit</button>
+                    <button class="button" type="Submit">Submit</button>
                 </fieldset>
             </form>
             

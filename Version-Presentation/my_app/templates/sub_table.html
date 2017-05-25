@@ -1,18 +1,14 @@
-<!doctype html>  
+<!doctype html>
 <html>
     <head>
     <title>Organizations</title>
         
-        <link rel="stylesheet" type="text/css" href ="{{url_for('static',filename = 'show_one.css')}}" />
-
+        <link rel="stylesheet" type="text/css" href ="{{url_for('static',filename = 'sub_table.css')}}" />
         
     </head>
-    <body style="background-color: beige;">
+    <body>
         
-        <div id="topBar">  SAN JOSE STATE UNIVERSITY         
-            
-        
-        </div>
+        <div id="topBar">  SAN JOSE STATE UNIVERSITY </div>
         
         <div id="menuBar">
             
@@ -31,25 +27,37 @@
                     </ul>
                 
                 </div>
-       
+            
             </div>
         
         </div>
+        
+        
+        
+        <div id="info">
+            <p><font face="Georgia"><b>Here, you will find further details regarding each club</font></b></p>
+            
+            <br>
+            <br>
+            
+            <p><span> Click on the Organization name for more details </span></p>
+            
+        </div>
 
+            <table style="width:100%">
+              <caption><h1>San Jose State Clubs and Organizations</h1></caption>
 
-        {% block container %}
-            <table><col width="250">
-                <td><img src="{{ one_club[9] }}" style="width:280px;height:320px" id="logo2"></td>
-                <td><p><b>Club ID: </b>{{ one_club[1] }}</p>
-                <h3><b>Organization Name: </b>{{ one_club[0] }}</h3>
-                <p><b>Description: </b>{{ one_club[2] }}</p>
-                <p><b>Location: </b>{{ one_club[3] }}</p>
-                <p><b>President: </b>{{ one_club[4] }}</p>
-                <p><b>Membership Cost: </b>{{ one_club[5] }}</p>
-                <p><b>Payment Required: </b>{{ one_club[6] }}</p>
-                <p><b>Rating: </b>{{ one_club[7] }}</p>
-                <p><b>Number of Members: </b>{{ one_club[8] }}</p></td></table>
-        {% endblock %}
-
-
-
+              <tr>
+                <th>Club ID</th>
+                <th>Organization Name</th>
+                <th>Location</th>
+                <th>Number Of Reviews</th>
+                <th>Payment Required?</th>
+                <th>Membership Cost</th>
+              </tr>
+            
+    
+        
+        
+    </body>
+</html>

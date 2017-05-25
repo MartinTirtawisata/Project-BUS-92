@@ -1,7 +1,7 @@
-body { 
+body {  
     margin: 0;
     font-family: "Times New Roman", Times, serif;
-    background-color: beige;
+    background-color: #FAFAFA;
 }
 
 #topBar {
@@ -48,7 +48,7 @@ a:link, a:visited {
     color: #E5A823;
     text-decoration: none;
     background-color: black;
-    padding: 10px 30px 12px 30px;
+    padding: 10px 35px 12px 35px;
 }
 
 a:hover, a:active {
@@ -56,7 +56,7 @@ a:hover, a:active {
     background-color: #3072AD;
 }
 
-.thick {
+p.thick {
     color: #3072AD;
     font-family: "Times New Roman",Times,Serif;
     font-size: 1.5em;
@@ -74,11 +74,12 @@ p {
     font-family: "Times New Roman",Times,Serif;
     font-size:1em;
     font-weight: normal;
-    margin-left: 45px;
+    margin-left:0px;
     color: #3072AD;
     }
 
-    input {
+
+input {
             width: 500px;
             height: 40px;
             padding: 12px 100px 12px 40px;
@@ -133,17 +134,3 @@ p {
     a.modify{
         float:right;
     }
-    a.edit, a:link, a:visited {
-        text-align: none;
-    }
-
-    a.edit, a:hover, a:active {
-        font-family: none;
-    }
-    a.edit {
-        float:right;
-    }
-
-
-
-

@@ -1,4 +1,4 @@
- body { 
+body {  
     margin: 0;
     font-family: "Times New Roman", Times, serif;
     background-color: #FAFAFA;
@@ -40,12 +40,9 @@
     padding: 10px 0 12px 0;
 }
 
-#topMenu li:last-child {
-    border-right: none;
-}
 
 a.one:link, a.one:visited {
-    color: #E5A823; 
+    color: #E5A823;
     text-decoration: none;
     background-color: black;
     padding: 10px 30px 12px 30px;
@@ -54,28 +51,56 @@ a.one:link, a.one:visited {
 a.one:hover, a.one:active {
     color: #E5A823;
     background-color: #3072AD;
-} 
-
-table {
-    margin-top: 50px;
-    background-color: #FAFAFA;
 }
 
-table td {
-    border-right: 2px solid #EAB010;
+a.modify:link, a.modify:visited {
+    color: black;
+    text-decoration: none;
+    background-color: #E5A823;
+    padding: 10px 35px 12px 35px;
 }
 
-table td:first-child {
-    border-left: none;
+a.modify:hover, a.modify:active {
+    color: #E5A823;
+    background-color: #3072AD;
 }
 
-table td:last-child {
+
+#topMenu li:last-child {
     border-right: none;
 }
-p.right {
+
+a.modify {
+    float: left;
+    position: relative;
+    top: 30px;
+    left: 20px;
 }
 
-#logo2 {
-    margin: auto;
-    display: block;
-            }
+#submit {
+            width: 10%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 10px;
+            margin-left: 100px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            hover: background-color;
+    }
+
+#separator {
+    height: 30px;
+    float: none;
+}
+
+span {
+    color: #3072AD;
+}
+
+p {
+    position: relative;
+    top: 40px;
+    font-size: 1.3em;
+    left: 20px;
+}

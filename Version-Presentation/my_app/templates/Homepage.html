@@ -1,4 +1,4 @@
-<!doctype html>
+<!doctype html> 
 <html>
     <head>
     <title>SJSU Club Database</title> 
@@ -6,11 +6,10 @@
         <link rel="stylesheet" type="text/css" href ="{{url_for('static',filename = 'Homepage.css')}}" />
 
     </head>
+    <body>
 
-    <body background="http://wallpapercave.com/wp/SuKN3nb.jpg">
-
-
-        <div id="topBar">  SAN JOSE STATE UNIVERSITY</div> 
+        
+        <div id="topBar">  SAN JOSE STATE UNIVERSITY</div>
         
         <div id="menuBar">
             
@@ -20,13 +19,8 @@
                     
                     <ul>
                         <li><a class="one" href="http://127.0.0.1:5000/">Home</a></li>
-                        <li class="dropdown">
-                            <button class="dropbtn">Organizations</button>
-                            <div class="dropdown-content">
-                                <a href="http://127.0.0.1:5000/showall"> Main Organizations</a>
-                                <a href="http://127.0.0.1:5000/details"> Organization Details</a>
-                            </div>
-                        </li>
+                        <li><a class="one" href="http://127.0.0.1:5000/showall">Organizations</a></li>
+                        <li><a class="one" href="http://127.0.0.1:5000/details">Org Details</a></li>
                         <li><a class="one" href="http://127.0.0.1:5000/reviews">Reviews</a></li>
                         <li><a class="one" href="http://127.0.0.1:5000/category">Categories</a></li>
                         <li><a class="one" href="http://www.sjsu.edu/getinvolved/studentorgs/new/">Get Involved</a></li>

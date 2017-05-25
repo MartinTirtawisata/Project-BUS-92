@@ -1,6 +1,8 @@
 body { 
     margin: 0;
     font-family: "Times New Roman", Times, serif;
+    background-image: url("http://wallpapercave.com/wp/SuKN3nb.jpg");
+    background-repeat: no-repeat;
 }
 
 #topBar {
@@ -61,7 +63,7 @@ body {
     color: #00ad0d;
     font-family: "Courier New", Courier, monospace;
     font-size: 1.0em;
-    float:right;
+    float: right;
 } 
 
 .slideshow {
@@ -78,75 +80,16 @@ body {
 }
 
 
-a.one:link, a:visited {
+a:link, a:visited {
     color: #E5A823; 
     text-decoration: none;
     background-color: black;
-    padding: 10px 30px 12px 30px;
+    padding: 10px 35px 12px 35px;
 }
 
-a.one:hover, a:active {
+a:hover, a:active {
     color: #E5A823;
     background-color: #3072AD;
-}
+}    
 
-.dropbtn {
-    position: relative;
-    bottom: 3px;
-    color: #E5A823;
-    text-decoration: none;
-    font-weight: bold;
-    font-family: "Times New Roman", Times, serif;
-    background-color: black;
-    padding-left: 31px;
-    padding-right: 31px;
-    border: none;
-    cursor: pointer;
-    font-size: 1em;
-    margin: 0;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-    margin: 0;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: black;
-    width: 161px;
-    box-shadow: 0px 8px 15px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    margin: 0;
-
-}
-
-.dropdown-content a {
-    text-align: center;
-    color: #E5A823;
-    padding: 12px 15px;
-    background-color: black;
-    text-decoration: none;
-    display: block;
-    margin: 0;
-    
-    
-}
-
-.dropdown-content a:hover {
-    background-color: #3072AD;
-    margin: 0;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-    margin-left: -1px;
-}
-
-.dropdown:hover .dropbtn {
-    background-color: #3072AD;
-    margin: 0;
-}
 

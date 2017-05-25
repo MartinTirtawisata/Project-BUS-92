@@ -48,7 +48,7 @@ a.one:link, a.one:visited {
     color: #E5A823; 
     text-decoration: none;
     background-color: black;
-    padding: 10px 30px 12px 30px;
+    padding: 10px 35px 12px 35px;
 }
 
 a.one:hover, a.one:active {
@@ -73,6 +73,7 @@ table td:last-child {
     border-right: none;
 }
 p.right {
+    padding-left: 40px;
 }
 
 #logo2 {
