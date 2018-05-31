@@ -1,7 +1,7 @@
- body { 
+/* body {
     margin: 0;
     font-family: "Times New Roman", Times, serif;
-    background-color: #FAFAFA;
+    background-color: beige;
 }
 
 #topBar {
@@ -43,8 +43,9 @@
 #topMenu li:last-child {
     border-right: none;
 }
+
 a.one:link, a.one:visited {
-    color: #E5A823; 
+    color: #E5A823;
     text-decoration: none;
     background-color: black;
     padding: 10px 30px 12px 30px;
@@ -53,17 +54,18 @@ a.one:link, a.one:visited {
 a.one:hover, a.one:active {
     color: #E5A823;
     background-color: #3072AD;
-}    
+}
 
 a.two:link, a.two:visited {
-    color: black; 
+    color: black;
     text-decoration: underline;
     padding: 10px 30px 12px 30px;
 }
 
 a.two:hover, a.two:active {
     color: #3072AD;
-}  
+}
+
 
 #info {
     width: 100%;
@@ -73,19 +75,14 @@ a.two:hover, a.two:active {
     font-size: 110%;
     margin: 0;
     padding: 32px 0 0 0;
-}
-
-span {
-    position: relative;
-    bottom: 20px;
-}
-
+    }
 table, th, td {
     border-style: outset;
     border-collapse: collapse;
     padding-left: 5px;
     padding-right: 5px;
     background-color: #FAFAFA;
+    text-align: center;
     }
 th {
     padding: 5px;
@@ -93,4 +90,5 @@ th {
     color: blue;
     }
 
-    
+
+  */

@@ -1,85 +1,47 @@
-<!doctype html>
-<html>
-    <head>
-    <title>SJSU Club Database</title> 
-        
-        <link rel="stylesheet" type="text/css" href ="{{url_for('static',filename = 'Homepage.css')}}" />
+{% extends "base.html" %}
+<title>{% block title %} Homepage {% endblock %}</title>
+{% block head %}
+  <!-- styles -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href ="{{url_for('static',filename = 'base.css')}}" />
+{% endblock %}
 
-    </head>
+{% block content %}
+<div class="container">
+  <form action="/organization_search" method=post>
+    <div class="input-group">
+      <input type="text" class="form-control input-lg" value="{{ search.search_field }}" name ="search" placeholder="Search">
+      <div class="input-group-btn">
+        <button class="btn btn-secondary" type="submit">
+          <i class="glyphicon glyphicon-search"><a href={{url_for('app.organization_search')}}></a></i>
+          <!-- This url for is a link to the organization_search function -->
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-4">
+      <h2> Will have photo recomendation </h2>
+    </div>
+    <div class="col-lg-4">
+      <h2> Will have recommendation </h2>
+    </div>
+    <div class="col-lg-4">
+      <h2> Will have recommendation </h2>
+    </div>
+  </div>
+</div>
 
-    <body background="http://wallpapercave.com/wp/SuKN3nb.jpg">
 
-
-        <div id="topBar">  SAN JOSE STATE UNIVERSITY</div> 
-        
-        <div id="menuBar">
-            
-            <div class="fixedBar"> 
-                
-                <div id="topMenu">
-                    
-                    <ul>
-                        <li><a class="one" href="http://127.0.0.1:5000/">Home</a></li>
-                        <li class="dropdown">
-                            <button class="dropbtn">Organizations</button>
-                            <div class="dropdown-content">
-                                <a href="http://127.0.0.1:5000/showall"> Main Organizations</a>
-                                <a href="http://127.0.0.1:5000/details"> Organization Details</a>
-                            </div>
-                        </li>
-                        <li><a class="one" href="http://127.0.0.1:5000/reviews">Reviews</a></li>
-                        <li><a class="one" href="http://127.0.0.1:5000/category">Categories</a></li>
-                        <li><a class="one" href="http://www.sjsu.edu/getinvolved/studentorgs/new/">Get Involved</a></li>
-                        <li><a class="one" href="http://www.sjsu.edu/">SJSU Website</a></li>
-                    </ul>
-                
-                </div>
-
-            </div>
-        
-        </div>
-            
-        <div id="title">
-            <h2><u>Welcome to the SJSU Club & Organization Database</u></h2>
-        </div>
-
-        <div id="title2">
-            <p><b>An easy to use website to search for clubs that interest you</b></p>
-        </div>
-        
-        <div class="slideshow">
-            <img class="mySlides" src="https://cmpe.sjsu.edu/files/public/tower-hall.jpg">
-            <img class="mySlides" src="http://www.sjsu.edu/sjsuhome/pics/statues-02.jpg">
-            <img class="mySlides" src="http://static.panoramio.com/photos/original/30787744.jpg">
-            <img class="mySlides" src="http://sjsumisa.org/wp-content/uploads/2016/11/20160908_1923362.jpg">
-            <img class="mySlides" src="https://static1.squarespace.com/static/51fdd37fe4b01cbb9323216b/55d4d24de4b09edbc41388c2/57321b30e32140d252fe936c/1490141184624/IMG_0692.JPG?format=500w">
-            <img class="mySlides" src="http://www.sjsu.edu/cs/programs/mscs/program-info/proginfo_final.jpg">
-            <img class="mySlides" src="http://www.sjsu.edu/kinesiology/pics/100_0945.jpg"> 
-            
-        </div>
-
-        <script>
-        var myIndex = 0;
-        carousel();
-
-        function carousel() {
-            var i;
-            var x = document.getElementsByClassName("mySlides");
-            for (i = 0; i < x.length; i++) {
-               x[i].style.display = "none";
-            }
-            myIndex++;
-            if (myIndex > x.length) {myIndex = 1}
-            x[myIndex-1].style.display = "block";
-            setTimeout(carousel, 2000); // Change image every 3 seconds
-}
-</script>
-
-        <div id="developers">
-            <p><b><u>Developers:</u></b></p>
-            <p><b>Carlos Quirarte</b></p>
-            <p><b>Martin Tirtawisata</b></p>
-            <p><b>Sean Scudellari</b></p>
-        </div>
-    </body>
-</html>
+<div class="search">
+  <form action="/search" method=post>
+    <input type=text name=search value="{{ request.form.search}}">
+    </br>
+    <div class="actions">
+      <input type=submit value="Search">
+    </div>
+  </form>
+</div>
+{% endblock %}

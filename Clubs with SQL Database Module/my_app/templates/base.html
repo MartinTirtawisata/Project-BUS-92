@@ -1,0 +1,44 @@
+<!doctype html>
+<!-- This is the "skeleton" template that contains all common elements of your site. -->
+<!-- This base.html is will serve as the parent inheritence of the structure  -->
+<html lang="en">
+<head>
+  <!-- blocks are used and remained empty so that child templates can overide it.  -->
+  {% block head %}
+  <!-- styles -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href ="{{url_for('static',filename = 'base.css')}}" />
+  <!-- Title: the name of the website put on the tabs -->
+  <title> {% block title %}{% endblock %}</title>
+  {% endblock %}
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="http://127.0.0.1:5000/" class="navbar-brand">SJSU</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="http://127.0.0.1:5000/home">Home</a></li>
+        <li><a href="http://127.0.0.1:5000/organizations">Organizations</a></li>
+        <li><a href="http://127.0.0.1:5000/reviews">Reviews</a></li>
+        <li><a href="http://127.0.0.1:5000/category">Category</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+      <div class="content">
+        <!-- child template -->
+        {% block content %}
+        {% endblock %}
+      </div>
+      <div class="footer">
+        <hr>
+        <p>Patrick Kennedy - 2016</p>
+      </div>
+    </div><!-- /.container -->
+  <!-- scripts -->
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</body>
+</html>

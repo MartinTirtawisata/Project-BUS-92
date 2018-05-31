@@ -1,4 +1,4 @@
-body { 
+/* body {
     margin: 0;
     font-family: "Times New Roman", Times, serif;
     background-color: beige;
@@ -87,11 +87,11 @@ p {
             border: 1px solid #ccc;
             border-radius: 10px;
             box-sizing: border-box;
-    } 
+    }
     input:hover {
             background-color: #3072AD;
     }
-   
+
     #submit {
             width: 20%;
             background-color: #4CAF50;
@@ -106,7 +106,7 @@ p {
     button:hover, button:active {
             background-color: #45a049;
     }
- 
+
     fieldset.input {
    		 display: block;
    		 margin-left: 150px;
@@ -146,4 +146,4 @@ p {
 
 
 
-
+ */
