@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block head %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href ="{{url_for('static',filename = 'organization_detail.css')}}" />
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <table>
+    <td>
+      <img src="{{ org_detail[9] }}" class="img-rounded" style="width:304px;height:236px">
+    </td>
+    <td>
+      <p><b>Club ID:</b>{{ org_detail[1] }}</p>
+      <h3><b>Organization Name: </b>{{ org_detail[0] }}</h3>
+      <p><b>Description: </b>{{ org_detail[2] }}</p>
+      <p><b>Location: </b>{{ org_detail[3] }}</p>
+      <p><b>President: </b>{{ org_detail[4] }}</p>
+      <p><b>Membership Cost: </b>{{ org_detail[5] }}</p>
+      <p><b>Payment Required: </b>{{ org_detail[6] }}</p>
+      <p><b>Rating: </b>{{ org_detail[7] }}</p>
+      <p><b>Number of Members: </b>{{ org_detail[8] }}</p>
+    </td>
+  </table>
+</div>
+
+
+
+
+{% endblock %}

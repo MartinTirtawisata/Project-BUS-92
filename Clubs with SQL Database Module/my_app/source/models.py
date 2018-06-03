@@ -21,8 +21,3 @@ class ReviewForm(Form): #This is used in views.py
     user_review = TextField(
         label='User Review',
         validators=[InputRequired()])
-
-
-class SearchForm(Form):
-    search_field = StringField('')
-    

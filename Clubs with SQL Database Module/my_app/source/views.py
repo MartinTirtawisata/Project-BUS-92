@@ -4,27 +4,17 @@ from my_app.source.models import cursor, conn
 
 my_app = Blueprint('app', __name__)
 
-from my_app.source.models import ReviewForm, SearchForm
+from my_app.source.models import ReviewForm
 
 #-------------------- Home Page Handler --------------------
 
 @my_app.route('/')
 def base():
-
-    search = SearchForm(request.form)
-    if request.method == 'POST':
-        return organization_search(search)
-
-    return render_template("homepage.html", search=search)
+    return render_template("homepage.html")
 
 @my_app.route('/home')
 def homePage():
-
-    search = SearchForm(request.form)
-    if request.method == 'POST':
-        return organization_search(search)
-
-    return render_template("homepage.html", search=search)
+    return render_template("homepage.html")
 
 #-------------------- Organization Handler --------------------
 
@@ -56,7 +46,7 @@ def details():
 #-------------------- Show Key Handler --------------------
 
 #Parameters: Key, integer
-@my_app.route('/show/<key>') #Ways to control the parameter
+@my_app.route('/organizations/organization_detail/<key>') #Ways to control the parameter
 
 def get_message(key):
 
@@ -72,7 +62,7 @@ def get_message(key):
         return "Page Error. The key " + key + " cannot be found"
     individual_club = club_data3[0]
 
-    return render_template("show_one.html",one_club = individual_club)
+    return render_template("organization_detail.html",org_detail = individual_club)
 
 
 
@@ -104,7 +94,7 @@ def one_category(key):
     cursor.execute(command)
     club_data = cursor.fetchall()
 
-    return render_template("organization.html", club_list = club_data)
+    return render_template("organization.html", club_data = club_data)
 
 
 
@@ -112,90 +102,27 @@ def one_category(key):
 #------------------ Club Search ----------------
 @my_app.route('/organization_search', methods = ["GET","POST"])
 
-def organization_search(search):
+def organization_search():
 
-    search_string = search.data['search']
+    org_name = request.args.get('org_name')
+    condition = ""
 
-    if search.data['search'] == '':
-        search_data = request.args.get(search_string)
+    if org_name != None:
+        condition += "organizations.organization_name LIKE '%"+(org_name)+"%'"
 
-        # query =
-        # NEED TO FIGURE OUT HOW TO PASS THE QUERY FROM THE SEARCH BAR
-
-    #
-    # club_ID = request.args.get('club_id')
-    # club_ID_greater_equal = request.args.get('club_ge')
-    # club_ID_smaller_equal = request.args.get('club_se')
-    # orgName = request.args.get('org_name')
-    # president = request.args.get('president')
-    # category = request.args.get('category')
-    # rating = request.args.get('rating')
-    # rating_greater_equal = request.args.get('rating_ge')
-    # rating_smaller_equal = request.args.get('rating_se')
-
-    validation = ""
-
-    # if club_ID != None:
-    #     validation += "organizations.club_id = "+str(club_ID)
-    #
-    # if club_ID_greater_equal != None:
-    #     if validation != "":
-    #         validation += " AND "
-    #     validation  += "organizations.club_id >= " + str(club_ID_greater_equal)
-    #
-    # if club_ID_smaller_equal != None:
-    #     if validation != "":
-    #         validation += " AND "
-    #     validation  += "organizations.club_id <= " + str(club_ID_smaller_equal)
-
-    if orgName != None:
-        # if validation != "":
-        #     validation += " AND "
-        validation += "organizations.organization_name LIKE '%"+search_data+"%'"
-
-    # if president != None:
-    #     if validation != "":
-    #         validation += " AND "
-    #     validation += "organizations.president LIKE '%"+president+"%'"
-    #
-    # if category != None:
-    #     if validation != "":
-    #         validation += " AND "
-    #     validation += "category.category LIKE '%"+category+"%'"
-    #
-    # if rating != None:
-    #     if validation !="":
-    #         validation += " AND "
-    #     validation += "organizations.rating= "+ str(rating)
-    #
-    # if rating_greater_equal != None:
-    #     if validation != "":
-    #         validation += " AND "
-    #     validation  += "organizations.rating >= " + str(rating_greater_equal)
-    #
-    # if rating_smaller_equal != None:
-    #     if validation != "":
-    #         validation += " AND "
-    #     validation  += "organizations.rating <= " + str(rating_smaller_equal)
-
-    if validation == "":
+    if condition == "":
         command = """SELECT {a}.Club_id, {a}.Organization_name, {a}.President, {a}.number_of_members, {b}.Category, {a}.Rating
-                      FROM {a} join {b} ON {a}.category_id = {b}.category_id
-        """.format(a="organizations", b='category')
+                     FROM {a} join {b} ON {a}.category_id = {b}.category_id
+                  """.format(a="organizations", b='category')
     else:
         command = """SELECT {a}.Club_id, {a}.Organization_name, {a}.President, {a}.number_of_members, {b}.Category, {a}.Rating
                       FROM {a} join {b} ON {a}.category_id = {b}.category_id
-                      WHERE {val}
-        """.format(a="organizations", b='category', val=validation)
+                      WHERE {cond}
+        """.format(a="organizations", b='category', cond=condition)
 
     cursor.execute(command)
     club_data = cursor.fetchall()
-    return render_template("organization.html",club_list=club_data)
-
-
-
-
-
+    return render_template("organization.html", club_list = club_data)
 
 #--------------------Review Page Handler---------------
 
