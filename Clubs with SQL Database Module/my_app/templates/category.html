@@ -7,17 +7,22 @@
 
 {% block content %}
 <div class="container-fluid">
-  <table>
-    <tr>
-      <th>Category_ID</th>
-      <th>Category</th>
-    </tr>
-    {% for category in club_category %}
+  <table class="table table-hover">
+    <thead>
       <tr>
-        <td>{{ category[0] }}</td>
-        <td><a class="two" href="http://127.0.0.1:5000/category/{{ category[0] }}">{{ category[1] }}</td>
-     </tr>
-    {% endfor %}
+        <th>Category_ID</th>
+        <th>Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for category in club_category %}
+        <tr>
+          <td>{{ category[0] }}</td>
+          <td><a class="two" href="http://127.0.0.1:5000/category/{{ category[0] }}">{{ category[1] }}</td>
+       </tr>
+      {% endfor %}
+    </tbody>
+
   </table>
 </div>
 

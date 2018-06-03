@@ -1,10 +1,9 @@
 from flask import request, Blueprint, render_template, redirect, url_for, flash
-
 from my_app.source.models import cursor, conn
-
 my_app = Blueprint('app', __name__)
-
 from my_app.source.models import ReviewForm
+# from flask_bootstrap import Bootstrap
+
 
 #-------------------- Home Page Handler --------------------
 
@@ -43,7 +42,7 @@ def details():
 
     return render_template("sub_table.html", sub_list = club_data2)
 
-#-------------------- Show Key Handler --------------------
+#-------------------- Organization Detail Handler --------------------
 
 #Parameters: Key, integer
 @my_app.route('/organizations/organization_detail/<key>') #Ways to control the parameter
@@ -94,7 +93,7 @@ def one_category(key):
     cursor.execute(command)
     club_data = cursor.fetchall()
 
-    return render_template("organization.html", club_data = club_data)
+    return render_template("organization.html", club_list = club_data)
 
 
 
@@ -137,12 +136,15 @@ def insert_review():
     review_data = cursor.fetchall()
 
 
+
     command = """ SELECT MAX(id)
                     FROM reviews
             """
     cursor.execute(command)
-    next_id = cursor.fetchone()
-    review_id = next_id[0]+1
+    # next_id = cursor.fetchone()
+    # review_id = next_id[0]+1
+
+
 
     form = ReviewForm(request.form, crsf_enabled=False)# This variable is linked to models.py
 
@@ -179,7 +181,7 @@ def insert_review():
           # This request's syntax is the router.(html file)
         # The user will be directed to this URL. The database should already be inserted and able to be viewed once redirected
 
-    return render_template('ReviewPage.html', form=form, review_list=review_data)
+    return render_template('reviewpage.html', form=form, review_list=review_data)
 
 
 #---------------- Individual Edit Key Handler --------------#

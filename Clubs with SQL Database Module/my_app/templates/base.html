@@ -13,30 +13,33 @@
   {% endblock %}
 </head>
 <body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a href="http://127.0.0.1:5000/" class="navbar-brand">SJSU</a>
-      </div>
-      <ul class="nav navbar-nav">
-        <li><a href="http://127.0.0.1:5000/home">Home</a></li>
-        <li><a href="http://127.0.0.1:5000/organizations">Organizations</a></li>
-        <li><a href="http://127.0.0.1:5000/reviews">Reviews</a></li>
-        <li><a href="http://127.0.0.1:5000/category">Category</a></li>
-      </ul>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a href="http://127.0.0.1:5000/" class="navbar-brand">SJSU</a>
     </div>
-  </nav>
-  <div class="container">
-      <div class="content">
-        <!-- child template -->
-        {% block content %}
-        {% endblock %}
-      </div>
-      <div class="footer">
-        <hr>
-        <p>Patrick Kennedy - 2016</p>
-      </div>
-    </div><!-- /.container -->
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="http://127.0.0.1:5000/home">Home</a></li>
+      <li><a href="http://127.0.0.1:5000/organizations">Organizations</a></li>
+      <!-- <li><a href="http://127.0.0.1:5000/reviews">Reviews</a></li> -->
+      <li><a href="http://127.0.0.1:5000/category">Category</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container" style="margin-top:50px">
+  <div class="content">
+    <!-- child template -->
+    {% block content %}
+    {% endblock %}
+  </div>
+</div>
+  <div class="footer">
+    <hr>
+    <h3>Martin Tirtawisata</h3>
+  </div>
+  <!-- /.container -->
   <!-- scripts -->
   <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>

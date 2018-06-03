@@ -7,7 +7,7 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container-fluid">
   <table>
     <td>
       <img src="{{ org_detail[9] }}" class="img-rounded" style="width:304px;height:236px">
@@ -22,11 +22,56 @@
       <p><b>Payment Required: </b>{{ org_detail[6] }}</p>
       <p><b>Rating: </b>{{ org_detail[7] }}</p>
       <p><b>Number of Members: </b>{{ org_detail[8] }}</p>
+      <button class="btn btn-default" type="button"><a href="{{url_for('app.insert_review')}}">Insert Review</a></button>
+    </td>
+  </table>
+</div>
+<hr>
+<div class="container-fluid">
+  <table>
+    <td>
+      <h4>First Name : Last Name</h4>
+      <p><strong>Title of Review</strong></p>
+      <p>Review Description</p>
     </td>
   </table>
 </div>
 
+  <!-- </table>
+  <div class="row col-md-8">
+    <ul class="list-group list-group-flush">
 
+      <li class="list-group-item">
+        <div class="row col-md-4">
+          <h3>Title</h3>
+          <h4>Rating</h4>
+          <h5>No. of reviews</h5>
+          <h5>Category</h5>
+          <p>top reviews</p>
+        </div>
+        <div class="row col-md-4">
+          <p>brief description</p>
+          <p>Number of active members</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div> -->
 
+<!-- <div class="container-fluid">
+  <ol>
+    {% for index in review_list %}
+      <fieldset class="output">
+        <li><strong>{{ index[0] }}. {{ index[1]}} {{index[2]}}</strong> Reviewed the club: <strong>{{ index[3] }}:</strong>
+          <br>{{ index[4] }}<a>
+           <tr>
+           <a class="edit" href="http://127.0.0.1:5000/review_edit/{{ index[0] }}"> Edit </a>
+           <a class="edit" href={{url_for('app.review_delete', key = index[0])}}> Delete </a>
+           </tr>
+        </li>
+      </fieldset><br>
+    {% endfor %}
+  </ol>
+</div> -->
 
 {% endblock %}

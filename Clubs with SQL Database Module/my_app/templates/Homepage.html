@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container" style="margin-top:200px">
   <form action="{{url_for('app.organization_search')}}" method="GET">
     <div class="input-group">
       <input type="text" class="form-control input-lg" name ="org_name" placeholder="Search">
@@ -20,7 +20,7 @@
     </div>
   </form>
 </div>
-<div class="container-fluid">
+<div class="container" style="margin-top:100px">
   <div class="row">
     <div class="col-lg-4">
       <h2> Will have photo recomendation </h2>

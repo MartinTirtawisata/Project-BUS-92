@@ -6,43 +6,38 @@
 {% endblock %}
 
 {% block content %}
-<div class="container-fluid">
-  <form method="POST", action="{{ url_for('app.insert_review') }}", role="form", autocomplete="on">
-    <fieldset class="input">
-      <table>
-        <tr>
-          <td>{{ form.first_name.label}}:</td><td>{{ form.first_name()}}</td>
-          <!-- form is a variable from views.py. first_name is a variable from models.py.  -->
-        </tr>
-        <tr>
-          <td>{{ form.last_name.label}}:</td><td>{{form.last_name() }}</td>
-        </tr>
-        <tr>
-          <td>{{form.org_name.label()}}:</td><td>{{form.org_name() }}</td>
-        </tr>
-        <tr>
-          <td>{{ form.user_review.label}}:</td><td>{{ form.user_review }}</td>
-        </tr>
-      </table>
-      <button id="submit" type="Submit">Submit</button>
-    </fieldset>
+<div class="container-fluid" style="margin-top:50px">
+  <form class="form-horizontal">
+    <div class="form-group">
+      <label class="control-label col-lg-4" for="label">{{ form.first_name.label}}: </label>
+      <div class="col-lg-4">
+        <div role="input">{{ form.first_name()}}</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-lg-4" for="label">{{ form.last_name.label}}: </label>
+      <div class="col-lg-4">
+        <div role="input">{{ form.last_name()}}</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-lg-4" for="label">{{ form.org_name.label}}: </label>
+      <div class="col-lg-4">
+        <div role="input">{{ form.org_name()}}</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-lg-4" for="label">{{ form.user_review.label}}: </label>
+      <div class="col-lg-4">
+        <div role="input">{{ form.user_review}}</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-4"></div>
+      <div class="col-lg-8">
+        <button style="margin-left:auto" id="submit" type="Submit">Submit</button>
+      </div>
+    </div>
   </form>
 </div>
-<div class="container-fluid">
-  <ol>
-    {% for index in review_list %}
-      <fieldset class="output">
-        <li><strong>{{ index[0] }}. {{ index[1]}} {{index[2]}}</strong> Reviewed the club: <strong>{{ index[3] }}:</strong>
-          <br>{{ index[4] }}<a>
-           <tr>
-           <a class="edit" href="http://127.0.0.1:5000/review_edit/{{ index[0] }}"> Edit </a>
-           <a class="edit" href={{url_for('app.review_delete', key = index[0])}}> Delete </a>
-           </tr>
-        </li>
-      </fieldset><br>
-    {% endfor %}
-  </ol>
-</div>
-
-
 {% endblock %}
