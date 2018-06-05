@@ -10,23 +10,23 @@
   <table class="table table-hover">
     <thead>
       <tr>
-        <th>Club ID</th>
+        <th>ID</th>
         <th>Name</th>
         <th>President</th>
-        <th>No. of Members</th>
+        <th>Active Members</th>
         <th>Category</th>
         <th>Rating</th>
       </tr>
     </thead>
     <tbody>
-      {% for club in club_list %}
+      {% for org in org_list %}
         <tr>
-            <td>{{ club[0] }}</td>
-            <td><a href="http://127.0.0.1:5000/organizations/organization_detail/{{ club[0] }}"</a>{{ club[1] }}</td>
-            <td>{{ club[2] }}</td>
-            <td>{{ club[3] }}</td>
-            <td>{{ club[4] }}</td>
-            <td>{{ club[5] }}</td>
+            <td>{{ org[0] }}</td>
+            <td><a href="http://127.0.0.1:5000/organizations/organization_detail/{{ org[0] }}"</a>{{ org[1] }}</td>
+            <td>{{ org[2] }}</td>
+            <td>{{ org[3] }}</td>
+            <td>{{ org[4] }}</td>
+            <td>{{ org[5] }}</td>
         </tr>
       {% endfor %}
     </tbody>

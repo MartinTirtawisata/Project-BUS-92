@@ -20,27 +20,27 @@ def homePage():
 @my_app.route('/organizations')
 
 def organizations():
-    command = """SELECT {a}.club_id, {a}.organization_name, {a}.president, {a}.number_of_members, {b}.category, {a}.rating
-                      FROM {a} join {b} ON {a}.category_id = {b}.category_id
-        """.format(a="organizations", b='category')
+    command = """SELECT {a}.organization_id, {a}.organization_name, {a}.president, {a}.number_of_members, {b}.category_name, {a}.rating
+                 FROM {a} join {b} ON {a}.category_id = {b}.category_id
+        """.format(a="organization", b='category')
     cursor.execute(command)
-    club_data = cursor.fetchall()
+    org_data = cursor.fetchall()
 
-    return render_template("organization.html",club_list=club_data)
+    return render_template("organization.html",org_list=org_data)
 
 #-------------------- Further Details Handler --------------------
 
-@my_app.route('/details')
-
-def details():
-    command = """SELECT {c}.club_id, {a}.organization_name, {c}.location, {c}.number_of_reviews, {c}.payment_required, {c}.membership_cost
-                          FROM {c} join {a} ON {c}.club_id = {a}.club_id
-            """.format(a="organizations", c='details')
-    cursor.execute(command)
-    club_data2 = cursor.fetchall()
-
-
-    return render_template("sub_table.html", sub_list = club_data2)
+# @my_app.route('/details')
+#
+# def details():
+#     command = """SELECT {c}.club_id, {a}.organization_name, {c}.location, {c}.number_of_reviews, {c}.payment_required, {c}.membership_cost
+#                           FROM {c} join {a} ON {c}.club_id = {a}.club_id
+#             """.format(a="organizations", c='details')
+#     cursor.execute(command)
+#     club_data2 = cursor.fetchall()
+#
+#
+#     return render_template("sub_table.html", sub_list = club_data2)
 
 #-------------------- Organization Detail Handler --------------------
 
@@ -49,11 +49,11 @@ def details():
 
 def get_message(key):
 
-    command = """ SELECT {a}.Organization_name, {a}.club_id, {a}.description, {c}.Location, {a}.President,
-                         {c}.membership_cost, {c}.payment_required, {a}.rating, {a}.number_of_members, {c}.Image_URL
-                         FROM {a} join {c} ON {a}.club_id = {c}.club_id
-                         WHERE {a}.club_id = {p1}
-    """.format(a="Organizations", c='details', p1=key)
+    command = """ SELECT {a}.organization_name, {a}.organization_id, {a}.description, {a}.location, {a}.president,
+                         {a}.membership_cost, {a}.is_payment_required, {a}.rating, {a}.number_of_members, {a}.Image_URL
+                         FROM {a}
+                         WHERE {a}.organization_id = {p1}
+    """.format(a="organization", p1=key)
 
     cursor.execute(command)
     club_data3 = cursor.fetchall()
@@ -98,7 +98,7 @@ def one_category(key):
 
 
 
-#------------------ Club Search ----------------
+#------------------ Organization Search ----------------
 @my_app.route('/organization_search', methods = ["GET","POST"])
 
 def organization_search():
@@ -107,21 +107,21 @@ def organization_search():
     condition = ""
 
     if org_name != None:
-        condition += "organizations.organization_name LIKE '%"+(org_name)+"%'"
+        condition += "organization.organization_name LIKE '%"+(org_name)+"%'"
 
     if condition == "":
-        command = """SELECT {a}.Club_id, {a}.Organization_name, {a}.President, {a}.number_of_members, {b}.Category, {a}.Rating
+        command = """SELECT {a}.organization_id, {a}.organization_name, {a}.president, {a}.number_of_members, {b}.category_name, {a}.rating
                      FROM {a} join {b} ON {a}.category_id = {b}.category_id
-                  """.format(a="organizations", b='category')
+                  """.format(a="organization", b='category')
     else:
-        command = """SELECT {a}.Club_id, {a}.Organization_name, {a}.President, {a}.number_of_members, {b}.Category, {a}.Rating
+        command = """SELECT {a}.organization_id, {a}.organization_name, {a}.president, {a}.number_of_members, {b}.category_name, {a}.rating
                       FROM {a} join {b} ON {a}.category_id = {b}.category_id
                       WHERE {cond}
-        """.format(a="organizations", b='category', cond=condition)
+        """.format(a="organization", b='category', cond=condition)
 
     cursor.execute(command)
-    club_data = cursor.fetchall()
-    return render_template("organization.html", club_list = club_data)
+    org_data = cursor.fetchall()
+    return render_template("organization.html", org_list = org_data)
 
 #--------------------Review Page Handler---------------
 
@@ -131,7 +131,7 @@ def organization_search():
 def insert_review():
     command = """SELECT {a}.id, {a}.first_name, {a}.last_name,{a}.organization_name, {a}.user_review
                               FROM {a}
-                      """.format(a='reviews')
+                      """.format(a='review')
     cursor.execute(command)
     review_data = cursor.fetchall()
 
@@ -149,7 +149,7 @@ def insert_review():
     form = ReviewForm(request.form, crsf_enabled=False)# This variable is linked to models.py
 
     command = """ SELECT Organization_name, Organization_name
-                       FROM Organizations
+                       FROM Organization
                """
     cursor.execute(command)
     club_name = cursor.fetchall()
