@@ -7,7 +7,7 @@
 
 {% block content %}
 <div class="container-fluid" style="margin-top:50px">
-  <form class="form-horizontal">
+  <form class="form-horizontal" method="POST">
     <div class="form-group">
       <label class="control-label col-lg-4" for="label">{{ form.first_name.label}}: </label>
       <div class="col-lg-4">
@@ -39,5 +39,21 @@
       </div>
     </div>
   </form>
+</div>
+<br>
+<div class="container-fluid">
+  <ol>
+    {% for index in review_list %}
+      <fieldset class="output">
+        <li><strong>{{ index[0] }}. {{ index[1]}} {{index[2]}}</strong> Reviewed the club: <strong>{{ index[3] }}:</strong>
+          <br>{{ index[4] }}<a>
+           <tr>
+           <a class="edit" href="http://127.0.0.1:5000/review_edit/{{ index[0] }}"> Edit </a>
+           <a class="edit" href={{url_for('app.review_delete', key = index[0])}}> Delete </a>
+           </tr>
+        </li>
+      </fieldset><br>
+    {% endfor %}
+  </ol>
 </div>
 {% endblock %}

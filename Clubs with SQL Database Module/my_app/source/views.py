@@ -126,55 +126,64 @@ def organization_search():
 #--------------------Review Page Handler---------------
 
 #Parameters: Key
-@my_app.route ('/reviews', methods = ['GET','POST'])
+@my_app.route ('/reviews/<key>', methods = ['GET','POST'])
 
-def insert_review():
-    command = """SELECT {a}.id, {a}.first_name, {a}.last_name,{a}.organization_name, {a}.user_review
+def insert_review(key):
+    # This queries the review list. This should be put on the individual pages.
+    command = """SELECT {a}.review_id, {a}.first_name, {a}.last_name,{a}.organization_name, {a}.user_review
                               FROM {a}
                       """.format(a='review')
     cursor.execute(command)
     review_data = cursor.fetchall()
 
 
-
-    command = """ SELECT MAX(id)
-                    FROM reviews
+    # This queries the review_id and make it autoincrement
+    command = """ SELECT MAX(review_id)
+                    FROM review
             """
     cursor.execute(command)
-    # next_id = cursor.fetchone()
-    # review_id = next_id[0]+1
+    next_id = cursor.fetchone()
+    if next_id[0] == None:
+        review_id = 1
+    else:
+        review_id = next_id[0]+1
+# -------------------------------------------
 
+    # How do we select the associated organization_id
+    command = """ SELECT {a}.organization_id
+                  FROM {a}
+                  WHERE {a}.organization_id = {id}
+    """.format(a='organization', id = key )
+    cursor.execute(command)
+    selected_org_id = cursor.fetchone()
 
-
+#----------------------------------------------------------
     form = ReviewForm(request.form, crsf_enabled=False)# This variable is linked to models.py
 
-    command = """ SELECT Organization_name, Organization_name
-                       FROM Organization
+    command = """ SELECT organization_name, organization_name
+                       FROM organization
                """
     cursor.execute(command)
-    club_name = cursor.fetchall()
-
-    form.org_name.choices = club_name
+    org_name = cursor.fetchall()
+    form.org_name.choices = org_name
 
     if request.method == 'POST' and form.validate():
         first_name = form.first_name.data
         last_name = form.last_name.data # This variable is linked to the models
         org_name = form.org_name.data
         user_review = form.user_review.data
+        org_id = selected_org_id[0]
 
 
         # This command only works when if request.method == POST
-        command = """
-            INSERT INTO reviews
-             (id,first_name, last_name,organization_name, user_review) VALUES
-            ({i},'{f}','{l}','{o}','{r}')
-            """.format(i=review_id,f=first_name,l=last_name,o=org_name, r=user_review) #This format matches the models and if POST statement
-
+        command = """ INSERT INTO review (review_id, first_name, last_name, organization_name, user_review, organization_id)
+                      VALUES ({i},'{f}','{l}','{n}','{r}',{o})
+                  """.format(i=review_id, f=first_name, l=last_name, n=org_name, r=user_review, o=org_id) #This format matches the models and if POST statement
         cursor.execute(command)
         conn.commit()
         # flash is a pop up?
         flash('Your Review has been added','success')
-        return redirect(url_for('app.insert_review'))
+        # return redirect(url_for('app.insert_review'))
 
     if form.errors:
         flash(form.errors, 'danger')
