@@ -61,7 +61,16 @@ def get_message(key):
         return "Page Error. The key " + key + " cannot be found"
     individual_club = club_data3[0]
 
-    return render_template("organization_detail.html",org_detail = individual_club)
+
+    command_review = """SELECT {a}.review_id, {a}.first_name, {a}.last_name,{a}.organization_name, {a}.user_review
+                        FROM {a}
+                        WHERE {a}.organization_id = {id}
+                      """.format(a='review', id = key)
+    cursor.execute(command_review)
+    review_data = cursor.fetchall()
+
+
+    return render_template("organization_detail.html",org_detail = individual_club, review_list = review_data)
 
 
 
