@@ -1,19 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Edit Page</title>
-        <meta charset="utf-8" />
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" type="text/css" href ="{{url_for('static',filename = 'Review-edit.css')}}">
-    </head>
-<body>
+{% extends "base.html" %}
 
-        <div id="topBar">  SAN JOSE STATE UNIVERSITY  </div>
+{% block head %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" type="text/css" href ="{{url_for('static',filename = 'reviewpage.css')}}" /> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
 
-        {% extends "navbar.html" %}
+{% block content %}
+<div class="container-fluid" style="margin-top:50px">
+  <!-- <form class="form-horizontal" method="POST"> -->
+  <form class="form-horizontal" method="POST" action="{{ url_for('app.review_edit', org_id=org_id_list[1], review_id=review_id_list[0]) }}">
+    <div class="form-group">
+      <label class="control-label col-lg-4" for="label">{{ form.first_name.label}}: </label>
+      <div class="col-lg-4">
+        <div role="input">{{ form.first_name}}</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-lg-4" for="label">{{ form.last_name.label}}: </label>
+      <div class="col-lg-4">
+        <div role="input">{{ form.last_name}}</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-lg-4" for="label">{{ form.org_name.label}}: </label>
+      <div class="col-lg-4">
+        <div role="input">{{ form.org_name}}</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-lg-4" for="label">{{ form.user_review.label}}: </label>
+      <div class="col-lg-4">
+        <div role="input">{{ form.user_review}}</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-4"></div>
+      <div class="col-lg-8">
+        <button style="margin-left:auto" id="submit" type="Submit">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+<br>
+{% endblock %}
 
-        <p class="thick"> Edit Your Review</p>
+        <!-- <p class="thick"> Edit Your Review</p>
         <hr>
         <div>
             <form method="POST", action="{{ url_for('app.review_edit', key=review_id[0]) }}", role="form",autocomplete="on">
@@ -30,4 +62,4 @@
             </form>
             <br><br><br><br>
         </div>
-    </body>
+    </body> -->

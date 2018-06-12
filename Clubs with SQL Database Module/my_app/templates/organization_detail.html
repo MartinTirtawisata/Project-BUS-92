@@ -3,6 +3,7 @@
 {% block head %}
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href ="{{url_for('static',filename = 'organization_detail.css')}}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 {% endblock %}
 
 {% block content %}
@@ -22,35 +23,26 @@
       <p><b>Payment Required: </b>{{ org_detail[6] }}</p>
       <p><b>Rating: </b>{{ org_detail[7] }}</p>
       <p><b>Number of Members: </b>{{ org_detail[8] }}</p>
-      <button class="btn btn-default" type="button"><a href="http://127.0.0.1:5000/reviews/{{ org_detail[1] }}">Insert Review</a></button>
+      <button class="btn btn-default" type="button"><a href="http://127.0.0.1:5000/reviews-detail/{{ org_detail[1] }}">Write a review</a></button>
 
     </td>
   </table>
 </div>
 <hr>
 <div class="container-fluid">
-  <table>
-    <td>
-      <h4>First Name : Last Name</h4>
-      <p><strong>Title of Review</strong></p>
-      <p>Review Description</p>
-    </td>
-  </table>
+  {% for index in review_list %}
+  <div class="row">
+      <h4>{{ index[1] }} {{ index[2] }}
+        <span>
+          <a class="edit" href="http://127.0.0.1:5000/review_edit/{{index[5]}}/{{ index[0] }}"><i class="fa fa-edit" style="font-size:20px;color:blue"></i></a>
+          <a class="edit" href={{url_for('app.review_delete', key = index[0])}}><i class="fa fa-trash-o" style="font-size:20px;color:red"></i></a>
+        </span>
+      </h4>
+  </div>
+  <div class="row">
+      <p>{{ index[4] }}</p>
+  </div>
+  <hr>
+  {% endfor %}
 </div>
-<div class="container-fluid">
-  <ol>
-    {% for index in review_list %}
-      <fieldset class="output">
-        <li><strong>{{ index[0] }}. {{ index[1]}} {{index[2]}}</strong> Reviewed the club: <strong>{{ index[3] }}:</strong>
-          <br>{{ index[4] }}<a>
-           <tr>
-           <a class="edit" href="http://127.0.0.1:5000/review_edit/{{ index[0] }}"> Edit </a>
-           <a class="edit" href={{url_for('app.review_delete', key = index[0])}}> Delete </a>
-           </tr>
-        </li>
-      </fieldset><br>
-    {% endfor %}
-  </ol>
-</div>
-
 {% endblock %}

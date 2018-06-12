@@ -5,7 +5,7 @@ from my_app.source.models import ReviewForm
 # from flask_bootstrap import Bootstrap
 
 
-#-------------------- Home Page Handler --------------------
+#1----------------------------------- Home Page Handler ------------------------
 
 @my_app.route('/')
 def base():
@@ -15,7 +15,7 @@ def base():
 def homePage():
     return render_template("homepage.html")
 
-#-------------------- Organization Handler --------------------
+#2--------------------------------- Organization Handler --------------------
 
 @my_app.route('/organizations')
 
@@ -28,26 +28,12 @@ def organizations():
 
     return render_template("organization.html",org_list=org_data)
 
-#-------------------- Further Details Handler --------------------
-
-# @my_app.route('/details')
-#
-# def details():
-#     command = """SELECT {c}.club_id, {a}.organization_name, {c}.location, {c}.number_of_reviews, {c}.payment_required, {c}.membership_cost
-#                           FROM {c} join {a} ON {c}.club_id = {a}.club_id
-#             """.format(a="organizations", c='details')
-#     cursor.execute(command)
-#     club_data2 = cursor.fetchall()
-#
-#
-#     return render_template("sub_table.html", sub_list = club_data2)
-
-#-------------------- Organization Detail Handler --------------------
+#3-------------------------------- Organization Detail Handler --------------------
 
 #Parameters: Key, integer
 @my_app.route('/organizations/organization_detail/<key>') #Ways to control the parameter
 
-def get_message(key):
+def organization_detail(key):
 
     command = """ SELECT {a}.organization_name, {a}.organization_id, {a}.description, {a}.location, {a}.president,
                          {a}.membership_cost, {a}.is_payment_required, {a}.rating, {a}.number_of_members, {a}.Image_URL
@@ -61,24 +47,21 @@ def get_message(key):
         return "Page Error. The key " + key + " cannot be found"
     individual_club = club_data3[0]
 
-
-    command_review = """SELECT {a}.review_id, {a}.first_name, {a}.last_name,{a}.organization_name, {a}.user_review
+    command_review = """SELECT {a}.review_id, {a}.first_name, {a}.last_name,{a}.organization_name, {a}.user_review, {a}.organization_id
                         FROM {a}
                         WHERE {a}.organization_id = {id}
                       """.format(a='review', id = key)
     cursor.execute(command_review)
     review_data = cursor.fetchall()
 
-
     return render_template("organization_detail.html",org_detail = individual_club, review_list = review_data)
-
-
+    #The orange variable is the variable that is used in HTML. the white variable is = to the logic variable
 
 # --------------- Category Handler ------------------#
 
 @my_app.route('/category')
 def show_categories():
-    command = """SELECT {b}.category_id, {b}.category
+    command = """SELECT {b}.category_id, {b}.category_name
                 FROM {b}
                 """.format(b='category')
 
@@ -86,7 +69,6 @@ def show_categories():
     club_data = cursor.fetchall()
 
     return render_template("category.html", club_category = club_data)
-
 
 #------------------ Individual Category Pages Handler ----------------
 
@@ -104,15 +86,12 @@ def one_category(key):
 
     return render_template("organization.html", club_list = club_data)
 
-
-
-
 #------------------ Organization Search ----------------
 @my_app.route('/organization_search', methods = ["GET","POST"])
 
 def organization_search():
 
-    org_name = request.args.get('org_name')
+    org_name = request.args.get('search-name')
     condition = ""
 
     if org_name != None:
@@ -132,46 +111,33 @@ def organization_search():
     org_data = cursor.fetchall()
     return render_template("organization.html", org_list = org_data)
 
-#--------------------Review Page Handler---------------
+#--------------------Review Page (from home) Handler---------------
+#This review page stems from the homepage
+@my_app.route ('/reviews-home', methods = ['GET','POST'])
 
-#Parameters: Key
-@my_app.route ('/reviews/<key>', methods = ['GET','POST'])
-
-def insert_review(key):
-    # This queries the review list. This should be put on the individual pages.
+def review_home():
     command = """SELECT {a}.review_id, {a}.first_name, {a}.last_name,{a}.organization_name, {a}.user_review
-                              FROM {a}
-                      """.format(a='review')
+                 FROM {a}
+              """.format(a='review')
     cursor.execute(command)
     review_data = cursor.fetchall()
 
-
-    # This queries the review_id and make it autoincrement
+    # This queries the review_id and make it increment
     command = """ SELECT MAX(review_id)
                     FROM review
-            """
+              """
     cursor.execute(command)
     next_id = cursor.fetchone()
     if next_id[0] == None:
         review_id = 1
     else:
         review_id = next_id[0]+1
-# -------------------------------------------
 
-    # How do we select the associated organization_id
-    command = """ SELECT {a}.organization_id
-                  FROM {a}
-                  WHERE {a}.organization_id = {id}
-    """.format(a='organization', id = key )
-    cursor.execute(command)
-    selected_org_id = cursor.fetchone()
-
-#----------------------------------------------------------
     form = ReviewForm(request.form, crsf_enabled=False)# This variable is linked to models.py
 
     command = """ SELECT organization_name, organization_name
-                       FROM organization
-               """
+                  FROM organization
+              """
     cursor.execute(command)
     org_name = cursor.fetchall()
     form.org_name.choices = org_name
@@ -181,10 +147,15 @@ def insert_review(key):
         last_name = form.last_name.data # This variable is linked to the models
         org_name = form.org_name.data
         user_review = form.user_review.data
+
+        command = """ SELECT {a}.organization_id
+                      FROM {a}
+                      WHERE {a}.organization_name = '{n}'
+        """.format(a='organization', n=org_name)
+        cursor.execute(command)
+        selected_org_id = cursor.fetchone()
         org_id = selected_org_id[0]
 
-
-        # This command only works when if request.method == POST
         command = """ INSERT INTO review (review_id, first_name, last_name, organization_name, user_review, organization_id)
                       VALUES ({i},'{f}','{l}','{n}','{r}',{o})
                   """.format(i=review_id, f=first_name, l=last_name, n=org_name, r=user_review, o=org_id) #This format matches the models and if POST statement
@@ -202,13 +173,76 @@ def insert_review(key):
     return render_template('reviewpage.html', form=form, review_list=review_data)
 
 
+#--------------------Review Page (from organization_detail) Handler---------------
+
+#Parameters: Key
+@my_app.route ('/reviews-detail/<key>', methods = ['GET','POST'])
+
+def review_detail(key):
+    command = """SELECT {a}.review_id, {a}.first_name, {a}.last_name,{a}.organization_name, {a}.user_review
+                 FROM {a}
+              """.format(a='review')
+    cursor.execute(command)
+    review_data = cursor.fetchall()
+
+    # This queries the review_id and make it autoincrement
+    command = """ SELECT MAX(review_id)
+                    FROM review
+              """
+    cursor.execute(command)
+    next_id = cursor.fetchone()
+    if next_id[0] == None:
+        review_id = 1
+    else:
+        review_id = next_id[0]+1
+
+    command = """ SELECT {a}.organization_id
+                  FROM {a}
+                  WHERE {a}.organization_id = {id}
+    """.format(a='organization', id = key )
+    cursor.execute(command)
+    selected_org_id = cursor.fetchone()
+
+    form = ReviewForm(request.form, crsf_enabled=False)# This variable is linked to models.py
+
+    command = """ SELECT organization_name, organization_name
+                  FROM organization
+                  WHERE {a}.organization_id = {id}
+              """.format(a='organization', id = key)
+    cursor.execute(command)
+    org_name = cursor.fetchall()
+    form.org_name.choices = org_name
+
+    if request.method == 'POST' and form.validate():
+        first_name = form.first_name.data
+        last_name = form.last_name.data # This variable is linked to the models
+        org_name = form.org_name.data
+        user_review = form.user_review.data
+        org_id = selected_org_id[0]
+
+        command = """ INSERT INTO review (review_id, first_name, last_name, organization_name, user_review, organization_id)
+                      VALUES ({i},'{f}','{l}','{n}','{r}',{o})
+                  """.format(i=review_id, f=first_name, l=last_name, n=org_name, r=user_review, o=org_id) #This format matches the models and if POST statement
+        cursor.execute(command)
+        conn.commit()
+        # flash is a pop up?
+        flash('Your Review has been added','success')
+        return redirect(url_for('app.organization_detail', key = org_id))
+
+    if form.errors:
+        flash(form.errors, 'danger')
+          # This request's syntax is the router.(html file)
+        # The user will be directed to this URL. The database should already be inserted and able to be viewed once redirected
+
+    return render_template('reviewpage.html', form=form, review_list=review_data)
+
 #---------------- Individual Edit Key Handler --------------#
 @my_app.route('/edit/<key>')
 def edit(key):
     command = """SELECT {a}.id, {a}.first_name, {a}.last_name, {a}.organization_name, {a}.user_review
-                      FROM {a}
-                      WHERE {a}.id = {p1}
-        """.format(a="reviews", p1=key)
+                 FROM {a}
+                 WHERE {a}.id = {p1}
+              """.format(a="reviews", p1=key)
     cursor.execute(command)
     edit_data = cursor.fetchall()
 
@@ -220,25 +254,32 @@ def edit(key):
 
 
 #---------------- Edit Review Handler----------------#
-@my_app.route('/review_edit/<key>', methods = ['GET','POST'])
-def review_edit(key):
-    command = """ SELECT *
-                    FROM reviews
-                    WHERE id = {p1}
-            """.format(p1=key)
+@my_app.route('/review_edit/<org_id>/<review_id>', methods = ['GET','POST'])
+def review_edit(org_id, review_id):
+    command = """ SELECT {a}.review_id, {a}.first_name, {a}.last_name, {a}.user_review
+                  FROM {a}
+                  WHERE review_id = {r_id}
+              """.format(a='review', r_id=review_id)
     cursor.execute(command)
-    single_review = cursor.fetchall()[0]
+    review_edit_data = cursor.fetchall()[0]
 
-    form = ReviewForm(request.form, csrf_enabled=False, first_name=single_review[1], last_name=single_review[2],
-                       organization_name=single_review[3], user_review=single_review[4])
+    command_2 = """ SELECT {a}.organization_name, {a}.organization_id
+                    FROM {a}
+                    WHERE organization_id = {o_id}
+                """.format(a="review", o_id=org_id)
+    cursor.execute(command_2)
+    review_edit_org_data = cursor.fetchall()[0]
 
-    command = """ SELECT Organization_name, Organization_name
-                           FROM Organizations
-                   """
-    cursor.execute(command)
-    club_name = cursor.fetchall()
+    form = ReviewForm(request.form, csrf_enabled=False, first_name=review_edit_data[1], last_name=review_edit_data[2],
+                       organization_name=review_edit_org_data[0], user_review=review_edit_data[3])
 
-    form.org_name.choices = club_name
+    # command = """ SELECT organization_name, organization_name
+    #               FROM organization
+    #               WHERE {a}.organization_id = {id}
+    #           """.format(a='organization', id = key)
+    # cursor.execute(command)
+    # org_name = cursor.fetchall()
+    # form.org_name.choices = org_name
 
     if request.method == 'POST' and form.validate():
         first_name = form.first_name.data
@@ -247,41 +288,45 @@ def review_edit(key):
         user_review = form.user_review.data # This command only works when if request.method == POST
 
         command = """
-            UPDATE reviews SET first_name='{f}', last_name='{l}',organization_name='{o}',user_review='{u}'
-            WHERE id ={i}
+            UPDATE review SET first_name='{f}', last_name='{l}',organization_name='{o}',user_review='{u}'
+            WHERE review_id ={i}
             """.format(f=first_name, l=last_name, o=org_name, u=user_review, i=key)
         cursor.execute(command)
         conn.commit()
 
         flash('Your Review has been edited', 'success')
-        return redirect(url_for('app.insert_review'))
+        return redirect(url_for('app.organization_detail', org_id = org_id))
 
     if form.errors:
         flash(form.errors, 'danger')
 
-    return render_template('review-edit.html',form=form, review_id=key)
-
-
+    return render_template('review-edit.html',form = form, review_id_list = review_edit_data, org_id_list = review_edit_org_data )
 
 #----------------- Delete Review Handler-------------#
 @my_app.route('/reviews/delete/<key>', methods = ['GET','POST'])
 def review_delete(key):
+
+    command = """ SELECT organization_id
+                  FROM review
+                  WHERE review_id = {id}
+              """.format(id = key)
+    cursor.execute(command)
+    selected_org_id = cursor.fetchone()
+    org_id = selected_org_id[0]
+
     command = """ SELECT *
-                    FROM reviews
-                    WHERE id = {p1}
-            """.format(p1=key)
+                  FROM review
+                  WHERE review_id = {id}
+              """.format(id=key)
     cursor.execute(command)
 
-    command = """ DELETE FROM reviews
-                    WHERE id = {p1}
-            """.format(p1=key)
+    command = """ DELETE FROM review
+                    WHERE review_id = {id}
+            """.format(id=key)
     cursor.execute(command)
     conn.commit()
 
-    flash('Your Review has been deleted')
-    return redirect(url_for('app.insert_review', index = key))
 
-#-------------Search Handler----------------------#
-# @my_app.route("/search", methods = ['GET','POST'])
-#
-# def search_organization():
+
+    flash('Your Review has been deleted')
+    return redirect(url_for('app.organization_detail', key = org_id))
