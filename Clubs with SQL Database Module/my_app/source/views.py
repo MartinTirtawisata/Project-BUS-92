@@ -47,7 +47,7 @@ def organization_detail(key):
         return "Page Error. The key " + key + " cannot be found"
     individual_club = club_data3[0]
 
-    command_review = """SELECT {a}.review_id, {a}.first_name, {a}.last_name,{a}.organization_name, {a}.user_review, {a}.organization_id
+    command_review = """SELECT {a}.review_id, {a}.first_name, {a}.last_name,{a}.organization_name, {a}.user_review
                         FROM {a}
                         WHERE {a}.organization_id = {id}
                       """.format(a='review', id = key)
@@ -55,7 +55,6 @@ def organization_detail(key):
     review_data = cursor.fetchall()
 
     return render_template("organization_detail.html",org_detail = individual_club, review_list = review_data)
-    #The orange variable is the variable that is used in HTML. the white variable is = to the logic variable
 
 # --------------- Category Handler ------------------#
 
@@ -254,32 +253,25 @@ def edit(key):
 
 
 #---------------- Edit Review Handler----------------#
-@my_app.route('/review_edit/<org_id>/<review_id>', methods = ['GET','POST'])
-def review_edit(org_id, review_id):
-    command = """ SELECT {a}.review_id, {a}.first_name, {a}.last_name, {a}.user_review
-                  FROM {a}
-                  WHERE review_id = {r_id}
-              """.format(a='review', r_id=review_id)
+@my_app.route('/review_edit/<key>', methods = ['GET','POST'])
+def review_edit(key):
+    command = """ SELECT *
+                  FROM review
+                  WHERE review_id = {p1}
+              """.format(p1=key)
     cursor.execute(command)
-    review_edit_data = cursor.fetchall()[0]
+    single_review = cursor.fetchall()[0]
 
-    command_2 = """ SELECT {a}.organization_name, {a}.organization_id
-                    FROM {a}
-                    WHERE organization_id = {o_id}
-                """.format(a="review", o_id=org_id)
-    cursor.execute(command_2)
-    review_edit_org_data = cursor.fetchall()[0]
+    form = ReviewForm(request.form, csrf_enabled=False, first_name=single_review[1], last_name=single_review[2],
+                       organization_name=single_review[3], user_review=single_review[4])
 
-    form = ReviewForm(request.form, csrf_enabled=False, first_name=review_edit_data[1], last_name=review_edit_data[2],
-                       organization_name=review_edit_org_data[0], user_review=review_edit_data[3])
-
-    # command = """ SELECT organization_name, organization_name
-    #               FROM organization
-    #               WHERE {a}.organization_id = {id}
-    #           """.format(a='organization', id = key)
-    # cursor.execute(command)
-    # org_name = cursor.fetchall()
-    # form.org_name.choices = org_name
+    command = """ SELECT {a}.organization_name, {a}.organization_name
+                  FROM {a} INNER JOIN {b} ON {a}.organization_id = {b}.organization_id
+                  WHERE {b}.review_id = {id}
+              """.format(a='organization',b='review', id = key)
+    cursor.execute(command)
+    org_name = cursor.fetchall()
+    form.org_name.choices = org_name
 
     if request.method == 'POST' and form.validate():
         first_name = form.first_name.data
@@ -295,12 +287,12 @@ def review_edit(org_id, review_id):
         conn.commit()
 
         flash('Your Review has been edited', 'success')
-        return redirect(url_for('app.organization_detail', org_id = org_id))
+        return redirect(url_for('app.organization_detail', key = org_id))
 
     if form.errors:
         flash(form.errors, 'danger')
 
-    return render_template('review-edit.html',form = form, review_id_list = review_edit_data, org_id_list = review_edit_org_data )
+    return render_template('review-edit.html',form=form, review_id=key)
 
 #----------------- Delete Review Handler-------------#
 @my_app.route('/reviews/delete/<key>', methods = ['GET','POST'])
