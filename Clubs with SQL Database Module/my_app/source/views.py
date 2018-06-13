@@ -261,6 +261,7 @@ def review_edit(key):
               """.format(p1=key)
     cursor.execute(command)
     single_review = cursor.fetchall()[0]
+    org_id = single_review[5]
 
     form = ReviewForm(request.form, csrf_enabled=False, first_name=single_review[1], last_name=single_review[2],
                        organization_name=single_review[3], user_review=single_review[4])
