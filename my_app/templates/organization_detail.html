@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block head %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href ="{{url_for('static',filename = 'organization_detail.css')}}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+  <table>
+    <td>
+      <img src="{{ org_detail[9] }}" class="img-rounded" style="width:304px;height:236px">
+    </td>
+    <td>
+      <!-- <p><b>Club ID:</b>{{ org_detail[1] }}</p> -->
+      <h1>{{ org_detail[0] }}</h1>
+      <p><b>Description: </b>{{ org_detail[2] }}</p>
+      <p><b>Location: </b>{{ org_detail[3] }}</p>
+      <p><b>President: </b>{{ org_detail[4] }}</p>
+      <p><b>Membership Cost: </b>{{ org_detail[5] }}</p>
+      <p><b>Payment Required: </b>{{ org_detail[6] }}</p>
+      <p><b>Rating: </b>{{ org_detail[7] }}</p>
+      <p><b>Number of Members: </b>{{ org_detail[8] }}</p>
+      <button class="btn btn-default" type="button"><a href="http://127.0.0.1:5000/reviews-detail/{{ org_detail[1] }}">Write a review</a></button>
+
+    </td>
+  </table>
+</div>
+<hr>
+<div class="container-fluid">
+  {% for index in review_list %}
+  <div class="row">
+      <h4>{{ index[1] }} {{ index[2] }}
+        <span>
+          <a class="edit" href="http://127.0.0.1:5000/review_edit/{{ index[0] }}"><i class="fa fa-edit" style="font-size:20px;color:blue"></i></a>
+          <a class="edit" href={{url_for('app.review_delete', key = index[0])}}><i class="fa fa-trash-o" style="font-size:20px;color:red"></i></a>
+        </span>
+      </h4>
+  </div>
+  <div class="row">
+      <p>{{ index[4] }}</p>
+  </div>
+  <hr>
+  {% endfor %}
+</div>
+{% endblock %}

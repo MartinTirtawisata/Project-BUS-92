@@ -3,27 +3,29 @@
 {% block head %}
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <!-- <link rel="stylesheet" type="text/css" href ="{{url_for('static',filename = 'reviewpage.css')}}" /> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 {% endblock %}
 
 {% block content %}
 <div class="container-fluid" style="margin-top:50px">
-  <form class="form-horizontal" method="POST">
+  <!-- <form class="form-horizontal" method="POST"> -->
+  <form class="form-horizontal" method="POST" action="{{ url_for('app.review_edit', key=review_id[0]) }}">
     <div class="form-group">
       <label class="control-label col-lg-4" for="label">{{ form.first_name.label}}: </label>
       <div class="col-lg-4">
-        <div role="input">{{ form.first_name()}}</div>
+        <div role="input">{{ form.first_name}}</div>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-lg-4" for="label">{{ form.last_name.label}}: </label>
       <div class="col-lg-4">
-        <div role="input">{{ form.last_name()}}</div>
+        <div role="input">{{ form.last_name}}</div>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-lg-4" for="label">{{ form.org_name.label}}: </label>
       <div class="col-lg-4">
-        <div role="input">{{ form.org_name()}}</div>
+        <div role="input">{{ form.org_name}}</div>
       </div>
     </div>
     <div class="form-group">
@@ -41,19 +43,23 @@
   </form>
 </div>
 <br>
-<div class="container-fluid">
-  <ol>
-    {% for index in review_list %}
-      <fieldset class="output">
-        <li><strong>{{ index[0] }}. {{ index[1]}} {{index[2]}}</strong> Reviewed the club: <strong>{{ index[3] }}:</strong>
-          <br>{{ index[4] }}<a>
-           <tr>
-           <a class="edit" href="http://127.0.0.1:5000/review_edit/{{ index[0] }}"> Edit </a>
-           <a class="edit" href={{url_for('app.review_delete', key = index[0])}}> Delete </a>
-           </tr>
-        </li>
-      </fieldset><br>
-    {% endfor %}
-  </ol>
-</div>
 {% endblock %}
+
+        <!-- <p class="thick"> Edit Your Review</p>
+        <hr>
+        <div>
+            <form method="POST", action="{{ url_for('app.review_edit', key=review_id[0]) }}", role="form",autocomplete="on">
+                <fieldset class="input">
+                    <table>
+                    {% for edit in form %}
+                        <tr>
+                        <td>{{ edit.label }}: </td><td>{{ edit }}</td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+                    <button id="submit" type="Submit">Submit</button>
+                </fieldset>
+            </form>
+            <br><br><br><br>
+        </div>
+    </body> -->
