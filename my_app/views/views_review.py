@@ -4,115 +4,7 @@ my_app = Blueprint('app', __name__)
 from my_app.source.models import ReviewForm
 # from flask_bootstrap import Bootstrap
 
-
-#1----------------------------------- Home Page Handler ------------------------
-
-@my_app.route('/')
-def base():
-    return render_template("homepage.html")
-
-@my_app.route('/home')
-def homePage():
-    return render_template("homepage.html")
-
-#2--------------------------------- Organization Handler --------------------
-
-@my_app.route('/organizations')
-
-def organizations():
-    command = """SELECT {a}.organization_id, {a}.organization_name, {a}.president, {a}.number_of_members, {b}.category_name, {a}.rating
-                 FROM {a} join {b} ON {a}.category_id = {b}.category_id
-        """.format(a="organization", b='category')
-    cursor.execute(command)
-    org_data = cursor.fetchall()
-
-    return render_template("organization.html",org_list=org_data)
-
-#3-------------------------------- Organization Detail Handler --------------------
-
-#Parameters: Key, integer
-@my_app.route('/organizations/organization_detail/<key>') #Ways to control the parameter
-
-def organization_detail(key):
-
-    command = """ SELECT {a}.organization_name, {a}.organization_id, {a}.description, {a}.location, {a}.president,
-                         {a}.membership_cost, {a}.is_payment_required, {a}.rating, {a}.number_of_members, {a}.Image_URL
-                         FROM {a}
-                         WHERE {a}.organization_id = {p1}
-    """.format(a="organization", p1=key)
-
-    cursor.execute(command)
-    club_data3 = cursor.fetchall()
-    if len(club_data3) == 0:
-        return "Page Error. The key " + key + " cannot be found"
-    individual_club = club_data3[0]
-
-    command_review = """SELECT {a}.review_id, {a}.first_name, {a}.last_name,{a}.organization_name, {a}.user_review
-                        FROM {a}
-                        WHERE {a}.organization_id = {id}
-                      """.format(a='review', id = key)
-    cursor.execute(command_review)
-    review_data = cursor.fetchall()
-
-    return render_template("organization_detail.html",org_detail = individual_club, review_list = review_data)
-
-# --------------- Category Handler ------------------#
-
-@my_app.route('/category')
-def show_categories():
-    command = """SELECT {b}.category_id, {b}.category_name
-                FROM {b}
-                """.format(b='category')
-
-    cursor.execute(command)
-    club_data = cursor.fetchall()
-
-    return render_template("category.html", club_category = club_data)
-
-#------------------ Individual Category Pages Handler ----------------
-
-@my_app.route('/category/<key>')
-
-def one_category(key):
-
-    command = """SELECT {a}.club_id, {a}.organization_name, {a}.president, {a}.number_of_members, {b}.category, {a}.rating
-                      FROM {a} join {b} ON {a}.category_id = {b}.category_id
-                      WHERE {b}.category_id = {k}
-        """.format(a="organizations", b='category', k=key)
-
-    cursor.execute(command)
-    club_data = cursor.fetchall()
-
-    return render_template("organization.html", club_list = club_data)
-
-#------------------ Organization Search ----------------
-@my_app.route('/organization_search', methods = ["GET","POST"])
-
-def organization_search():
-
-    org_name = request.args.get('search-name')
-    condition = ""
-
-    if org_name != None:
-        condition += "organization.organization_name LIKE '%"+(org_name)+"%'"
-
-    if condition == "":
-        command = """SELECT {a}.organization_id, {a}.organization_name, {a}.president, {a}.number_of_members, {b}.category_name, {a}.rating
-                     FROM {a} join {b} ON {a}.category_id = {b}.category_id
-                  """.format(a="organization", b='category')
-    else:
-        command = """SELECT {a}.organization_id, {a}.organization_name, {a}.president, {a}.number_of_members, {b}.category_name, {a}.rating
-                      FROM {a} join {b} ON {a}.category_id = {b}.category_id
-                      WHERE {cond}
-        """.format(a="organization", b='category', cond=condition)
-
-    cursor.execute(command)
-    org_data = cursor.fetchall()
-    return render_template("organization.html", org_list = org_data)
-
-#--------------------Review Page (from home) Handler---------------
-#This review page stems from the homepage
-@my_app.route ('/reviews-home', methods = ['GET','POST'])
+# -------------------- Review Page (from home) Function --------------------
 
 def review_home():
     command = """SELECT {a}.review_id, {a}.first_name, {a}.last_name,{a}.organization_name, {a}.user_review
@@ -169,13 +61,9 @@ def review_home():
           # This request's syntax is the router.(html file)
         # The user will be directed to this URL. The database should already be inserted and able to be viewed once redirected
 
-    return render_template('reviewpage.html', form=form, review_list=review_data)
+    return render_template('reviewpage.html', form=form, review_list=review_data, URL = url_for('review_home'))
 
-
-#--------------------Review Page (from organization_detail) Handler---------------
-
-#Parameters: Key
-@my_app.route ('/reviews-detail/<key>', methods = ['GET','POST'])
+# -------------------- Review Page (from detail) Function --------------------
 
 def review_detail(key):
     command = """SELECT {a}.review_id, {a}.first_name, {a}.last_name,{a}.organization_name, {a}.user_review
@@ -233,27 +121,10 @@ def review_detail(key):
           # This request's syntax is the router.(html file)
         # The user will be directed to this URL. The database should already be inserted and able to be viewed once redirected
 
-    return render_template('reviewpage.html', form=form, review_list=review_data)
+    return render_template('reviewpage.html', form=form, review_list=review_data, URL = url_for('review_detail'), key = key)
 
-#---------------- Individual Edit Key Handler --------------#
-@my_app.route('/edit/<key>')
-def edit(key):
-    command = """SELECT {a}.id, {a}.first_name, {a}.last_name, {a}.organization_name, {a}.user_review
-                 FROM {a}
-                 WHERE {a}.id = {p1}
-              """.format(a="reviews", p1=key)
-    cursor.execute(command)
-    edit_data = cursor.fetchall()
+# -------------------- Review Edit Function --------------------
 
-    if len(edit_data) == 0:
-        return "The key " + key + " was not found"
-    edit = edit_data[0]
-
-    return render_template('edit.html', one_edit=edit)
-
-
-#---------------- Edit Review Handler----------------#
-@my_app.route('/review_edit/<key>', methods = ['GET','POST'])
 def review_edit(key):
     command = """ SELECT *
                   FROM review
@@ -293,10 +164,9 @@ def review_edit(key):
     if form.errors:
         flash(form.errors, 'danger')
 
-    return render_template('review-edit.html',form=form, review_id=key)
+    return render_template('review-edit.html',form=form, review_id=key, URL = url_for('review_edit'), key = key)
 
-#----------------- Delete Review Handler-------------#
-@my_app.route('/reviews/delete/<key>', methods = ['GET','POST'])
+# -------------------- Review Delete --------------------
 def review_delete(key):
 
     command = """ SELECT organization_id
@@ -322,4 +192,4 @@ def review_delete(key):
 
 
     flash('Your Review has been deleted')
-    return redirect(url_for('app.organization_detail', key = org_id))
+    return redirect(url_for('app.organization_detail', key = org_id), URL = url_for('review_delete'), key = key)
