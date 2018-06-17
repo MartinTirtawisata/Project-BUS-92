@@ -1,8 +1,8 @@
-from flask import request, Blueprint, render_template, redirect, url_for, flash, URL
-from my_app.source.models import cursor, conn
+from flask import request, Blueprint, render_template, redirect, url_for, flash
+from my_app.models import cursor, conn
+from my_app import app
 my_app = Blueprint('app', __name__)
-from my_app.source.models import ReviewForm
-# from flask_bootstrap import Bootstrap
+from my_app.models import ReviewForm
 
 import my_app.views.views_organization as vo
 import my_app.views.views_category as vc
@@ -17,7 +17,7 @@ def base():
 
 # ----- homepage handler -----
 @my_app.route('/home')
-def homePage():
+def home():
     return render_template("homepage.html")
 
 #2 -------------------- Organization Section --------------------
@@ -45,7 +45,7 @@ def category():
 # ----- Category Filtered -----
 @my_app.route('/category/<key>')
 def category_filtered(key):
-    return(vc.category_filtered())
+    return(vc.category_filtered(key))
 
 #4 -------------------- Review Section --------------------
 # ----- Write Review (from homepage) Handler -----

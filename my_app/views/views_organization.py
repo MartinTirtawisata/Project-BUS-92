@@ -1,7 +1,7 @@
 from flask import request, Blueprint, render_template, redirect, url_for, flash
-from my_app.source.models import cursor, conn
+from my_app.models import cursor, conn
 my_app = Blueprint('app', __name__)
-from my_app.source.models import ReviewForm
+from my_app.models import ReviewForm
 # from flask_bootstrap import Bootstrap
 
 #1 -------------------- Organization List Function --------------------
@@ -38,7 +38,7 @@ def organization_detail(key):
     cursor.execute(command_review)
     review_data = cursor.fetchall()
 
-    return render_template("organization_detail.html", org_detail = individual_club, review_list = review_data, URL = url_for('organization_detail', key = key))
+    return render_template("organization_detail.html", org_detail = individual_club, review_list = review_data)
 
 #3 -------------------- Organization Search Function --------------------
 
@@ -61,4 +61,4 @@ def organization_search():
 
     cursor.execute(command)
     org_data = cursor.fetchall()
-    return render_template("organization.html", org_list = org_data, URL=url_for('organization_search'))
+    return render_template("organization.html", org_list = org_data)

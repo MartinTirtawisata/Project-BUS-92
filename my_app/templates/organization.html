@@ -22,7 +22,7 @@
       {% for org in org_list %}
         <tr>
             <td>{{ org[0] }}</td>
-            <td><a href="http://127.0.0.1:5000/organizations/organization_detail/{{ org[0] }}"</a>{{ org[1] }}</td>
+            <td><a href="{{url_for('app.organization_detail', key = org[0]) }}"</a>{{ org[1] }}</td>
             <td>{{ org[2] }}</td>
             <td>{{ org[3] }}</td>
             <td>{{ org[4] }}</td>
@@ -32,29 +32,4 @@
     </tbody>
   </table>
 </div>
-
-<!-- <div class="container-fluid">
-  <table>
-    <td><h3>Title of review</h3></td><td>Rating: </td>
-
-  </table>
-  <div class="row col-md-8">
-    <ul class="list-group list-group-flush">
-
-      <li class="list-group-item">
-        <div class="row col-md-4">
-          <h3>Title</h3>
-          <h4>Rating</h4>
-          <h5>No. of reviews</h5>
-          <h5>Category</h5>
-          <p>top reviews</p>
-        </div>
-        <div class="row col-md-4">
-          <p>brief description</p>
-          <p>Number of active members</p>
-        </div>
-      </li>
-    </ul>
-  </div>
-</div> -->
 {% endblock %}

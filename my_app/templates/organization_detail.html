@@ -23,7 +23,7 @@
       <p><b>Payment Required: </b>{{ org_detail[6] }}</p>
       <p><b>Rating: </b>{{ org_detail[7] }}</p>
       <p><b>Number of Members: </b>{{ org_detail[8] }}</p>
-      <button class="btn btn-default" type="button"><a href="http://127.0.0.1:5000/reviews-detail/{{ org_detail[1] }}">Write a review</a></button>
+      <button class="btn btn-default" type="button"><a href="{{url_for('app.review_detail', key = org_detail[1]) }}">Write a review</a></button>
 
     </td>
   </table>
@@ -34,8 +34,8 @@
   <div class="row">
       <h4>{{ index[1] }} {{ index[2] }}
         <span>
-          <a class="edit" href="http://127.0.0.1:5000/review_edit/{{ index[0] }}"><i class="fa fa-edit" style="font-size:20px;color:blue"></i></a>
-          <a class="edit" href={{url_for('app.review_delete', key = index[0])}}><i class="fa fa-trash-o" style="font-size:20px;color:red"></i></a>
+          <a class="edit" href="{{url_for('app.review_edit', key = index[0]) }}"><i class="fa fa-edit" style="font-size:20px;color:blue"></i></a>
+          <a class="edit" href="{{url_for('app.review_delete', key = index[0])}}"><i class="fa fa-trash-o" style="font-size:20px;color:red"></i></a>
         </span>
       </h4>
   </div>

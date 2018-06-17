@@ -20,11 +20,10 @@
       <a href="http://127.0.0.1:5000/" class="navbar-brand">SJSU</a>
     </div>
     <ul class="nav navbar-nav navbar-left">
-      <li><a href="http://127.0.0.1:5000/home">Home</a></li>
-      <li><a href="http://127.0.0.1:5000/organizations">Organizations</a></li>
-      <!-- <li><a href="http://127.0.0.1:5000/reviews">Reviews</a></li> -->
-      <li><a href="http://127.0.0.1:5000/category">Category</a></li>
-      <li><a href="http://127.0.0.1:5000/reviews-home">Write a review</a></li>
+      <li><a href="{{url_for('app.home')}}">Home</a></li>
+      <li><a href="{{url_for('app.organizations')}}">Organizations</a></li>
+      <li><a href="{{url_for('app.category')}}">Category</a></li>
+      <li><a href="{{url_for('app.review_home')}}">Write a review</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>

@@ -18,7 +18,7 @@
       {% for category in club_category %}
         <tr>
           <td>{{ category[0] }}</td>
-          <td><a class="two" href="http://127.0.0.1:5000/category/{{ category[0] }}">{{ category[1] }}</td>
+          <td><a href="{{url_for('app.category_filtered', key = category[0])}}" class="">{{ category[1]}}</a>
        </tr>
       {% endfor %}
     </tbody>

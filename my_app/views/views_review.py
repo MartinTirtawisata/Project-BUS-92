@@ -1,7 +1,7 @@
 from flask import request, Blueprint, render_template, redirect, url_for, flash
-from my_app.source.models import cursor, conn
+from my_app.models import cursor, conn
 my_app = Blueprint('app', __name__)
-from my_app.source.models import ReviewForm
+from my_app.models import ReviewForm
 # from flask_bootstrap import Bootstrap
 
 # -------------------- Review Page (from home) Function --------------------
@@ -61,7 +61,7 @@ def review_home():
           # This request's syntax is the router.(html file)
         # The user will be directed to this URL. The database should already be inserted and able to be viewed once redirected
 
-    return render_template('reviewpage.html', form=form, review_list=review_data, URL = url_for('review_home'))
+    return render_template('reviewpage.html', form=form, review_list=review_data)
 
 # -------------------- Review Page (from detail) Function --------------------
 
@@ -121,7 +121,7 @@ def review_detail(key):
           # This request's syntax is the router.(html file)
         # The user will be directed to this URL. The database should already be inserted and able to be viewed once redirected
 
-    return render_template('reviewpage.html', form=form, review_list=review_data, URL = url_for('review_detail'), key = key)
+    return render_template('reviewpage.html', form=form, review_list=review_data)
 
 # -------------------- Review Edit Function --------------------
 
@@ -164,7 +164,7 @@ def review_edit(key):
     if form.errors:
         flash(form.errors, 'danger')
 
-    return render_template('review-edit.html',form=form, review_id=key, URL = url_for('review_edit'), key = key)
+    return render_template('review-edit.html',form=form, review_id=key)
 
 # -------------------- Review Delete --------------------
 def review_delete(key):
@@ -192,4 +192,4 @@ def review_delete(key):
 
 
     flash('Your Review has been deleted')
-    return redirect(url_for('app.organization_detail', key = org_id), URL = url_for('review_delete'), key = key)
+    return redirect(url_for('app.organization_detail', key = org_id))
