@@ -56,6 +56,8 @@ def review_home():
         flash('Your Review has been added','success')
         # return redirect(url_for('app.insert_review'))
 
+        return redirect(url_for('app.organization_detail', key = org_id))
+
     if form.errors:
         flash(form.errors, 'danger')
           # This request's syntax is the router.(html file)
@@ -66,7 +68,7 @@ def review_home():
 # -------------------- Review Page (from detail) Function --------------------
 
 def review_detail(key):
-    command = """SELECT {a}.review_id, {a}.first_name, {a}.last_name,{a}.organization_name, {a}.user_review
+    command = """SELECT {a}.review_id, {a}.first_name, {a}.last_name, {a}.organization_name, {a}.user_review
                  FROM {a}
               """.format(a='review')
     cursor.execute(command)
@@ -126,12 +128,12 @@ def review_detail(key):
 # -------------------- Review Edit Function --------------------
 
 def review_edit(key):
-    command = """ SELECT *
-                  FROM review
-                  WHERE review_id = {p1}
-              """.format(p1=key)
+    command = """SELECT {a}.review_id, {a}.first_name, {a}.last_name, {a}.organization_name, {a}.user_review, {a}.organization_id
+                 FROM {a}
+                 WHERE review_id = {p1}
+              """.format(a='review', p1=key)
     cursor.execute(command)
-    single_review = cursor.fetchall()[0]
+    single_review = cursor.fetchone()
     org_id = single_review[5]
 
     form = ReviewForm(request.form, csrf_enabled=False, first_name=single_review[1], last_name=single_review[2],
@@ -188,8 +190,6 @@ def review_delete(key):
             """.format(id=key)
     cursor.execute(command)
     conn.commit()
-
-
 
     flash('Your Review has been deleted')
     return redirect(url_for('app.organization_detail', key = org_id))
