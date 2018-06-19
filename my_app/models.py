@@ -21,3 +21,11 @@ class ReviewForm(Form): #This is used in views.py
     user_review = TextField(
         label='User Review',
         validators=[InputRequired()])
+
+class UserForm(Form):
+    email_address = TextField(
+        label='Email Address',
+        validators=[InputRequired()])
+    password = TextField(
+        label='Password',
+        validators=[InputRequired()])
