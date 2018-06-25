@@ -1,5 +1,7 @@
-from wtforms import Form, TextField, SelectField, StringField
-from wtforms.validators import InputRequired
+from wtforms.fields.html5 import EmailField
+from wtforms import Form, TextField, SelectField, StringField, PasswordField
+from wtforms.validators import InputRequired, Email, Length, EqualTo
+
 
 import sqlite3
 sqlite_file = 'SJSU_Organizations.sqlite'
@@ -22,10 +24,21 @@ class ReviewForm(Form): #This is used in views.py
         label='User Review',
         validators=[InputRequired()])
 
-class UserForm(Form):
-    email_address = TextField(
-        label='Email Address',
+class LoginForm(Form):
+    email = EmailField(
+        label='Email',
+        validators=[InputRequired(), Email(message="Must be a valid email")])
+    password = PasswordField(
+        label='Password',
         validators=[InputRequired()])
-    password = TextField(
+
+class RegisterForm(Form):
+    email = EmailField(
+        label='Email',
+        validators=[InputRequired(), Email(message="Must be a valid email")])
+    username = TextField(
+        label='Username',
+        validators=[InputRequired()])
+    password = PasswordField(
         label='Password',
         validators=[InputRequired()])

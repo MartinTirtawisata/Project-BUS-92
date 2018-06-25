@@ -8,17 +8,11 @@
 
 {% block content %}
 <div class="container-fluid" style="margin-top:50px">
-  <form class="form-horizontal" method="POST" action="{{url_for('app.sign_up')}}">
+  <form class="form-horizontal" method="POST" action="{{url_for('app.login')}}">
     <div class="form-group">
       <label class="control-label col-lg-4" for="label">{{ form.email.label}}: </label>
       <div class="col-lg-4">
         <div role="input">{{ form.email()}}</div>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-lg-4" for="label">{{ form.username.label}}: </label>
-      <div class="col-lg-4">
-        <div role="input">{{ form.username()}}</div>
       </div>
     </div>
     <div class="form-group">

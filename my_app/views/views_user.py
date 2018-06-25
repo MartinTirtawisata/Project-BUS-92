@@ -1,13 +1,12 @@
-from flask import request, Blueprint, render_template, redirect, url_for, flash
+from flask import request, Blueprint, render_template, redirect, url_for, flash, session
 from my_app.models import cursor, conn
-my_app = Blueprint('app',__name__)
-from my_app.models import UserForm
+my_app = Blueprint('app', __name__)
+from my_app.models import LoginForm, RegisterForm
 
 # --------------- Sign Up Function ---------------
-
 def sign_up():
     # 1) Select the table to fetch all data from the database
-    command = """SELECT {a}.user_id, {a}.email_address, {a}.password
+    command = """SELECT {a}.user_id, {a}.email, {a}.username, {a}.password
                  FROM {a}
               """.format(a='User')
     cursor.execute(command)
@@ -26,21 +25,22 @@ def sign_up():
         user_id = next_user_id[0]+1
 
     # 3) create the form function
-    form = UserForm(request.form, crsf_enabled=False)
+    form = RegisterForm(request.form, crsf_enabled=False)
 
     # 4) creata an IF function if method = POST and create variable for form database
-    if request.method == 'POST' and form.validate()
-        email_address = form.email_address.data
+    if request.method == 'POST' and form.validate():
+        email = form.email.data
+        username = form.username.data
         password = form.password.data
 
         # 5) Insert data into database (INSERT INTO ... VALUES ...)
-        command = """ INSERT INTO {a} (user_id, email_address, password)
-                      VALUES ({id}, '{ea}', '{p}')
-                  """.format(a='User', id=user_id, ea=email_address, p=password)
+        command = """ INSERT INTO {a} (user_id, email, username, password)
+                      VALUES ({id}, '{e}','{un}', '{p}')
+                  """.format(a='User', id=user_id, e=email, un=username, p=password)
         cursor.execute(command)
         conn.commit()
 
-        return (redirect(url_for('app.home')))
+        return redirect(url_for('app.home'))
 
     #5) Create an error form
     if form.errors:
@@ -49,61 +49,36 @@ def sign_up():
     return render_template('sign_up.html', form=form)
 
 # -------------- Login Function ----------------
+def login():
+    form = LoginForm(request.form)
 
-command = """SELECT {a}.review_id, {a}.first_name, {a}.last_name,{a}.organization_name, {a}.user_review
-             FROM {a}
-          """.format(a='review')
-cursor.execute(command)
-review_data = cursor.fetchall()
+    if request.method == 'POST' and form.validate:
+        email = form.email.data
+        password = form.password.data
 
-# This queries the review_id and make it increment
-command = """ SELECT MAX(review_id)
-                FROM review
-          """
-cursor.execute(command)
-next_id = cursor.fetchone()
-if next_id[0] == None:
-    review_id = 1
-else:
-    review_id = next_id[0]+1
+        command = """ SELECT *
+                      FROM User
+                      WHERE User.email = "{e}"
+        """.format(e=email)
+        cursor.execute(command)
+        login_verified = cursor.fetchone()
 
-form = ReviewForm(request.form, crsf_enabled=False)# This variable is linked to models.py
+        if login_verified != None:
+            if email == login_verified[1] and password == login_verified[3]:
+                session['logged_in'] = True
+                # session['email_address'] = email_address
+                # flash('Loggin in as %s!' %(email_address), 'success')
+                # return '<h1> Login Successful </h1>'
+                return redirect(url_for('app.home'))
+            else:
+                # flash('Wrong Email Address','danger')
+                return render_template('login.html', form=form)
+        else:
+            flash('Wrong Email Address','danger')
+            return render_template('login.html', form=form)
+    return render_template('login.html', form=form)
 
-command = """ SELECT organization_name, organization_name
-              FROM organization
-          """
-cursor.execute(command)
-org_name = cursor.fetchall()
-form.org_name.choices = org_name
-
-if request.method == 'POST' and form.validate():
-    first_name = form.first_name.data
-    last_name = form.last_name.data # This variable is linked to the models
-    org_name = form.org_name.data
-    user_review = form.user_review.data
-
-    command = """ SELECT {a}.organization_id
-                  FROM {a}
-                  WHERE {a}.organization_name = '{n}'
-    """.format(a='organization', n=org_name)
-    cursor.execute(command)
-    selected_org_id = cursor.fetchone()
-    org_id = selected_org_id[0]
-
-    command = """ INSERT INTO review (review_id, first_name, last_name, organization_name, user_review, organization_id)
-                  VALUES ({i},'{f}','{l}','{n}','{r}',{o})
-              """.format(i=review_id, f=first_name, l=last_name, n=org_name, r=user_review, o=org_id) #This format matches the models and if POST statement
-    cursor.execute(command)
-    conn.commit()
-    # flash is a pop up?
-    flash('Your Review has been added','success')
-    # return redirect(url_for('app.insert_review'))
-
-    return redirect(url_for('app.organization_detail', key = org_id))
-
-if form.errors:
-    flash(form.errors, 'danger')
-      # This request's syntax is the router.(html file)
-    # The user will be directed to this URL. The database should already be inserted and able to be viewed once redirected
-
-return render_template('reviewpage.html', form=form, review_list=review_data)
+# -------------- Login Function ----------------
+def logout():
+    session.clear()
+    return redirect(url_for('app.home'))

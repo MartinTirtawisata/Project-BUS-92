@@ -17,7 +17,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a href="http://127.0.0.1:5000/" class="navbar-brand">SJSU</a>
+      <a href="http://127.0.0.1:5000/" class="navbar-brand">SJSU</a>2
     </div>
     <ul class="nav navbar-nav navbar-left">
       <li><a href="{{url_for('app.home')}}">Home</a></li>
@@ -26,8 +26,12 @@
       <li><a href="{{url_for('app.review_home')}}">Write a review</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      {% if session.logged_in %}
+      <li><a href="{{url_for('app.logout')}}"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+      {% else %}
+      <li><a href="{{url_for('app.sign_up')}}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="{{url_for('app.login')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      {% endif %}
     </ul>
   </div>
 </nav>
