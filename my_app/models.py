@@ -1,10 +1,10 @@
 from wtforms.fields.html5 import EmailField
-from wtforms import Form, TextField, SelectField, StringField, PasswordField
-from wtforms.validators import InputRequired, Email, Length, EqualTo
+from wtforms import Form, TextField, SelectField, PasswordField
+from wtforms.validators import InputRequired, Email
 
 
 import sqlite3
-sqlite_file = 'SJSU_Organizations.sqlite'
+sqlite_file = "/home/martintirtawisata/sjsu-club-directory/SJSU_Organizations.sqlite"
 
 conn = sqlite3.connect(sqlite_file)
 cursor = conn.cursor()
