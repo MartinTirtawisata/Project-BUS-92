@@ -37,6 +37,16 @@
 </nav>
 <div class="container" style="margin-top:50px">
   <div class="content">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">&times;</span></button>
+            {{message}}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
     <!-- child template -->
     {% block content %}
     {% endblock %}

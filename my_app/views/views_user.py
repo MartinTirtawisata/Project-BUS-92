@@ -6,11 +6,11 @@ from my_app.models import LoginForm, RegisterForm
 # --------------- Sign Up Function ---------------
 def sign_up():
     # 1) Select the table to fetch all data from the database
-    command = """SELECT {a}.user_id, {a}.email, {a}.username, {a}.password
-                 FROM {a}
-              """.format(a='User')
-    cursor.execute(command)
-    user_data = cursor.fetchall()
+    # command = """SELECT {a}.user_id, {a}.email, {a}.username, {a}.password
+    #              FROM {a}
+    #           """.format(a='User')
+    # cursor.execute(command)
+    # user_data = cursor.fetchall()
 
     # 2) Select the MAX(user_id) to make the id increment. If it's None then return 1.
     command = """ SELECT MAX(user_id)
@@ -33,14 +33,41 @@ def sign_up():
         username = form.username.data
         password = form.password.data
 
-        # 5) Insert data into database (INSERT INTO ... VALUES ...)
-        command = """ INSERT INTO {a} (user_id, email, username, password)
-                      VALUES ({id}, '{e}','{un}', '{p}')
-                  """.format(a='User', id=user_id, e=email, un=username, p=password)
+        command = """ SELECT {a}.email, {a}.username
+                      FROM {a}
+                      WHERE {a}.email = '{e}' OR {a}.username = '{u}'
+                  """.format(e=email, u=username, a="User")
         cursor.execute(command)
-        conn.commit()
+        sign_up_verification = cursor.fetchone()
 
-        return redirect(url_for('app.home'))
+        if sign_up_verification == None:
+            command = """ INSERT INTO {a} (user_id, email, username, password)
+                          VALUES ({id}, '{e}','{un}', '{p}')
+                      """.format(a='User', id=user_id, e=email, un=username, p=password)
+            cursor.execute(command)
+            conn.commit()
+
+            session['logged_in'] = True
+            flash('The user %s has been created' % (email), 'success')
+            return redirect(url_for('app.home'))
+
+        email_data = sign_up_verification[0]
+        username_data = sign_up_verification[1]
+
+        if email_data != None and username_data != None:
+            if username == username_data and email == email_data:
+                flash('Your email and username has been taken. Please choose another')
+                return redirect(url_for('app.sign_up'))
+            if email == email_data:
+                flash('Your email has been taken. Please choose another')
+                return redirect(url_for('app.sign_up'))
+            if username == username_data:
+                flash('Your username has been taken. Please choose another')
+                return redirect(url_for('app.sign_up'))
+
+        # 5) Insert data into database (INSERT INTO ... VALUES ...)
+
+
 
     #5) Create an error form
     if form.errors:
@@ -67,7 +94,7 @@ def login():
             if email == login_verified[1] and password == login_verified[3]:
                 session['logged_in'] = True
                 # session['email_address'] = email_address
-                # flash('Loggin in as %s!' %(email_address), 'success')
+                flash('You are logged in as %s!' %(email), 'success')
                 # return '<h1> Login Successful </h1>'
                 return redirect(url_for('app.home'))
             else:
@@ -81,4 +108,5 @@ def login():
 # -------------- Login Function ----------------
 def logout():
     session.clear()
+    flash('You have been logged out','danger')
     return redirect(url_for('app.home'))
