@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block head %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" type="text/css" href ="{{url_for('static',filename = 'reviewpage.css')}}" /> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid" style="margin-top:50px">
+  <form class="form-horizontal" method="POST" action="{{url_for('app.login')}}">
+    <div class="form-group">
+      <label class="control-label col-lg-4" for="label">{{ form.email.label}}: </label>
+      <div class="col-lg-4">
+        <div role="input">{{ form.email()}}</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-lg-4" for="label">{{ form.password.label}}: </label>
+      <div class="col-lg-4">
+        <div role="input">{{ form.password()}}</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-4"></div>
+      <div class="col-lg-8">
+        <button style="margin-left:auto" id="submit" type="Submit">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+<br>
+<!-- <div class="container-fluid">
+  <ol>
+    {% for index in review_list %}
+      <fieldset class="output">
+        <li><strong>{{ index[0] }}. {{ index[1]}} {{index[2]}}</strong> Reviewed the club: <strong>{{ index[3] }}:</strong>
+          <br>{{ index[4] }}<a>
+           <tr>
+           <a class="edit" href="http://127.0.0.1:5000/review_edit/{{ index[0] }}"> Edit </a>
+           <a class="edit" href={{url_for('app.review_delete', key = index[0])}}> Delete </a>
+           </tr>
+        </li>
+      </fieldset><br>
+    {% endfor %}
+  </ol>
+</div> -->
+{% endblock %}
