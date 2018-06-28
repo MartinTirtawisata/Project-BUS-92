@@ -1,8 +1,8 @@
 from flask import request, Blueprint, render_template, redirect, url_for, flash
-from my_app.models import cursor, conn
+
 from my_app import app
 my_app = Blueprint('app', __name__)
-from my_app.models import ReviewForm
+
 
 import my_app.views.views_organization as vo
 import my_app.views.views_category as vc
