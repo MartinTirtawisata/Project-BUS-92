@@ -7,7 +7,8 @@ my_app = Blueprint('app', __name__)
 #1 -------------------- Organization List Function --------------------
 
 def organizations():
-    command = """SELECT {a}.organization_id, {a}.organization_name, {a}.president, {a}.number_of_members, {b}.category_name, {a}.rating
+    command = """SELECT {a}.organization_id, {a}.organization_name, {a}.president, {a}.number_of_members,\
+                {b}.category_name, {a}.rating, {a}.Image_URL, {a}.description
                  FROM {a} join {b} ON {a}.category_id = {b}.category_id
         """.format(a="organization", b='category')
     cursor.execute(command)

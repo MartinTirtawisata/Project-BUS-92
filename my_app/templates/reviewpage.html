@@ -1,12 +1,35 @@
 {% extends "base.html" %}
 
 {% block head %}
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
   <!-- <link rel="stylesheet" type="text/css" href ="{{url_for('static',filename = 'reviewpage.css')}}" /> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 {% endblock %}
 
 {% block content %}
+
+<!-- Review List Section -->
+<!-- Must create a seperate page for review page and review list -->
+
+<div class="container">                                                   <h4>Please choose the organization you wish to review</h4>
+  <div class="table-responsive-sm table-hover table-borderless">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>#</th>
+          <th>Organization</th>
+        </tr>
+      </thead>
+      <tbody>
+      	  <tr>
+            <td>1</td>
+            <td><a href="#">Management Info System</a></td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
 <div class="container-fluid" style="margin-top:50px">
   <form class="form-horizontal" method="POST">
     <div class="form-group">

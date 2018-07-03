@@ -1,33 +1,93 @@
 {% extends "base.html" %}
 
 {% block head %}
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
   <link rel="stylesheet" type="text/css" href ="{{url_for('static',filename = 'organization_detail.css')}}" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 {% endblock %}
 
 {% block content %}
+<!-- Detail Section -->
+<div class="container">
+  <div class="row">
+  	<div class="col-sm-12">
+      <h4>{{org_detail[0]}}</h4>
+      <p>Rating: {{ org_detail[7] }}</p>
+    </div>
+  </div>
 
-<div class="container-fluid">
-  <table>
-    <td>
-      <img src="{{ org_detail[9] }}" class="img-rounded" style="width:304px;height:236px">
-    </td>
-    <td>
-      <!-- <p><b>Club ID:</b>{{ org_detail[1] }}</p> -->
-      <h1>{{ org_detail[0] }}</h1>
-      <p><b>Description: </b>{{ org_detail[2] }}</p>
-      <p><b>Location: </b>{{ org_detail[3] }}</p>
-      <p><b>President: </b>{{ org_detail[4] }}</p>
-      <p><b>Membership Cost: </b>{{ org_detail[5] }}</p>
-      <p><b>Payment Required: </b>{{ org_detail[6] }}</p>
-      <p><b>Rating: </b>{{ org_detail[7] }}</p>
-      <p><b>Number of Members: </b>{{ org_detail[8] }}</p>
-      <button class="btn btn-default" type="button"><a href="{{url_for('app.review_detail', key = org_detail[1]) }}">Write a review</a></button>
-
-    </td>
-  </table>
+  <div class="row">
+    <div class="col-sm-6">
+      <img class="img-fluid" src="{{org_detail[9]}}" alt="Chania" width="200" height="200">
+    </div>
+    <div class="col-sm-6">
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary">Become a member</button>
+        <button type="button" class="btn btn-light">Write a review </button>
+        <button type="button" class="btn btn-light">Make a payment</button>
+      </div>
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <td>
+              <p>Location</p>
+              <p>Meeting time</p>
+              <p>Membership Cost</p>
+            </td>
+            <td>
+              <p>{{ org_detail[3] }}</p>
+              <p>7:00pm</p>
+              <p>{{ org_detail[5] }}</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <h4></h4>
+      <p>{{ org_detail[2] }}</p>
+    </div>
+  </div>
 </div>
+<hr>
+
+<!-- Additional Information Section -->
+
+<div class="container">
+	<div class="row">
+    	<div class="col">
+          <h4>Requirements</h4>
+          <ul>
+            <li>Requirement 1</li>
+            <li>Requirement 2</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Benefits</h4>
+            <ul>
+              <li>Benefit 1</li>
+              <li>Benefit 2</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Activites Section -->
+
+<hr>
+<div class="container">
+	<div class="row">
+    	<div class="col">
+          <h4>Upcoming Activities</h4>
+        </div>
+    </div>
+</div>
+
+<!-- Review Section -->
+
 <hr>
 <div class="container-fluid">
   {% for index in review_list %}
