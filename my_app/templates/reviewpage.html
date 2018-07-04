@@ -7,28 +7,26 @@
 {% endblock %}
 
 {% block content %}
-
-<!-- Review List Section -->
-<!-- Must create a seperate page for review page and review list -->
-
-<div class="container">                                                   <h4>Please choose the organization you wish to review</h4>
-  <div class="table-responsive-sm table-hover table-borderless">
-    <table class="table">
-      <thead class="thead-dark">
-        <tr>
-          <th>#</th>
-          <th>Organization</th>
-        </tr>
-      </thead>
-      <tbody>
-      	  <tr>
-            <td>1</td>
-            <td><a href="#">Management Info System</a></td>
-          </tr>
-      </tbody>
-    </table>
+<div class="container-fluid" style="margin-top:100px;">
+  <div class="row">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-8">
+      <div class="row">
+        <h3> Organization Name </h3>
+      </div>
+      <br>
+      <div class="row">
+        <label for="#reviewtext" class="sr-only">reviewtext</label>
+        <textarea class="form-control" id="reviewtext" rows="4" type="text" placeholder="Write your review here..."></textarea>
+      </div>
+    </div>
+    <div class="col-sm-2">
+    </div>
   </div>
 </div>
+
+
 
 <div class="container-fluid" style="margin-top:50px">
   <form class="form-horizontal" method="POST">
@@ -65,19 +63,5 @@
   </form>
 </div>
 <br>
-<!-- <div class="container-fluid">
-  <ol>
-    {% for index in review_list %}
-      <fieldset class="output">
-        <li><strong>{{ index[0] }}. {{ index[1]}} {{index[2]}}</strong> Reviewed the club: <strong>{{ index[3] }}:</strong>
-          <br>{{ index[4] }}<a>
-           <tr>
-           <a class="edit" href="http://127.0.0.1:5000/review_edit/{{ index[0] }}"> Edit </a>
-           <a class="edit" href={{url_for('app.review_delete', key = index[0])}}> Delete </a>
-           </tr>
-        </li>
-      </fieldset><br>
-    {% endfor %}
-  </ol>
-</div> -->
+
 {% endblock %}

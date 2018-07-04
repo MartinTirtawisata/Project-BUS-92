@@ -11,16 +11,21 @@ import my_app.views.views_user as vu
 import my_app.views.views_decorator as vd
 
 
-#1 -------------------- Homepage Section --------------------
+#1 -------------------- Base Section --------------------
 # ----- base handler -----
 @my_app.route('/')
 def base():
     return render_template("homepage.html")
 
+@my_app.route('/contact_us')
+def contact_us():
+    return render_template("contact_us.html")
+#1 -------------------- Homepage Section --------------------
 # ----- homepage handler -----
 @my_app.route('/home')
 def home():
     return render_template("homepage.html")
+
 
 #2 -------------------- Organization Section --------------------
 # ----- Organization List Handler -----
