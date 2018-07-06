@@ -33,7 +33,19 @@
       </ul>
       <ul class="navbar-nav ml-auto">
         {% if session.logged_in %}
-        <li class="nav-item active"><a class="nav-link" href="{{url_for('app.logout')}}"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+        <li class="nav-item">
+          <div class="dropdown">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+              Settings
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item text-dark" href="{{url_for('app.logout')}}">Logout</a>
+              <a class="dropdown-item text-dark" href="{{url_for('app.profile_page')}}">Profile</a>
+              <!-- Organization Profile ONLY if it's a business account -->
+              <a class="dropdown-item text-dark" href="{{url_for('app.club_cms')}}">Organization Profile</a>
+            </div>
+          </div>
+        </li>
         {% else %}
         <li class="nav-item active"><a class="nav-link" href="{{url_for('app.sign_up')}}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         <li class="nav-item active"><a class="nav-link" href="{{url_for('app.login')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>

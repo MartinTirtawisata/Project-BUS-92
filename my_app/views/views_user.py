@@ -3,6 +3,12 @@ from my_app.models import cursor, conn
 my_app = Blueprint('app', __name__)
 from my_app.models import LoginForm, RegisterForm
 
+# --------------- Profile Page -----------------
+def profile_page():
+    return render_template("profile_page.html")
+
+def club_cms():
+    return render_template("club_cms.html")
 # --------------- Sign Up Function ---------------
 def sign_up():
     # 1) Select the table to fetch all data from the database

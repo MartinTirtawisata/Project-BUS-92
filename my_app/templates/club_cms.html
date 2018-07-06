@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block head %}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href ="{{url_for('static',filename = 'organization_detail.css')}}" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+{% endblock %}
+
+{% block content%}
+<div class="container">
+  <div class="row">
+ 	  <h2>Management Information System</h2>
+  </div>
+  <div class="row">
+  	<div class="col-sm-4">
+      <div class="card">
+        <div class="card-header">
+          <h5><strong>Organization Profile</strong></h5>
+          <img class="img-fluid" src="../static/img/martin.jpg" alt="Chania" width="200" height="200">
+        </div>
+        <div class="card-body">
+          <ul class="nav nav-tabs flex-column" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link" href="#club" data-toggle="tab">Manage Organization Info</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#account" data-toggle="tab">Account Settings</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+  	</div>
+    <div class="col-sm-8">
+    	<div class="card">
+        	<div class="card-header">
+            Current Activities
+            </div>
+        	<div class="card-body">
+              <div class="tab-content">
+            	<div id="club" class="container tab-pane active"><br>
+                  <h5>Organization Info</h5>
+                  <p>Price</p>
+                  <p>Location</p>
+              	</div>
+                <div id="account" class="container tab-pane"><br>
+                  <h5>Account Info</h5>
+                  <p> Photo </p>
+              	</div>
+               </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <hr>
+  <!-- Content Management System -->
+  <div class="row">
+    <div class="card">
+      <div class="card-body">
+        <table class="table table-hover table-borderless bg-light table-responsive-sm">
+          <thead class="thead-dark">
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Major</th>
+            <th>Member Since</th>
+            <th>Payment Status</th>
+          </thead>
+          <tbody>
+            <td>Martin</td>
+            <td>Tirtawisata</td>
+            <td>Management Information System</td>
+            <td>January 8</td>
+            <td>Paid</td>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

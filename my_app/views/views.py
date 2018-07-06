@@ -9,6 +9,7 @@ import my_app.views.views_category as vc
 import my_app.views.views_review as vr
 import my_app.views.views_user as vu
 import my_app.views.views_decorator as vd
+import my_app.views.views_misc as vm
 
 
 #1 -------------------- Base Section --------------------
@@ -97,3 +98,16 @@ def login():
 @vd.login_required
 def logout():
     return(vu.logout())
+
+#7 ------------------- Checkout Form --------------------
+@my_app.route('/checkout', methods=['GET','POST'])
+def checkout():
+    return(vm.checkout())
+ #8 ----------------- Profile Page --------------------
+@my_app.route('/profile_page', methods=['GET','POST'])
+def profile_page():
+    return(vu.profile_page())
+
+@my_app.route('/organization/cms', methods=['GET','POST'])
+def club_cms():
+    return(vu.club_cms())
